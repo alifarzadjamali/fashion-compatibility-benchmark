@@ -1,0 +1,18 @@
+seed: 20260912
+dataset: historical_polyvore_d
+track: pca256
+pca_dim: 256
+append_scalar_statistics: false
+outfit_feature_standardization: train_only
+classifier: logistic_regression
+c_grid: [0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]
+class_weight: null
+representations:
+  - resnet50
+  - dinov3_vitl16
+  - clip_vitl14_336
+  - siglip2_b16_384
+  - fashionclip2
+  - marqo_fashionsiglip
+  - gr_lite
+known_item_overlap_authorized: true
