@@ -1,0 +1,62 @@
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*.json
+*token*.txt
+.huggingface/
+
+# Datasets, protocol payloads, and model/client caches
+data/
+datasets/
+cache/
+caches/
+.cache/
+
+# Generated experiment state (selected audit summaries are force-tracked)
+artifacts/
+logs/
+runs/
+outputs/
+checkpoints/
+
+# Large model and numerical artifacts
+*.npy
+*.npz
+*.parquet
+*.joblib
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# Generated reports (only curated publication outputs are force-tracked)
+reports/
+
+# Notebooks and temporary/editor files
+.ipynb_checkpoints/
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+Thumbs.db
+.DS_Store
+
+# Internal handoff notes
+RepBench_Fashion_Codex_Handoff_v1.md
