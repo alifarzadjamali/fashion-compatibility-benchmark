@@ -1,0 +1,30 @@
+seed: 20260912
+models:
+  - resnet50
+  - dinov3_vitl16
+  - clip_vitl14_336
+  - siglip2_b16_384
+  - fashionclip2
+  - marqo_fashionsiglip
+  - gr_lite
+protocols: [historical_polyvore_d, polyvore_d_clean]
+primary_track: pca256
+pca_tracks: [128, 256, 512, native]
+learners:
+  logistic_regression:
+    c_grid: [0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]
+  mlp:
+    hidden_units: 128
+    activation: relu
+    alpha: 0.0001
+    batch_size: 512
+    early_stopping: true
+  xgboost:
+    trees: 300
+    max_depth: 4
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+label_fractions: [0.10, 0.25, 0.50, 1.00]
+bootstrap_resamples: 2000
+multiple_testing: holm_within_protocol_and_metric_family
