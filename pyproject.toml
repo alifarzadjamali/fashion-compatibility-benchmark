@@ -34,7 +34,7 @@ packages = ["src/repbench"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q --basetemp=.venv/pytest_tmp"
+addopts = "-q --basetemp=.pytest_tmp"
 
 [tool.ruff]
 line-length = 100

@@ -1,0 +1,61 @@
+dataset,comparison,metric,effect,ci_low,ci_high,raw_p,test,discordant_first_only,discordant_second_only,holm_p,first,second,resampling_unit,training_source,task
+historical_polyvore_d,DINOv3 minus ResNet50,CP ROC-AUC difference,0.0710837953486058,0.0642055189294288,0.0777007397185412,0.000999500249875,paired stratified bootstrap,,,0.0059970014992503,,,,,
+historical_polyvore_d,DINOv3 minus ResNet50,FITB accuracy difference,0.0709805216242984,0.0610762627930009,0.0809524595576098,1.540026972271563e-43,exact McNemar; paired-bootstrap CI,3566.0,2491.0,6.160107889086252e-43,,,,,
+historical_polyvore_d,GR-Lite minus DINOv3,CP ROC-AUC difference,0.0598040009630683,0.0537323971063913,0.0657452614710162,0.000999500249875,paired stratified bootstrap,,,0.0059970014992503,,,,,
+historical_polyvore_d,GR-Lite minus DINOv3,FITB accuracy difference,0.0721690326840541,0.0621310663585341,0.081611092769891,9.381708483308732e-48,exact McNemar; paired-bootstrap CI,3393.0,2300.0,4.690854241654366e-47,,,,,
+historical_polyvore_d,FashionCLIP minus CLIP,CP ROC-AUC difference,-0.0145009008875466,-0.0186021707079174,-0.01044767119125,0.000999500249875,paired stratified bootstrap,,,0.0059970014992503,,,,,
+historical_polyvore_d,FashionCLIP minus CLIP,FITB accuracy difference,-0.0125453945196434,-0.021328821393199,-0.0040937603169363,0.0041741871956256,exact McNemar; paired-bootstrap CI,2082.0,2272.0,0.0101430189891961,,,,,
+historical_polyvore_d,Marqo-FashionSigLIP minus SigLIP2,CP ROC-AUC difference,0.0043136900138107,0.0009461436443421,0.0074474157644802,0.0129935032483758,paired stratified bootstrap,,,0.0129935032483758,,,,,
+historical_polyvore_d,Marqo-FashionSigLIP minus SigLIP2,FITB accuracy difference,-0.00244305051172,-0.0104985143611753,0.0052162429844833,0.5498942362661282,exact McNemar; paired-bootstrap CI,1794.0,1831.0,0.5498942362661282,,,,,
+historical_polyvore_d,historical-validation best fashion minus best generic,CP ROC-AUC difference,0.0059951251471279,0.0019923702220014,0.0098009455422715,0.0039980009995002,paired stratified bootstrap,,,0.0079960019990005,,,,,
+historical_polyvore_d,historical-validation best fashion minus best generic,FITB accuracy difference,0.0127434796962694,0.0038296467481017,0.0209986794321557,0.003381006329732,exact McNemar; paired-bootstrap CI,2243.0,2050.0,0.0101430189891961,,,,,
+historical_polyvore_d,historical-validation best overall minus ResNet50,CP ROC-AUC difference,0.1877610478481315,0.1814166037318795,0.1940020101710755,0.000999500249875,paired stratified bootstrap,,,0.0059970014992503,,,,,
+historical_polyvore_d,historical-validation best overall minus ResNet50,FITB accuracy difference,0.2186860349950479,0.2089121822383624,0.2283955100693298,0.0,exact McNemar; paired-bootstrap CI,4955.0,1643.0,0.0,,,,,
+polyvore_d_clean,DINOv3 minus ResNet50,CP ROC-AUC difference,0.0884504731948814,0.0816898151403102,0.0951887858253624,0.000999500249875,paired stratified bootstrap,,,0.0059970014992503,,,,,
+polyvore_d_clean,DINOv3 minus ResNet50,FITB accuracy difference,0.0985338792761855,0.0882314093250561,0.108770307753269,3.0496216788806574e-80,exact McNemar; paired-bootstrap CI,3865.0,2373.0,1.5248108394403288e-79,,,,,
+polyvore_d_clean,GR-Lite minus DINOv3,CP ROC-AUC difference,0.045476613929847,0.0399397192292656,0.0511268146052964,0.000999500249875,paired stratified bootstrap,,,0.0059970014992503,,,,,
+polyvore_d_clean,GR-Lite minus DINOv3,FITB accuracy difference,0.052502971866332,0.0424630167745343,0.0619469026548672,1.6099078380354683e-25,exact McNemar; paired-bootstrap CI,3298.0,2503.0,6.439631352141873e-25,,,,,
+polyvore_d_clean,FashionCLIP minus CLIP,CP ROC-AUC difference,-0.0193461197105564,-0.0231922038947077,-0.0156083208968745,0.000999500249875,paired stratified bootstrap,,,0.0059970014992503,,,,,
+polyvore_d_clean,FashionCLIP minus CLIP,FITB accuracy difference,-0.0324924052304848,-0.0405494650640602,-0.0238409721304979,7.93958846302345e-14,exact McNemar; paired-bootstrap CI,1918.0,2410.0,2.3818765389070346e-13,,,,,
+polyvore_d_clean,Marqo-FashionSigLIP minus SigLIP2,CP ROC-AUC difference,0.000509553456181,-0.0025547277609239,0.0035968318109715,0.736631684157921,paired stratified bootstrap,,,0.8575712143928036,,,,,
+polyvore_d_clean,Marqo-FashionSigLIP minus SigLIP2,FITB accuracy difference,-0.0048870690793818,-0.0130762118610487,0.0027077004358736,0.2224367060628009,exact McNemar; paired-bootstrap CI,1753.0,1827.0,0.4448734121256019,,,,,
+polyvore_d_clean,historical-validation best fashion minus best generic,CP ROC-AUC difference,0.0013732784140888,-0.0019524787586945,0.0050230692328883,0.4287856071964018,paired stratified bootstrap,,,0.8575712143928036,,,,,
+polyvore_d_clean,historical-validation best fashion minus best generic,FITB accuracy difference,-0.0020472856954167,-0.0105682868841632,0.0064076740192841,0.6397842435234805,exact McNemar; paired-bootstrap CI,2039.0,2070.0,0.6397842435234805,,,,,
+polyvore_d_clean,historical-validation best overall minus ResNet50,CP ROC-AUC difference,0.1959262773381477,0.1898777851210016,0.2017702492462453,0.000999500249875,paired stratified bootstrap,,,0.0059970014992503,,,,,
+polyvore_d_clean,historical-validation best overall minus ResNet50,FITB accuracy difference,0.2416457535332188,0.2316074494782724,0.2512217672698454,0.0,exact McNemar; paired-bootstrap CI,5248.0,1589.0,0.0,,,,,
+iqon3000_clean,DINOv3 minus ResNet50,cp_auc,0.0566463246292923,0.0507664741631932,0.0625886243094235,0.000999500249875,,,,0.0059970014992503,dinov3_vitl16,resnet50,IQON user cluster,,
+iqon3000_clean,DINOv3 minus ResNet50,fitb_accuracy,0.0493951612903226,0.0416468006333393,0.058045535535314,0.000999500249875,,,,0.0059970014992503,dinov3_vitl16,resnet50,IQON user cluster,,
+iqon3000_clean,GR-Lite minus DINOv3,cp_auc,0.0091987228472943,0.0025902669389723,0.0154555096346895,0.0049975012493753,,,,0.0099950024987506,gr_lite,dinov3_vitl16,IQON user cluster,,
+iqon3000_clean,GR-Lite minus DINOv3,fitb_accuracy,0.0171774193548386,0.0092014201562536,0.025509974639217,0.000999500249875,,,,0.0059970014992503,gr_lite,dinov3_vitl16,IQON user cluster,,
+iqon3000_clean,FashionCLIP minus CLIP,cp_auc,-0.006191368041103,-0.0108526248798845,-0.0015022717622926,0.0149925037481259,,,,0.0149925037481259,fashionclip2,clip_vitl14_336,IQON user cluster,,
+iqon3000_clean,FashionCLIP minus CLIP,fitb_accuracy,-0.0089112903225806,-0.0159024617377308,-0.001955225644442,0.0179910044977511,,,,0.0359820089955022,fashionclip2,clip_vitl14_336,IQON user cluster,,
+iqon3000_clean,Marqo-FashionSigLIP minus SigLIP2,cp_auc,0.0190356115049428,0.014446360393746,0.0234438153301425,0.000999500249875,,,,0.0059970014992503,marqo_fashionsiglip,siglip2_b16_384,IQON user cluster,,
+iqon3000_clean,Marqo-FashionSigLIP minus SigLIP2,fitb_accuracy,0.0120564516129031,0.0050161133470506,0.0190048248243327,0.000999500249875,,,,0.0059970014992503,marqo_fashionsiglip,siglip2_b16_384,IQON user cluster,,
+iqon3000_clean,validation-selected best specialized minus best generic,cp_auc,0.0178996927029136,0.0132198386865447,0.022616653803827,0.000999500249875,,,,0.0059970014992503,marqo_fashionsiglip,clip_vitl14_336,IQON user cluster,,
+iqon3000_clean,validation-selected best specialized minus best generic,fitb_accuracy,0.0086693548387096,0.0014589838143704,0.015890181433364,0.0179910044977511,,,,0.0359820089955022,marqo_fashionsiglip,clip_vitl14_336,IQON user cluster,,
+iqon3000_clean,validation-selected best overall minus ResNet50,cp_auc,0.1369089839685223,0.1307807066986135,0.1432306192129945,0.000999500249875,,,,0.0059970014992503,marqo_fashionsiglip,resnet50,IQON user cluster,,
+iqon3000_clean,validation-selected best overall minus ResNet50,fitb_accuracy,0.1284677419354838,0.1204737176305826,0.1365837186281098,0.000999500249875,,,,0.0059970014992503,marqo_fashionsiglip,resnet50,IQON user cluster,,
+,DINOv3 minus ResNet50,,0.02,-0.09,0.1399999999999999,0.7566216891554223,,,,1.0,dinov3_vitl16,resnet50,,polyvore_d_clean,LAT
+,GR-Lite minus DINOv3,,0.15,0.02,0.2702499999999987,0.0309845077461269,,,,0.1239380309845077,gr_lite,dinov3_vitl16,,polyvore_d_clean,LAT
+,FashionCLIP minus CLIP,,-0.02,-0.1302499999999999,0.0899999999999999,0.7736131934032984,,,,1.0,fashionclip2,clip_vitl14_336,,polyvore_d_clean,LAT
+,Marqo-FashionSigLIP minus SigLIP2,,0.12,0.03,0.21,0.0089955022488755,,,,0.0449775112443778,marqo_fashionsiglip,siglip2_b16_384,,polyvore_d_clean,LAT
+,validation-selected best specialized minus best generic,,0.02,-0.0899999999999999,0.1399999999999999,0.8065967016491754,,,,1.0,marqo_fashionsiglip,clip_vitl14_336,,polyvore_d_clean,LAT
+,validation-selected best overall minus ResNet50,,0.2299999999999999,0.1099999999999999,0.34,0.0019990004997501,,,,0.0119940029985007,clip_vitl14_336,resnet50,,polyvore_d_clean,LAT
+,DINOv3 minus ResNet50,,0.21,0.08,0.34,0.0029985007496251,,,,0.0149925037481259,dinov3_vitl16,resnet50,,polyvore_d_clean,AAT
+,GR-Lite minus DINOv3,,0.0299999999999999,-0.09,0.15,0.6866566716641679,,,,1.0,gr_lite,dinov3_vitl16,,polyvore_d_clean,AAT
+,FashionCLIP minus CLIP,,-0.05,-0.15,0.05,0.3968015992003998,,,,1.0,fashionclip2,clip_vitl14_336,,polyvore_d_clean,AAT
+,Marqo-FashionSigLIP minus SigLIP2,,0.01,-0.0699999999999999,0.0899999999999999,0.9225387306346826,,,,1.0,marqo_fashionsiglip,siglip2_b16_384,,polyvore_d_clean,AAT
+,validation-selected best specialized minus best generic,,-0.03,-0.14,0.08,0.6816591704147926,,,,1.0,marqo_fashionsiglip,clip_vitl14_336,,polyvore_d_clean,AAT
+,validation-selected best overall minus ResNet50,,0.32,0.1899999999999999,0.4499999999999999,0.000999500249875,,,,0.0059970014992503,clip_vitl14_336,resnet50,,polyvore_d_clean,AAT
+,DINOv3 minus ResNet50,,0.1,-0.0099999999999999,0.21,0.0889555222388805,,,,0.2668665667166416,dinov3_vitl16,resnet50,,iqon3000_clean,LAT
+,GR-Lite minus DINOv3,,0.1299999999999999,0.0,0.26,0.0559720139930035,,,,0.2598700649675162,gr_lite,dinov3_vitl16,,iqon3000_clean,LAT
+,FashionCLIP minus CLIP,,0.06,-0.0599999999999999,0.18,0.3908045977011494,,,,0.3908045977011494,fashionclip2,clip_vitl14_336,,iqon3000_clean,LAT
+,Marqo-FashionSigLIP minus SigLIP2,,0.0999999999999999,0.0,0.2,0.0519740129935032,,,,0.2598700649675162,marqo_fashionsiglip,siglip2_b16_384,,iqon3000_clean,LAT
+,validation-selected best specialized minus best generic,,0.0799999999999999,-0.03,0.2,0.1909045477261369,,,,0.3818090954522739,marqo_fashionsiglip,clip_vitl14_336,,iqon3000_clean,LAT
+,validation-selected best overall minus ResNet50,,0.3399999999999999,0.2299999999999999,0.45,0.000999500249875,,,,0.0059970014992503,marqo_fashionsiglip,resnet50,,iqon3000_clean,LAT
+,DINOv3 minus ResNet50,,0.09,-0.03,0.2199999999999999,0.1749125437281359,,,,0.6996501749125438,dinov3_vitl16,resnet50,,iqon3000_clean,AAT
+,GR-Lite minus DINOv3,,0.1799999999999999,0.06,0.3,0.0049975012493753,,,,0.0249875062468765,gr_lite,dinov3_vitl16,,iqon3000_clean,AAT
+,FashionCLIP minus CLIP,,0.0099999999999998,-0.12,0.13,0.9335332333833084,,,,1.0,fashionclip2,clip_vitl14_336,,iqon3000_clean,AAT
+,Marqo-FashionSigLIP minus SigLIP2,,0.0,-0.0999999999999999,0.09,1.0,,,,1.0,marqo_fashionsiglip,siglip2_b16_384,,iqon3000_clean,AAT
+,validation-selected best specialized minus best generic,,0.0699999999999999,-0.03,0.17,0.2168915542228885,,,,0.6996501749125438,marqo_fashionsiglip,clip_vitl14_336,,iqon3000_clean,AAT
+,validation-selected best overall minus ResNet50,,0.32,0.1999999999999999,0.4302499999999987,0.000999500249875,,,,0.0059970014992503,marqo_fashionsiglip,resnet50,,iqon3000_clean,AAT

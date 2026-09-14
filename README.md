@@ -69,7 +69,8 @@ Read `docs/final_experimental_protocol.md` before execution. The high-level sequ
 # 3. Run the locked controlled probes and secondary analyses.
 .venv\Scripts\python.exe scripts\run_benchmark.py --help
 .venv\Scripts\python.exe scripts\run_final_iqon.py --help
-.venv\Scripts\python.exe scripts\final_phase_statistics.py --help
+
+# Once immutable predictions exist, run scripts/final_phase_statistics.py.
 
 # 4. Validate and assemble paper artifacts.
 .venv\Scripts\python.exe scripts\make_final_outputs.py
@@ -100,7 +101,14 @@ Start with:
 - Marqo-FashionSigLIP and GR-Lite remain flagged for uncertain fashion-training provenance.
 - IQON-Clean is item/image-disjoint, not user-disjoint, and retains 41.62% of valid source outfits.
 - Exact-byte and decoded-pixel duplicates are excluded; transformed near-duplicates remain possible.
-- No code license has been selected yet; public visibility does not itself grant reuse rights.
+- Original repository code and original documentation are licensed under Apache-2.0. Datasets,
+  annotations, model weights, and trademarks remain governed by their respective owners' terms.
+
+## License
+
+This repository's original code, documentation, configuration, and original publication artifacts
+are available under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for exclusions and
+third-party-material boundaries.
 
 See `docs/decision_log.md` and `reports/final_reviewer_red_team.md` for the complete audit trail.
 

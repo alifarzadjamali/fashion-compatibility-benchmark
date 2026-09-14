@@ -8,7 +8,8 @@ from repbench.encoders.registry import PRIMARY_ENCODERS, PRIMARY_MODEL_KEYS
 
 
 def digest(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    # Protocol hashes are canonical across Git/OS newline conversion.
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def test_frozen_protocol_hash_and_roster_are_exact():

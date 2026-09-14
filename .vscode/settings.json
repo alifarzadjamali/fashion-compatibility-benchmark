@@ -1,0 +1,22 @@
+{
+  "explorer.excludeGitIgnore": true,
+  "files.exclude": {
+    ".venv/**": true,
+    ".pytest_cache/**": true,
+    ".pytest_tmp/**": true,
+    ".ruff_cache/**": true,
+    "data/**": true,
+    "artifacts/**": true,
+    "checkpoints/**": true,
+    "logs/**": true,
+    "runs/**": true
+  },
+  "search.exclude": {
+    ".venv/**": true,
+    "data/**": true,
+    "artifacts/**": true,
+    "checkpoints/**": true,
+    "logs/**": true,
+    "runs/**": true
+  }
+}

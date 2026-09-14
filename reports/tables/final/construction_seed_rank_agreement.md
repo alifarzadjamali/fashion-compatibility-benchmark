@@ -1,0 +1,22 @@
+| dataset          |   construction_seed | metric        |   spearman_rho |   kendall_tau |
+|:-----------------|--------------------:|:--------------|---------------:|--------------:|
+| polyvore_d_clean |                  42 | cp_auc        |       1        |      1        |
+| polyvore_d_clean |                  42 | fitb_accuracy |       0.964286 |      0.904762 |
+| polyvore_d_clean |                  43 | cp_auc        |       1        |      1        |
+| polyvore_d_clean |                  43 | fitb_accuracy |       0.964286 |      0.904762 |
+| polyvore_d_clean |                  44 | cp_auc        |       1        |      1        |
+| polyvore_d_clean |                  44 | fitb_accuracy |       0.964286 |      0.904762 |
+| polyvore_d_clean |                  45 | cp_auc        |       0.892857 |      0.809524 |
+| polyvore_d_clean |                  45 | fitb_accuracy |       0.964286 |      0.904762 |
+| polyvore_d_clean |                  46 | cp_auc        |       1        |      1        |
+| polyvore_d_clean |                  46 | fitb_accuracy |       0.964286 |      0.904762 |
+| iqon3000_clean   |                  42 | cp_auc        |       1        |      1        |
+| iqon3000_clean   |                  42 | fitb_accuracy |       1        |      1        |
+| iqon3000_clean   |                  43 | cp_auc        |       1        |      1        |
+| iqon3000_clean   |                  43 | fitb_accuracy |       0.964286 |      0.904762 |
+| iqon3000_clean   |                  44 | cp_auc        |       0.964286 |      0.904762 |
+| iqon3000_clean   |                  44 | fitb_accuracy |       0.964286 |      0.904762 |
+| iqon3000_clean   |                  45 | cp_auc        |       1        |      1        |
+| iqon3000_clean   |                  45 | fitb_accuracy |       0.964286 |      0.904762 |
+| iqon3000_clean   |                  46 | cp_auc        |       1        |      1        |
+| iqon3000_clean   |                  46 | fitb_accuracy |       1        |      1        |

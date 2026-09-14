@@ -1,0 +1,8 @@
+model,family,parameter_count,native_embedding_dimension,official_input_resolution
+ResNet50,supervised CNN,25557032,2048,224
+DINOv3-L/16,self-supervised vision transformer,303129600,1024,224
+CLIP-L/14@336,generic contrastive vision-language transformer,427616513,768,336
+SigLIP2-B/16@384,generic sigmoid-loss vision-language transformer,375479810,768,384
+FashionCLIP 2.0,fashion-specialized contrastive vision-language transformer,151277439,512,224
+Marqo-FashionSigLIP,fashion-specialized sigmoid-loss vision-language transformer,203155968,768,224
+GR-Lite,fashion-retrieval vision transformer,303129600,1024,336
