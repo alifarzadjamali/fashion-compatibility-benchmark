@@ -17,5 +17,29 @@
     "valid": 2025,
     "test": 2521
   },
-  "interpretation": "Item/image/outfit disjointness is enforced, but users are intentionally not disjoint. The benchmark supports unseen-item, not unseen-stylist, claims."
+  "retained_outfit_diagnostics": {
+    "outfits": 124000,
+    "outfit_length_mean": 5.275556451612903,
+    "outfit_length_median": 5.0,
+    "outfit_length_p90": 8.0,
+    "source_user_activity_mean": 283.1946935483871,
+    "source_user_activity_median": 292.0,
+    "source_user_activity_p90": 500.0,
+    "mean_item_source_frequency": 8.729466928962836,
+    "median_item_source_frequency": 4.875,
+    "mean_repeated_item_fraction": 0.6829976046137176
+  },
+  "excluded_outfit_diagnostics": {
+    "outfits": 173916,
+    "outfit_length_mean": 6.474867177257987,
+    "outfit_length_median": 6.0,
+    "outfit_length_p90": 9.0,
+    "source_user_activity_mean": 302.5701948066883,
+    "source_user_activity_median": 336.0,
+    "source_user_activity_p90": 500.0,
+    "mean_item_source_frequency": 13.44310593698044,
+    "median_item_source_frequency": 8.666666666666666,
+    "mean_repeated_item_fraction": 0.8088235286966102
+  },
+  "interpretation": "Item/image/outfit disjointness is enforced, but users are intentionally not disjoint. The benchmark supports unseen-item, not unseen-stylist, claims. Retained-versus-excluded differences quantify selection induced by the leakage-audited graph construction."
 }

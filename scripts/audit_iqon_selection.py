@@ -47,6 +47,31 @@ def main() -> None:
     selected = [row for split in SPLITS for row in rows[split]]
     selected_ids = {str(row["set_id"]) for row in selected}
     source_selected = eligible[eligible.set_id.astype(str).isin(selected_ids)]
+    source_excluded = eligible[~eligible.set_id.astype(str).isin(selected_ids)]
+    user_activity = eligible.groupby(eligible.user_id.astype(str)).size().to_dict()
+    item_frequency = Counter(str(item_id) for values in eligible.item_ids for item_id in values)
+
+    def outfit_diagnostics(frame: pd.DataFrame) -> dict:
+        activity = frame.user_id.astype(str).map(user_activity).to_numpy(dtype=float)
+        mean_item_frequency = frame.item_ids.map(
+            lambda values: float(np.mean([item_frequency[str(item_id)] for item_id in values]))
+        ).to_numpy(dtype=float)
+        repeated_item_fraction = frame.item_ids.map(
+            lambda values: float(np.mean([item_frequency[str(item_id)] > 1 for item_id in values]))
+        ).to_numpy(dtype=float)
+        lengths = frame.item_ids.map(len).to_numpy(dtype=float)
+        return {
+            "outfits": int(len(frame)),
+            "outfit_length_mean": float(np.mean(lengths)),
+            "outfit_length_median": float(np.median(lengths)),
+            "outfit_length_p90": float(np.quantile(lengths, 0.9)),
+            "source_user_activity_mean": float(np.mean(activity)),
+            "source_user_activity_median": float(np.median(activity)),
+            "source_user_activity_p90": float(np.quantile(activity, 0.9)),
+            "mean_item_source_frequency": float(np.mean(mean_item_frequency)),
+            "median_item_source_frequency": float(np.median(mean_item_frequency)),
+            "mean_repeated_item_fraction": float(np.mean(repeated_item_fraction)),
+        }
     all_length = Counter(eligible.item_ids.map(len).astype(str))
     selected_length, selected_categories, _ = counters(selected)
     source_categories = Counter(
@@ -80,9 +105,12 @@ def main() -> None:
             "valid_test": len(user_sets["valid"] & user_sets["test"]),
         },
         "split_user_counts": {split: len(values) for split, values in user_sets.items()},
+        "retained_outfit_diagnostics": outfit_diagnostics(source_selected),
+        "excluded_outfit_diagnostics": outfit_diagnostics(source_excluded),
         "interpretation": (
             "Item/image/outfit disjointness is enforced, but users are intentionally not disjoint. "
-            "The benchmark supports unseen-item, not unseen-stylist, claims."
+            "The benchmark supports unseen-item, not unseen-stylist, claims. Retained-versus-excluded "
+            "differences quantify selection induced by the leakage-audited graph construction."
         ),
     }
     Path("artifacts/iqon3000_selection_audit.json").write_text(
