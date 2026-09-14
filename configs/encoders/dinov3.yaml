@@ -1,0 +1,6 @@
+model_key: dinov3_vitl16
+backend: huggingface
+checkpoint: facebook/dinov3-vitl16-pretrain-lvd1689m
+revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+pooling: cls
+input_resolution: 224

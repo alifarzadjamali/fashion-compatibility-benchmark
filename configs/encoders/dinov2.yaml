@@ -1,0 +1,5 @@
+model_key: dinov2_vitb14
+backend: huggingface
+checkpoint: facebook/dinov2-base
+pooling: cls
+input_resolution: 224

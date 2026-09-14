@@ -1,0 +1,6 @@
+model_key: gr_lite
+backend: huggingface_remote_code_audited
+checkpoint: srpone/gr-lite
+revision: a8057f8aadaaab91670ad37949f6e1b5aa187e29
+pooling: normalized_cls
+input_resolution: 336

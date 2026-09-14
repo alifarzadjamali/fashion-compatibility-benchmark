@@ -1,0 +1,6 @@
+model_key: clip_vitl14
+backend: huggingface
+checkpoint: openai/clip-vit-large-patch14
+pooling: image_embeds
+input_resolution: 224
+

@@ -1,0 +1,6 @@
+model_key: resnet50
+backend: torchvision
+checkpoint: ResNet50_Weights.IMAGENET1K_V2
+embedding_dim: 2048
+input_resolution: 224
+

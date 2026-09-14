@@ -1,0 +1,6 @@
+model_key: siglip2_b16_384
+backend: huggingface
+checkpoint: google/siglip2-base-patch16-384
+revision: f775b65a79762255128c981547af89addcfe0f88
+pooling: projected_image_embedding
+input_resolution: 384

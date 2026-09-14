@@ -1,0 +1,6 @@
+model_key: fashionclip2
+backend: huggingface
+checkpoint: patrickjohncyh/fashion-clip
+revision: 7e3ba62ce16b379a1ab479346b66f192e76f51b7
+pooling: image_embeds
+input_resolution: 224
