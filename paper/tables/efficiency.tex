@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\caption{Measured encoder efficiency and IQON extraction cost. Latency is repeated batch-64 inference on one RTX 5070 Ti; GFLOPs are PyTorch FlopCounter estimates. IQON extraction used batch 32 over 434,089 retained item images. Hardware-specific timings are comparative measurements, not universal constants.}
+\label{tab:efficiency}
+\centering
+\scriptsize
+\begin{tabular}{lrrrrrr}
+\toprule
+Representation & Est. GFLOPs/image & ms/image & images/s & peak VRAM (MB) & IQON extraction (s) & IQON images/s \\
+\midrule
+ResNet50 & 8.17 & 1.976 & 506.1 & 764 & 408.7 & 1,062.1 \\
+DINOv3 ViT-L/16 & 125.68 & 3.145 & 318.0 & 885 & 1,578.7 & 275.0 \\
+CLIP ViT-L/14@336 & 381.92 & 9.313 & 107.4 & 2,029 & 4,777.6 & 90.9 \\
+SigLIP2-B/16@384 & 112.13 & 5.882 & 170.0 & 1,443 & 2,612.2 & 166.2 \\
+FashionCLIP 2.0 & 8.82 & 2.282 & 438.2 & 401 & 717.7 & 604.8 \\
+Marqo-FashionSigLIP & 35.42 & 1.907 & 524.3 & 651 & 655.9 & 661.8 \\
+GR-Lite & 289.62 & 6.828 & 146.5 & 1,687 & 2,832.7 & 153.2 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
