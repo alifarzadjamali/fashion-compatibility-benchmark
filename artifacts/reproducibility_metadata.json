@@ -1,0 +1,85 @@
+{
+  "created_utc": "2026-09-13T01:03:04.548741+00:00",
+  "protocol": "historical_polyvore_d",
+  "protocol_warning": "Packaged historical disjoint split has known cross-split item overlap; not leakage-free.",
+  "primary_models": [
+    "resnet50",
+    "dinov3_vitl16",
+    "clip_vitl14_336",
+    "siglip2_b16_384",
+    "fashionclip2",
+    "marqo_fashionsiglip",
+    "gr_lite"
+  ],
+  "checkpoints": {
+    "resnet50": {
+      "checkpoint": "torchvision ResNet50_Weights.IMAGENET1K_V2",
+      "revision": "11ad3fa6"
+    },
+    "dinov3_vitl16": {
+      "checkpoint": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+      "revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51"
+    },
+    "clip_vitl14_336": {
+      "checkpoint": "openai/clip-vit-large-patch14-336",
+      "revision": "ce19dc912ca5cd21c8a653c79e251e808ccabcd1"
+    },
+    "siglip2_b16_384": {
+      "checkpoint": "google/siglip2-base-patch16-384",
+      "revision": "f775b65a79762255128c981547af89addcfe0f88"
+    },
+    "fashionclip2": {
+      "checkpoint": "patrickjohncyh/fashion-clip",
+      "revision": "7e3ba62ce16b379a1ab479346b66f192e76f51b7"
+    },
+    "marqo_fashionsiglip": {
+      "checkpoint": "Marqo/marqo-fashionSigLIP",
+      "revision": "c56244cc94f92419e8369fa71efdaf403b124ce8"
+    },
+    "gr_lite": {
+      "checkpoint": "srpone/gr-lite",
+      "revision": "a8057f8aadaaab91670ad37949f6e1b5aa187e29"
+    }
+  },
+  "seed": 20260912,
+  "logistic_c_grid": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0
+  ],
+  "bootstrap_resamples": 2000,
+  "python": "3.12.13",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti",
+  "cuda_runtime": "12.8",
+  "packages": {
+    "huggingface-hub": "0.36.2",
+    "numpy": "2.5.3",
+    "open-clip-torch": "3.3.0",
+    "pandas": "2.3.3",
+    "pillow": "12.3.0",
+    "pyarrow": "23.0.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "dataset_file_sha256": {
+    "fill_in_blank_test.json": "0d12e1747d60565f78d8ba38c4626c9bc2ab19d8fd0c4c536a92e716027a46a5",
+    "fill_in_blank_train.json": "cd56c762994625327cf5d7145027633dc5b8b65cace50cc78258da3ba71cf391",
+    "fill_in_blank_valid.json": "9179442a35d8e6e874e279836b899868fd8c287a253281c9ba62aada5ac2ce7d",
+    "test.json": "df650429c987d73b5d089f80f33ae33904dc03078d11091ca0f33f7c05bef076",
+    "train.json": "0a7c0f8dc60f420d133881f68fab7132966a09ed2102312e60ee603e96e4667c",
+    "valid.json": "e3b3e2dca09333f84be8106d7922066c484605c301300314ae8e3c2ec46c7304",
+    "compatibility_test.txt": "7464ef2cd5502ae2e3ac7e80a0981da131137c52c9a191a93e5fb1bf08172c0e",
+    "compatibility_train.txt": "4366744fe7f3416711aa58c169ba94ae415859a260124053ce6a424b43c562e0",
+    "compatibility_valid.txt": "67739342a3cb0a0347c5bda688c989426203df9c0c690c33fa40b3d1c7af0966"
+  },
+  "code_lock_sha256": "6d8245e06fbae0ecfedfea0fdb5f0c9121d59cf7d09ae652f3e291a3b8121a3d",
+  "primary_result_sha256": "77b08190e8e6d1d4dba7dbc6b9d28a4a6caeae41fd81c786122d6ab23532f991",
+  "native_result_sha256": "c39c295c6a203eb605f6edcc3fc5c6029a1a81ffb5eb195c8d4c20047975e7dc"
+}

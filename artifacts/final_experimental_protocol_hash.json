@@ -1,0 +1,10 @@
+{
+  "protocol_name": "repbench_fashion_final_v1_2",
+  "frozen_utc": "2026-09-13T00:00:00Z",
+  "hash_method": "SHA-256 over raw bytes; combined order is markdown then YAML",
+  "files": {
+    "docs/final_experimental_protocol.md": "82d44ca9fbc4bd42e0b2fb0141bcd2520b609bfd94caaf603d65179d26ceaa54",
+    "configs/final_experimental_protocol.yaml": "5a7b71a23923089ebfbfa0be07973fd1933c81f2a40adbed9f0dd16dcc3e19ce"
+  },
+  "combined_sha256": "96ffd69883c381f83a853ca6f73fbc30cbd891366ba34f79ceb314cbe8d0f16b"
+}

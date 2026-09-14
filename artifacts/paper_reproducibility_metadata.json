@@ -1,0 +1,41 @@
+{
+  "created_utc": "2026-09-13T07:57:12.730823+00:00",
+  "primary_generalization_protocol": "polyvore_d_clean",
+  "comparison_protocol": "historical_polyvore_d",
+  "secondary_bridge_protocol": "historical_polyvore_d_regenerated",
+  "seed": 20260912,
+  "bootstrap_resamples": 2000,
+  "python": "3.12.13",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti",
+  "gpu_memory_bytes": 17066033152,
+  "cuda_runtime": "12.8",
+  "packages": {
+    "huggingface-hub": "0.36.2",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "transformers": "4.57.6",
+    "xgboost": "3.4.1"
+  },
+  "code_lock_sha256": "0b83d6cf13561582d7fc8c8cdb26ec8b4c71226173287ce6f822806b569c4cd8",
+  "artifact_sha256": {
+    "artifacts/paper_main_results.csv": "8818107f319b14e2c5bafd4c367f94cc267e339374f034bdcdd649c656e9c9fe",
+    "artifacts/paper_pairwise_statistics.csv": "e0b76e48bc59dc0f64c879f68478cd9589eaee7a3e54e9a4928f5e02236c6ae5",
+    "artifacts/component_cluster_bootstrap.csv": "de68b108e558f34970184b9d80528f86d2e1b734e6977f966a81f52037e41760",
+    "artifacts/clean_primary_cp_predictions.parquet": "c18ca1edea2653400cf48eaf2ae6238bf1731f24b3f9f425e373b7a950494420",
+    "artifacts/clean_primary_fitb_predictions.parquet": "745da788415ddabd2251442313143ff8efb892cad91bf16b059058742d5374cc",
+    "artifacts/efficiency_profile.csv": "862a7da54249f3f0c608ed20a66d3c3f8de6c771e1ebcb5be5e42ca37feeb813",
+    "artifacts/clean_robustness.csv": "59e5952718bf07727bf8ee848546e607a8e730e086dd935f7faeed5a4f134585",
+    "artifacts/historical_robustness.csv": "4eab6e4c5859d1f35b324124ef5315c1a6ff637d96e560cd1e5f8d0be53be1e5",
+    "data/protocols/polyvore_d_clean/manifest.json": "ece6a7a1f10bb961c1bef35e2a4f3a483329d66bd28beff3af04aa82e793dd41",
+    "artifacts/clean_image_duplicate_audit.json": "feeff3ed9f5af39991880d409216258ae3d84f974098449a5b1a0f30ea5b2055",
+    "artifacts/hf_access_reverification.json": "71e005d9b97c361ac0f7f71b997a5aa2c51037272d3c5e1a73180900c425a3c7",
+    "reports/reviewer_red_team.md": "949cd1acf77c2d17ff6145eac4a2042f8b127b4c08c8c03f4296833c7e38b178",
+    "reports/paper_readiness_report.md": "078faa34fb8b48cf2355cfdea16ccf96fee6e16866f0eb1b6e6bf9d9892a2c64"
+  }
+}

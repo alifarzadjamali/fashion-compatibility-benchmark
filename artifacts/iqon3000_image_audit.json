@@ -1,0 +1,202 @@
+{
+  "archive": "D:\\Projects\\RepBench_fashion\\.venv\\iqon_audit\\IQON3000.zip",
+  "catalog_item_count": 716024,
+  "validated_image_count": 715988,
+  "error_count": 36,
+  "error_examples": [
+    {
+      "item_id": "11146766",
+      "zip_entry": "IQON3000/7884/3746751/11146766_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "13563419",
+      "zip_entry": "IQON3000/7884/3746751/13563419_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "13595765",
+      "zip_entry": "IQON3000/799696/4069768/13595765_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "13974311",
+      "zip_entry": "IQON3000/7884/3723786/13974311_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "14247275",
+      "zip_entry": "IQON3000/7884/3726534/14247275_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "15090463",
+      "zip_entry": "IQON3000/7884/3746718/15090463_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "32109885",
+      "zip_entry": "IQON3000/799696/4072998/32109885_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "3227884",
+      "zip_entry": "IQON3000/869581/1423833/3227884_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "32353119",
+      "zip_entry": "IQON3000/996095/4061776/32353119_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "3239900",
+      "zip_entry": "IQON3000/868721/1560101/3239900_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "3251234",
+      "zip_entry": "IQON3000/869581/1423832/3251234_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "3268745",
+      "zip_entry": "IQON3000/869581/1426042/3268745_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "3609048",
+      "zip_entry": "IQON3000/869581/1423838/3609048_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "36148540",
+      "zip_entry": "IQON3000/996110/4043351/36148540_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "3614931",
+      "zip_entry": "IQON3000/869581/1423833/3614931_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "3619976",
+      "zip_entry": "IQON3000/869581/1426038/3619976_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "36810784",
+      "zip_entry": "IQON3000/999256/3923364/36810784_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "37764010",
+      "zip_entry": "IQON3000/996095/3967667/37764010_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "37785094",
+      "zip_entry": "IQON3000/996095/3959206/37785094_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "3783782",
+      "zip_entry": "IQON3000/862383/1509821/3783782_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "3875318",
+      "zip_entry": "IQON3000/868721/1817277/3875318_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "39046191",
+      "zip_entry": "IQON3000/996095/4060505/39046191_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "3935252",
+      "zip_entry": "IQON3000/862383/1572670/3935252_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "39532884",
+      "zip_entry": "IQON3000/996095/4057720/39532884_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "41174608",
+      "zip_entry": "IQON3000/996095/4061281/41174608_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "41394768",
+      "zip_entry": "IQON3000/799696/4072267/41394768_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "41946150",
+      "zip_entry": "IQON3000/996095/4055924/41946150_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "43552909",
+      "zip_entry": "IQON3000/799696/4073952/43552909_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "4906283",
+      "zip_entry": "IQON3000/868721/2108573/4906283_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "4993764",
+      "zip_entry": "IQON3000/803576/2413653/4993764_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "5476655",
+      "zip_entry": "IQON3000/803576/2601950/5476655_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "5611885",
+      "zip_entry": "IQON3000/803576/2601950/5611885_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "5731696",
+      "zip_entry": "IQON3000/803576/3126080/5731696_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "8514456",
+      "zip_entry": "IQON3000/803576/3136530/8514456_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "8826680",
+      "zip_entry": "IQON3000/803576/3107860/8826680_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    },
+    {
+      "item_id": "8971509",
+      "zip_entry": "IQON3000/803576/3107621/8971509_m.jpg",
+      "error": "UnidentifiedImageError('cannot identify image file <_io.BytesIO object at 0x0000011D29EE90D0>')"
+    }
+  ],
+  "encoded_duplicate_group_count": 14451,
+  "decoded_duplicate_group_count": 15663,
+  "dhash_collision_group_count_screen_only": 61008,
+  "formats": {
+    "JPEG": 715988
+  },
+  "source_modes": {
+    "RGB": 713851,
+    "L": 2137
+  },
+  "resolution_counts_top20": {
+    "150x150": 715988
+  },
+  "elapsed_seconds": 151.26536178588867
+}

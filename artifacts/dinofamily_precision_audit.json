@@ -1,0 +1,22 @@
+[
+  {
+    "model_key": "dinov3_vitl16",
+    "samples": 16,
+    "reduced_precision": "bfloat16",
+    "reference_precision": "float32",
+    "all_finite": true,
+    "mean_cosine_similarity": 0.9996427893638611,
+    "min_cosine_similarity": 0.9988608956336975,
+    "max_absolute_coordinate_difference": 0.007415618747472763
+  },
+  {
+    "model_key": "gr_lite",
+    "samples": 16,
+    "reduced_precision": "bfloat16",
+    "reference_precision": "float32",
+    "all_finite": true,
+    "mean_cosine_similarity": 0.9989740252494812,
+    "min_cosine_similarity": 0.9960485696792603,
+    "max_absolute_coordinate_difference": 0.00944138877093792
+  }
+]

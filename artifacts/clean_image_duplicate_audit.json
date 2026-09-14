@@ -1,0 +1,26 @@
+{
+  "protocol": "polyvore_d_clean",
+  "unique_items": 152785,
+  "methods": {
+    "file_sha256": "exact encoded-file equality",
+    "decoded_rgb_sha256": "exact width, height, and decoded RGB pixel equality"
+  },
+  "findings": {
+    "file_sha256": {
+      "unique_hashes": 152663,
+      "duplicate_groups_anywhere": 120,
+      "cross_split_duplicate_groups": 0,
+      "cross_split_item_instances": 0,
+      "cross_split_groups": []
+    },
+    "decoded_rgb_sha256": {
+      "unique_hashes": 152663,
+      "duplicate_groups_anywhere": 120,
+      "cross_split_duplicate_groups": 0,
+      "cross_split_item_instances": 0,
+      "cross_split_groups": []
+    }
+  },
+  "passes_exact_image_disjointness": true,
+  "limitation": "Does not rule out resized, cropped, or visually near-duplicate images."
+}

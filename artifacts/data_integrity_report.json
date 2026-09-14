@@ -1,0 +1,55 @@
+{
+  "splits": {
+    "train": {
+      "outfits": 16995,
+      "unique_items": 71967,
+      "cp_examples": 33990,
+      "cp_positive": 16995,
+      "cp_negative": 16995,
+      "fitb_questions": 16995,
+      "fitb_answer_index_counts": {
+        "0": 4263,
+        "1": 4225,
+        "2": 4272,
+        "3": 4235
+      },
+      "missing_images": 0
+    },
+    "valid": {
+      "outfits": 3000,
+      "unique_items": 14657,
+      "cp_examples": 6000,
+      "cp_positive": 3000,
+      "cp_negative": 3000,
+      "fitb_questions": 3000,
+      "fitb_answer_index_counts": {
+        "0": 760,
+        "1": 774,
+        "2": 739,
+        "3": 727
+      },
+      "missing_images": 0
+    },
+    "test": {
+      "outfits": 15145,
+      "unique_items": 70035,
+      "cp_examples": 30290,
+      "cp_positive": 15145,
+      "cp_negative": 15145,
+      "fitb_questions": 15145,
+      "fitb_answer_index_counts": {
+        "0": 3745,
+        "1": 3758,
+        "2": 3855,
+        "3": 3787
+      },
+      "missing_images": 0
+    }
+  },
+  "item_overlap_counts": {
+    "train_valid": 3781,
+    "train_test": 84,
+    "valid_test": 34
+  },
+  "passes_item_disjointness": false
+}

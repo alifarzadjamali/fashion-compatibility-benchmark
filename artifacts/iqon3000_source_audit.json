@@ -1,0 +1,2414 @@
+{
+  "dataset": "IQON3000 original archive",
+  "source_archive": "D:\\Projects\\RepBench_fashion\\.venv\\iqon_audit\\IQON3000.zip",
+  "archive_sha256": "305660cc09bd941a15096b6efeb536013efe0d534d9cd517419a49cd9ee650fd",
+  "audit_timestamp_unix": 1789304515.5233178,
+  "elapsed_seconds": 53.40189599990845,
+  "zip_entry_count": 2411369,
+  "json_entry_count": 308747,
+  "valid_outfit_count": 297916,
+  "malformed_outfit_count": 10831,
+  "unique_outfit_count": 297306,
+  "duplicate_outfit_count": 610,
+  "unique_user_count": 3568,
+  "unique_item_count": 712170,
+  "image_entry_count": 1790306,
+  "unique_image_item_id_count": 716024,
+  "missing_image_item_count": 0,
+  "orphan_image_item_count": 3854,
+  "items_with_inconsistent_encoded_files": 88,
+  "cross_item_encoded_duplicate_group_count_crc_size_screen": 14452,
+  "component_count": 5157,
+  "largest_component_outfits": 292197,
+  "largest_component_items": 696801,
+  "largest_component_fraction": 0.9808033136857369,
+  "outfit_length_counts": {
+    "2": 17098,
+    "3": 25015,
+    "4": 34397,
+    "5": 47171,
+    "6": 55381,
+    "7": 49664,
+    "8": 34238,
+    "9": 18830,
+    "10": 8967,
+    "11": 4008,
+    "12": 1720,
+    "13": 736,
+    "14": 363,
+    "15": 164,
+    "16": 83,
+    "17": 48,
+    "18": 20,
+    "19": 12,
+    "20": 1
+  },
+  "item_occurrence_counts": {
+    "1": 411293,
+    "2": 130664,
+    "3": 59875,
+    "4": 32930,
+    "5": 19939,
+    "6": 13411,
+    "7": 9132,
+    "8": 6704,
+    "9": 4907,
+    "10": 3759,
+    "11": 2865,
+    "12": 2248,
+    "13": 1942,
+    "14": 1632,
+    "15": 1270,
+    "16": 1065,
+    "17": 919,
+    "18": 706,
+    "19": 700,
+    "20": 561,
+    "21": 503,
+    "22": 414,
+    "23": 393,
+    "24": 342,
+    "25": 289,
+    "26": 263,
+    "27": 256,
+    "28": 179,
+    "29": 195,
+    "30": 168,
+    "31": 152,
+    "32": 140,
+    "33": 142,
+    "34": 125,
+    "35": 109,
+    "36": 104,
+    "37": 99,
+    "38": 87,
+    "39": 89,
+    "40": 105,
+    "41": 70,
+    "42": 83,
+    "43": 63,
+    "44": 55,
+    "45": 49,
+    "46": 42,
+    "47": 40,
+    "48": 43,
+    "49": 41,
+    "50": 38,
+    "51": 32,
+    "52": 51,
+    "53": 36,
+    "54": 45,
+    "55": 28,
+    "56": 22,
+    "57": 27,
+    "58": 29,
+    "59": 27,
+    "60": 32,
+    "61": 26,
+    "62": 21,
+    "63": 20,
+    "64": 18,
+    "65": 15,
+    "66": 21,
+    "67": 16,
+    "68": 21,
+    "69": 20,
+    "70": 15,
+    "71": 18,
+    "72": 7,
+    "73": 10,
+    "74": 12,
+    "75": 9,
+    "76": 11,
+    "77": 10,
+    "78": 7,
+    "79": 6,
+    "80": 7,
+    "81": 6,
+    "82": 12,
+    "83": 12,
+    "84": 4,
+    "85": 10,
+    "86": 7,
+    "87": 10,
+    "88": 7,
+    "89": 6,
+    "90": 7,
+    "91": 5,
+    "92": 5,
+    "93": 8,
+    "94": 7,
+    "95": 5,
+    "96": 4,
+    "97": 6,
+    "98": 3,
+    "99": 8,
+    "100": 5,
+    "101": 5,
+    "102": 5,
+    "103": 5,
+    "104": 4,
+    "105": 3,
+    "106": 2,
+    "107": 7,
+    "108": 5,
+    "109": 5,
+    "110": 3,
+    "111": 5,
+    "112": 5,
+    "113": 4,
+    "114": 3,
+    "115": 2,
+    "116": 5,
+    "117": 1,
+    "118": 2,
+    "119": 6,
+    "120": 5,
+    "121": 1,
+    "122": 2,
+    "123": 3,
+    "124": 4,
+    "125": 2,
+    "126": 3,
+    "127": 1,
+    "128": 5,
+    "129": 2,
+    "130": 4,
+    "131": 2,
+    "132": 1,
+    "133": 1,
+    "134": 4,
+    "135": 1,
+    "136": 1,
+    "137": 2,
+    "139": 1,
+    "140": 1,
+    "141": 3,
+    "142": 1,
+    "143": 1,
+    "144": 1,
+    "145": 2,
+    "146": 2,
+    "147": 2,
+    "149": 1,
+    "150": 2,
+    "151": 1,
+    "152": 1,
+    "153": 2,
+    "154": 1,
+    "155": 1,
+    "157": 1,
+    "159": 2,
+    "163": 3,
+    "164": 2,
+    "165": 1,
+    "166": 3,
+    "167": 2,
+    "169": 1,
+    "170": 1,
+    "171": 3,
+    "172": 1,
+    "177": 2,
+    "180": 1,
+    "181": 2,
+    "182": 2,
+    "184": 2,
+    "186": 1,
+    "187": 2,
+    "188": 1,
+    "190": 1,
+    "196": 1,
+    "199": 1,
+    "201": 1,
+    "205": 1,
+    "209": 1,
+    "210": 1,
+    "214": 2,
+    "216": 1,
+    "224": 1,
+    "233": 1,
+    "235": 1,
+    "236": 1,
+    "240": 1,
+    "242": 1,
+    "244": 2,
+    "250": 1,
+    "252": 1,
+    "259": 1,
+    "260": 1,
+    "266": 1,
+    "278": 1,
+    "290": 1,
+    "297": 1,
+    "303": 1,
+    "304": 1,
+    "307": 1,
+    "311": 1,
+    "324": 1,
+    "392": 1,
+    "447": 1,
+    "459": 1,
+    "512": 1,
+    "527": 1,
+    "573": 1
+  },
+  "category_occurrence_counts": [
+    [
+      "ピアス",
+      157993
+    ],
+    [
+      "ロングパンツ",
+      115054
+    ],
+    [
+      "ショルダーバッグ",
+      83734
+    ],
+    [
+      "スカート",
+      78819
+    ],
+    [
+      "パンプス",
+      78785
+    ],
+    [
+      "ニット",
+      74789
+    ],
+    [
+      "ブラウス",
+      73658
+    ],
+    [
+      "ネックレス",
+      72499
+    ],
+    [
+      "コート",
+      63626
+    ],
+    [
+      "サンダル",
+      53334
+    ],
+    [
+      "ブレスレット",
+      51024
+    ],
+    [
+      "スニーカー",
+      50729
+    ],
+    [
+      "コスメ",
+      49891
+    ],
+    [
+      "Tシャツ",
+      49583
+    ],
+    [
+      "腕時計",
+      49170
+    ],
+    [
+      "トートバッグ",
+      43461
+    ],
+    [
+      "ジャケット",
+      41671
+    ],
+    [
+      "ワンピース",
+      39478
+    ],
+    [
+      "ブーツ",
+      37567
+    ],
+    [
+      "クラッチバッグ",
+      36302
+    ],
+    [
+      "ストール",
+      35960
+    ],
+    [
+      "ハット",
+      31103
+    ],
+    [
+      "ハンドバッグ",
+      25880
+    ],
+    [
+      "サングラス",
+      24100
+    ],
+    [
+      "タンクトップ",
+      23631
+    ],
+    [
+      "レッグウェア",
+      21984
+    ],
+    [
+      "リング",
+      21907
+    ],
+    [
+      "メガネ",
+      20524
+    ],
+    [
+      "カーディガン",
+      20269
+    ],
+    [
+      "ヘアアクセサリー",
+      19739
+    ],
+    [
+      "リュック",
+      18706
+    ],
+    [
+      "キャップ",
+      17044
+    ],
+    [
+      "ショートパンツ",
+      16524
+    ],
+    [
+      "トップス",
+      16411
+    ],
+    [
+      "バッグ",
+      14926
+    ],
+    [
+      "ベルト",
+      13631
+    ],
+    [
+      "ロングスカート",
+      13215
+    ],
+    [
+      "靴",
+      12914
+    ],
+    [
+      "帽子",
+      12541
+    ],
+    [
+      "フレグランス",
+      11911
+    ],
+    [
+      "ニット帽",
+      8842
+    ],
+    [
+      "ネイル",
+      8289
+    ],
+    [
+      "ボストンバッグ",
+      8092
+    ],
+    [
+      "<missing>",
+      7790
+    ],
+    [
+      "小物",
+      7125
+    ],
+    [
+      "パーカー",
+      6148
+    ],
+    [
+      "財布",
+      4665
+    ],
+    [
+      "ダウンジャケット",
+      4476
+    ],
+    [
+      "インテリア",
+      4008
+    ],
+    [
+      "手袋",
+      3900
+    ],
+    [
+      "ボディケア",
+      3872
+    ],
+    [
+      "ブローチ",
+      3364
+    ],
+    [
+      "傘",
+      3308
+    ],
+    [
+      "水着",
+      2031
+    ],
+    [
+      "ファッション小物",
+      2025
+    ],
+    [
+      "ステーショナリー",
+      1593
+    ],
+    [
+      "チュニック",
+      1530
+    ],
+    [
+      "浴衣",
+      1259
+    ],
+    [
+      "ルームウェア",
+      1151
+    ],
+    [
+      "アンダーウェア",
+      943
+    ],
+    [
+      "アクセサリー",
+      888
+    ],
+    [
+      "ルームシューズ",
+      866
+    ]
+  ],
+  "user_outfit_count_summary": {
+    "min": 2,
+    "max": 500
+  },
+  "largest_components": [
+    {
+      "root": "37374807",
+      "outfits": 292197,
+      "items": 696801
+    },
+    {
+      "root": "3172760",
+      "outfits": 8,
+      "items": 12
+    },
+    {
+      "root": "4735626",
+      "outfits": 7,
+      "items": 10
+    },
+    {
+      "root": "15671510",
+      "outfits": 6,
+      "items": 22
+    },
+    {
+      "root": "4030643",
+      "outfits": 6,
+      "items": 17
+    },
+    {
+      "root": "11113502",
+      "outfits": 5,
+      "items": 12
+    },
+    {
+      "root": "2865374",
+      "outfits": 5,
+      "items": 10
+    },
+    {
+      "root": "5140068",
+      "outfits": 5,
+      "items": 11
+    },
+    {
+      "root": "2687759",
+      "outfits": 4,
+      "items": 8
+    },
+    {
+      "root": "3171003",
+      "outfits": 4,
+      "items": 11
+    },
+    {
+      "root": "3357819",
+      "outfits": 4,
+      "items": 10
+    },
+    {
+      "root": "3894695",
+      "outfits": 4,
+      "items": 11
+    },
+    {
+      "root": "3959092",
+      "outfits": 4,
+      "items": 2
+    },
+    {
+      "root": "4260686",
+      "outfits": 4,
+      "items": 7
+    },
+    {
+      "root": "4306326",
+      "outfits": 4,
+      "items": 7
+    },
+    {
+      "root": "44064824",
+      "outfits": 4,
+      "items": 5
+    },
+    {
+      "root": "4436271",
+      "outfits": 4,
+      "items": 10
+    },
+    {
+      "root": "5005673",
+      "outfits": 4,
+      "items": 12
+    },
+    {
+      "root": "5152480",
+      "outfits": 4,
+      "items": 9
+    },
+    {
+      "root": "5231289",
+      "outfits": 4,
+      "items": 11
+    },
+    {
+      "root": "5265703",
+      "outfits": 4,
+      "items": 6
+    },
+    {
+      "root": "5352753",
+      "outfits": 4,
+      "items": 10
+    },
+    {
+      "root": "6266573",
+      "outfits": 4,
+      "items": 11
+    },
+    {
+      "root": "8134620",
+      "outfits": 4,
+      "items": 11
+    },
+    {
+      "root": "2584267",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "2728224",
+      "outfits": 3,
+      "items": 5
+    },
+    {
+      "root": "2733387",
+      "outfits": 3,
+      "items": 5
+    },
+    {
+      "root": "2747294",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "2747527",
+      "outfits": 3,
+      "items": 9
+    },
+    {
+      "root": "2769160",
+      "outfits": 3,
+      "items": 6
+    },
+    {
+      "root": "2799340",
+      "outfits": 3,
+      "items": 6
+    },
+    {
+      "root": "2851437",
+      "outfits": 3,
+      "items": 6
+    },
+    {
+      "root": "2908469",
+      "outfits": 3,
+      "items": 5
+    },
+    {
+      "root": "2938295",
+      "outfits": 3,
+      "items": 5
+    },
+    {
+      "root": "3048338",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "3171154",
+      "outfits": 3,
+      "items": 8
+    },
+    {
+      "root": "3560798",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "3617833",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "3636795",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "3636901",
+      "outfits": 3,
+      "items": 3
+    },
+    {
+      "root": "3667720",
+      "outfits": 3,
+      "items": 10
+    },
+    {
+      "root": "3677726",
+      "outfits": 3,
+      "items": 6
+    },
+    {
+      "root": "3721237",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "3726851",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "3738181",
+      "outfits": 3,
+      "items": 5
+    },
+    {
+      "root": "3740069",
+      "outfits": 3,
+      "items": 2
+    },
+    {
+      "root": "3787386",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "38605627",
+      "outfits": 3,
+      "items": 14
+    },
+    {
+      "root": "38923083",
+      "outfits": 3,
+      "items": 14
+    },
+    {
+      "root": "4003433",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "4037505",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "4079411",
+      "outfits": 3,
+      "items": 5
+    },
+    {
+      "root": "4199032",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "4213762",
+      "outfits": 3,
+      "items": 11
+    },
+    {
+      "root": "4264858",
+      "outfits": 3,
+      "items": 5
+    },
+    {
+      "root": "4281408",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "4285956",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "4293077",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "4313409",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "4350424",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "4437069",
+      "outfits": 3,
+      "items": 6
+    },
+    {
+      "root": "4477888",
+      "outfits": 3,
+      "items": 8
+    },
+    {
+      "root": "4651211",
+      "outfits": 3,
+      "items": 6
+    },
+    {
+      "root": "4694671",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "4698549",
+      "outfits": 3,
+      "items": 8
+    },
+    {
+      "root": "4711822",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "4902999",
+      "outfits": 3,
+      "items": 9
+    },
+    {
+      "root": "5000517",
+      "outfits": 3,
+      "items": 4
+    },
+    {
+      "root": "5013074",
+      "outfits": 3,
+      "items": 5
+    },
+    {
+      "root": "5018707",
+      "outfits": 3,
+      "items": 6
+    },
+    {
+      "root": "5040185",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "5041761",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "5122412",
+      "outfits": 3,
+      "items": 6
+    },
+    {
+      "root": "5173767",
+      "outfits": 3,
+      "items": 10
+    },
+    {
+      "root": "5332399",
+      "outfits": 3,
+      "items": 6
+    },
+    {
+      "root": "5414410",
+      "outfits": 3,
+      "items": 5
+    },
+    {
+      "root": "5876504",
+      "outfits": 3,
+      "items": 9
+    },
+    {
+      "root": "5877133",
+      "outfits": 3,
+      "items": 8
+    },
+    {
+      "root": "5914158",
+      "outfits": 3,
+      "items": 8
+    },
+    {
+      "root": "6161764",
+      "outfits": 3,
+      "items": 10
+    },
+    {
+      "root": "6260977",
+      "outfits": 3,
+      "items": 6
+    },
+    {
+      "root": "6528789",
+      "outfits": 3,
+      "items": 10
+    },
+    {
+      "root": "7345661",
+      "outfits": 3,
+      "items": 11
+    },
+    {
+      "root": "7688412",
+      "outfits": 3,
+      "items": 7
+    },
+    {
+      "root": "8147956",
+      "outfits": 3,
+      "items": 11
+    },
+    {
+      "root": "10159994",
+      "outfits": 2,
+      "items": 4
+    },
+    {
+      "root": "10313682",
+      "outfits": 2,
+      "items": 6
+    },
+    {
+      "root": "10798429",
+      "outfits": 2,
+      "items": 5
+    },
+    {
+      "root": "11114518",
+      "outfits": 2,
+      "items": 6
+    },
+    {
+      "root": "11967062",
+      "outfits": 2,
+      "items": 3
+    },
+    {
+      "root": "12167980",
+      "outfits": 2,
+      "items": 9
+    },
+    {
+      "root": "12740611",
+      "outfits": 2,
+      "items": 8
+    },
+    {
+      "root": "14364824",
+      "outfits": 2,
+      "items": 5
+    },
+    {
+      "root": "14444223",
+      "outfits": 2,
+      "items": 6
+    },
+    {
+      "root": "14544192",
+      "outfits": 2,
+      "items": 7
+    },
+    {
+      "root": "15093529",
+      "outfits": 2,
+      "items": 7
+    },
+    {
+      "root": "15875700",
+      "outfits": 2,
+      "items": 6
+    },
+    {
+      "root": "15882983",
+      "outfits": 2,
+      "items": 10
+    },
+    {
+      "root": "15972270",
+      "outfits": 2,
+      "items": 7
+    },
+    {
+      "root": "16269373",
+      "outfits": 2,
+      "items": 9
+    }
+  ],
+  "malformed_examples": [
+    {
+      "entry": "IQON3000/1000179/1559185/1559185.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1000179/1575513/1575513.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1000179/1601997/1601997.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1000179/1654026/1654026.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1000179/1860062/1860062.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1000325/2224381/2224381.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1000325/2894739/2894739.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009646/1562734/1562734.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2738778/2738778.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2786387/2786387.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2890818/2890818.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2894869/2894869.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2898867/2898867.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2898928/2898928.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2899386/2899386.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2902615/2902615.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2904433/2904433.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2907009/2907009.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2911228/2911228.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2914968/2914968.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2918112/2918112.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2918575/2918575.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2920633/2920633.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2933722/2933722.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2943920/2943920.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2957678/2957678.json",
+      "error": "JSONDecodeError(\"Expecting ',' delimiter: line 1 column 9458 (char 9457)\")"
+    },
+    {
+      "entry": "IQON3000/1009734/2957705/2957705.json",
+      "error": "JSONDecodeError('Expecting value: line 1 column 13580 (char 13579)')"
+    },
+    {
+      "entry": "IQON3000/1009734/2972385/2972385.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1009734/2992368/2992368.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1011044/2251202/2251202.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1011044/2913462/2913462.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1011659/2945163/2945163.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1011659/2945171/2945171.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1011659/2945172/2945172.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1011659/2945179/2945179.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1011659/2945192/2945192.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1011659/2949624/2949624.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1011659/2959423/2959423.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1011659/3475821/3475821.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1015311/1569084/1569084.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1020217/2873862/2873862.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1027030/1870391/1870391.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1027030/1999641/1999641.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029014/1589007/1589007.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029014/1593284/1593284.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029014/1775076/1775076.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029014/1956417/1956417.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029014/2648501/2648501.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1588986/1588986.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1610668/1610668.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1617959/1617959.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1622036/1622036.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1645205/1645205.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1693893/1693893.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1750924/1750924.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1793418/1793418.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1807981/1807981.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1822766/1822766.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1822858/1822858.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1822860/1822860.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1822865/1822865.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1828162/1828162.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1828237/1828237.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1828336/1828336.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1828396/1828396.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/1854983/1854983.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007109/2007109.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007124/2007124.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007125/2007125.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007156/2007156.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007164/2007164.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007221/2007221.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007233/2007233.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007253/2007253.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007277/2007277.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007284/2007284.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2007288/2007288.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2081203/2081203.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2082132/2082132.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2099662/2099662.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2108399/2108399.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2178046/2178046.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2245699/2245699.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2291212/2291212.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2403992/2403992.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2868401/2868401.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1029943/2955620/2955620.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1030237/1597985/1597985.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1030237/1625587/1625587.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1030237/1721765/1721765.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1030237/1878607/1878607.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1030237/2095364/2095364.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/1032473/1592152/1592152.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/103333/1045278/1045278.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/103333/1059065/1059065.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/103333/1113366/1113366.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/103333/1445971/1445971.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/103333/1465110/1465110.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/103333/1465142/1465142.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    },
+    {
+      "entry": "IQON3000/103333/1660606/1660606.json",
+      "error": "ValueError('outfit has fewer than two distinct items')"
+    }
+  ],
+  "duplicate_outfit_examples": [
+    {
+      "kept_set_id": "1549509",
+      "duplicate_set_id": "1549514"
+    },
+    {
+      "kept_set_id": "3250183",
+      "duplicate_set_id": "3250185"
+    },
+    {
+      "kept_set_id": "3326177",
+      "duplicate_set_id": "3330323"
+    },
+    {
+      "kept_set_id": "3546005",
+      "duplicate_set_id": "3546006"
+    },
+    {
+      "kept_set_id": "3625859",
+      "duplicate_set_id": "3625860"
+    },
+    {
+      "kept_set_id": "1667187",
+      "duplicate_set_id": "1667188"
+    },
+    {
+      "kept_set_id": "1667187",
+      "duplicate_set_id": "1667189"
+    },
+    {
+      "kept_set_id": "1667187",
+      "duplicate_set_id": "1667190"
+    },
+    {
+      "kept_set_id": "2676237",
+      "duplicate_set_id": "2676288"
+    },
+    {
+      "kept_set_id": "2961888",
+      "duplicate_set_id": "2961944"
+    },
+    {
+      "kept_set_id": "3078598",
+      "duplicate_set_id": "3078599"
+    },
+    {
+      "kept_set_id": "3257579",
+      "duplicate_set_id": "3257582"
+    },
+    {
+      "kept_set_id": "2777667",
+      "duplicate_set_id": "2778817"
+    },
+    {
+      "kept_set_id": "3461332",
+      "duplicate_set_id": "3461333"
+    },
+    {
+      "kept_set_id": "2479481",
+      "duplicate_set_id": "2479484"
+    },
+    {
+      "kept_set_id": "2669542",
+      "duplicate_set_id": "2669543"
+    },
+    {
+      "kept_set_id": "2886020",
+      "duplicate_set_id": "2886021"
+    },
+    {
+      "kept_set_id": "2969847",
+      "duplicate_set_id": "2969849"
+    },
+    {
+      "kept_set_id": "3004146",
+      "duplicate_set_id": "3004147"
+    },
+    {
+      "kept_set_id": "3061016",
+      "duplicate_set_id": "3061017"
+    },
+    {
+      "kept_set_id": "3081478",
+      "duplicate_set_id": "3081479"
+    },
+    {
+      "kept_set_id": "3100482",
+      "duplicate_set_id": "3100484"
+    },
+    {
+      "kept_set_id": "3137744",
+      "duplicate_set_id": "3137745"
+    },
+    {
+      "kept_set_id": "3225016",
+      "duplicate_set_id": "3225017"
+    },
+    {
+      "kept_set_id": "3432701",
+      "duplicate_set_id": "3432703"
+    },
+    {
+      "kept_set_id": "3433034",
+      "duplicate_set_id": "3433035"
+    },
+    {
+      "kept_set_id": "3440159",
+      "duplicate_set_id": "3440161"
+    },
+    {
+      "kept_set_id": "3440159",
+      "duplicate_set_id": "3440162"
+    },
+    {
+      "kept_set_id": "3443009",
+      "duplicate_set_id": "3443010"
+    },
+    {
+      "kept_set_id": "3450783",
+      "duplicate_set_id": "3450785"
+    },
+    {
+      "kept_set_id": "3452844",
+      "duplicate_set_id": "3452845"
+    },
+    {
+      "kept_set_id": "3469431",
+      "duplicate_set_id": "3469432"
+    },
+    {
+      "kept_set_id": "3470410",
+      "duplicate_set_id": "3470412"
+    },
+    {
+      "kept_set_id": "1457070",
+      "duplicate_set_id": "1457072"
+    },
+    {
+      "kept_set_id": "1457089",
+      "duplicate_set_id": "1457091"
+    },
+    {
+      "kept_set_id": "1691343",
+      "duplicate_set_id": "1691349"
+    },
+    {
+      "kept_set_id": "1750505",
+      "duplicate_set_id": "1750506"
+    },
+    {
+      "kept_set_id": "2114454",
+      "duplicate_set_id": "2114456"
+    },
+    {
+      "kept_set_id": "3460220",
+      "duplicate_set_id": "3460226"
+    },
+    {
+      "kept_set_id": "2129584",
+      "duplicate_set_id": "2129585"
+    },
+    {
+      "kept_set_id": "2162357",
+      "duplicate_set_id": "2162358"
+    },
+    {
+      "kept_set_id": "1770571",
+      "duplicate_set_id": "1770573"
+    },
+    {
+      "kept_set_id": "2047627",
+      "duplicate_set_id": "2047630"
+    },
+    {
+      "kept_set_id": "2188031",
+      "duplicate_set_id": "2188034"
+    },
+    {
+      "kept_set_id": "2188199",
+      "duplicate_set_id": "2188201"
+    },
+    {
+      "kept_set_id": "2850057",
+      "duplicate_set_id": "2850058"
+    },
+    {
+      "kept_set_id": "2084484",
+      "duplicate_set_id": "2084490"
+    },
+    {
+      "kept_set_id": "3264136",
+      "duplicate_set_id": "3264140"
+    },
+    {
+      "kept_set_id": "3538622",
+      "duplicate_set_id": "3538623"
+    },
+    {
+      "kept_set_id": "1451852",
+      "duplicate_set_id": "1451853"
+    },
+    {
+      "kept_set_id": "1717455",
+      "duplicate_set_id": "1717457"
+    },
+    {
+      "kept_set_id": "1736384",
+      "duplicate_set_id": "1736385"
+    },
+    {
+      "kept_set_id": "1752142",
+      "duplicate_set_id": "1752143"
+    },
+    {
+      "kept_set_id": "1812408",
+      "duplicate_set_id": "1812412"
+    },
+    {
+      "kept_set_id": "3258549",
+      "duplicate_set_id": "3258551"
+    },
+    {
+      "kept_set_id": "3301695",
+      "duplicate_set_id": "3301696"
+    },
+    {
+      "kept_set_id": "3433655",
+      "duplicate_set_id": "3433656"
+    },
+    {
+      "kept_set_id": "3459634",
+      "duplicate_set_id": "3459635"
+    },
+    {
+      "kept_set_id": "3006663",
+      "duplicate_set_id": "3006664"
+    },
+    {
+      "kept_set_id": "1823941",
+      "duplicate_set_id": "1823944"
+    },
+    {
+      "kept_set_id": "2119648",
+      "duplicate_set_id": "2119651"
+    },
+    {
+      "kept_set_id": "2370832",
+      "duplicate_set_id": "2370838"
+    },
+    {
+      "kept_set_id": "2400936",
+      "duplicate_set_id": "2400937"
+    },
+    {
+      "kept_set_id": "3239344",
+      "duplicate_set_id": "3239345"
+    },
+    {
+      "kept_set_id": "3527128",
+      "duplicate_set_id": "3527129"
+    },
+    {
+      "kept_set_id": "1435625",
+      "duplicate_set_id": "1435627"
+    },
+    {
+      "kept_set_id": "1516072",
+      "duplicate_set_id": "1516073"
+    },
+    {
+      "kept_set_id": "1516072",
+      "duplicate_set_id": "1516076"
+    },
+    {
+      "kept_set_id": "1817050",
+      "duplicate_set_id": "1817051"
+    },
+    {
+      "kept_set_id": "2960637",
+      "duplicate_set_id": "2960642"
+    },
+    {
+      "kept_set_id": "3223504",
+      "duplicate_set_id": "3223505"
+    },
+    {
+      "kept_set_id": "1853832",
+      "duplicate_set_id": "1853833"
+    },
+    {
+      "kept_set_id": "2265271",
+      "duplicate_set_id": "2265275"
+    },
+    {
+      "kept_set_id": "3683727",
+      "duplicate_set_id": "3683731"
+    },
+    {
+      "kept_set_id": "3105598",
+      "duplicate_set_id": "3105601"
+    },
+    {
+      "kept_set_id": "3244454",
+      "duplicate_set_id": "3244456"
+    },
+    {
+      "kept_set_id": "3416138",
+      "duplicate_set_id": "3416151"
+    },
+    {
+      "kept_set_id": "3418174",
+      "duplicate_set_id": "3418175"
+    },
+    {
+      "kept_set_id": "4031656",
+      "duplicate_set_id": "4031657"
+    },
+    {
+      "kept_set_id": "1876463",
+      "duplicate_set_id": "1876470"
+    },
+    {
+      "kept_set_id": "1880444",
+      "duplicate_set_id": "1880446"
+    },
+    {
+      "kept_set_id": "1741982",
+      "duplicate_set_id": "1741984"
+    },
+    {
+      "kept_set_id": "1759588",
+      "duplicate_set_id": "1759589"
+    },
+    {
+      "kept_set_id": "1784240",
+      "duplicate_set_id": "1784241"
+    },
+    {
+      "kept_set_id": "1789859",
+      "duplicate_set_id": "1789861"
+    },
+    {
+      "kept_set_id": "1953184",
+      "duplicate_set_id": "1953185"
+    },
+    {
+      "kept_set_id": "1953184",
+      "duplicate_set_id": "1953192"
+    },
+    {
+      "kept_set_id": "1962392",
+      "duplicate_set_id": "1962393"
+    },
+    {
+      "kept_set_id": "2051224",
+      "duplicate_set_id": "2051228"
+    },
+    {
+      "kept_set_id": "2097814",
+      "duplicate_set_id": "2097816"
+    },
+    {
+      "kept_set_id": "2097814",
+      "duplicate_set_id": "2097821"
+    },
+    {
+      "kept_set_id": "2109244",
+      "duplicate_set_id": "2109245"
+    },
+    {
+      "kept_set_id": "2154534",
+      "duplicate_set_id": "2154535"
+    },
+    {
+      "kept_set_id": "2213082",
+      "duplicate_set_id": "2213085"
+    },
+    {
+      "kept_set_id": "2257908",
+      "duplicate_set_id": "2257910"
+    },
+    {
+      "kept_set_id": "2257908",
+      "duplicate_set_id": "2257915"
+    },
+    {
+      "kept_set_id": "2260948",
+      "duplicate_set_id": "2260951"
+    },
+    {
+      "kept_set_id": "2261255",
+      "duplicate_set_id": "2261259"
+    },
+    {
+      "kept_set_id": "2320357",
+      "duplicate_set_id": "2320358"
+    },
+    {
+      "kept_set_id": "2331671",
+      "duplicate_set_id": "2331674"
+    }
+  ],
+  "missing_image_examples": [],
+  "orphan_image_examples": [
+    "10005672",
+    "10014000",
+    "10024070",
+    "10069157",
+    "10091349",
+    "10095469",
+    "10104302",
+    "10134452",
+    "10137021",
+    "10139560",
+    "10139653",
+    "10154970",
+    "10159269",
+    "10177523",
+    "10258127",
+    "10264278",
+    "10340856",
+    "10365479",
+    "10373748",
+    "10391507",
+    "10393900",
+    "10413210",
+    "10421139",
+    "10468931",
+    "10473183",
+    "10497804",
+    "10499651",
+    "10543115",
+    "10555328",
+    "10571199",
+    "10597435",
+    "10597446",
+    "10621551",
+    "10624536",
+    "10646379",
+    "10660171",
+    "10689603",
+    "10706592",
+    "10762778",
+    "10783254",
+    "10801505",
+    "10802940",
+    "10813315",
+    "10813348",
+    "10839253",
+    "10840330",
+    "10876469",
+    "10911365",
+    "10941257",
+    "10974821",
+    "10984005",
+    "10984965",
+    "10997465",
+    "11008479",
+    "11016503",
+    "11030196",
+    "11037785",
+    "11061982",
+    "11077921",
+    "11080171",
+    "11081644",
+    "11092286",
+    "11095857",
+    "11096401",
+    "11103812",
+    "11106034",
+    "11108834",
+    "11111739",
+    "11118668",
+    "11131101",
+    "11138753",
+    "11140989",
+    "11154083",
+    "11159015",
+    "11160393",
+    "11168361",
+    "11201130",
+    "11201560",
+    "11267385",
+    "11288804",
+    "11337897",
+    "11360038",
+    "11446243",
+    "11456557",
+    "11497838",
+    "11514469",
+    "11535924",
+    "11545718",
+    "11550158",
+    "11551040",
+    "11558757",
+    "11576896",
+    "11585162",
+    "11592156",
+    "11645847",
+    "11670615",
+    "11677706",
+    "11686387",
+    "11700739",
+    "11717251"
+  ],
+  "inconsistent_item_image_examples": [
+    "10407364",
+    "11295015",
+    "11339388",
+    "11660304",
+    "12146439",
+    "12269370",
+    "12859820",
+    "12859903",
+    "13545947",
+    "13753984",
+    "13971949",
+    "14118499",
+    "14265372",
+    "14534994",
+    "14885199",
+    "14944118",
+    "15015167",
+    "15334128",
+    "15334569",
+    "16347027",
+    "2859487",
+    "2950927",
+    "3212249",
+    "3227884",
+    "3243494",
+    "33110598",
+    "3323275",
+    "3326478",
+    "3370369",
+    "3482837",
+    "34963494",
+    "35364968",
+    "35478687",
+    "36169296",
+    "3619976",
+    "37035523",
+    "37042644",
+    "37147705",
+    "37356185",
+    "37356186",
+    "37520299",
+    "37710395",
+    "38018973",
+    "38239943",
+    "38385550",
+    "38397685",
+    "38536687",
+    "38542820",
+    "3931595",
+    "39799802",
+    "4011915",
+    "4084551",
+    "41206197",
+    "41657382",
+    "41777902",
+    "4180398",
+    "4181198",
+    "41934374",
+    "42106749",
+    "4213777",
+    "42259137",
+    "42398722",
+    "42539149",
+    "42803626",
+    "43033538",
+    "4322245",
+    "43284835",
+    "4344786",
+    "45035063",
+    "4561311",
+    "5062544",
+    "5165768",
+    "5440228",
+    "5546351",
+    "5611885",
+    "6574902",
+    "6707736",
+    "7664710",
+    "7994530",
+    "8034234",
+    "8219779",
+    "8252419",
+    "8277901",
+    "8514865",
+    "8684234",
+    "8849597",
+    "8931085",
+    "9385039"
+  ],
+  "cross_item_encoded_duplicate_groups_screen_examples": [
+    [
+      "11258659",
+      "11842603"
+    ],
+    [
+      "33441598",
+      "33492805"
+    ],
+    [
+      "36482902",
+      "36527275"
+    ],
+    [
+      "5738699",
+      "5738700"
+    ],
+    [
+      "37143012",
+      "37216151"
+    ],
+    [
+      "24841991",
+      "25615942",
+      "25961281"
+    ],
+    [
+      "35174345",
+      "36366746"
+    ],
+    [
+      "36011950",
+      "36011951"
+    ],
+    [
+      "6924241",
+      "6924287"
+    ],
+    [
+      "37377465",
+      "37377466"
+    ],
+    [
+      "13756791",
+      "13829220"
+    ],
+    [
+      "12091607",
+      "29773054"
+    ],
+    [
+      "25812939",
+      "30542855"
+    ],
+    [
+      "4050979",
+      "4859465"
+    ],
+    [
+      "36175283",
+      "37690247"
+    ],
+    [
+      "37143023",
+      "37216155"
+    ],
+    [
+      "11455402",
+      "14372328"
+    ],
+    [
+      "6832395",
+      "6832399",
+      "6832402"
+    ],
+    [
+      "11124107",
+      "11124109"
+    ],
+    [
+      "29060075",
+      "29598872"
+    ],
+    [
+      "37518169",
+      "37527794"
+    ],
+    [
+      "34317348",
+      "36313753"
+    ],
+    [
+      "27644936",
+      "27945570"
+    ],
+    [
+      "19888442",
+      "27925489"
+    ],
+    [
+      "36197459",
+      "36197461"
+    ],
+    [
+      "34023696",
+      "36313403"
+    ],
+    [
+      "14464989",
+      "32569276"
+    ],
+    [
+      "27457873",
+      "27508418"
+    ],
+    [
+      "20292067",
+      "29754808"
+    ],
+    [
+      "32350017",
+      "32512677"
+    ],
+    [
+      "34090266",
+      "36453195"
+    ],
+    [
+      "14892228",
+      "35904311"
+    ],
+    [
+      "12057195",
+      "34017091"
+    ],
+    [
+      "12101629",
+      "29690960"
+    ],
+    [
+      "18233911",
+      "34476151"
+    ],
+    [
+      "37825487",
+      "38358260"
+    ],
+    [
+      "25288353",
+      "26010600"
+    ],
+    [
+      "16477369",
+      "20596693"
+    ],
+    [
+      "36994505",
+      "37177640"
+    ],
+    [
+      "13882028",
+      "14986836"
+    ],
+    [
+      "37172231",
+      "37215300"
+    ],
+    [
+      "37487416",
+      "37487417"
+    ],
+    [
+      "37524785",
+      "37524786"
+    ],
+    [
+      "5456047",
+      "5839729"
+    ],
+    [
+      "31377953",
+      "32022954"
+    ],
+    [
+      "38134201",
+      "39262803"
+    ],
+    [
+      "13191659",
+      "14984870"
+    ],
+    [
+      "25288270",
+      "26070726"
+    ],
+    [
+      "31705898",
+      "31705899"
+    ],
+    [
+      "37595515",
+      "37595517"
+    ],
+    [
+      "38185526",
+      "38185527"
+    ],
+    [
+      "38379529",
+      "39886812"
+    ],
+    [
+      "20292064",
+      "29754801"
+    ],
+    [
+      "32317871",
+      "36550937"
+    ],
+    [
+      "37256570",
+      "38289158"
+    ],
+    [
+      "38385694",
+      "38420116"
+    ],
+    [
+      "13759738",
+      "14986838"
+    ],
+    [
+      "24843976",
+      "25963584"
+    ],
+    [
+      "12872809",
+      "14979127"
+    ],
+    [
+      "37146976",
+      "37215287"
+    ],
+    [
+      "17821722",
+      "29772617"
+    ],
+    [
+      "13940727",
+      "13951186"
+    ],
+    [
+      "38381493",
+      "39228323"
+    ],
+    [
+      "36994535",
+      "37177603"
+    ],
+    [
+      "38836804",
+      "40447628"
+    ],
+    [
+      "37818366",
+      "39248724"
+    ],
+    [
+      "12077162",
+      "29705398"
+    ],
+    [
+      "38186017",
+      "38186019"
+    ],
+    [
+      "38364534",
+      "38364536"
+    ],
+    [
+      "20153793",
+      "20154433"
+    ],
+    [
+      "39076810",
+      "39192721"
+    ],
+    [
+      "38101671",
+      "38119569"
+    ],
+    [
+      "39102800",
+      "40368249"
+    ],
+    [
+      "38836777",
+      "40447577"
+    ],
+    [
+      "38666528",
+      "38936268"
+    ],
+    [
+      "39133262",
+      "39133264"
+    ],
+    [
+      "39042426",
+      "39825556"
+    ],
+    [
+      "38798872",
+      "41482599"
+    ],
+    [
+      "11257306",
+      "11257313"
+    ],
+    [
+      "37823835",
+      "38068827"
+    ],
+    [
+      "29590875",
+      "29740260"
+    ],
+    [
+      "38834840",
+      "39625208"
+    ],
+    [
+      "38685349",
+      "39271836"
+    ],
+    [
+      "13318110",
+      "14975630"
+    ],
+    [
+      "3478819",
+      "3634412"
+    ],
+    [
+      "18546334",
+      "21215882",
+      "21358105"
+    ],
+    [
+      "39000506",
+      "41244945"
+    ],
+    [
+      "39168236",
+      "39627156"
+    ],
+    [
+      "11257304",
+      "11257310"
+    ],
+    [
+      "20364725",
+      "35314639",
+      "35314641"
+    ],
+    [
+      "39078715",
+      "39078717"
+    ],
+    [
+      "3197497",
+      "4406294"
+    ],
+    [
+      "38001201",
+      "39627547"
+    ],
+    [
+      "38001356",
+      "39627728"
+    ],
+    [
+      "39410988",
+      "40792127"
+    ],
+    [
+      "38755939",
+      "39203839"
+    ],
+    [
+      "35970303",
+      "35970304"
+    ],
+    [
+      "38984620",
+      "38995174"
+    ],
+    [
+      "39332790",
+      "39627378"
+    ],
+    [
+      "37592182",
+      "39625007"
+    ]
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "validated_at_utc": "2026-09-13T23:46:59.630646+00:00",
+  "checks": [
+    {
+      "scope": "iqon_primary",
+      "model_key": "resnet50",
+      "valid": true
+    },
+    {
+      "scope": "iqon_primary",
+      "model_key": "dinov3_vitl16",
+      "valid": true
+    },
+    {
+      "scope": "iqon_primary",
+      "model_key": "clip_vitl14_336",
+      "valid": true
+    },
+    {
+      "scope": "iqon_primary",
+      "model_key": "siglip2_b16_384",
+      "valid": true
+    },
+    {
+      "scope": "iqon_primary",
+      "model_key": "fashionclip2",
+      "valid": true
+    },
+    {
+      "scope": "iqon_primary",
+      "model_key": "marqo_fashionsiglip",
+      "valid": true
+    },
+    {
+      "scope": "iqon_primary",
+      "model_key": "gr_lite",
+      "valid": true
+    },
+    {
+      "scope": "a100_external",
+      "model_key": "resnet50",
+      "valid": true
+    },
+    {
+      "scope": "a100_external",
+      "model_key": "dinov3_vitl16",
+      "valid": true
+    },
+    {
+      "scope": "a100_external",
+      "model_key": "clip_vitl14_336",
+      "valid": true
+    },
+    {
+      "scope": "a100_external",
+      "model_key": "siglip2_b16_384",
+      "valid": true
+    },
+    {
+      "scope": "a100_external",
+      "model_key": "fashionclip2",
+      "valid": true
+    },
+    {
+      "scope": "a100_external",
+      "model_key": "marqo_fashionsiglip",
+      "valid": true
+    },
+    {
+      "scope": "a100_external",
+      "model_key": "gr_lite",
+      "valid": true
+    },
+    {
+      "scope": "task_baseline",
+      "dataset": "polyvore_d_clean",
+      "valid": true
+    },
+    {
+      "scope": "task_baseline",
+      "dataset": "iqon3000_clean",
+      "valid": true
+    },
+    {
+      "scope": "a100_task_baseline",
+      "valid": true
+    },
+    {
+      "scope": "paper_outputs",
+      "valid": true,
+      "required_files": 33
+    }
+  ],
+  "artifact_count": 379,
+  "duplicate_run_ids": 0,
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+    "ram_bytes": 33438633984,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "gpu_memory_bytes": 17066033152,
+    "python": "3.12.13",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "transformers": "4.57.6",
+    "scikit_learn": "1.9.1",
+    "numpy": "2.5.3",
+    "pandas": "2.3.3",
+    "cuda": "12.8"
+  }
+}

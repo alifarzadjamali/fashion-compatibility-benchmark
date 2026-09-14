@@ -1,0 +1,11 @@
+{
+  "hardware": "NVIDIA GeForce RTX 5070 Ti 16 GB",
+  "gpu_reported": "NVIDIA GeForce RTX 5070 Ti",
+  "gpu_memory_bytes": 17066033152,
+  "python": "3.12.13",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "batch_size": 64,
+  "timing_scope": "decode + official preprocessing + frozen image forward + CPU copy",
+  "flop_definition": "FLOPs reported by torch.utils.flop_counter.FlopCounterMode for one image; multiply-add conventions follow PyTorch operator mappings."
+}

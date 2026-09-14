@@ -1,0 +1,21 @@
+{
+  "eligible_source_outfits": 297916,
+  "selected_outfits": 124000,
+  "selected_fraction": 0.4162247076357094,
+  "eligible_users": 3568,
+  "selected_users": 3523,
+  "selected_user_fraction": 0.9873878923766816,
+  "outfit_length_js_divergence_bits": 0.018994106264380105,
+  "semantic_category_js_divergence_bits": 0.0016383572368768341,
+  "user_overlap_counts": {
+    "train_valid": 2002,
+    "train_test": 2468,
+    "valid_test": 1764
+  },
+  "split_user_counts": {
+    "train": 3458,
+    "valid": 2025,
+    "test": 2521
+  },
+  "interpretation": "Item/image/outfit disjointness is enforced, but users are intentionally not disjoint. The benchmark supports unseen-item, not unseen-stylist, claims."
+}

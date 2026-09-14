@@ -1,0 +1,12 @@
+{
+  "a100_referenced_images": 1663,
+  "polyvore_images": 152785,
+  "iqon_catalog_images": 715991,
+  "a100_polyvore_encoded_overlap": 0,
+  "a100_polyvore_decoded_overlap": 0,
+  "a100_iqon_encoded_overlap": 0,
+  "a100_iqon_decoded_overlap": 0,
+  "polyvore_iqon_encoded_overlap": 0,
+  "polyvore_iqon_decoded_overlap": 0,
+  "scope": "exact encoded bytes and exact decoded RGB pixels; transformed near-duplicates not ruled out"
+}

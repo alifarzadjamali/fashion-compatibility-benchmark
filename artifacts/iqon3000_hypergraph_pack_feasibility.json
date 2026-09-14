@@ -1,0 +1,107 @@
+{
+  "seed": 20260912,
+  "reports": [
+    {
+      "requested_total": 50000,
+      "targets": {
+        "train": 35000,
+        "valid": 5000,
+        "test": 10000
+      },
+      "retained": {
+        "train": 35000,
+        "valid": 5000,
+        "test": 10000
+      },
+      "filled": true,
+      "conflicts_skipped": 23815,
+      "owned_but_split_full_skipped": 5,
+      "retained_rows": null
+    },
+    {
+      "requested_total": 75000,
+      "targets": {
+        "train": 52500,
+        "valid": 7500,
+        "test": 15000
+      },
+      "retained": {
+        "train": 52500,
+        "valid": 7500,
+        "test": 15000
+      },
+      "filled": true,
+      "conflicts_skipped": 51889,
+      "owned_but_split_full_skipped": 2373,
+      "retained_rows": null
+    },
+    {
+      "requested_total": 100000,
+      "targets": {
+        "train": 70000,
+        "valid": 10000,
+        "test": 20000
+      },
+      "retained": {
+        "train": 70000,
+        "valid": 10000,
+        "test": 20000
+      },
+      "filled": true,
+      "conflicts_skipped": 92848,
+      "owned_but_split_full_skipped": 9659,
+      "retained_rows": null
+    },
+    {
+      "requested_total": 125000,
+      "targets": {
+        "train": 87500,
+        "valid": 12500,
+        "test": 25000
+      },
+      "retained": {
+        "train": 87500,
+        "valid": 12500,
+        "test": 25000
+      },
+      "filled": true,
+      "conflicts_skipped": 148407,
+      "owned_but_split_full_skipped": 23124,
+      "retained_rows": null
+    },
+    {
+      "requested_total": 150000,
+      "targets": {
+        "train": 105000,
+        "valid": 15000,
+        "test": 30000
+      },
+      "retained": {
+        "train": 105000,
+        "valid": 12384,
+        "test": 24767
+      },
+      "filled": false,
+      "conflicts_skipped": 149052,
+      "owned_but_split_full_skipped": 6103,
+      "retained_rows": null
+    },
+    {
+      "requested_total": 200000,
+      "targets": {
+        "train": 140000,
+        "valid": 20000,
+        "test": 40000
+      },
+      "retained": {
+        "train": 111114,
+        "valid": 12375,
+        "test": 24748
+      },
+      "filled": false,
+      "conflicts_skipped": 149069,
+      "owned_but_split_full_skipped": 0,
+      "retained_rows": null
+    }
+  ]
+}

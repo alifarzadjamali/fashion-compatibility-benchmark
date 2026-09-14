@@ -1,0 +1,205 @@
+protocol_name: repbench_fashion_final_v1_2
+frozen_utc: "2026-09-13T00:00:00Z"
+status: locked_before_iqon_or_a100_model_evaluation
+
+hard_constraints:
+  new_human_subjects: prohibited
+  encoder_finetuning: prohibited
+  new_representations: prohibited
+  a100_training_or_tuning: prohibited
+  test_driven_decisions: prohibited
+  preserve_prior_artifacts: true
+
+representations:
+  - key: resnet50
+    checkpoint: torchvision.models.ResNet50_Weights.IMAGENET1K_V2
+    revision: 11ad3fa6
+    resolution: 224
+    precision: fp32
+  - key: dinov3_vitl16
+    checkpoint: facebook/dinov3-vitl16-pretrain-lvd1689m
+    revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+    resolution: 224
+    precision: bf16
+  - key: clip_vitl14_336
+    checkpoint: openai/clip-vit-large-patch14-336
+    revision: ce19dc912ca5cd21c8a653c79e251e808ccabcd1
+    resolution: 336
+    precision: fp16
+  - key: siglip2_b16_384
+    checkpoint: google/siglip2-base-patch16-384
+    revision: f775b65a79762255128c981547af89addcfe0f88
+    resolution: 384
+    precision: fp16
+  - key: fashionclip2
+    checkpoint: patrickjohncyh/fashion-clip
+    revision: 7e3ba62ce16b379a1ab479346b66f192e76f51b7
+    resolution: 224
+    precision: fp16
+  - key: marqo_fashionsiglip
+    checkpoint: Marqo/marqo-fashionSigLIP
+    revision: c56244cc94f92419e8369fa71efdaf403b124ce8
+    resolution: 224
+    precision: fp16
+  - key: gr_lite
+    checkpoint: srpone/gr-lite
+    revision: a8057f8aadaaab91670ad37949f6e1b5aa187e29
+    resolution: 336
+    precision: bf16
+
+datasets:
+  polyvore_primary:
+    key: polyvore_d_clean
+    manifest: data/protocols/polyvore_d_clean/manifest.json
+    construction_seed: 20260912
+    status: previously_completed_development_dataset
+  polyvore_comparison:
+    key: historical_polyvore_d
+    status: historical_known_overlap
+  iqon_primary:
+    key: iqon3000_clean
+    source_id: google_drive_1sTfUoNPid9zG_MgV--lWZTBP1XZpmcK8
+    construction_seed: 20260912
+    source_archive_sha256: 305660cc09bd941a15096b6efeb536013efe0d534d9cd517419a49cd9ee650fd
+    target_outfit_counts: [86800, 12400, 24800]
+    target_outfit_proportions: [0.70, 0.10, 0.20]
+    component_audit:
+      valid_outfits_before_exact_deduplication: 297916
+      connected_components: 5157
+      largest_component_outfits: 292197
+      largest_component_fraction: 0.9808033136857369
+      whole_component_assignment_feasible: false
+    assignment: deterministic_balanced_greedy_hypergraph_packing
+    assignment_order: seeded_permutation_of_canonical_outfits
+    leakage_groups: [item_id, exact_encoded_sha256, decoded_rgb_pixel_sha256]
+    conflict_policy: discard_cross_owned_outfit
+    capacity_policy: exact_targets_or_fail_closed
+    user_id_used_by_model: false
+    fail_if_zero_overlap_or_usable_heldout_is_impossible: true
+  a100_external:
+    key: a100_official_2026_09_13
+    archive_sha256: 31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829
+    train_or_tune: false
+    candidates: unchanged
+    lat_primary_label: argmax_gt_distribution
+    lat_archive_gt_sensitivity: required
+    known_lat_label_disagreements: [92, 93, 94, 96, 98, 99, 100]
+    aat_dimension_ranges:
+      color: [1, 20]
+      style: [21, 52]
+      occasion: [53, 67]
+      season: [68, 79]
+      material: [80, 91]
+      balance: [92, 100]
+
+primary_pipeline:
+  encoder: frozen_image_only_official_preprocessing
+  raw_embedding_l2: representation_appropriate_as_existing_registry
+  embedding_standardization: train_items_only
+  pca:
+    dimensions: 256
+    fit: train_items_only
+    algorithm: randomized
+    seed: 20260912
+  post_pca_l2: true
+  outfit_feature: mean_all_unordered_pairs_concat_abs_difference_and_product
+  outfit_feature_dimensions: 512
+  outfit_feature_standardization: train_cp_only
+  classifier:
+    type: logistic_regression
+    solver: lbfgs
+    max_iter: 2000
+    class_weight: null
+    c_grid: [0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]
+    selection: validation_roc_auc_only
+  cp_decision_threshold: 0.5
+
+construction_stability:
+  primary_seed: 20260912
+  secondary_seeds: [42, 43, 44, 45, 46]
+  fixed_item_partitions: true
+  varied_only: [cp_negative_generation, fitb_candidate_generation]
+  encoder_reextraction: false
+
+metrics:
+  cp: [roc_auc, pr_auc, accuracy, balanced_accuracy, brier, log_loss, ece]
+  fitb: [accuracy, chance_accuracy]
+  a100_lat: [majority_accuracy, mean_human_agreement, archive_gt_accuracy]
+  a100_aat: [overall_accuracy, color, style, occasion, season, material, balance]
+  calibration:
+    primary_ece_bins: 15
+    sensitivity_ece_bins: [10, 20]
+    binning: equal_width
+    posthoc_calibration: none_primary
+
+statistics:
+  bootstrap_resamples: 2000
+  confidence_level: 0.95
+  paired: true
+  grouping: outfit_item_connected_component_where_available
+  multiple_testing: holm_within_dataset_and_metric_family
+  comparisons:
+    - [resnet50, dinov3_vitl16]
+    - [dinov3_vitl16, gr_lite]
+    - [clip_vitl14_336, fashionclip2]
+    - [siglip2_b16_384, marqo_fashionsiglip]
+    - [validation_selected_strongest_generic, validation_selected_strongest_specialized]
+    - [validation_selected_strongest_overall, resnet50]
+  rank_metrics: [spearman, kendall]
+
+practical_effect_sensitivity:
+  cp_auc_absolute_thresholds: [0.002, 0.005, 0.010]
+  fitb_percentage_point_thresholds: [0.5, 1.0, 2.0]
+  a100_percentage_point_thresholds: [2.0, 5.0, 10.0]
+  authoritative_single_threshold: false
+
+task_specific_baseline:
+  name: image_only_outfittransformer_secondary
+  role: secondary_context_not_primary_contribution
+  reference: OutfitTransformer_Sarkar_et_al_CVPRW_2022_WACV_2023
+  implementation_status: independent_pytorch_implementation_from_paper
+  public_code_note: no_official_release_found; third_party_MIT_implementation_audited
+  input: cached_frozen_resnet50_imagenet1k_v2_native_embedding
+  input_dimension: 2048
+  trainable_projection_dimension: 64
+  outfit_token: learned
+  transformer_layers: 6
+  attention_heads: 16
+  feedforward_dimension: 256
+  dropout: 0.1
+  positional_encoding: false
+  classifier: two_layer_mlp
+  loss: focal_binary_cross_entropy
+  focal_gamma: 2.0
+  focal_alpha: 0.25
+  optimizer: adamw
+  learning_rate: 0.00001
+  weight_decay: 0.0001
+  batch_size: 50
+  max_epochs: 30
+  early_stopping:
+    metric: validation_roc_auc
+    patience: 5
+  training_seeds: [42, 43, 44, 45, 46]
+  no_text: true
+  no_encoder_finetuning: true
+
+iqon_secondary_checks:
+  - native_vs_pca256
+  - fixed_mlp_learner
+  - provenance_sensitivity_excluding_marqo
+  - construction_seed_stability
+
+efficiency:
+  hardware: NVIDIA_GeForce_RTX_5070_Ti_16GB
+  batch_size: 64
+  warmup_batches: 2
+  repeats: 5
+  cuda_synchronize: true
+  steady_state_summary: median_and_variability
+  exclude_first_run_compilation: true
+  flop_profiler: torch_FlopCounterMode
+
+final_rule:
+  stop_after_final_package: true
+  expansion_allowed_only_for_genuine_scientific_problem: true

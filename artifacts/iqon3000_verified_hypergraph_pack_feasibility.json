@@ -1,0 +1,39 @@
+{
+  "seed": 20260912,
+  "reports": [
+    {
+      "requested_total": 125000,
+      "targets": {
+        "train": 87500,
+        "valid": 12500,
+        "test": 25000
+      },
+      "retained": {
+        "train": 87500,
+        "valid": 12409,
+        "test": 24813
+      },
+      "filled": false,
+      "conflicts_skipped": 146297,
+      "owned_but_split_full_skipped": 26255,
+      "retained_rows": null
+    },
+    {
+      "requested_total": 150000,
+      "targets": {
+        "train": 105000,
+        "valid": 15000,
+        "test": 30000
+      },
+      "retained": {
+        "train": 105000,
+        "valid": 12265,
+        "test": 24525
+      },
+      "filled": false,
+      "conflicts_skipped": 146467,
+      "owned_but_split_full_skipped": 9017,
+      "retained_rows": null
+    }
+  ]
+}
