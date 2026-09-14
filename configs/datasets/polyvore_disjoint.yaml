@@ -1,0 +1,10 @@
+dataset: polyvore_outfits
+config: disjoint
+root: data/raw/polyvore_outfits
+split_dir: disjoint
+images_dir: images
+expected:
+  train_outfits: null
+  valid_outfits: null
+  test_outfits: null
+

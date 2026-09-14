@@ -1,0 +1,124 @@
+{
+  "protocol": "polyvore_d_clean",
+  "seed": 20260912,
+  "source_protocol": "historical_polyvore_d",
+  "construction_rules": [
+    "Pool all historical positive outfits before repartitioning.",
+    "Remove exact duplicate outfits by sorted item-ID tuple.",
+    "Build the full positive-outfit/item bipartite graph and assign whole components.",
+    "Link distinct item IDs whose encoded image files have identical SHA-256 hashes.",
+    "Assign the largest component to train, then deterministic best-fit remaining components.",
+    "Match historical outfit-count proportions using largest-remainder integer targets.",
+    "Generate one category/length-matched full-corruption CP negative per positive.",
+    "Generate one four-choice FITB question per outfit with same-category distractors.",
+    "Draw all negative and candidate items only from the question's assigned split."
+  ],
+  "historical_outfit_counts": {
+    "train": 16995,
+    "valid": 3000,
+    "test": 15145
+  },
+  "deduplicated_outfit_count": 35132,
+  "duplicate_outfits_removed": 8,
+  "exact_image_duplicate_groups_linked": 120,
+  "target_outfit_counts": {
+    "train": 16991,
+    "valid": 2999,
+    "test": 15142
+  },
+  "component_count": 15613,
+  "largest_component_outfits": 14679,
+  "largest_component_items": 57481,
+  "splits": {
+    "train": {
+      "outfits": 16991,
+      "unique_items": 68166,
+      "historical_source_counts": {
+        "test": 2704,
+        "train": 12164,
+        "valid": 2123
+      },
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 16991,
+        "cp_negative_count": 16991,
+        "cp_unique_negative_count": 16991,
+        "cp_negative_item_usage_max": 2,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 16991,
+        "fitb_answer_index_counts": {
+          "0": 4248,
+          "1": 4248,
+          "2": 4248,
+          "3": 4247
+        },
+        "fitb_distractor_item_usage_max": 1
+      },
+      "sha256": {
+        "train.json": "e50fa19c82f62850180400c2c96be6797157e656ef16dddf71e01ae7f29b795b",
+        "compatibility_train.txt": "8e7cd41718f206c65bb586f1d756a64f7df0d26be0406d72cff0779ca114bcae",
+        "fill_in_blank_train.json": "8e496ea310fb83b010109f2adf8207304dd9a8dc28bf33d94dfc173b255d7661"
+      }
+    },
+    "valid": {
+      "outfits": 2999,
+      "unique_items": 13780,
+      "historical_source_counts": {
+        "test": 1438,
+        "train": 1296,
+        "valid": 265
+      },
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 2999,
+        "cp_negative_count": 2999,
+        "cp_unique_negative_count": 2999,
+        "cp_negative_item_usage_max": 2,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 2999,
+        "fitb_answer_index_counts": {
+          "0": 750,
+          "1": 750,
+          "2": 750,
+          "3": 749
+        },
+        "fitb_distractor_item_usage_max": 1
+      },
+      "sha256": {
+        "valid.json": "b014201197be1962280e9b22922590b8eb8c2c5e961b99852d326258d871f391",
+        "compatibility_valid.txt": "7f400dc1f61f38cc27b9d1181cbc625ab253c6aedd7104f5d64e82393aa2bf28",
+        "fill_in_blank_valid.json": "11bb4d43401ca86fa0eef38c5b1de5ec1031011ab4c1c1086b4730b0047ae003"
+      }
+    },
+    "test": {
+      "outfits": 15142,
+      "unique_items": 70839,
+      "historical_source_counts": {
+        "test": 10997,
+        "train": 3534,
+        "valid": 611
+      },
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 15142,
+        "cp_negative_count": 15142,
+        "cp_unique_negative_count": 15142,
+        "cp_negative_item_usage_max": 2,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 15142,
+        "fitb_answer_index_counts": {
+          "0": 3786,
+          "1": 3786,
+          "2": 3785,
+          "3": 3785
+        },
+        "fitb_distractor_item_usage_max": 1
+      },
+      "sha256": {
+        "test.json": "ebd28b2209ad90fdbc94065c6711137ee03351d1f9e4b9b4a89b58c5d054a49b",
+        "compatibility_test.txt": "ce641d565a6c98388d6a6d9e6d649396ceb64e5872e64805587cd7405fd86f1e",
+        "fill_in_blank_test.json": "e531273a8239048a568741b27df2a9b03b038423580619ec429a9cdbf61a79af"
+      }
+    }
+  }
+}

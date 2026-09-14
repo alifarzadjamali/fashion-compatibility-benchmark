@@ -1,0 +1,32 @@
+{
+  "archive_sha256": "31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829",
+  "tasks": {
+    "AAT": {
+      "questions": 100,
+      "candidates_per_question": [
+        5
+      ],
+      "referenced_images": 983,
+      "archive_images": 987,
+      "label_sha256": "7ea90fe60b4841541d1f7ebac6a3999e627ac6a6ae5553d5864e0aad9be01428"
+    },
+    "LAT": {
+      "questions": 100,
+      "candidates_per_question": [
+        5
+      ],
+      "referenced_images": 680,
+      "archive_images": 7427,
+      "label_sha256": "b6d4ab1fd265b24c8b8bbbc92f564afa5b453eaa44063d9d000c559af9a89b0b"
+    }
+  },
+  "lat_archive_majority_disagreements": [
+    92,
+    93,
+    94,
+    96,
+    98,
+    99,
+    100
+  ]
+}

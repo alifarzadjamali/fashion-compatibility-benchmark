@@ -1,0 +1,80 @@
+{
+  "protocol": "historical_polyvore_d_regenerated",
+  "role": "secondary bridge isolating question-generation from repartitioning",
+  "warning": "Retains historical cross-split item overlap; not leakage-free.",
+  "seed": 20260912,
+  "splits": {
+    "train": {
+      "outfits": 16995,
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 16995,
+        "cp_negative_count": 16995,
+        "cp_unique_negative_count": 16995,
+        "cp_negative_item_usage_max": 2,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 16995,
+        "fitb_answer_index_counts": {
+          "0": 4249,
+          "1": 4249,
+          "2": 4249,
+          "3": 4248
+        },
+        "fitb_distractor_item_usage_max": 1
+      },
+      "sha256": {
+        "train.json": "5c2c419f115b2502b27dd79447318b8dff263a623db5c5c870d7ef745d2bd231",
+        "compatibility_train.txt": "cb7a30e2eb79b3993e0774078f8ebf5fc877efa6837e9dd71ae0d6cc66eb3eeb",
+        "fill_in_blank_train.json": "0c82ee7e41375781bf68b092ac44286bfefeab743cf57ee6c6761c4fc16386fc"
+      }
+    },
+    "valid": {
+      "outfits": 3000,
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 3000,
+        "cp_negative_count": 3000,
+        "cp_unique_negative_count": 3000,
+        "cp_negative_item_usage_max": 2,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 3000,
+        "fitb_answer_index_counts": {
+          "0": 750,
+          "1": 750,
+          "2": 750,
+          "3": 750
+        },
+        "fitb_distractor_item_usage_max": 1
+      },
+      "sha256": {
+        "valid.json": "4eb28907fff880fd34dd65a48589f31d0fc7db050d2ff0404b8f4e07d0c20d4b",
+        "compatibility_valid.txt": "652693e197ba360357b04928d61e96495cca299be6b126d3cc6a882be200d297",
+        "fill_in_blank_valid.json": "4644618d041153d1761a575009b3eb0a13e1d357822fecc5d2b9c6bc26b338c4"
+      }
+    },
+    "test": {
+      "outfits": 15145,
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 15145,
+        "cp_negative_count": 15145,
+        "cp_unique_negative_count": 15145,
+        "cp_negative_item_usage_max": 2,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 15145,
+        "fitb_answer_index_counts": {
+          "0": 3787,
+          "1": 3786,
+          "2": 3786,
+          "3": 3786
+        },
+        "fitb_distractor_item_usage_max": 1
+      },
+      "sha256": {
+        "test.json": "32bbc716533ac7acc9ce964cf9bdbe6dfe12824b9bc96a1015d776a7ee1bbc8c",
+        "compatibility_test.txt": "39862783ec343a22521de998b290de9b78b244959fbd0ad07a1895008bfe9d13",
+        "fill_in_blank_test.json": "44eb49bd08c9025a56b375b052574fed9a05d7830dd7033adb39506eec098088"
+      }
+    }
+  }
+}

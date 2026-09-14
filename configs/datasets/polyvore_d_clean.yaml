@@ -1,0 +1,12 @@
+name: polyvore_d_clean
+source_root: data/raw/polyvore_outfits
+protocol_root: data/protocols/polyvore_d_clean
+source_protocol: historical_polyvore_d
+seed: 20260912
+split_unit: positive_outfit_item_graph_connected_component
+largest_component_assignment: train
+cp_negative_strategy: full_semantic_category_matched_corruption
+fitb_candidates: 4
+fitb_distractor_strategy: same_semantic_category_within_split
+item_overlap_required: 0
+historical_files_overwritten: false

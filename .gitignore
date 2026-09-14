@@ -21,18 +21,18 @@ htmlcov/
 .huggingface/
 
 # Datasets, protocol payloads, and model/client caches
-data/
-datasets/
-cache/
-caches/
+/data/
+/datasets/
+/cache/
+/caches/
 .cache/
 
 # Generated experiment state (selected audit summaries are force-tracked)
-artifacts/
-logs/
-runs/
-outputs/
-checkpoints/
+/artifacts/
+/logs/
+/runs/
+/outputs/
+/checkpoints/
 
 # Large model and numerical artifacts
 *.npy
@@ -46,7 +46,7 @@ checkpoints/
 *.onnx
 
 # Generated reports (only curated publication outputs are force-tracked)
-reports/
+/reports/
 
 # Notebooks and temporary/editor files
 .ipynb_checkpoints/
