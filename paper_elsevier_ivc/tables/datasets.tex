@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\caption{Evaluation protocols and their evidential roles. Counts are positive outfits; CP constructs one matched negative per positive. A100 contains fixed archive questions rather than train/validation/test outfits.}
+\label{tab:datasets}
+\centering
+\small
+\begin{tabular}{l l r r r c c p{4.0cm}}
+\toprule
+Protocol & Role & Train & Val. & Test & Item-disjoint & Exact-image-disjoint & Principal qualification \\
+\midrule
+Historical Polyvore-D & Literature comparison & 16,995 & 3,000 & 15,145 & No & No & Packaged negatives; known cross-split item overlap \\
+Polyvore-D-Clean & Development/generalization & 16,991 & 2,999 & 15,142 & Yes & Yes & Development influenced by Polyvore; not a prospective blind test \\
+IQON3000-Clean & Prospective replication & 86,800 & 12,400 & 24,800 & Yes & Yes & 41.62\% of valid source outfits retained; users are not split-disjoint \\
+A100 & External human/expert-grounded & -- & -- & 200 & -- & Yes & 100 LAT and 100 AAT questions; small samples and wide uncertainty \\
+\bottomrule
+\end{tabular}
+\end{table}
+

@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\caption{Primary test results on the two item- and exact-image-disjoint protocols. Brackets are 95\% paired/group-aware bootstrap confidence intervals (2,000 replicates). CP is compatibility prediction; FITB chance accuracy is 0.25. Bold indicates the largest point estimate within a dataset and metric, not a claim of statistical superiority over all alternatives.}
+\label{tab:main}
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{llcc}
+\toprule
+Dataset & Frozen representation & CP ROC--AUC [95\% CI] & FITB accuracy [95\% CI] \\
+\midrule
+\multirow{7}{*}{Polyvore-D-Clean}
+ & ResNet50 & .6938 [.6881, .6997] & .4063 [.3981, .4145] \\
+ & DINOv3 ViT-L/16 & .7822 [.7772, .7873] & .5048 [.4972, .5134] \\
+ & CLIP ViT-L/14@336 & .8883 [.8843, .8919] & .6500 [.6424, .6576] \\
+ & SigLIP2-B/16@384 & .8892 [.8857, .8927] & \textbf{.6528 [.6454, .6602]} \\
+ & FashionCLIP 2.0 & .8690 [.8648, .8730] & .6175 [.6099, .6250] \\
+ & Marqo-FashionSigLIP & \textbf{.8897 [.8859, .8931]} & .6479 [.6408, .6557] \\
+ & GR-Lite & .8277 [.8232, .8323] & .5573 [.5498, .5657] \\
+\midrule
+\multirow{7}{*}{IQON3000-Clean}
+ & ResNet50 & .5852 [.5798, .5909] & .3166 [.3097, .3233] \\
+ & DINOv3 ViT-L/16 & .6419 [.6362, .6475] & .3660 [.3587, .3739] \\
+ & CLIP ViT-L/14@336 & .7042 [.6977, .7108] & .4364 [.4281, .4444] \\
+ & SigLIP2-B/16@384 & .7031 [.6970, .7093] & .4330 [.4254, .4413] \\
+ & FashionCLIP 2.0 & .6981 [.6920, .7042] & .4275 [.4193, .4358] \\
+ & Marqo-FashionSigLIP & \textbf{.7221 [.7158, .7282]} & \textbf{.4451 [.4371, .4539]} \\
+ & GR-Lite & .6511 [.6440, .6580] & .3832 [.3757, .3911] \\
+\bottomrule
+\end{tabular}
+\end{table}
