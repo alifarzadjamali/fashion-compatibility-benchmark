@@ -1,0 +1,475 @@
+% Springer Nature LaTeX template, version 3.1 (December 2024)
+\documentclass[pdflatex,sn-mathphys-num,iicol]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{xurl}
+\providecommand{\burl}[1]{\url{#1}}
+\setlength{\emergencystretch}{3em}
+
+\raggedbottom
+
+\begin{document}
+
+\title[Frozen representations for outfit compatibility]{Frozen Visual Representations for Relational Outfit Compatibility: A Leakage-Audited Cross-Dataset Study}
+
+\author*[1]{\fnm{Ali} \sur{Jamali}}\email{a.jamali2@salford.ac.uk}
+\author[1]{\fnm{Maryam} \sur{Vadikheil}}
+\author[1]{\fnm{Parham} \sur{Imanzadeh Charandabi}}
+\author[1]{\fnm{Ali} \sur{Alameer}}
+\author[1]{\fnm{Taha} \sur{Mansouri}}
+\affil*[1]{\orgdiv{School of Science, Engineering and Environment}, \orgname{University of Salford}, \orgaddress{\city{Manchester}, \country{United Kingdom}}}
+
+\abstract{Outfit compatibility is a relational machine-vision problem: a useful representation must support judgments about whether individually plausible garments form a coherent set. We benchmark seven released frozen visual representations under one shared downstream method comprising train-only principal-component analysis and a pairwise logistic probe. Evaluation uses item- and exact-image-disjoint Polyvore-D-Clean, a prospectively constructed IQON3000-Clean replication, and unchanged A100 human/expert-grounded questions. Across both clean corpora, the evaluated modern contrastive vision--language model (VLM) representations establish a substantially stronger tier than ResNet50 and generic DINOv3 for compatibility prediction and fill-in-the-blank completion. This tier-level result remains intact when Marqo-FashionSigLIP and GR-Lite are excluded because of their less certain training-data provenance. The broad hierarchy replicates prospectively on IQON and is corroborated by A100, whose 100-question tasks are appropriately used for tier-level rather than fine-grained ranking evidence. Fashion specialization is checkpoint- and recipe-dependent, while exact-overlap LookBench ranks show that retrieval ranking is not a reliable proxy for compatibility ranking. The conclusions persist across construction seeds, feature dimensionality, a nonlinear learner, compatibility-label availability, and provenance restrictions. Discrimination, benchmark calibration, measured efficiency, and provenance can favour different checkpoints. The resulting contribution is a controlled representation benchmark, leakage-audited protocol methodology, multi-axis evaluation framework, and frozen reproducibility package for relational fashion vision.}
+
+\keywords{outfit compatibility, representation benchmarking, vision--language models, leakage-audited evaluation, calibration, computational efficiency}
+
+\maketitle
+
+\section{Introduction}\label{sec:introduction}
+
+Fashion recommendation includes several related but non-equivalent problems: retrieving an item similar to a query, predicting a user's preference, completing a partial outfit, and judging whether a set of garments is mutually compatible. Recent surveys describe a field that increasingly combines visual, textual, and behavioural signals, while also noting persistent fragmentation in datasets, tasks, and evaluation practice \cite{ding2024fashion,deldjoo2024review}. The distinction matters. Item retrieval asks for proximity to an anchor; outfit compatibility asks whether relations among heterogeneous items form a plausible whole. A representation that is excellent for finding visually similar products need not expose the cues required for colour coordination, formality, season, silhouette, or balance.
+
+The standard Polyvore literature established compatibility prediction (CP) and fill-in-the-blank (FITB) completion as widely used evaluations \cite{han2017bilstm,vasileva2018typeaware,cucurull2019context}. It also encouraged increasingly expressive task-specific architectures: sequence models, type-conditioned metrics, graph reasoning, attention, set models, and transformers. Such work is essential, but it leaves a complementary empirical question under-measured. Given the rapid progression from supervised convolutional networks to self-supervised vision transformers and contrastive vision--language models (VLMs), how much compatibility information is already accessible in a frozen image representation when the downstream learner is held fixed?
+
+Answering that question requires more than replacing one backbone in an existing pipeline. First, outfit datasets contain repeated items and duplicate images. Random or legacy splits can therefore allow the same product evidence to cross training and test boundaries, a concrete form of leakage \cite{kaufman2011leakage,kapoor2023leakage}. Second, synthetic negatives and FITB distractors are part of the measurement instrument: changing them can change both absolute scores and rankings. Third, fashion-specialized checkpoints may have incomplete data provenance, especially when their upstream data are web-scale or proprietary. Fourth, point estimates alone obscure paired uncertainty and the dependence induced by shared outfits, items, or users. Finally, predictive quality is only one deployment criterion; probability calibration and representation cost can favour different choices.
+
+We make the released representation checkpoint the experimental unit. Seven frozen image representations receive exactly the same downstream transformation: a scaler and randomized principal-component analysis (PCA) fitted on training items only, an unordered pair construction, mean pooling over all item pairs, and a regularized logistic classifier. Holding the relational learner, labels, candidate sets, and selection logic fixed prevents representation choice from being confounded with simultaneous changes to architecture, modality, loss, personalization, or question construction. The roster spans an ImageNet-supervised ResNet50 \cite{deng2009imagenet,he2016resnet}; the self-supervised DINOv3 ViT-L/16 \cite{caron2021dino,oquab2024dinov2,simeoni2025dinov3}; generic CLIP and SigLIP2 VLMs \cite{radford2021clip,zhai2023siglip,tschannen2025siglip2}; FashionCLIP \cite{chia2022fashionclip}; and the fashion-retrieval-oriented Marqo-FashionSigLIP and GR-Lite \cite{zhu2025gcl,marqo2024fashionsiglip,gao2026lookbench}. The study contributes representation-transfer and evaluation methodology rather than a new compatibility architecture.
+
+The evidence is deliberately layered. The protocol audit detected cross-split item sharing and exact-image duplicates hidden behind different identifiers, rebuilt Polyvore by item/image-connected components, and confronted an IQON component containing 98.08\% of valid outfits. The resulting IQON3000-Clean retained protocol is audited against excluded outfits rather than assumed representative. Generated CP negatives and FITB distractors are checked for collisions, and a historical-to-clean bridge separates the effect of regenerated questions from the effect of split cleaning. Polyvore-D-Clean provides development-influenced generalization evidence; IQON3000-Clean, constructed prospectively from the larger IQON3000 corpus \cite{nakamura2018iqon}, provides replication. A100 adds unchanged external evidence grounded in expert and human judgments \cite{zou2022a100}; no A100 label or candidate enters training, calibration, or selection. Additional analyses cover an image-only OutfitTransformer adaptation \cite{sarkar2023outfittransformer}, construction seeds, feature width, a nonlinear learner, compatibility-label efficiency, calibration, compute, checkpoint provenance, failure consensus, and exact-checkpoint LookBench retrieval ranks.
+
+Four linked gaps motivate the study. \textit{G1}: contemporary frozen checkpoints have not been compared systematically for relational compatibility with downstream capacity and question construction held constant across leakage-audited corpora. \textit{G2}: the boundaries between frozen transfer, task-specific contextual learning, fashion specialization, retrieval quality, and external human/expert-grounded judgments remain poorly triangulated. \textit{G3}: compatibility leaderboards rarely consider benchmark calibration, computational cost, and checkpoint provenance together with discrimination. \textit{G4}: conclusions can be fragile to duplicate leakage, synthetic-question construction, retained-subset selection, dependence, feature width, learner choice, and labelled-outfit availability.
+
+Accordingly, the four objectives are to (\textit{O1}) measure and prospectively replicate the shared-probe hierarchy; (\textit{O2}) delimit its construct and modelling boundaries; (\textit{O3}) compare operational model-selection axes; and (\textit{O4}) audit the hierarchy under plausible validity threats. The corresponding contributions are (\textit{C1}) a controlled seven-checkpoint benchmark that establishes a provenance-robust VLM-tier advantage and prospectively replicates it on IQON; (\textit{C2}) construct-boundary triangulation through untouched A100 questions, a contextual baseline, specialization contrasts, and exact-checkpoint retrieval results; (\textit{C3}) an operational evaluation framework combining discrimination, benchmark calibration, computational efficiency, provenance, and statistical uncertainty; and (\textit{C4}) leakage-audited Polyvore and IQON protocols plus a reproducible validity suite covering duplicate connectivity, false questions, the historical bridge, IQON retention and dependence, construction seeds, feature width, learner choice, compatibility-label availability, and frozen artifact traceability. Section~\ref{sec:design} formalizes the one-to-one mapping from these contributions to evidence and discussion answers.
+
+\section{Related work}\label{sec:related}
+
+\subsection{Fashion compatibility, recommendation, and datasets}
+
+Early image-based recommendation work learned notions of style and substitution from co-occurrence and preference data \cite{mcauley2015styles,veit2015style}. Polyvore-based research then formalized set-level compatibility and FITB completion. The bidirectional-LSTM formulation of Han et al. \cite{han2017bilstm} treated outfits as ordered sequences, while type-aware embeddings \cite{vasileva2018typeaware}, mixed-category metric learning \cite{chen2018dress}, and cross-category compatibility learning \cite{polania2019categories} made item type explicit. Context-aware models reason over an item relative to the remaining outfit \cite{cucurull2019context}; set-based models remove arbitrary sequence assumptions \cite{li2017set}; and attentive knowledge distillation transfers structure from more elaborate teachers \cite{song2018attentive}. OutfitTransformer provides a recent contextual set representation for recommendation and compatibility \cite{sarkar2023outfittransformer}.
+
+Compatibility has also been approached through capsule wardrobes \cite{hsiao2018capsule}, personalized outfit generation \cite{chen2019pog}, personalized pairwise ranking \cite{song2019gpbpr}, and multi-layer comparison networks that diagnose incompatible pieces \cite{wang2019mcn}. Attribute-aware and explanatory methods seek reasons rather than only scores \cite{yang2019attributes,chen2019visualexplanations,lin2020explainable,balim2023diagnosing,wang2024pfe,li2024attribute}; a recent review organizes this explainable-compatibility literature \cite{selwon2024explainable}. Self-supervised visual attribute learning further shows that compatibility-relevant signals can be shaped without direct labels \cite{kim2021sval}. These approaches vary in modality, personalization, objective, and downstream capacity. Our goal is different: hold the compatibility learner constant and measure the representation supplied to it.
+
+Polyvore's catalog-like images and repeated products made it influential for controlled compatibility tasks, while IQON3000 added a larger user-curated collection with user and stylistic context \cite{nakamura2018iqon}. Broader fashion datasets such as DeepFashion support recognition and retrieval rather than outfit compatibility per se \cite{liu2016deepfashion}; Fashion200K supports language-aware fashion concepts \cite{han2017spatial}; and Street2Shop targets cross-domain product retrieval \cite{kiapour2015street}. These task differences motivate caution when transferring conclusions from item retrieval to relational compatibility.
+
+A100 was introduced specifically to assess aesthetic ability beyond synthetic Polyvore evaluation \cite{zou2022a100}. Its released five-choice \emph{Liberalism Aesthetic Test} (LAT) and \emph{Academicism Aesthetic Test} (AAT) probe whole-outfit aesthetic choice; AAT records are grouped by colour, style, occasion, season, material, and balance. These tasks provide valuable human/expert grounding, so we use them as external corroboration and report uncertainty, including sensitivity to two released LAT label interpretations. A subsequent higher-order network study uses A100 within a task-specific compatibility and cross-selling system \cite{pang2026crossselling}.
+
+\subsection{Generic and domain-specialized visual representations}
+
+The transferability of representations is not guaranteed by source-task accuracy. ImageNet model quality often correlates with transfer, but task and protocol can alter the relationship \cite{kornblith2019transfer}. Similar variation occurs among self-supervised objectives \cite{ericsson2021transfer}. Broad suites such as VTAB, ELEVATER, and WILDS expose the importance of multiple target tasks and distribution shift \cite{zhai2019vtab,li2022elevater,koh2021wilds}. Recent e-commerce embedding comparisons likewise evaluate foundation-model transfer, tuning, retrieval, classification, and practical cost \cite{czerwinska2025ecommerce}. In applied machine vision, systematic comparison of large and small MLLMs across capability categories and application settings has shown how benchmark design can expose capability boundaries and deployment trade-offs without making architecture invention the experimental question \cite{feng2025mllmbenchmark}. RepBench-Fashion brings this controlled-measurement perspective to a relational visual target.
+
+Vision Transformers \cite{dosovitskiy2021vit} enabled scalable visual encoders, while CLIP aligned image and language representations through contrastive web supervision \cite{radford2021clip}. ALIGN demonstrated similar scaling with noisy image--text data \cite{jia2021align}; LAION-5B later provided an open web-scale resource for such training \cite{schuhmann2022laion}. SigLIP replaced global softmax normalization with independent sigmoid losses \cite{zhai2023siglip}, and SigLIP2 combined that foundation with multilingual, self-supervised, captioning, and curation objectives \cite{tschannen2025siglip2}. In parallel, DINO and DINOv2 established strong label-free ViT features \cite{caron2021dino,oquab2024dinov2}; DINOv3 scaled this family and introduced mechanisms for stable dense representations \cite{simeoni2025dinov3}.
+
+Fashion-specific adaptation can encode product vocabulary and domain cues. FashionCLIP fine-tunes a CLIP-style model on more than 800,000 Farfetch product image--text pairs and reports gains on fashion retrieval, classification, and grounding \cite{chia2022fashionclip}. Generalized Contrastive Learning incorporates graded rankings into a retrieval representation \cite{zhu2025gcl}; Marqo-FashionSigLIP is a released fashion checkpoint associated with that ecosystem \cite{marqo2024fashionsiglip}. GR-Lite is the open fashion retrieval model released with LookBench \cite{gao2026lookbench}. Recent retrieval audits and specialization efforts further show that benchmark composition and fine-tuning data affect fashion retrieval conclusions \cite{czerwinska2025ecommerce,xue2026zooclaw}. Domain specialization might help compatibility, but it might instead emphasize item similarity or reflect a particular training recipe. Direct controlled comparison is therefore necessary.
+
+\subsection{Closest contemporary systems and scope}
+
+Recent work defines the closest boundary to our contribution. VICTOR combines fashion-specific contrastive pretraining with a multitask Transformer for incompatibility detection \cite{papadopoulos2023victor}; OutfitTransformer learns contextual set representations \cite{sarkar2023outfittransformer}; HAT incorporates personal history \cite{jung2025hat}; and MEDAL learns task-specific distilled embedding spaces \cite{sanny2026medal}. Text2Outfit studies multimodal large-model outfit generation \cite{zhai2025text2outfit}, while recent systems fine-tune multimodal models or pretrain cross-item relations for product bundling \cite{liu2025bundlemllm,ma2024cirp}. LMLMO combines generated fashion cues with BEiT3 compatibility representations \cite{chang2025large}, and FashionStylist adds expert-knowledge-enhanced data and multimodal styling evaluations \cite{feng2026fashionstylist}. These are complementary end-to-end or task-specific contributions, not interchangeable frozen-checkpoint measurements.
+
+\begin{table*}[t]
+\caption{Scope of the closest contemporary work. ``External'' denotes human/expert-grounded evidence outside the training corpora.}
+\label{tab:closest}
+\centering\small\hyphenpenalty=10000\exhyphenpenalty=10000
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.21\textwidth}>{\raggedright\arraybackslash}p{.30\textwidth}>{\raggedright\arraybackslash}p{.18\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Study & Model treatment and evaluation & Additional axes & Boundary relative to this study \\
+\midrule
+VICTOR \cite{papadopoulos2023victor} & Fashion-pretrained backbones and multitask Transformer; Polyvore, MISFIT & Encoder cost & Task-specific incompatibility detection \\
+OutfitTransformer \cite{sarkar2023outfittransformer} & End-to-end contextual set model; Polyvore & -- & Contextual architecture, not frozen transfer \\
+HAT \cite{jung2025hat} & End-to-end history-aware Transformer; Polyvore, IQON & Personalization & User-history recommendation \\
+MEDAL \cite{sanny2026medal} & Distilled task-specific meta-spaces; Polyvore & -- & Learned spaces, not a common frozen probe \\
+LMLMO \cite{chang2025large} & Generated cues with BEiT3; FashionVC, EVALUATION3 & Multimodal reasoning & Pair compatibility under a different protocol \\
+HON/A100 \cite{pang2026crossselling} & End-to-end higher-order network; Polyvore, A100 & External aesthetics & Task-specific compatibility and cross-selling \\
+E-commerce benchmark \cite{czerwinska2025ecommerce} & Frozen and tuned embeddings; e-commerce item data & Retrieval; classification; cost & Item-level representation benchmark \\
+LookBench \cite{gao2026lookbench} & Frozen and tuned retrieval models; LookBench & Human labels; retrieval; audit; cost & Live fine-grained item retrieval \\
+RepBench-Fashion (ours) & Seven frozen checkpoints and contextual baseline; Polyvore, IQON, A100 & Leakage; retrieval; calibration; cost; statistics; provenance & Common relational probe with prospective replication \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+Prior work has therefore incorporated or adapted modern representations within compatibility systems. The distinct contribution here is to determine which transfer conclusions remain defensible when the relational probe and evaluation logic are fixed across item- and exact-image-disjoint corpora, prospective replication, external corroboration, provenance, protocol calibration, efficiency, and construction stability. Table~\ref{tab:closest} states this boundary without treating different splits, modalities, negative generators, personalization targets, or training objectives as directly comparable leaderboards. Published VICTOR, HAT, MEDAL, HON, Text2Outfit, and related scores are consequently discussed but not numerically compared with ours.
+
+\subsection{Calibration, efficiency, and reproducible comparison}
+
+ROC--AUC measures discrimination, not whether predicted probabilities correspond to empirical frequencies. The Brier score is a proper squared-probability loss \cite{brier1950}; log loss offers a complementary proper scoring rule; and expected calibration error (ECE) summarizes reliability-bin discrepancies, although its value depends on binning. Calibration studies show that modern neural systems can be accurate yet miscalibrated and that calibration assessment itself requires care \cite{niculescu2005probabilities,guo2017calibration,naeini2015calibration,vaicenavicius2019calibration,minderer2021revisiting}. Under distribution shift, uncertainty can degrade independently of accuracy \cite{ovadia2019uncertainty}. We consequently report discrimination, proper scores, and ECE sensitivity rather than collapsing them into one ranking.
+
+Efficiency has analogous measurement problems. Parameter count, operations, latency, throughput, memory, and end-to-end extraction time answer different questions; ``efficient'' without a declared measure is underspecified \cite{dehghani2022efficiency}. Hardware and software stacks affect results \cite{hooker2021hardware}, while systematic compute and carbon reporting improves accountability \cite{schwartz2020green,henderson2020reporting,dodge2022carbon}. We report same-device measurements and Pareto frontiers, but avoid extrapolating a single GPU result to all deployments.
+
+Finally, model comparisons require paired analysis and disciplined multiplicity. Bootstrap methods provide distribution-light interval estimates \cite{efron1994bootstrap}; repeated training and benchmark construction introduce variance that should be exposed rather than hidden \cite{bouthillier2021variance}. Multiple-dataset comparisons and resampled estimates require care because observations and folds are dependent \cite{demsar2006statistical,nadeau2003inference}. We use group-aware paired resampling, exact McNemar tests for paired FITB decisions where applicable, and Holm's sequential correction for predefined contrast families \cite{holm1979}. Protocol hashes, manifests, and audit artifacts follow reproducibility recommendations to make the reported result traceable \cite{pineau2021reproducibility}.
+
+\section{Research questions and study design}\label{sec:design}
+
+The benchmark was frozen before final IQON and A100 evaluation. Four questions provide a one-to-one path from gap to objective, contribution, evidence, and answer.
+
+\begin{description}
+\item[RQ1:] Under an identical frozen-feature relational probe, how do the seven released checkpoints compare on item- and exact-image-disjoint Polyvore, and does the broad hierarchy prospectively replicate on IQON3000-Clean?
+\item[RQ2:] How far do those conclusions extend to A100 human/expert-grounded questions, task-specific contextual learning, fashion-specialization contrasts, and retrieval-versus-compatibility ranking?
+\item[RQ3:] Do discrimination, benchmark calibration, measured efficiency, and checkpoint provenance favour the same representation?
+\item[RQ4:] Which conclusions survive audits of leakage and question validity, historical question regeneration, IQON retention and dependence, construction seeds, feature width, learner choice, compatibility-label availability, outfit length, and failure consensus?
+\end{description}
+
+The experimental unit is a frozen representation checkpoint, not an entire end-to-end recommendation system. Images are encoded once. All representations receive the same downstream feature construction, training labels, candidate sets, and validation criterion. Hyperparameters are selected separately per representation using validation CP ROC--AUC, never test or A100 outcomes. Polyvore-D-Clean influenced development choices; its results therefore establish controlled in-domain evidence, not a prospective blind test. The IQON protocol and evaluation path were frozen subsequently and are treated as replication. This asymmetry is maintained throughout the paper rather than blending both datasets into a single discovery analysis.
+
+Six pairwise contrasts were specified before final testing: DINOv3 minus ResNet50; GR-Lite minus DINOv3; FashionCLIP minus CLIP; Marqo-FashionSigLIP minus SigLIP2; the validation-selected best fashion-specialized minus best generic representation; and the validation-selected best overall minus ResNet50. They encode progression from supervised CNN to generic self-supervision, retrieval specialization relative to DINOv3, two specialization comparisons within broadly related VLM families, and practically relevant selection contrasts. No all-pairs significance matrix is interpreted.
+
+\input{tables/research_framework}
+
+Table~\ref{tab:framework} provides the one-to-one reviewer navigation from each gap and objective to its question, contribution, and principal evidence.
+
+\section{Datasets and leakage-audited protocol construction}\label{sec:datasets}
+
+\begin{table*}[t]
+\caption{Evaluation protocols and evidential roles. Counts are positive outfits; CP adds one matched synthetic negative per positive. A100 contains fixed questions rather than train/validation/test outfits.}
+\label{tab:datasets}
+\centering\small\hyphenpenalty=10000\exhyphenpenalty=10000
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.20\textwidth}>{\raggedright\arraybackslash}p{.15\textwidth}>{\centering\arraybackslash}p{.21\textwidth}>{\raggedright\arraybackslash}p{.18\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Protocol & Role & Train / val. / test & Split separation & Qualification \\
+\midrule
+Historical Polyvore-D & Comparison & 16,995 / 3,000 / 15,145 & Neither item nor image & Packaged negatives; known overlap \\
+Polyvore-D-Clean & Development & 16,991 / 2,999 / 15,142 & Item and exact image & Development informed \\
+IQON3000-Clean & Replication & 86,800 / 12,400 / 24,800 & Item and exact image & 41.62\% retained; not user-disjoint \\
+A100 & External & -- / -- / 200 & Exact-image audit & 100 LAT + 100 AAT; wide uncertainty \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+Table~\ref{tab:datasets} summarizes the four protocols. CP is a balanced binary task: each observed outfit is a positive, and its matched negative replaces \emph{every} item with a different same-category item from the same split while retaining outfit length and category sequence. FITB supplies one partial outfit and four candidates, exactly one of which is the held-out item; the remaining three are distinct same-category, within-split distractors. Candidate positions are balanced. These controlled corruptions reduce category and length shortcuts but remain synthetic and should not be interpreted as the population distribution of incompatible outfits.
+
+Question construction explicitly rejects any CP item set already observed as a positive, duplicate generated negatives, any FITB distractor completion already observed as a positive, and duplicated candidates within a question. A frozen-manifest audit additionally found no candidate duplication by exact decoded pixels. Across all six clean splits, the audit found zero CP positive collisions by item or exact-image set and zero FITB positive-completion collisions; the largest cross-question reuse count for a distractor was one on Polyvore and two on IQON. Cross-question reuse is allowed, but no within-question duplication is. Section~\ref{sec:protocolaudit} and the supplement report these validation counts.
+
+\subsection{Polyvore-D-Clean}
+
+Starting from the pooled historical Polyvore-D positives, eight exact duplicate outfits were removed. We formed a graph whose nodes were outfits and whose edges indicated a shared item identifier, an identical encoded image, or identical decoded pixels. There were 120 exact-image duplicate groups. Connected components, rather than individual outfits, were assigned deterministically to train, validation, or test, targeting the historical split sizes. The final split contains 16,991/2,999/15,142 positive outfits and 68,166/13,780/70,839 unique items. Audits report zero cross-split item-identifier, encoded-file, decoded-pixel, or outfit overlap.
+
+Negatives and FITB candidates were then reconstructed inside each split using category and outfit-length constraints. This order is important: generating corruptions before splitting could reintroduce cross-split evidence. Historical Polyvore-D retains its original 16,995/3,000/15,145 outfits and packaged candidates solely for comparison with prior work. It is not used to support leakage-audited claims.
+
+\subsection{IQON3000-Clean}
+
+The source archive contains 308,747 JSON records. After requiring at least two distinct items, 297,916 valid outfits from 3,568 users and 712,170 unique source items remained; 610 duplicate outfits were detected. Direct component splitting was infeasible because one item/image-connected component contained 292,197 outfits (98.08\% of the valid corpus). We therefore used deterministic balanced greedy hypergraph packing. Item identifiers and exact encoded/decoded image groups were indivisible; outfits that would connect split boundaries were discarded. Exact targets of 86,800/12,400/24,800 positive outfits were met, retaining 41.62\% of valid source outfits. The test set yields 49,600 CP examples and 24,800 FITB questions.
+
+The retained protocol has zero cross-split identifier, exact encoded-image, decoded-pixel, and outfit overlap. It is not user-disjoint: the giant connectivity structure and retention target make item/image disjointness the enforced constraint, while users may occur in multiple splits. A retained-versus-excluded audit preserves 98.74\% of source users and finds very small category-distribution divergence (Jensen--Shannon divergence 0.0016 bits), but non-negligible selection: retained outfits are shorter (mean 5.28 versus 6.47 items) and contain less frequently repeated items (mean source frequency 8.73 versus 13.44). These differences are reported rather than treating the retained subset as representative of the full archive. IQON confidence intervals primarily resample user clusters; an item-connected-component sensitivity is added because user clustering does not capture all graph dependence. We do not describe IQON3000-Clean as new-user generalization.
+
+\subsection{A100 external evaluation}
+
+A100 is left unchanged and evaluated exactly as its released five-choice records: the probe scores the completed outfit produced by appending each candidate to the supplied partial outfit and selects the highest score. LAT contains 847 image-reference instances resolving to 680 referenced files and 680 unique exact images; AAT contains 983 instances resolving to 983 files and 977 unique exact images. Sixty-five exact images occur in both tasks, giving 1,663 referenced files but 1,592 globally unique exact images. None overlaps either clean training corpus by encoded bytes or decoded pixels. For LAT, the primary target is the majority label $\arg\max(\texttt{gt\_distribution})$; mean LAT (mLAT) credits the selected option's vote share. The archive's separate \texttt{gt} field disagrees on questions 92, 93, 94, 96, 98, 99, and 100, so archive-gt accuracy is a sensitivity analysis. AAT questions are partitioned as colour (1--20), style (21--52), occasion (53--67), season (68--79), material (80--91), and balance (92--100). Nothing is fitted, tuned, calibrated, or selected on A100.
+
+\section{Frozen representation benchmark}\label{sec:benchmark}
+
+\begin{table*}[t]
+\caption{Frozen image representations. Revisions identify the recorded checkpoint commit. Possible exposure means that incidental web or undisclosed-source overlap cannot be excluded; it is not evidence that overlap occurred.}
+\label{tab:representations}
+\centering\small\hyphenpenalty=10000\exhyphenpenalty=10000
+\setlength{\tabcolsep}{3.5pt}\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.24\textwidth}>{\raggedright\arraybackslash}p{.30\textwidth}>{\ttfamily\raggedright\arraybackslash}p{.105\textwidth}>{\centering\arraybackslash}p{.105\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Representation & Family / main pretraining & Revision & Input / dim. & Provenance \\
+\midrule
+ResNet50 & supervised CNN; ImageNet-1K & 11ad3fa6 & 224 / 2,048 & clean \\
+DINOv3 ViT-L/16 & self-supervised ViT; LVD-1689M & ea8dc286 & 224 / 1,024 & clean; web uncertainty \\
+CLIP ViT-L/14@336 & generic contrastive VLM; 400M web pairs & ce19dc91 & 336 / 768 & clean; web uncertainty \\
+SigLIP2-B/16@384 & sigmoid-loss VLM; WebLI mixture & f775b65a & 384 / 768 & clean; web uncertainty \\
+FashionCLIP 2.0 & fashion contrastive VLM; LAION + Farfetch & 7e3ba62c & 224 / 512 & clean; web uncertainty \\
+Marqo-FashionSigLIP & fashion sigmoid-loss VLM; SigLIP + fashion GCL & c56244cc & 224 / 768 & possibly exposed \\
+GR-Lite & fashion retrieval ViT; DINOv3 + fashion data & a8057f8a & 336 / 1,024 & possibly exposed \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+Table~\ref{tab:representations} defines the roster. Each checkpoint is image-only at evaluation time; text is used only historically in VLM pretraining. Official preprocessing is retained, including resolution, interpolation, and normalization. ResNet50 uses the ImageNet-1K V2 weights and a 2,048-dimensional pooled feature. DINOv3 uses the normalized ViT-L/16 class-token representation. CLIP and SigLIP2 use their projected image embeddings. FashionCLIP uses its 512-dimensional projected embedding. Marqo-FashionSigLIP uses the normalized OpenCLIP image output, and GR-Lite uses its released 1,024-dimensional normalized class-token output.
+
+The roster was selected to represent distinct pretraining regimes rather than a sequence of parameter-matched ablations. Parameter count and resolution consequently differ. This is intentional for model-choice measurement, but it prevents causal attribution of a result to one factor such as loss, data, or architecture. Exact revisions, preprocessing, licenses, and provenance notes are recorded because checkpoint identity is part of the intervention.
+
+For an outfit $O=\{x_1,\ldots,x_n\}$, a frozen encoder gives $e_i=f(x_i)$. A scaler and randomized PCA are fitted only to distinct training-item embeddings and applied to validation and test items. Unless otherwise stated, PCA retains 256 dimensions and the result is $\ell_2$ normalized to $z_i$. Each unordered item pair is represented as
+\begin{equation}
+q_{ij}=\left[|z_i-z_j|\,;\, z_i\odot z_j\right], \qquad i<j,
+\label{eq:pair}
+\end{equation}
+and outfit features are their mean,
+\begin{equation}
+\phi(O)=\frac{2}{n(n-1)}\sum_{i<j}q_{ij}.
+\label{eq:outfit}
+\end{equation}
+This 512-dimensional construction is invariant to item order and gives every pair equal weight. A second StandardScaler is fitted to training CP examples only. Logistic regression predicts
+\begin{equation}
+p(y=1\mid O)=\sigma(w^{\top}\tilde\phi(O)+b).
+\end{equation}
+The learner is deliberately simple: it can exploit coordinate-wise distance and agreement without learning a new visual encoder or a deep contextual architecture.
+
+\section{Experimental setup}\label{sec:setup}
+
+The logistic classifier uses L-BFGS for at most 2,000 iterations, no class weighting, and $C\in\{0.01,0.1,1,10,100,1000\}$. Validation CP ROC--AUC is the sole selection criterion; the classification threshold is 0.5. CP reports ROC--AUC as the primary metric, with PR--AUC, accuracy, balanced accuracy, Brier score, log loss, and equal-width ECE. FITB selects the candidate producing the highest completed-outfit compatibility score and reports accuracy; its scores are not interpreted as normalized candidate probabilities.
+
+Uncertainty uses 2,000 paired bootstrap replicates. Polyvore resamples connected-component groups; IQON primarily resamples users; A100 resamples questions. Because IQON test outfits remain dependent through an item graph, a conservative sensitivity instead resamples its 9,231 test item-connected components; the largest contains 11,547 of 24,800 positive outfits. The six predefined contrasts are corrected by Holm's method within each dataset--metric family. CP interval estimates are paired and group-aware. FITB paired differences additionally use exact McNemar tests where the protocol permits, with bootstrap intervals for effect size. Rank replication is summarized by Spearman's $\rho$ and Kendall's $\tau$, treated descriptively given seven models.
+
+Robustness checks were frozen alongside the main analysis, except the explicitly labelled post-audit IQON retention, item-component bootstrap, and question-collision diagnostics added in response to validity review. Construction seeds 42--46 hold item partitions fixed but regenerate CP negatives and FITB distractors, then refit affected scalers and classifiers. Representation width is tested by replacing PCA-256 with native-dimensional features. Learner dependence is tested on IQON using XGBoost over the same outfit features. The compatibility-label analysis uses deterministic 10\%, 25\%, 50\%, and 100\% subsets of labelled training outfits; at every fraction, unsupervised PCA still has access to embeddings for all train-split items, while the outfit-feature scaler and classifier are refitted only on the selected labelled outfits. It is therefore not encoder few-shot learning. Calibration uses 10, 15, and 20 equal-width bins. The provenance sensitivity removes Marqo-FashionSigLIP and GR-Lite, the two checkpoints with insufficiently disclosed fashion data to exclude Polyvore exposure. Failure and outfit-length analyses are descriptive.
+
+The image-only OutfitTransformer adaptation projects cached ResNet50 features to 64 dimensions, prepends an outfit token, and applies six Transformer layers with 16 heads, a 256-unit feed-forward block, dropout 0.1, and no positional encoding. A two-layer binary head is optimized with focal binary cross-entropy ($\gamma=2$, $\alpha=0.25$), AdamW (learning rate $10^{-5}$, weight decay $10^{-4}$), batch size 50, for at most 30 epochs with validation-AUC early stopping (patience 5). Five training seeds (42--46) are reported. This tests whether task-specific contextual learning from a conventional visual backbone can compensate for weaker frozen item features. It is an adaptation to the image-only protocol, not an exact reproduction of the canonical multimodal OutfitTransformer.
+
+Efficiency measurements use one NVIDIA GeForce RTX 5070 Ti (16 GB). Repeated batch-64 inference follows two warm-up and five measured repeats; PyTorch FlopCounterMode estimates operations. End-to-end IQON extraction uses batch 32 across 434,089 retained item images. PCA and classifier timings are reported separately. Hardware-specific values support within-device comparisons only.
+
+\section{Results}\label{sec:results}
+
+\subsection{Protocol and construction audit (RQ4)}\label{sec:protocolaudit}
+
+Exact split audits found no cross-split item identifier, encoded-file, decoded-pixel, or outfit overlap in either clean corpus. The construction audit described in Section~\ref{sec:datasets} also found no exact positive--negative collision or duplicated FITB candidate. These checks establish item and exact-image disjointness and validate the generated questions; they do not exclude transformed/perceptual duplicates or upstream web-pretraining exposure.
+
+The IQON retention audit shows the cost of this guarantee. Selection preserves almost all users and the category mixture, but preferentially retains shorter outfits and less-repeated items. Moreover, 46.56\% of retained test positives remain in one test item-connected component. Primary user-cluster intervals therefore cannot eliminate all item-graph dependence. Component-cluster sensitivity is deliberately conservative: all six predefined IQON contrast directions remain unchanged, including DINOv3--ResNet50 CP 95\% CI [0.0517, 0.0651], Marqo--CLIP [0.0140, 0.0237], and the small adverse FashionCLIP--CLIP contrast [$-0.0105$, $-0.0003$]. This supports the reported hierarchy while leaving retained-subset generalization as a bounded limitation.
+
+\subsection{Polyvore-D-Clean (RQ1)}\label{sec:poly}
+
+\begin{table*}[t]
+\caption{Primary test results on the two item- and exact-image-disjoint protocols. Brackets are 95\% group-aware bootstrap confidence intervals. FITB chance accuracy is 0.25. Bold denotes the largest point estimate within a dataset and metric, not significance against every alternative.}
+\label{tab:main}
+\centering\small\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.192\textwidth}>{\raggedright\arraybackslash}p{.238\textwidth}>{\centering\arraybackslash}X>{\centering\arraybackslash}X@{}}
+\toprule
+Dataset & Frozen representation & CP ROC--AUC [95\% CI] & FITB accuracy [95\% CI] \\
+\midrule
+\multirow{7}{*}{Polyvore-D-Clean}
+ & ResNet50 & .6938 [.6881, .6997] & .4063 [.3981, .4145] \\
+ & DINOv3 ViT-L/16 & .7822 [.7772, .7873] & .5048 [.4972, .5134] \\
+ & CLIP ViT-L/14@336 & .8883 [.8843, .8919] & .6500 [.6424, .6576] \\
+ & SigLIP2-B/16@384 & .8892 [.8857, .8927] & \textbf{.6528 [.6454, .6602]} \\
+ & FashionCLIP 2.0 & .8690 [.8648, .8730] & .6175 [.6099, .6250] \\
+ & Marqo-FashionSigLIP & \textbf{.8897 [.8859, .8931]} & .6479 [.6408, .6557] \\
+ & GR-Lite & .8277 [.8232, .8323] & .5573 [.5498, .5657] \\
+\midrule
+\multirow{7}{*}{IQON3000-Clean}
+ & ResNet50 & .5852 [.5798, .5909] & .3166 [.3097, .3233] \\
+ & DINOv3 ViT-L/16 & .6419 [.6362, .6475] & .3660 [.3587, .3739] \\
+ & CLIP ViT-L/14@336 & .7042 [.6977, .7108] & .4364 [.4281, .4444] \\
+ & SigLIP2-B/16@384 & .7031 [.6970, .7093] & .4330 [.4254, .4413] \\
+ & FashionCLIP 2.0 & .6981 [.6920, .7042] & .4275 [.4193, .4358] \\
+ & Marqo-FashionSigLIP & \textbf{.7221 [.7158, .7282]} & \textbf{.4451 [.4371, .4539]} \\
+ & GR-Lite & .6511 [.6440, .6580] & .3832 [.3757, .3911] \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+Table~\ref{tab:main} shows a large separation between conventional supervised features and the evaluated VLM representations. ResNet50 reaches 0.6938 CP ROC--AUC and 0.4063 FITB accuracy. DINOv3 improves these by 0.0885 AUC (95\% CI 0.0817--0.0952) and 0.0985 FITB (0.0882--0.1088); both predefined comparisons remain supported after Holm correction. GR-Lite adds 0.0455 AUC (0.0399--0.0511) and 0.0525 FITB (0.0425--0.0619) over its generic DINOv3 base family. The three strongest CP point estimates---CLIP, SigLIP2, and Marqo-FashionSigLIP---are within 0.0014 AUC of one another.
+
+Specialization does not yield a uniform advantage. FashionCLIP trails CLIP by 0.0193 AUC (95\% CI $-0.0232$ to $-0.0156$) and 0.0325 FITB ($-0.0405$ to $-0.0238$), with both contrasts supported after correction. Marqo-FashionSigLIP differs from SigLIP2 by only 0.0005 AUC ($-0.0026$ to 0.0036) and $-0.0049$ FITB ($-0.0131$ to 0.0027); neither result supports a Polyvore advantage. The validation-selected best fashion-versus-generic contrast is likewise near zero. The strongest overall system improves over ResNet50 by 0.1959 AUC and 0.2416 FITB. The Polyvore result therefore establishes an advantage for the evaluated VLM tier while showing that domain specialization alone is not sufficient.
+
+Historical Polyvore-D produces the same broad ordering but different absolute values: ResNet50 0.6894/0.4013, DINOv3 0.7605/0.4722, CLIP 0.8712/0.6072, SigLIP2 0.8729/0.6224, FashionCLIP 0.8567/0.5947, Marqo 0.8772/0.6199, and GR-Lite 0.8203/0.5444 for CP/FITB. To separate split cleaning from question construction, we also evaluated the historical positive split with regenerated clean-style CP/FITB questions. Clean-minus-bridge changes are only $-0.0017$ to 0.0061 AUC and $-0.0023$ to 0.0106 FITB, whereas packaged-historical to regenerated-question changes are appreciably larger for several models. Thus a score may increase after moving to the clean protocol because the negative/distractor instrument changed; leakage removal itself is not interpreted as improving representations. Detailed bridge values are in the supplement. Historical results remain comparison-only.
+
+\subsection{Prospective IQON3000-Clean replication (RQ1)}\label{sec:iqon}
+
+Absolute performance falls on IQON, consistent with a more heterogeneous user-curated corpus and a different negative/distractor population. The separation nonetheless persists: CLIP, SigLIP2, and FashionCLIP all remain clearly above generic DINOv3, which in turn exceeds ResNet50 by 0.0566 AUC (95\% CI 0.0508--0.0626) and 0.0494 FITB (0.0416--0.0580). GR-Lite exceeds DINOv3 by 0.0092 AUC (0.0026--0.0155) and 0.0172 FITB (0.0092--0.0255). Each predefined contrast remains supported after correction.
+
+Within the full roster, Marqo-FashionSigLIP has the best point estimate for both tasks: 0.7221 AUC and 0.4451 FITB. It improves over SigLIP2 by 0.0190 AUC (0.0145--0.0234) and 0.0121 FITB (0.0050--0.0190), unlike the null Polyvore contrast. Against CLIP, the best specialized model adds 0.0179 AUC and 0.0087 FITB. FashionCLIP again trails CLIP, by 0.0062 AUC and 0.0089 FITB. The replication therefore sharpens the recipe-dependent conclusion: specialization depends on the released checkpoint and training recipe. Marqo's IQON lead is a checkpoint-specific result with additional provenance uncertainty; the replicated VLM-tier advantage does not rely on it.
+
+\subsection{Cross-dataset replication (RQ1)}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.88\textwidth]{figures/Fig1.pdf}
+\caption{Representation performance and rank replication across Polyvore-D-Clean and IQON3000-Clean. IQON is the prospective replication; connecting lines show the same frozen representation, not paired examples across corpora.}
+\label{fig:crossdataset}
+\end{figure*}
+
+Figure~\ref{fig:crossdataset} separates absolute difficulty from relative ordering. CP ranks correlate at Spearman $\rho=0.964$ and Kendall $\tau=0.905$; FITB ranks correlate at $\rho=0.857$ and $\tau=0.714$. CP and FITB orderings within IQON are identical. ResNet50 is last and DINOv3 next-to-last on both clean datasets; the contrastive VLMs occupy the upper group; GR-Lite lies between generic DINOv3 and that group. The replication supports the hierarchy despite sizeable absolute score shifts.
+
+IQON differences among the upper models are more visible, and Marqo's advantage appears only there. The stable result is the tier-level separation: after excluding both uncertain-provenance checkpoints, SigLIP2 leads Polyvore and CLIP leads IQON, while the evaluated contrastive VLMs remain above ResNet50 and generic DINOv3. The hierarchy is therefore not peculiar to one set of Polyvore products, one clean split construction, or the inclusion of Marqo and GR-Lite.
+
+\subsection{A100 external human/expert-grounded transfer (RQ2)}\label{sec:a100}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.90\textwidth]{figures/Fig2.pdf}
+\caption{A100 LAT and AAT accuracy for probes trained on each clean source. Each task has 100 fixed questions; uncertainty is question-bootstrap uncertainty. A100 was never used for fitting or model selection.}
+\label{fig:a100}
+\end{figure*}
+
+Figure~\ref{fig:a100} summarizes the external results. Polyvore-trained representations obtain LAT/AAT accuracies of 0.37/0.35 (ResNet50), 0.39/0.56 (DINOv3), 0.60/0.67 (CLIP), 0.50/0.63 (SigLIP2), 0.58/0.62 (FashionCLIP), 0.62/0.64 (Marqo), and 0.54/0.59 (GR-Lite). IQON-trained probes obtain 0.24/0.31, 0.34/0.40, 0.50/0.56, 0.48/0.63, 0.56/0.57, 0.58/0.63, and 0.47/0.58, respectively. Best-over-ResNet effects range from 0.23 to 0.34 on LAT and are 0.32 on AAT for either training source. These predefined effects remain supported after correction.
+
+The remainder is mixed, as expected at $n=100$. For example, Polyvore-trained Marqo exceeds SigLIP2 on LAT by 0.12 (0.03--0.21; Holm-adjusted $p=0.045$), but the corresponding AAT contrast is only 0.01 and the IQON-trained contrasts are not supported. Many intervals among the evaluated VLMs overlap. Rank correlations between clean CP and A100 are positive---for Polyvore, $\rho=0.786$ with LAT and 0.893 with AAT; for IQON, 0.893 and 0.721---but seven systems and 100 questions do not support fine-grained leaderboard claims. mLAT gives the same broad picture, with best values of 0.501 (Polyvore-trained Marqo) and 0.474 (IQON-trained Marqo). The alternative archive label interpretation affects seven questions and is reported in the supplement; it does not reverse the broad tier-level conclusion. A100 is therefore corroborating human/expert-grounded evidence, deliberately not a high-power ranking exercise.
+
+\subsection{Task-specific contextual baseline (RQ2)}\label{sec:baseline}
+
+The image-only OutfitTransformer adaptation reaches $0.8095\pm0.0020$ CP AUC and $0.4655\pm0.0051$ FITB on Polyvore, versus $0.7723\pm0.0013$ and $0.4354\pm0.0012$ on IQON (mean $\pm$ training-seed SD). Its IQON CP result exceeds every frozen-probe result, showing that supervised contextual learning can compensate for a conventional ResNet input when sufficient in-domain labels are available. On IQON FITB, however, it is approximately tied with CLIP and below Marqo's 0.4451. On Polyvore it trails all VLM probes on both tasks and trails DINOv3 on FITB.
+
+External transfer is also mixed. Polyvore-trained baseline means are $0.490\pm0.051$ LAT and $0.340\pm0.029$ AAT; IQON-trained means are $0.418\pm0.026$ and $0.382\pm0.054$. The baseline is thus competitive for IQON CP but does not dominate across task, dataset, or external metric. Because its visual input, optimization, and capacity differ from the frozen probes, this comparison is diagnostic rather than a controlled representation contrast. It is an image-only contextual adaptation, not the canonical published implementation. Published VICTOR, HAT, MEDAL, HON, Text2Outfit, and multimodal results cannot be inserted as like-for-like baselines because their splits, modalities, personalization targets, negatives, or evaluation candidates differ.
+
+\subsection{Retrieval versus relational compatibility (RQ2)}\label{sec:retrieval}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/Fig3.pdf}
+\caption{LookBench Fine R@1 versus clean compatibility for the exact five-model overlap. With only five systems, correlations are descriptive and rank reversals are more informative than a test of zero association.}
+\label{fig:retrieval}
+\end{figure}
+
+LookBench version~3 (revised 13 April 2026) reports Fine Recall@1 for an exact checkpoint overlap of DINOv3 (43.97), CLIP (39.79), SigLIP2 (59.44), Marqo (62.77), and GR-Lite (65.71) \cite{gao2026lookbench}. On this subset, Polyvore compatibility correlation is $\rho=0.20$ for CP and $\rho=-0.20$ for FITB (both nominal $p=0.747$); both IQON correlations are exactly $\rho=0$. The ranks exhibit concrete reversals: GR-Lite leads this retrieval subset but is fourth for both IQON compatibility tasks; CLIP has the lowest retrieval score yet ranks second on IQON CP/FITB and near the Polyvore leaders. Figure~\ref{fig:retrieval} therefore shows that retrieval rank is not a reliable deterministic compatibility-selection rule in this exact overlap. It does not establish population-level independence: five models are too few, the correlations are descriptive, LookBench measures a different construct, and ResNet50 and FashionCLIP are absent.
+
+\subsection{Benchmark calibration (RQ3)}\label{sec:calibration}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/Fig4.pdf}
+\caption{Reliability diagrams for CP probabilities under the balanced constructed benchmark protocols. ECE uses 15 equal-width bins; 10- and 20-bin sensitivity results are in the supplement. These curves do not estimate real-world compatibility prevalence.}
+\label{fig:calibration}
+\end{figure*}
+
+Figure~\ref{fig:calibration} shows the reliability curves. The discrimination winner is not the calibration winner. Marqo has the lowest Brier score on both Polyvore (0.1322) and IQON (0.2197), consistent with its strong ranking and probability accuracy. ECE$_{15}$, however, is lowest for ResNet50: 0.0288 on Polyvore and 0.0415 on IQON. Marqo records 0.0350 and 0.0583, and FashionCLIP has the largest IQON ECE (0.0571 apart from Marqo's 0.0583). These small absolute differences depend on binning; the 10/20-bin analyses retain the broader conclusion that no single model dominates all calibration summaries.
+
+This is not paradoxical. A weak discriminator can place many predictions near the constructed 0.5 base rate and appear locally calibrated, whereas a stronger model may require post-hoc recalibration. Brier score blends refinement and calibration; ECE discretizes reliability; ROC--AUC ignores probability scale. All three probability summaries describe \emph{benchmark calibration} under balanced synthetic CP, not calibration to the unknown real-world prevalence of compatible outfits. We therefore report them jointly and would fit any deployment recalibration on held-out deployment-like data. FITB scores are rankings, not calibrated probabilities.
+
+\subsection{Computational efficiency and Pareto analysis (RQ3)}\label{sec:efficiency}
+
+\begin{table*}[t]
+\caption{Same-device encoder efficiency and IQON extraction cost. Latency is repeated batch-64 inference on one RTX 5070 Ti; GFLOPs are PyTorch estimates. IQON extraction used batch 32 over 434,089 item images.}
+\label{tab:efficiency}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.06}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xrrrrrr@{}}
+\toprule
+Representation & GFLOPs & ms/image & images/s & VRAM (MB) & IQON time (s) & IQON images/s \\
+\midrule
+ResNet50 & 8.17 & 1.976 & 506.1 & 764 & 408.7 & 1,062.1 \\
+DINOv3 ViT-L/16 & 125.68 & 3.145 & 318.0 & 885 & 1,578.7 & 275.0 \\
+CLIP ViT-L/14@336 & 381.92 & 9.313 & 107.4 & 2,029 & 4,777.6 & 90.9 \\
+SigLIP2-B/16@384 & 112.13 & 5.882 & 170.0 & 1,443 & 2,612.2 & 166.2 \\
+FashionCLIP 2.0 & 8.82 & 2.282 & 438.2 & 401 & 717.7 & 604.8 \\
+Marqo-FashionSigLIP & 35.42 & 1.907 & 524.3 & 651 & 655.9 & 661.8 \\
+GR-Lite & 289.62 & 6.828 & 146.5 & 1,687 & 2,832.7 & 153.2 \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/Fig5.pdf}
+\caption{IQON accuracy versus estimated encoder GFLOPs. Pareto status depends on the selected accuracy, latency, memory, and provenance constraints; it is not intrinsic to a model.}
+\label{fig:pareto}
+\end{figure}
+
+Table~\ref{tab:efficiency} reports the measured costs and Fig.~\ref{fig:pareto} relates them to accuracy. Encoder extraction dominates the light downstream pipeline: IQON PCA takes 5.1--12.4 s and logistic fitting 1.7--3.2 s, compared with 409--4,778 s for feature extraction. CLIP is the most expensive measured option (381.9 GFLOPs, 9.31 ms/image, 2.03 GB peak VRAM) despite near-leading accuracy. FashionCLIP is light (8.82 GFLOPs and 401 MB) but less accurate. Marqo combines the best IQON accuracy with 1.91 ms/image and 651 MB, placing it on the full-roster frontier for the measured criteria. Its provenance uncertainty remains a separate cost that a numerical Pareto plot cannot encode. If only clean-provenance checkpoints are allowed, the frontier changes. Predictive quality, hardware cost, memory, calibration, and provenance therefore support different model choices.
+
+\subsection{Stability and robustness (RQ4)}\label{sec:robustness}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/Fig6.pdf}
+\caption{Construction-seed stability when item partitions are held fixed but CP corruptions and FITB distractors are regenerated for seeds 42--46. Error bars summarize construction-seed variation, not sampling uncertainty.}
+\label{fig:construction}
+\end{figure*}
+
+Figure~\ref{fig:construction} shows that construction-seed variability is small relative to the main representation gaps. Across seeds, Polyvore CP rank agreement with the primary construction is $\rho=0.893$--1.000 and FITB agreement is 0.964; IQON ranges from 0.964--1.000 for both tasks. Typical CP standard deviations are 0.0005--0.0021 and FITB standard deviations 0.0013--0.0054. The leading VLMs can exchange adjacent positions, consistent with their overlapping intervals, but the broad family hierarchy survives.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/Fig7.pdf}
+\caption{IQON PCA-256 versus native-dimensional robustness. Native features improve absolute values for all representations; rank order remains similar.}
+\label{fig:pca}
+\end{figure}
+
+As Fig.~\ref{fig:pca} shows, native-dimensional features increase IQON CP/FITB for every model: for example, ResNet50 rises from 0.5852/0.3166 to 0.6674/0.3644, and Marqo from 0.7221/0.4451 to 0.7593/0.4663. Yet rank correlations between PCA-256 and native features are $\rho=0.857$, $\tau=0.714$ for both tasks. XGBoost over the same IQON outfit features similarly preserves CP ranks ($\rho=0.964$, $\tau=0.905$) and exactly preserves FITB ranks, although absolute FITB often decreases. The headline hierarchy is therefore not an artefact of equalizing all encoders at 256 dimensions or of a strictly linear decision surface.
+
+When Marqo and GR-Lite are excluded for provenance sensitivity, SigLIP2 leads Polyvore and CLIP leads IQON; FashionCLIP still trails CLIP. Thus the evaluated VLM-tier advantage and the non-universality of fashion specialization do not depend on the uncertain-provenance checkpoints, while the claim that Marqo is the strongest IQON choice plainly does.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/Fig8.pdf}
+\caption{Polyvore-D-Clean compatibility-label efficiency. Fractions reduce labelled training outfits; frozen encoders and PCA access to all train-split item embeddings remain unchanged.}
+\label{fig:lowdata}
+\end{figure}
+
+The compatibility-label efficiency curves are shown in Fig.~\ref{fig:lowdata}. At 10\% of Polyvore labelled outfits, CLIP and Marqo already reach approximately 0.863 CP AUC, while ResNet50 reaches 0.642 and DINOv3 0.743. More labels improve every model, but do not close the representation gap. Because PCA continues to see every train-split item embedding, this isolates labelled-outfit demand rather than generic low-data learning or few-shot encoder adaptation.
+
+Outfit-length and failure analyses identify remaining structure. Mean CP AUC across models rises from 0.721 for two-item to 0.888 for six-or-more-item Polyvore outfits, and from 0.602 to 0.758 on IQON. Mean FITB rises more modestly (0.520 to 0.584; 0.355 to 0.442). Longer outfits supply more pair evidence but also change the example distribution, so the trend is descriptive. Unanimous errors are relatively rare compared with model disagreements: 463 versus 19,108 of 30,284 Polyvore CP examples and 1,523 versus 39,854 of 49,600 IQON CP examples; FITB has 965/12,089 of 15,142 and 3,497/20,200 of 24,800, respectively. The large disagreement pool suggests that representations expose meaningfully different relational cues even where aggregate ranks are stable.
+
+\section{Discussion}\label{sec:discussion}
+
+\subsection{Answer to RQ1: controlled transfer and replication}
+
+Our results establish a stable tier-level advantage for the evaluated contrastive VLM representations over ResNet50 and generic DINOv3 under the shared relational probe. The broad ordering replicates prospectively on IQON despite lower absolute scores: cross-dataset rank correlations are 0.964 for CP and 0.857 for FITB. Removing Marqo-FashionSigLIP and GR-Lite leaves the same family-level conclusion, so the primary result is robust to the roster's principal provenance concern. Because the released checkpoints differ as complete packages, the comparison supports checkpoint selection rather than attribution to a single pretraining factor. IQON supplies the stronger replication evidence because Polyvore influenced development, within the documented retained-subset boundary.
+
+\subsection{Answer to RQ2: construct and modelling boundaries}
+
+The hierarchy extends beyond the synthetic clean questions at tier level. Unchanged A100 questions broadly corroborate the evaluated VLM advantage, while their sample size precludes reliable ordering of close VLMs. The contextual baseline wins IQON CP yet not every dataset, task, or external metric, showing that supervised contextual learning is competitive rather than uniformly dominant. Fashion specialization is checkpoint- and recipe-dependent: FashionCLIP trails CLIP, whereas Marqo improves on IQON. Exact-overlap LookBench rank reversals further establish that a fashion-retrieval leaderboard is not a reliable compatibility-selection rule for the matched checkpoints.
+
+\subsection{Answer to RQ3: operational selection axes}
+
+The axes do not agree. Marqo leads IQON discrimination and Brier score and is efficient on the measured GPU, but its fashion-data provenance is less certain and it does not minimize ECE. ResNet50 has the lowest benchmark ECE and low cost but weak discrimination. CLIP is predictively strong and computationally expensive; FashionCLIP is compact but does not lead compatibility. These findings concern balanced-protocol calibration and one hardware/software stack. Model choice should therefore state its error, probability, latency, memory, reproducibility, and data-governance constraints rather than collapse them into one leaderboard.
+
+\subsection{Answer to RQ4: validity and robustness}
+
+The main family hierarchy survives exact-collision audits, five regenerated question seeds, native-width features, XGBoost, uncertain-provenance exclusion, compatibility-label fractions, and conservative IQON item-component resampling. The historical bridge shows that apparent historical-to-clean score increases chiefly reflect regenerated questions, not a beneficial effect of leakage removal. The audit also quantifies the coverage cost of item/image disjointness: IQON selection favours shorter, less-repeated outfits and leaves one large test item component. Together, these checks establish that the principal hierarchy is stable within the audited benchmark target while defining where stronger population or contamination claims would require new evidence.
+
+\subsection{Practical implications for machine-vision systems}
+
+The results support direct decisions for fashion-vision research and deployment. An encoder should be selected on relational compatibility evidence rather than a fashion-retrieval leaderboard: the exact LookBench overlap contains consequential rank reversals. Fashion-domain pretraining is likewise not a sufficient selection criterion, because its effect depends on the released recipe. Strong frozen contrastive VLM features can support competitive compatibility prediction without encoder fine-tuning, making frozen transfer a practical baseline when training cost, update frequency, or data access constrain end-to-end adaptation.
+
+Accuracy should not be the sole operational criterion. Benchmark calibration, latency, throughput, memory, and training-data provenance change the preferred checkpoint, and these constraints should be reported alongside discrimination. At the benchmark level, cross-split item identifiers and exact images must be audited together, connected duplicate structure must be respected during splitting, and generated CP negatives and FITB distractors must be checked against known positives and within-question duplication. These practices make machine-vision comparisons more interpretable and reduce the risk that an apparent model gain is instead a property of data leakage or question construction.
+
+\section{Threats to validity and limitations}\label{sec:limitations}
+
+\textit{Construct validity.} CP negatives and FITB distractors are synthetic, although they are same-category, within-split, and deterministically generated. They approximate plausible confusions rather than naturally occurring disliked outfits. Compatibility itself is culturally and contextually dependent, and image-only probes omit personal preference, garment fit, price, brand, and text. A100 improves human grounding but remains small. Its expert/human labels and facet partitions do not exhaust aesthetic judgments.
+
+\textit{Internal validity.} Exact identifiers, encoded files, decoded pixels, and duplicate outfits are controlled across clean splits, and generated questions have no audited exact positive collisions. Transformed or perceptually near-duplicate images cannot be exhaustively excluded. The IQON giant component forced hypergraph packing and discarding boundary-conflicting outfits, retaining only 41.62\% of valid outfits. The documented length and repetition shifts mean that subset is not representative of the full archive. IQON is item/image-disjoint but not user-disjoint, so it does not test new-user recommendation. User-cluster bootstrap addresses one dependence source; item-component sensitivity preserves the main contrasts but is dominated by one large component and cannot make observations independent.
+
+\textit{Representation attribution.} The seven checkpoints differ in model size, input resolution, architecture, data, objective, and post-processing. Results compare released representations as packages and do not causally identify the source of performance. Web-pretraining contamination by Polyvore, IQON, or visually transformed copies cannot be ruled out for CLIP, SigLIP2, FashionCLIP, DINOv3, or their derivatives. Marqo-FashionSigLIP and GR-Lite have additional uncertainty because the relevant fashion data are not item-wise disclosed; the former's repository reports evaluation on a Polyvore retrieval dataset. The clean-provenance sensitivity removes both, but it cannot certify the remaining web corpora.
+
+\textit{External validity.} Two clean fashion corpora and A100 do not cover all cultures, markets, product photography, or temporal trends. Historical Polyvore is included only for comparison. The LookBench analysis contains exactly five overlapping models and mixes an external retrieval metric with compatibility metrics; its correlations are descriptive. The efficiency study uses one recent consumer GPU, one software stack, fixed batch settings, and estimated FLOPs. Other accelerators, quantization, compilation, or serving loads could alter the frontier.
+
+\textit{Baseline validity.} The task-specific baseline is an image-only contextual adaptation built from the published OutfitTransformer design, not an exact reproduction of its canonical multimodal training or a comprehensive architectural baseline suite. Likewise, native-width and XGBoost checks test two plausible alternatives but do not span all downstream learners.
+
+\textit{Statistical validity.} Group-aware paired bootstrap preserves important dependence, and Holm correction limits the predefined family, but confidence intervals still inherit assumptions about the resampling unit. Construction-seed analysis covers five seeds; A100 intervals are wide; rank correlations over seven or five systems have low resolution. The retained-subset and collision diagnostics were post-audit validity analyses, not preregistered tests. Null or overlapping results are reported as inconclusive rather than evidence of equivalence. CP calibration is conditional on the constructed 50:50 protocol and cannot be transported to real-world prevalence without new calibration data.
+
+\section{Reproducibility and data/code availability}\label{sec:reproducibility}
+
+The frozen protocol hash begins \texttt{96ffd69883c381f8} and the IQON split-manifest hash begins \texttt{f5081ec5d2ea0262}; both complete SHA-256 values are given in the supplement and machine-readable inventory.
+The archive contains exact checkpoint revisions, item/split manifests, feature manifests, validation records, per-example predictions, bootstrap outputs, publication tables and figures, environment metadata, and a red-team audit. The recorded environment is Windows 11, Python 3.12.13, PyTorch 2.11.0+cu128, Transformers 4.57.6, scikit-learn 1.9.1, CUDA 12.8, and an RTX 5070 Ti. The repository had no initial Git commit at freeze time, so provenance rests on file and protocol manifests rather than a commit identifier; a tagged archival release should be created before publication.
+
+The code and derived protocol artifacts will be released with the accepted article. Source dataset images are not redistributed. Reproduction requires obtaining Polyvore, IQON3000, and A100 under their respective source terms, then applying the released manifests and builders. Checkpoint use remains subject to each provider's license; in particular, DINOv3-derived weights have distinct terms. The supplementary material lists exact paths from every major claim to its frozen evidence.
+
+\section{Conclusion}\label{sec:conclusion}
+
+Four conclusions answer the study questions. First, the evaluated contrastive VLM representations establish a stable advantage over ResNet50 and generic DINOv3 under a common relational probe; the hierarchy prospectively replicates from leakage-audited Polyvore to IQON and survives exclusion of the uncertain-provenance checkpoints. Second, A100 corroborates this tier-level advantage, while specialization, contextual learning, and retrieval comparisons expose construct-specific boundaries rather than one universal winner. Third, discrimination, benchmark calibration, measured efficiency, and provenance favour different choices. Fourth, question-validity, dependence, seed, feature-width, learner, compatibility-label, and provenance checks preserve the central hierarchy while quantifying IQON selection and remaining contamination risks. The resulting benchmark, protocol-construction methodology, multi-axis evaluation, and frozen artifact package provide a rigorous basis for selecting and studying visual representations for relational fashion compatibility.
+
+\backmatter
+
+\bmhead{Supplementary information}
+Online Resource 1 supplies additional protocol, robustness, calibration, provenance, subgroup, and statistical evidence.
+
+\bmhead{Acknowledgments}
+The authors thank the creators and maintainers of the public datasets and pretrained checkpoints used in this study.
+
+\section*{Statements and Declarations}
+
+\bmhead{Funding}
+The authors did not receive support from any organization for the submitted work.
+
+\bmhead{Competing interests}
+The authors have no relevant financial or non-financial interests to disclose.
+
+\bmhead{Author contributions}
+Ali Jamali: Conceptualization; Methodology (lead); Software; Data curation and protocol construction; Investigation; Formal analysis and statistical analysis; Validation (lead); Visualization; Reproducibility and artifact preparation; Writing---original draft; Writing---review and editing (lead); Project administration. Maryam Vadikheil: Literature review and related-work validation; Interpretation checking; Selected evidence and result validation; Writing---review and editing. Parham Imanzadeh Charandabi: Reproducibility and experimental validation; Statistical and visual-result checking; Artifact and result verification; Writing---review and editing. Ali Alameer: Supervision; Methodological review; Statistical and experimental interpretation; Critical manuscript review and revision. Taha Mansouri: Supervision; Methodological and conceptual review; Novelty and positioning review; Interpretation of results; Senior critical revision and final manuscript review. All authors reviewed and approved the final manuscript.
+
+\bmhead{Data availability}
+Derived split manifests, predictions, statistical outputs, and publication artifacts will be deposited with the public project release. Original Polyvore, IQON3000, and A100 images are not redistributed and must be obtained from their respective sources subject to their terms.
+
+\bmhead{Code availability}
+The complete evaluation code, frozen configuration, protocol hashes, checkpoint revisions, and artifact manifests will be made publicly available in the archival project release associated with the article.
+
+\bmhead{Ethics approval}
+Not applicable. The study performs secondary computational analysis of previously released datasets and did not recruit participants or collect new human-subject data.
+
+\bmhead{Consent to participate}
+Not applicable.
+
+\bmhead{Consent for publication}
+Not applicable.
+
+\sloppy
+\bibliography{references}
+
+\end{document}

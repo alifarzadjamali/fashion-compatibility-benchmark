@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\caption{Frozen image representations. Every checkpoint was pinned to the revision shown in the reproducibility archive; abbreviated revisions are sufficient to identify the recorded commit. ``Possible'' exposure denotes an inability to exclude incidental web or undisclosed-source overlap, not evidence of overlap.}
+\label{tab:representations}
+\centering
+\scriptsize
+\begin{tabular}{l l l r r l l}
+\toprule
+Representation & Family & Revision & Input & Native dim. & Main pretraining & Protocol provenance status \\
+\midrule
+ResNet50 & supervised CNN & 11ad3fa6 & 224 & 2,048 & ImageNet-1K & clean \\
+DINOv3 ViT-L/16 & self-supervised ViT & ea8dc286 & 224 & 1,024 & LVD-1689M & clean; web uncertainty \\
+CLIP ViT-L/14@336 & generic contrastive VLM & ce19dc91 & 336 & 768 & 400M web image--text pairs & clean; web uncertainty \\
+SigLIP2-B/16@384 & sigmoid-loss VLM & f775b65a & 384 & 768 & WebLI mixture & clean; web uncertainty \\
+FashionCLIP 2.0 & fashion contrastive VLM & 7e3ba62c & 224 & 512 & LAION base + Farfetch & clean; web uncertainty \\
+Marqo-FashionSigLIP & fashion sigmoid-loss VLM & c56244cc & 224 & 768 & SigLIP base + fashion GCL & possibly exposed \\
+GR-Lite & fashion retrieval ViT & a8057f8a & 336 & 1,024 & DINOv3 derivative + fashion data & possibly exposed \\
+\bottomrule
+\end{tabular}
+\end{table*}
+

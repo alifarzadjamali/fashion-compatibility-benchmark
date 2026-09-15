@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\caption{Research framework and reviewer navigation. Each row is one gap--objective--question--contribution path; Section~\ref{sec:discussion} gives the corresponding explicit answer.}
+\label{tab:framework}
+\centering\small\hyphenpenalty=10000\exhyphenpenalty=10000
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.22\textwidth}>{\raggedright\arraybackslash}p{.30\textwidth}>{\raggedright\arraybackslash}p{.25\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Gap $\rightarrow$ objective & Research question & Contribution & Main evidence \\
+\midrule
+\textbf{G1} Controlled-transfer gap $\rightarrow$ \textbf{O1} compare and replicate & \textbf{RQ1} How do frozen checkpoints compare on clean Polyvore, and does the hierarchy replicate on IQON? & \textbf{C1} Controlled seven-checkpoint benchmark with provenance-robust prospective replication & Table~\ref{tab:main}; Fig.~\ref{fig:crossdataset}; Secs.~\ref{sec:poly}, \ref{sec:iqon} \\
+\textbf{G2} Model/construct boundaries $\rightarrow$ \textbf{O2} triangulate scope & \textbf{RQ2} Does the result extend to A100, contextual learning, specialization, and retrieval ranking? & \textbf{C2} External and construct-boundary triangulation & Figs.~\ref{fig:a100}, \ref{fig:retrieval}; Secs.~\ref{sec:a100}, \ref{sec:retrieval} \\
+\textbf{G3} Single-axis selection $\rightarrow$ \textbf{O3} compare operational criteria & \textbf{RQ3} Do discrimination, benchmark calibration, cost, and provenance favour the same checkpoint? & \textbf{C3} Multi-criterion model-selection audit & Table~\ref{tab:efficiency}; Figs.~\ref{fig:calibration}, \ref{fig:pareto} \\
+\textbf{G4} Validity risks $\rightarrow$ \textbf{O4} stress-test conclusions & \textbf{RQ4} Which conclusions survive leakage, construction, selection, dependence, and probe-sensitivity audits? & \textbf{C4} Leakage-audited protocols and reproducible validity/robustness suite & Sections~\ref{sec:protocolaudit}, \ref{sec:robustness}; Online Resource 1 \\
+\bottomrule
+\end{tabularx}
+\end{table*}

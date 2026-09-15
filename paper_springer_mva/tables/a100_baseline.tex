@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\caption{External A100 and task-specific contextual baseline results. A100 entries are accuracies on 100 questions per task; no A100 data were used for training or selection. The OutfitTransformer adaptation reports mean $\pm$ training-seed SD over five seeds. LAT: Liberalism Aesthetic Test; AAT: Academicism Aesthetic Test.}
+\label{tab:a100baseline}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{2}{c}{Polyvore-D-Clean trained} & \multicolumn{2}{c}{IQON3000-Clean trained} & \multicolumn{2}{c}{OutfitTransformer adaptation} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+System & LAT & AAT & LAT & AAT & Polyvore CP/FITB & IQON CP/FITB \\
+\midrule
+ResNet50 & .37 & .35 & .24 & .31 & -- & -- \\
+DINOv3 ViT-L/16 & .39 & .56 & .34 & .40 & -- & -- \\
+CLIP ViT-L/14@336 & .60 & .67 & .50 & .56 & -- & -- \\
+SigLIP2-B/16@384 & .50 & .63 & .48 & .63 & -- & -- \\
+FashionCLIP 2.0 & .58 & .62 & .56 & .57 & -- & -- \\
+Marqo-FashionSigLIP & .62 & .64 & .58 & .63 & -- & -- \\
+GR-Lite & .54 & .59 & .47 & .58 & -- & -- \\
+Image-only OutfitTransformer adaptation & .490$\pm$.051 & .340$\pm$.029 & .418$\pm$.026 & .382$\pm$.054 & .8095$\pm$.0020 / .4655$\pm$.0051 & .7723$\pm$.0013 / .4354$\pm$.0012 \\
+\bottomrule
+\end{tabular}
+\end{table*}
