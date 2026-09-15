@@ -1,0 +1,598 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{ding2024fashion}
+Y.~Ding, Z.~Lai, P.~Y. Mok, T.-S. Chua, Computational technologies for fashion
+  recommendation: A survey, ACM Computing Surveys 56~(5) (2024) 1--45.
+\newblock \href {https://doi.org/10.1145/3627100} {\path{doi:10.1145/3627100}}.
+
+\bibitem{deldjoo2024review}
+Y.~Deldjoo, F.~Nazary, A.~Ramisa, J.~McAuley, G.~Pellegrini, A.~Bellogin,
+  T.~Di~Noia, A review of modern fashion recommender systems, ACM Computing
+  Surveys 56~(4) (2024) 1--37.
+\newblock \href {https://doi.org/10.1145/3624733} {\path{doi:10.1145/3624733}}.
+
+\bibitem{han2017bilstm}
+X.~Han, Z.~Wu, Y.-G. Jiang, L.~S. Davis, Learning fashion compatibility with
+  bidirectional {LSTM}s, in: Proceedings of the 25th ACM International
+  Conference on Multimedia, 2017, pp. 1078--1086.
+\newblock \href {https://doi.org/10.1145/3123266.3123394}
+  {\path{doi:10.1145/3123266.3123394}}.
+
+\bibitem{vasileva2018typeaware}
+M.~I. Vasileva, B.~A. Plummer, K.~Dusad, S.~Rajpal, R.~Kumar, D.~Forsyth,
+  Learning type-aware embeddings for fashion compatibility, in: Computer Vision
+  -- ECCV 2018, 2018, pp. 405--421.
+\newblock \href {https://doi.org/10.1007/978-3-030-01270-0_24}
+  {\path{doi:10.1007/978-3-030-01270-0_24}}.
+
+\bibitem{cucurull2019context}
+G.~Cucurull, P.~Taslakian, D.~Vazquez, Context-aware visual compatibility
+  prediction, in: 2019 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition, 2019, pp. 12609--12618.
+\newblock \href {https://doi.org/10.1109/CVPR.2019.01290}
+  {\path{doi:10.1109/CVPR.2019.01290}}.
+
+\bibitem{kaufman2011leakage}
+S.~Kaufman, S.~Rosset, C.~Perlich, Leakage in data mining, in: Proceedings of
+  the 17th ACM SIGKDD International Conference on Knowledge Discovery and Data
+  Mining, 2011, pp. 556--563.
+\newblock \href {https://doi.org/10.1145/2020408.2020496}
+  {\path{doi:10.1145/2020408.2020496}}.
+
+\bibitem{kapoor2023leakage}
+S.~Kapoor, A.~Narayanan, Leakage and the reproducibility crisis in
+  machine-learning-based science, Patterns 4~(9) (2023) 100804.
+\newblock \href {https://doi.org/10.1016/j.patter.2023.100804}
+  {\path{doi:10.1016/j.patter.2023.100804}}.
+
+\bibitem{deng2009imagenet}
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, L.~Fei-Fei, {ImageNet}: A
+  large-scale hierarchical image database, in: 2009 IEEE Conference on Computer
+  Vision and Pattern Recognition, 2009, pp. 248--255.
+\newblock \href {https://doi.org/10.1109/CVPR.2009.5206848}
+  {\path{doi:10.1109/CVPR.2009.5206848}}.
+
+\bibitem{he2016resnet}
+K.~He, X.~Zhang, S.~Ren, J.~Sun, Deep residual learning for image recognition,
+  in: 2016 IEEE Conference on Computer Vision and Pattern Recognition, 2016,
+  pp. 770--778.
+\newblock \href {https://doi.org/10.1109/CVPR.2016.90}
+  {\path{doi:10.1109/CVPR.2016.90}}.
+
+\bibitem{caron2021dino}
+M.~Caron, H.~Touvron, I.~Misra, H.~J{\'e}gou, J.~Mairal, P.~Bojanowski,
+  A.~Joulin, Emerging properties in self-supervised vision transformers, in:
+  2021 IEEE/CVF International Conference on Computer Vision, 2021, pp.
+  9630--9640.
+\newblock \href {https://doi.org/10.1109/ICCV48922.2021.00951}
+  {\path{doi:10.1109/ICCV48922.2021.00951}}.
+
+\bibitem{oquab2024dinov2}
+M.~Oquab, T.~Darcet, T.~Moutakanni, H.~V. Vo, M.~Szafraniec, V.~Khalidov,
+  P.~Fernandez, D.~Haziza, F.~Massa, A.~El-Nouby, M.~Assran, N.~Ballas,
+  W.~Galuba, R.~Howes, P.-Y. Huang, S.-W. Li, I.~Misra, M.~Rabbat, V.~Sharma,
+  G.~Synnaeve, H.~Xu, H.~J{\'e}gou, J.~Mairal, P.~Labatut, A.~Joulin,
+  P.~Bojanowski, \href{https://openreview.net/forum?id=a68SUt6zFt}{{DINOv2}:
+  Learning robust visual features without supervision}, Transactions on Machine
+  Learning Research (2024).
+\newline\urlprefix\url{https://openreview.net/forum?id=a68SUt6zFt}
+
+\bibitem{simeoni2025dinov3}
+O.~Sim{\'e}oni, H.~V. Vo, M.~Seitzer, F.~Baldassarre, M.~Oquab, C.~Jose,
+  V.~Khalidov, M.~Szafraniec, S.~Yi, M.~Ramamonjisoa, F.~Massa, D.~Haziza,
+  L.~Wehrstedt, J.~Wang, T.~Darcet, T.~Moutakanni, L.~Sentana, C.~Roberts,
+  A.~Vedaldi, J.~Tolan, J.~Brandt, C.~Couprie, J.~Mairal, H.~J{\'e}gou,
+  P.~Labatut, P.~Bojanowski, {DINOv3}, arXiv preprint arXiv:2508.10104 (2025).
+\newblock \href {http://arxiv.org/abs/2508.10104} {\path{arXiv:2508.10104}},
+  \href {https://doi.org/10.48550/arXiv.2508.10104}
+  {\path{doi:10.48550/arXiv.2508.10104}}.
+
+\bibitem{radford2021clip}
+A.~Radford, J.~W. Kim, C.~Hallacy, A.~Ramesh, G.~Goh, S.~Agarwal, G.~Sastry,
+  A.~Askell, P.~Mishkin, J.~Clark, G.~Krueger, I.~Sutskever,
+  \href{https://proceedings.mlr.press/v139/radford21a.html}{Learning
+  transferable visual models from natural language supervision}, in:
+  Proceedings of the 38th International Conference on Machine Learning, Vol.
+  139, PMLR, Virtual Event, 2021, pp. 8748--8763.
+\newline\urlprefix\url{https://proceedings.mlr.press/v139/radford21a.html}
+
+\bibitem{zhai2023siglip}
+X.~Zhai, B.~Mustafa, A.~Kolesnikov, L.~Beyer, Sigmoid loss for language image
+  pre-training, in: 2023 IEEE/CVF International Conference on Computer Vision,
+  2023, pp. 11941--11952.
+\newblock \href {https://doi.org/10.1109/ICCV51070.2023.01100}
+  {\path{doi:10.1109/ICCV51070.2023.01100}}.
+
+\bibitem{tschannen2025siglip2}
+M.~Tschannen, A.~Gritsenko, X.~Wang, M.~F. Naeem, I.~Alabdulmohsin,
+  N.~Parthasarathy, T.~Evans, L.~Beyer, Y.~Xia, B.~Mustafa, O.~H{\'e}naff,
+  J.~Harmsen, A.~Steiner, X.~Zhai, {SigLIP 2}: Multilingual vision-language
+  encoders with improved semantic understanding, localization, and dense
+  features, arXiv preprint arXiv:2502.14786 (2025).
+\newblock \href {http://arxiv.org/abs/2502.14786} {\path{arXiv:2502.14786}},
+  \href {https://doi.org/10.48550/arXiv.2502.14786}
+  {\path{doi:10.48550/arXiv.2502.14786}}.
+
+\bibitem{chia2022fashionclip}
+P.~J. Chia, G.~Attanasio, F.~Bianchi, S.~Terragni, A.~R. Magalh{\~a}es,
+  D.~Goncalves, C.~Greco, J.~Tagliabue, Contrastive language and vision
+  learning of general fashion concepts, Scientific Reports 12~(1) (2022) 18958.
+\newblock \href {https://doi.org/10.1038/s41598-022-23052-9}
+  {\path{doi:10.1038/s41598-022-23052-9}}.
+
+\bibitem{zhu2025gcl}
+T.~Zhu, M.~C. Jung, J.~Clark, Generalized contrastive learning for multi-modal
+  retrieval and ranking, in: Companion Proceedings of the ACM on Web Conference
+  2025, 2025, pp. 661--670.
+\newblock \href {https://doi.org/10.1145/3701716.3715227}
+  {\path{doi:10.1145/3701716.3715227}}.
+
+\bibitem{marqo2024fashionsiglip}
+{Marqo},
+  \href{https://huggingface.co/Marqo/marqo-fashionSigLIP}{{marqo-fashionSigLIP}
+  model card}, accessed 14 September 2026 (2024).
+\newline\urlprefix\url{https://huggingface.co/Marqo/marqo-fashionSigLIP}
+
+\bibitem{gao2026lookbench}
+{Gensmo.ai}, C.~Gao, S.~Xue, J.~Fu, T.~Gu, S.~Li, F.~Zhou, {LookBench}: A live
+  and holistic open benchmark for fashion image retrieval, arXiv preprint
+  arXiv:2601.14706Version 3, revised 13 April 2026 (2026).
+\newblock \href {http://arxiv.org/abs/2601.14706} {\path{arXiv:2601.14706}},
+  \href {https://doi.org/10.48550/arXiv.2601.14706}
+  {\path{doi:10.48550/arXiv.2601.14706}}.
+
+\bibitem{nakamura2018iqon}
+T.~Nakamura, R.~Goto, \href{https://arxiv.org/abs/1807.03133}{Outfit generation
+  and style extraction via {BiLSTM} and autoencoder}, kDD Workshop on AI for
+  Fashion; arXiv:1807.03133 (2018).
+\newblock \href {http://arxiv.org/abs/1807.03133} {\path{arXiv:1807.03133}}.
+\newline\urlprefix\url{https://arxiv.org/abs/1807.03133}
+
+\bibitem{zou2022a100}
+X.~Zou, K.~Pang, W.~Zhang, W.~Wong, How good is aesthetic ability of a fashion
+  model?, in: 2022 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition, 2022, pp. 21168--21177.
+\newblock \href {https://doi.org/10.1109/CVPR52688.2022.02052}
+  {\path{doi:10.1109/CVPR52688.2022.02052}}.
+
+\bibitem{sarkar2023outfittransformer}
+R.~Sarkar, N.~Bodla, M.~I. Vasileva, Y.-L. Lin, A.~Beniwal, A.~Lu, G.~Medioni,
+  {OutfitTransformer}: Learning outfit representations for fashion
+  recommendation, in: 2023 IEEE/CVF Winter Conference on Applications of
+  Computer Vision, 2023, pp. 3590--3598.
+\newblock \href {https://doi.org/10.1109/WACV56688.2023.00359}
+  {\path{doi:10.1109/WACV56688.2023.00359}}.
+
+\bibitem{mcauley2015styles}
+J.~McAuley, C.~Targett, Q.~Shi, A.~van~den Hengel, Image-based recommendations
+  on styles and substitutes, in: Proceedings of the 38th International ACM
+  SIGIR Conference on Research and Development in Information Retrieval, 2015,
+  pp. 43--52.
+\newblock \href {https://doi.org/10.1145/2766462.2767755}
+  {\path{doi:10.1145/2766462.2767755}}.
+
+\bibitem{veit2015style}
+A.~Veit, B.~Kovacs, S.~Bell, J.~McAuley, K.~Bala, S.~Belongie, Learning visual
+  clothing style with heterogeneous dyadic co-occurrences, in: 2015 IEEE
+  International Conference on Computer Vision, 2015, pp. 4642--4650.
+\newblock \href {https://doi.org/10.1109/ICCV.2015.527}
+  {\path{doi:10.1109/ICCV.2015.527}}.
+
+\bibitem{chen2018dress}
+L.~Chen, Y.~He, Dress fashionably: Learn fashion collocation with deep
+  mixed-category metric learning, Proceedings of the AAAI Conference on
+  Artificial Intelligence 32~(1) (2018) 2103--2110.
+\newblock \href {https://doi.org/10.1609/aaai.v32i1.11895}
+  {\path{doi:10.1609/aaai.v32i1.11895}}.
+
+\bibitem{polania2019categories}
+L.~F. Polania, S.~Gupte, Learning fashion compatibility across apparel
+  categories for outfit recommendation, in: 2019 IEEE International Conference
+  on Image Processing, 2019, pp. 4489--4493.
+\newblock \href {https://doi.org/10.1109/ICIP.2019.8803587}
+  {\path{doi:10.1109/ICIP.2019.8803587}}.
+
+\bibitem{li2017set}
+Y.~Li, L.~Cao, J.~Zhu, J.~Luo, Mining fashion outfit composition using an
+  end-to-end deep learning approach on set data, IEEE Transactions on
+  Multimedia 19~(8) (2017) 1946--1955.
+\newblock \href {https://doi.org/10.1109/TMM.2017.2690144}
+  {\path{doi:10.1109/TMM.2017.2690144}}.
+
+\bibitem{song2018attentive}
+X.~Song, F.~Feng, X.~Han, X.~Yang, W.~Liu, L.~Nie, Neural compatibility
+  modeling with attentive knowledge distillation, in: The 41st International
+  ACM SIGIR Conference on Research and Development in Information Retrieval,
+  2018, pp. 5--14.
+\newblock \href {https://doi.org/10.1145/3209978.3209996}
+  {\path{doi:10.1145/3209978.3209996}}.
+
+\bibitem{hsiao2018capsule}
+W.-L. Hsiao, K.~Grauman, Creating capsule wardrobes from fashion images, in:
+  2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2018,
+  pp. 7161--7170.
+\newblock \href {https://doi.org/10.1109/CVPR.2018.00748}
+  {\path{doi:10.1109/CVPR.2018.00748}}.
+
+\bibitem{chen2019pog}
+W.~Chen, P.~Huang, J.~Xu, X.~Guo, C.~Guo, F.~Sun, C.~Li, A.~Pfadler, H.~Zhao,
+  B.~Zhao, {POG}: Personalized outfit generation for fashion recommendation at
+  alibaba {iFashion}, in: Proceedings of the 25th ACM SIGKDD International
+  Conference on Knowledge Discovery and Data Mining, 2019, pp. 2662--2670.
+\newblock \href {https://doi.org/10.1145/3292500.3330652}
+  {\path{doi:10.1145/3292500.3330652}}.
+
+\bibitem{song2019gpbpr}
+X.~Song, X.~Han, Y.~Li, J.~Chen, X.-S. Xu, L.~Nie, {GP-BPR}: Personalized
+  compatibility modeling for clothing matching, in: Proceedings of the 27th ACM
+  International Conference on Multimedia, 2019, pp. 320--328.
+\newblock \href {https://doi.org/10.1145/3343031.3350956}
+  {\path{doi:10.1145/3343031.3350956}}.
+
+\bibitem{wang2019mcn}
+X.~Wang, B.~Wu, Y.~Zhong, Outfit compatibility prediction and diagnosis with
+  multi-layered comparison network, in: Proceedings of the 27th ACM
+  International Conference on Multimedia, 2019, pp. 329--337.
+\newblock \href {https://doi.org/10.1145/3343031.3350909}
+  {\path{doi:10.1145/3343031.3350909}}.
+
+\bibitem{yang2019attributes}
+X.~Yang, X.~He, X.~Wang, Y.~Ma, F.~Feng, M.~Wang, T.-S. Chua, Interpretable
+  fashion matching with rich attributes, in: Proceedings of the 42nd
+  International ACM SIGIR Conference on Research and Development in Information
+  Retrieval, 2019, pp. 775--784.
+\newblock \href {https://doi.org/10.1145/3331184.3331242}
+  {\path{doi:10.1145/3331184.3331242}}.
+
+\bibitem{chen2019visualexplanations}
+X.~Chen, H.~Chen, H.~Xu, Y.~Zhang, Y.~Cao, Z.~Qin, H.~Zha, Personalized fashion
+  recommendation with visual explanations based on multimodal attention
+  network, in: Proceedings of the 42nd International ACM SIGIR Conference on
+  Research and Development in Information Retrieval, 2019, pp. 765--774.
+\newblock \href {https://doi.org/10.1145/3331184.3331254}
+  {\path{doi:10.1145/3331184.3331254}}.
+
+\bibitem{lin2020explainable}
+Y.~Lin, P.~Ren, Z.~Chen, Z.~Ren, J.~Ma, M.~de~Rijke, Explainable outfit
+  recommendation with joint outfit matching and comment generation, IEEE
+  Transactions on Knowledge and Data Engineering 32~(8) (2020) 1502--1516.
+\newblock \href {https://doi.org/10.1109/TKDE.2019.2906190}
+  {\path{doi:10.1109/TKDE.2019.2906190}}.
+
+\bibitem{balim2023diagnosing}
+C.~Balim, K.~{\"O}zkan, Diagnosing fashion outfit compatibility with deep
+  learning techniques, Expert Systems with Applications 215 (2023) 119305.
+\newblock \href {https://doi.org/10.1016/j.eswa.2022.119305}
+  {\path{doi:10.1016/j.eswa.2022.119305}}.
+
+\bibitem{wang2024pfe}
+Y.~Wang, Z.~He, Z.~He, H.~Xu, J.~McAuley, Deciphering compatibility
+  relationships with textual descriptions via extraction and explanation,
+  Proceedings of the AAAI Conference on Artificial Intelligence 38~(8) (2024)
+  9133--9141.
+\newblock \href {https://doi.org/10.1609/aaai.v38i8.28764}
+  {\path{doi:10.1609/aaai.v38i8.28764}}.
+
+\bibitem{li2024attribute}
+Y.~Li, S.~Yu, Y.~Chen, Y.~Jiang, K.~Yuan, Explainable fashion compatibility
+  prediction: An attribute-augmented neural framework, Electronic Commerce
+  Research and Applications 68 (2024) 101451.
+\newblock \href {https://doi.org/10.1016/j.elerap.2024.101451}
+  {\path{doi:10.1016/j.elerap.2024.101451}}.
+
+\bibitem{selwon2024explainable}
+K.~Selwon, J.~Szyma{\'n}ski, A review of explainable fashion compatibility
+  modeling methods, ACM Computing Surveys 56~(11) (2024) 1--29.
+\newblock \href {https://doi.org/10.1145/3664614} {\path{doi:10.1145/3664614}}.
+
+\bibitem{kim2021sval}
+D.~Kim, K.~Saito, S.~Mishra, S.~Sclaroff, K.~Saenko, B.~A. Plummer,
+  Self-supervised visual attribute learning for fashion compatibility, in: 2021
+  IEEE/CVF International Conference on Computer Vision Workshops, 2021, pp.
+  1057--1066.
+\newblock \href {https://doi.org/10.1109/ICCVW54120.2021.00123}
+  {\path{doi:10.1109/ICCVW54120.2021.00123}}.
+
+\bibitem{liu2016deepfashion}
+Z.~Liu, P.~Luo, S.~Qiu, X.~Wang, X.~Tang, {DeepFashion}: Powering robust
+  clothes recognition and retrieval with rich annotations, in: 2016 IEEE
+  Conference on Computer Vision and Pattern Recognition, 2016, pp. 1096--1104.
+\newblock \href {https://doi.org/10.1109/CVPR.2016.124}
+  {\path{doi:10.1109/CVPR.2016.124}}.
+
+\bibitem{han2017spatial}
+X.~Han, Z.~Wu, P.~X. Huang, X.~Zhang, M.~Zhu, Y.~Li, Y.~Zhao, L.~S. Davis,
+  Automatic spatially-aware fashion concept discovery, in: 2017 IEEE
+  International Conference on Computer Vision, 2017, pp. 1472--1480.
+\newblock \href {https://doi.org/10.1109/ICCV.2017.163}
+  {\path{doi:10.1109/ICCV.2017.163}}.
+
+\bibitem{kiapour2015street}
+M.~H. Kiapour, X.~Han, S.~Lazebnik, A.~C. Berg, T.~L. Berg, Where to buy it:
+  Matching street clothing photos in online shops, in: 2015 IEEE International
+  Conference on Computer Vision, 2015, pp. 3343--3351.
+\newblock \href {https://doi.org/10.1109/ICCV.2015.382}
+  {\path{doi:10.1109/ICCV.2015.382}}.
+
+\bibitem{pang2026crossselling}
+K.~Pang, X.~Zou, Z.~Broach, W.~Wong, Towards intelligent online cross-selling,
+  Expert Systems with Applications 298 (2026) 129686.
+\newblock \href {https://doi.org/10.1016/j.eswa.2025.129686}
+  {\path{doi:10.1016/j.eswa.2025.129686}}.
+
+\bibitem{kornblith2019transfer}
+S.~Kornblith, J.~Shlens, Q.~V. Le, Do better {ImageNet} models transfer
+  better?, in: 2019 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition, 2019, pp. 2656--2666.
+\newblock \href {https://doi.org/10.1109/CVPR.2019.00277}
+  {\path{doi:10.1109/CVPR.2019.00277}}.
+
+\bibitem{ericsson2021transfer}
+L.~Ericsson, H.~Gouk, T.~M. Hospedales, How well do self-supervised models
+  transfer?, in: 2021 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition, 2021, pp. 5410--5419.
+\newblock \href {https://doi.org/10.1109/CVPR46437.2021.00537}
+  {\path{doi:10.1109/CVPR46437.2021.00537}}.
+
+\bibitem{zhai2019vtab}
+X.~Zhai, J.~Puigcerver, A.~Kolesnikov, P.~Ruyssen, C.~Riquelme, M.~Lucic,
+  J.~Djolonga, A.~S. Pinto, M.~Neumann, A.~Dosovitskiy, L.~Beyer, O.~Bachem,
+  M.~Tschannen, M.~Michalski, O.~Bousquet, S.~Gelly, N.~Houlsby, A large-scale
+  study of representation learning with the visual task adaptation benchmark,
+  arXiv preprint arXiv:1910.04867 (2019).
+\newblock \href {http://arxiv.org/abs/1910.04867} {\path{arXiv:1910.04867}},
+  \href {https://doi.org/10.48550/arXiv.1910.04867}
+  {\path{doi:10.48550/arXiv.1910.04867}}.
+
+\bibitem{li2022elevater}
+C.~Li, H.~Liu, L.~H. Li, P.~Zhang, J.~Aneja, J.~Yang, P.~Jin, H.~Hu, Z.~Liu,
+  Y.~J. Lee, J.~Gao, {ELEVATER}: A benchmark and toolkit for evaluating
+  language-augmented visual models, in: Advances in Neural Information
+  Processing Systems, Vol.~35, 2022, pp. 9287--9301.
+\newblock \href {https://doi.org/10.52202/068431-0675}
+  {\path{doi:10.52202/068431-0675}}.
+
+\bibitem{koh2021wilds}
+P.~W. Koh, S.~Sagawa, H.~Marklund, S.~M. Xie, M.~Zhang, A.~Balsubramani, W.~Hu,
+  M.~Yasunaga, R.~L. Phillips, I.~Gao, T.~Lee, E.~David, I.~Stavness, W.~Guo,
+  B.~A. Earnshaw, I.~S. Haque, S.~Beery, J.~Leskovec, A.~Kundaje, E.~Pierson,
+  S.~Levine, C.~Finn, P.~Liang,
+  \href{https://proceedings.mlr.press/v139/koh21a.html}{{WILDS}: A benchmark of
+  in-the-wild distribution shifts}, in: Proceedings of the 38th International
+  Conference on Machine Learning, Vol. 139, PMLR, Virtual Event, 2021, pp.
+  5637--5664.
+\newline\urlprefix\url{https://proceedings.mlr.press/v139/koh21a.html}
+
+\bibitem{czerwinska2025ecommerce}
+U.~Czerwinska, C.~Bircanoglu, J.~Chamoux, Benchmarking image embeddings for
+  e-commerce: Evaluating off-the-shelf foundation models, fine-tuning
+  strategies and practical trade-offs, arXiv preprint arXiv:2504.07567Accepted
+  at the Future Technologies Conference 2025 (2025).
+\newblock \href {http://arxiv.org/abs/2504.07567} {\path{arXiv:2504.07567}},
+  \href {https://doi.org/10.48550/arXiv.2504.07567}
+  {\path{doi:10.48550/arXiv.2504.07567}}.
+
+\bibitem{feng2025mllmbenchmark}
+X.~Feng, Y.~Li, D.~Chen, M.~Gao, M.~Liu, J.~Yuan, C.~Qiao, Benchmarking large
+  and small {MLLM}s, Machine Vision and Applications 36 (2025) 137.
+\newblock \href {https://doi.org/10.1007/s00138-025-01762-0}
+  {\path{doi:10.1007/s00138-025-01762-0}}.
+
+\bibitem{dosovitskiy2021vit}
+A.~Dosovitskiy, L.~Beyer, A.~Kolesnikov, D.~Weissenborn, X.~Zhai,
+  T.~Unterthiner, M.~Dehghani, M.~Minderer, G.~Heigold, S.~Gelly, J.~Uszkoreit,
+  N.~Houlsby, \href{https://openreview.net/forum?id=YicbFdNTTy}{An image is
+  worth 16x16 words: Transformers for image recognition at scale},
+  international Conference on Learning Representations (ICLR) (2021).
+\newline\urlprefix\url{https://openreview.net/forum?id=YicbFdNTTy}
+
+\bibitem{jia2021align}
+C.~Jia, Y.~Yang, Y.~Xia, Y.-T. Chen, Z.~Parekh, H.~Pham, Q.~V. Le, Y.-H. Sung,
+  Z.~Li, T.~Duerig,
+  \href{https://proceedings.mlr.press/v139/jia21b.html}{Scaling up visual and
+  vision-language representation learning with noisy text supervision}, in:
+  Proceedings of the 38th International Conference on Machine Learning, Vol.
+  139, PMLR, Virtual Event, 2021, pp. 4904--4916.
+\newline\urlprefix\url{https://proceedings.mlr.press/v139/jia21b.html}
+
+\bibitem{schuhmann2022laion}
+C.~Schuhmann, R.~Beaumont, R.~Vencu, C.~Gordon, R.~Wightman, M.~Cherti,
+  T.~Coombes, A.~Katta, C.~Mullis, M.~Wortsman, P.~Schramowski, S.~Kundurthy,
+  K.~Crowson, L.~Schmidt, R.~Kaczmarczyk, J.~Jitsev, {LAION-5B}: An open
+  large-scale dataset for training next generation image-text models, in:
+  Advances in Neural Information Processing Systems, Vol.~35, 2022, pp.
+  25278--25294.
+\newblock \href {https://doi.org/10.52202/068431-1833}
+  {\path{doi:10.52202/068431-1833}}.
+
+\bibitem{xue2026zooclaw}
+S.~Xue, C.~Xu, {ZooClaw-FashionSigLIP2}: Distilled fine-tuning for robust
+  fashion retrieval, arXiv preprint arXiv:2606.27708 (2026).
+\newblock \href {http://arxiv.org/abs/2606.27708} {\path{arXiv:2606.27708}},
+  \href {https://doi.org/10.48550/arXiv.2606.27708}
+  {\path{doi:10.48550/arXiv.2606.27708}}.
+
+\bibitem{papadopoulos2023victor}
+S.-I. Papadopoulos, C.~Koutlis, S.~Papadopoulos, I.~Kompatsiaris, {VICTOR}:
+  Visual incompatibility detection with transformers and fashion-specific
+  contrastive pre-training, Journal of Visual Communication and Image
+  Representation 90 (2023) 103741.
+\newblock \href {https://doi.org/10.1016/j.jvcir.2022.103741}
+  {\path{doi:10.1016/j.jvcir.2022.103741}}.
+
+\bibitem{jung2025hat}
+M.~C. Jung, J.~Monteil, P.~Schulz, V.~Vaskovych, Personalised outfit
+  recommendation via history-aware transformers, in: Proceedings of the
+  Eighteenth ACM International Conference on Web Search and Data Mining, 2025,
+  pp. 633--641.
+\newblock \href {https://doi.org/10.1145/3701551.3703545}
+  {\path{doi:10.1145/3701551.3703545}}.
+
+\bibitem{sanny2026medal}
+D.~R. Sanny, V.~K. Verma, P.~Sircar, D.~Gupta, {MEDAL}: Multi-modal
+  {ME}ta-space distillation and {AL}ignment for visual compatibility learning,
+  in: Proceedings of the IEEE/CVF Winter Conference on Applications of Computer
+  Vision, 2026, pp. 888--897.
+
+\bibitem{zhai2025text2outfit}
+Y.~Zhai, Y.-L. Lin, M.~Peng, L.~S. Davis, A.~Chandramouli, J.~Yuan,
+  D.~Doermann, {Text2Outfit}: Controllable outfit generation with multimodal
+  language models, in: 2025 IEEE/CVF International Conference on Computer
+  Vision, 2025, pp. 16165--16174.
+\newblock \href {https://doi.org/10.1109/ICCV51701.2025.01500}
+  {\path{doi:10.1109/ICCV51701.2025.01500}}.
+
+\bibitem{liu2025bundlemllm}
+X.~Liu, J.~Wu, Z.~Tao, Y.~Ma, Y.~Wei, T.-S. Chua, Fine-tuning multimodal large
+  language models for product bundling, in: Proceedings of the 31st ACM SIGKDD
+  Conference on Knowledge Discovery and Data Mining, Volume 1, 2025, pp.
+  848--858.
+\newblock \href {https://doi.org/10.1145/3690624.3709255}
+  {\path{doi:10.1145/3690624.3709255}}.
+
+\bibitem{ma2024cirp}
+Y.~Ma, Y.~He, W.~Zhong, X.~Wang, R.~Zimmermann, T.-S. Chua, {CIRP}: Cross-item
+  relational pre-training for multimodal product bundling, in: Proceedings of
+  the 32nd ACM International Conference on Multimedia, 2024, pp. 9641--9649.
+\newblock \href {https://doi.org/10.1145/3664647.3681349}
+  {\path{doi:10.1145/3664647.3681349}}.
+
+\bibitem{chang2025large}
+C.-L. Chang, Y.-L. Chen, D.-X. Jiang, Using large multimodal models to predict
+  outfit compatibility, Decision Support Systems 194 (2025) 114457.
+\newblock \href {https://doi.org/10.1016/j.dss.2025.114457}
+  {\path{doi:10.1016/j.dss.2025.114457}}.
+
+\bibitem{feng2026fashionstylist}
+K.~Feng, Z.~Huang, H.~Guo, Y.~Jin, X.~Chen, Y.~Liang, Y.~Gai, L.~Zhou, Y.~Ma,
+  Z.~Sun, {FashionStylist}: An expert knowledge-enhanced multimodal dataset for
+  fashion understanding, arXiv preprint arXiv:2604.09249 (2026).
+\newblock \href {http://arxiv.org/abs/2604.09249} {\path{arXiv:2604.09249}},
+  \href {https://doi.org/10.48550/arXiv.2604.09249}
+  {\path{doi:10.48550/arXiv.2604.09249}}.
+
+\bibitem{brier1950}
+G.~W. Brier, Verification of forecasts expressed in terms of probability,
+  Monthly Weather Review 78~(1) (1950) 1--3.
+\newblock \href
+  {https://doi.org/10.1175/1520-0493(1950)078<0001:VOFEIT>2.0.CO;2}
+  {\path{doi:10.1175/1520-0493(1950)078<0001:VOFEIT>2.0.CO;2}}.
+
+\bibitem{niculescu2005probabilities}
+A.~Niculescu-Mizil, R.~Caruana, Predicting good probabilities with supervised
+  learning, in: Proceedings of the 22nd International Conference on Machine
+  Learning, 2005, pp. 625--632.
+\newblock \href {https://doi.org/10.1145/1102351.1102430}
+  {\path{doi:10.1145/1102351.1102430}}.
+
+\bibitem{guo2017calibration}
+C.~Guo, G.~Pleiss, Y.~Sun, K.~Q. Weinberger,
+  \href{https://proceedings.mlr.press/v70/guo17a.html}{On calibration of modern
+  neural networks}, in: Proceedings of the 34th International Conference on
+  Machine Learning, Vol.~70, PMLR, Sydney, Australia, 2017, pp. 1321--1330.
+\newline\urlprefix\url{https://proceedings.mlr.press/v70/guo17a.html}
+
+\bibitem{naeini2015calibration}
+M.~Pakdaman~Naeini, G.~Cooper, M.~Hauskrecht, Obtaining well calibrated
+  probabilities using bayesian binning, Proceedings of the AAAI Conference on
+  Artificial Intelligence 29~(1) (2015) 2901--2907.
+\newblock \href {https://doi.org/10.1609/aaai.v29i1.9602}
+  {\path{doi:10.1609/aaai.v29i1.9602}}.
+
+\bibitem{vaicenavicius2019calibration}
+J.~Vaicenavicius, D.~Widmann, C.~Andersson, F.~Lindsten, J.~Roll, T.~B.
+  Sch{\"o}n,
+  \href{https://proceedings.mlr.press/v89/vaicenavicius19a.html}{Evaluating
+  model calibration in classification}, in: Proceedings of the 22nd
+  International Conference on Artificial Intelligence and Statistics, Vol.~89,
+  PMLR, Naha, Okinawa, Japan, 2019, pp. 3459--3467.
+\newline\urlprefix\url{https://proceedings.mlr.press/v89/vaicenavicius19a.html}
+
+\bibitem{minderer2021revisiting}
+M.~Minderer, J.~Djolonga, R.~Romijnders, F.~Hubis, X.~Zhai, N.~Houlsby,
+  D.~Tran, M.~Lucic, Revisiting the calibration of modern neural networks, in:
+  Advances in Neural Information Processing Systems, Vol.~34, 2021, pp.
+  15682--15694.
+
+\bibitem{ovadia2019uncertainty}
+Y.~Ovadia, E.~Fertig, J.~Ren, Z.~Nado, D.~Sculley, S.~Nowozin, J.~Dillon,
+  B.~Lakshminarayanan, J.~Snoek, Can you trust your model's uncertainty?
+  evaluating predictive uncertainty under dataset shift, in: Advances in Neural
+  Information Processing Systems, Vol.~32, 2019, pp. 13991--14002.
+
+\bibitem{dehghani2022efficiency}
+M.~Dehghani, A.~Arnab, L.~Beyer, A.~Vaswani, Y.~Tay,
+  \href{https://openreview.net/forum?id=iulEMLYh1uR}{The efficiency misnomer},
+  international Conference on Learning Representations (ICLR) (2022).
+\newline\urlprefix\url{https://openreview.net/forum?id=iulEMLYh1uR}
+
+\bibitem{hooker2021hardware}
+S.~Hooker, The hardware lottery, Communications of the ACM 64~(12) (2021)
+  58--65.
+\newblock \href {https://doi.org/10.1145/3467017} {\path{doi:10.1145/3467017}}.
+
+\bibitem{schwartz2020green}
+R.~Schwartz, J.~Dodge, N.~A. Smith, O.~Etzioni, Green {AI}, Communications of
+  the ACM 63~(12) (2020) 54--63.
+\newblock \href {https://doi.org/10.1145/3381831} {\path{doi:10.1145/3381831}}.
+
+\bibitem{henderson2020reporting}
+P.~Henderson, J.~Hu, J.~Romoff, E.~Brunskill, D.~Jurafsky, J.~Pineau,
+  \href{https://jmlr.org/papers/v21/20-312.html}{Towards the systematic
+  reporting of the energy and carbon footprints of machine learning}, Journal
+  of Machine Learning Research 21~(248) (2020) 1--43.
+\newline\urlprefix\url{https://jmlr.org/papers/v21/20-312.html}
+
+\bibitem{dodge2022carbon}
+J.~Dodge, T.~Prewitt, R.~Tachet~des Combes, E.~Odmark, R.~Schwartz,
+  E.~Strubell, A.~S. Luccioni, N.~A. Smith, N.~DeCario, W.~Buchanan, Measuring
+  the carbon intensity of {AI} in cloud instances, in: 2022 ACM Conference on
+  Fairness, Accountability, and Transparency, 2022, pp. 1877--1894.
+\newblock \href {https://doi.org/10.1145/3531146.3533234}
+  {\path{doi:10.1145/3531146.3533234}}.
+
+\bibitem{efron1994bootstrap}
+B.~Efron, R.~J. Tibshirani, An Introduction to the Bootstrap, Chapman and
+  Hall/CRC, Boca Raton, FL, 1994.
+\newblock \href {https://doi.org/10.1201/9780429246593}
+  {\path{doi:10.1201/9780429246593}}.
+
+\bibitem{bouthillier2021variance}
+X.~Bouthillier, P.~Delaunay, M.~Bronzi, A.~Trofimov, B.~Nichyporuk, J.~Szeto,
+  N.~Mohammadi~Sepahvand, E.~Raff, K.~Madan, V.~Voleti, S.~E. Kahou,
+  V.~Michalski, D.~Serdyuk, T.~Arbel, C.~Pal, G.~Varoquaux, P.~Vincent,
+  Accounting for variance in machine learning benchmarks, in: Proceedings of
+  Machine Learning and Systems, Vol.~3, 2021, pp. 747--769.
+
+\bibitem{demsar2006statistical}
+J.~Dem{\v{s}}ar, \href{https://jmlr.org/papers/v7/demsar06a.html}{Statistical
+  comparisons of classifiers over multiple data sets}, Journal of Machine
+  Learning Research 7 (2006) 1--30.
+\newline\urlprefix\url{https://jmlr.org/papers/v7/demsar06a.html}
+
+\bibitem{nadeau2003inference}
+C.~Nadeau, Y.~Bengio, Inference for the generalization error, Machine Learning
+  52~(3) (2003) 239--281.
+\newblock \href {https://doi.org/10.1023/A:1024068626366}
+  {\path{doi:10.1023/A:1024068626366}}.
+
+\bibitem{holm1979}
+S.~Holm, \href{https://www.jstor.org/stable/4615733}{A simple sequentially
+  rejective multiple test procedure}, Scandinavian Journal of Statistics 6~(2)
+  (1979) 65--70.
+\newline\urlprefix\url{https://www.jstor.org/stable/4615733}
+
+\bibitem{pineau2021reproducibility}
+J.~Pineau, P.~Vincent-Lamarre, K.~Sinha, V.~Larivi{\`e}re, A.~Beygelzimer,
+  F.~d'Alch{\'e} Buc, E.~Fox, H.~Larochelle,
+  \href{https://jmlr.org/papers/v22/20-303.html}{Improving reproducibility in
+  machine learning research: A report from the {NeurIPS} 2019 reproducibility
+  program}, Journal of Machine Learning Research 22~(164) (2021) 1--20.
+\newline\urlprefix\url{https://jmlr.org/papers/v22/20-303.html}
+
+\end{thebibliography}

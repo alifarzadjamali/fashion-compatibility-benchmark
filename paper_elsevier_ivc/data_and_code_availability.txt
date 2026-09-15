@@ -1,0 +1,5 @@
+Data and code availability
+
+Derived split manifests, predictions, statistical outputs, and publication artifacts will be deposited with the public project release. Original Polyvore, IQON3000, and A100 images are not redistributed and must be obtained from their respective sources subject to their terms.
+
+The complete evaluation code, frozen configuration, protocol hashes, checkpoint revisions, and artifact manifests will be made publicly available in the archival project release associated with the article.

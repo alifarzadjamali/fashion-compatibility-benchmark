@@ -1,0 +1,13 @@
+CRediT authorship contribution statement
+
+Ali Jamali: Conceptualization; Methodology (lead); Software; Data curation and protocol construction; Investigation; Formal analysis and statistical analysis; Validation (lead); Visualization; Reproducibility and artifact preparation; Writing – original draft; Writing – review and editing (lead); Project administration.
+
+Maryam Vadikheil: Literature review and related-work validation; Interpretation checking; Selected evidence and result validation; Writing – review and editing.
+
+Parham Imanzadeh Charandabi: Reproducibility and experimental validation; Statistical and visual-result checking; Artifact and result verification; Writing – review and editing.
+
+Ali Alameer: Supervision; Methodological review; Statistical and experimental interpretation; Critical manuscript review and revision.
+
+Taha Mansouri: Supervision; Methodological and conceptual review; Novelty and positioning review; Interpretation of results; Senior critical revision and final manuscript review.
+
+All authors reviewed and approved the final manuscript.

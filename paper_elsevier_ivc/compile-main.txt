@@ -1,0 +1,23 @@
+note: Running TeX ...
+warning: main.tex:68: Underfull \hbox (badness 1490) in paragraph at lines 67--68
+warning: main.tex:68: Underfull \hbox (badness 1112) in paragraph at lines 67--68
+note: Running BibTeX on main.aux ...
+note: Rerunning TeX because bibtex was run ...
+warning: main.tex:68: Underfull \hbox (badness 1490) in paragraph at lines 67--68
+warning: main.tex:68: Underfull \hbox (badness 1112) in paragraph at lines 67--68
+warning: main.bbl:155: Underfull \hbox (badness 2150) in paragraph at lines 150--155
+warning: main.bbl:379: Underfull \hbox (badness 1163) in paragraph at lines 372--379
+note: Rerunning TeX because "main.aux" changed ...
+warning: main.tex:68: Underfull \hbox (badness 1490) in paragraph at lines 67--68
+warning: main.tex:68: Underfull \hbox (badness 1112) in paragraph at lines 67--68
+warning: main.bbl:155: Underfull \hbox (badness 2150) in paragraph at lines 150--155
+warning: main.bbl:379: Underfull \hbox (badness 1163) in paragraph at lines 372--379
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `main.pdf` (300.650390625 KiB)
+note: Writing `main.bbl` (28.423828125 KiB)
+note: Writing `main.out` (7.486328125 KiB)
+note: Writing `main.blg` (200 B)
+note: Writing `main.aux` (20.8759765625 KiB)
+note: Writing `main.log` (14.9462890625 KiB)
+note: Writing `main.spl` (43 B)

@@ -1,0 +1,18 @@
+note: Running TeX ...
+warning: supplementary.tex:75: Underfull \hbox (badness 1762) in paragraph at lines 74--75
+warning: supplementary.tex:100: Underfull \hbox (badness 1668) in paragraph at lines 99--100
+warning: supplementary.tex:102: Underfull \hbox (badness 1990) in paragraph at lines 101--102
+note: Rerunning TeX because "supplementary.aux" changed ...
+warning: supplementary.tex:75: Underfull \hbox (badness 1762) in paragraph at lines 74--75
+warning: supplementary.tex:100: Underfull \hbox (badness 1668) in paragraph at lines 99--100
+warning: supplementary.tex:102: Underfull \hbox (badness 1990) in paragraph at lines 101--102
+note: Rerunning TeX because "supplementary.aux" changed ...
+warning: supplementary.tex:75: Underfull \hbox (badness 1762) in paragraph at lines 74--75
+warning: supplementary.tex:100: Underfull \hbox (badness 1668) in paragraph at lines 99--100
+warning: supplementary.tex:102: Underfull \hbox (badness 1990) in paragraph at lines 101--102
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `supplementary.log` (8.123046875 KiB)
+note: Writing `supplementary.aux` (4.111328125 KiB)
+note: Writing `supplementary.pdf` (80.826171875 KiB)
+note: Not writing `supplementary.spl`: it would be empty.
