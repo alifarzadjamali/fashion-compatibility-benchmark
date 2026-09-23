@@ -8,8 +8,12 @@ from repbench.data.polyvore import FITBQuestion
 
 
 def evaluate_fitb(questions: Sequence[FITBQuestion], scorer: Callable[[tuple[str, ...]], float]):
+    if not questions:
+        raise ValueError("FITB evaluation requires at least one question")
     predictions = []
     for question in questions:
+        if not question.candidate_item_ids:
+            raise ValueError(f"FITB question {question} has no candidates")
         scores = [
             scorer(question.question_item_ids + (candidate,))
             for candidate in question.candidate_item_ids

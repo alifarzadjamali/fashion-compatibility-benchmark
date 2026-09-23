@@ -19,3 +19,8 @@ def test_boundary_probabilities_are_counted_once():
 def test_invalid_probability_rejected():
     with pytest.raises(ValueError):
         expected_calibration_error([0], [1.1])
+
+
+def test_reliability_bins_reject_invalid_probability():
+    with pytest.raises(ValueError, match="Probabilities must lie"):
+        reliability_bins([0], [-0.1])

@@ -6,15 +6,20 @@ import numpy as np
 from sklearn.metrics import brier_score_loss, log_loss
 
 
-def expected_calibration_error(labels, probabilities, n_bins: int = 15) -> float:
+def _validate_calibration_inputs(labels, probabilities, n_bins: int) -> tuple[np.ndarray, np.ndarray]:
     labels = np.asarray(labels, dtype=np.int8)
     probabilities = np.asarray(probabilities, dtype=np.float64)
     if labels.shape != probabilities.shape or labels.ndim != 1:
         raise ValueError("Labels and probabilities must be aligned vectors")
     if n_bins < 2 or not np.isfinite(probabilities).all():
-        raise ValueError("ECE requires finite probabilities and at least two bins")
+        raise ValueError("Calibration requires finite probabilities and at least two bins")
     if np.any((probabilities < 0) | (probabilities > 1)):
         raise ValueError("Probabilities must lie in [0, 1]")
+    return labels, probabilities
+
+
+def expected_calibration_error(labels, probabilities, n_bins: int = 15) -> float:
+    labels, probabilities = _validate_calibration_inputs(labels, probabilities, n_bins)
     # Right-closed final bin ensures p=1 is included; p=0 belongs to bin zero.
     indices = np.minimum((probabilities * n_bins).astype(int), n_bins - 1)
     error = 0.0
@@ -38,8 +43,7 @@ def calibration_metrics(labels, probabilities, primary_bins: int = 15) -> dict[s
 
 
 def reliability_bins(labels, probabilities, n_bins: int = 15) -> list[dict]:
-    labels = np.asarray(labels, dtype=np.int8)
-    probabilities = np.asarray(probabilities, dtype=np.float64)
+    labels, probabilities = _validate_calibration_inputs(labels, probabilities, n_bins)
     indices = np.minimum((probabilities * n_bins).astype(int), n_bins - 1)
     rows = []
     for bin_index in range(n_bins):
