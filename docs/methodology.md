@@ -36,7 +36,7 @@ The controlled primary track uses PCA-256 and the fixed 512-dimensional pairwise
 The native-dimensional track is secondary and changes only the item width (and consequently the
 pairwise outfit width); it does not replace the controlled primary conclusions.
 
-## Leakage-free Polyvore-D-Clean protocol
+## Leakage-audited Polyvore-D-Clean protocol
 
 `polyvore_d_clean` is a separate derived protocol; it never overwrites the packaged historical
 files. All 35,140 historical positive outfits are pooled, eight exact duplicate item sets are

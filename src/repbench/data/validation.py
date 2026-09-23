@@ -54,7 +54,7 @@ def validate_disjoint(dataset: PolyvoreDisjoint, check_images: bool = True) -> d
 
 
 def inspect_clean_protocol(dataset: PolyvoreDisjoint) -> dict:
-    """Exhaustive checks for a generated leakage-free protocol."""
+    """Exhaustive checks for the generated protocol's audited split-level leakage mechanisms."""
     report = inspect_disjoint(dataset)
     split_items = {split: dataset.item_ids(split) for split in dataset.SPLITS}
     metadata = json.loads(

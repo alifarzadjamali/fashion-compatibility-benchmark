@@ -12,7 +12,7 @@ compatibility when the downstream pipeline is controlled. It does not introduce 
 compatibility architecture, loss, or human annotation study. Polyvore-D-Clean is the completed
 development corpus; IQON3000-Clean is the prospective independent replication; A100 is a strictly
 external evaluation using only its previously collected public/expert annotations. Historical
-Polyvore-D is retained only for comparison and is not leakage-free. Because Polyvore influenced
+Polyvore-D is retained only for comparison and does not satisfy the leakage-audited split controls. Because Polyvore influenced
 development, its test set is not called a prospectively untouched blind test.
 
 No result may trigger a change to preprocessing, labels, candidates, hyperparameters, metrics, or

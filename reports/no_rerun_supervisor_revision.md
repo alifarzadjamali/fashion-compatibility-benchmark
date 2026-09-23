@@ -1,0 +1,47 @@
+# No-rerun supervisor revision report
+
+Date: 22 September 2026  
+Scope: manuscript, metadata, reference, and reproducibility revision using the frozen RepBench-Fashion evidence. No encoder, model-training, prediction, or new experiment was run.
+
+## Concern-to-resolution record
+
+| Resolved concern | Existing evidence | Manuscript or package improvement | Remaining limitation | Sections/files changed |
+|---|---|---|---|---|
+| Contribution framing | Seven frozen representations; two controlled corpora; A100; calibration, efficiency, provenance, statistics, robustness, and reproducibility artifacts | Recast the study as a controlled measurement of relational representation quality and led with the replicated family-level result | Close checkpoint ordering remains dataset-dependent | Abstract; final Introduction paragraphs; Contributions; Results openings; Discussion RQ answers; Practical implications; Conclusion in both journal versions |
+| Split leakage versus upstream pretraining | Identifier, encoded-image, decoded-pixel, duplicate-outfit, and generated-question audits | Replaced over-broad cleanliness wording with “leakage-audited”; stated the exact audited scope; consolidated the upstream-pretraining caveat in the provenance limitation | Web-scale upstream exposure cannot be certified absent for CLIP, SigLIP2, DINOv3, FashionCLIP, Marqo-FashionSigLIP, or GR-Lite | Abstract; Datasets; Protocol audit; representation provenance; Threats to validity; Conclusion; auxiliary tables and repository documentation |
+| IQON retention and selection | 41.62% retained; 98.74% of users represented; category JSD 0.0016 bits; length and repetition shifts; zero audited cross-split overlap; user bootstrap; item-component sensitivity | Presented the construction as an explicit, measured trade-off between split integrity and source-population coverage; clarified frozen prospective replication and the non-user-disjoint target | The retained subset is not assumed to represent every valid source outfit and is not a new-user benchmark | IQON Methods; Protocol audit; RQ4 answer; Internal validity; supplement; dataset summary tables |
+| Dependence on the relational probe | PCA-256 logistic probe; native-width analysis; XGBoost; five construction seeds; label fractions; image-only OutfitTransformer adaptation | Explained that the family hierarchy is not specific to PCA width, one linear boundary, or one generated-question seed | Native-width and XGBoost cover plausible alternatives but do not exhaust all relational probes | Experimental setup; Stability and robustness; RQ4 answer; Probe and baseline validity |
+| Negative-question construction | Five construction seeds; historical-to-clean bridge; exact collision audits; same-category, within-split controls | Made the purpose and coverage of the existing controls explicit | Similarity-mined harder negatives remain a useful extension | Datasets; Experimental setup; Protocol audit; Robustness; Construct validity |
+| Statistical contrast rationale | Six frozen contrasts, paired/group-aware inference, Holm correction, validation-only checkpoint selection | Added an explicit scientific rationale for each contrast; stated that contrasts preceded final test evaluation, test outcomes did not select arbitrary pairs, Holm controls the predefined family, and post-audit analyses are distinct | The predefined family is targeted rather than exhaustive; no all-pairs matrix is interpreted | Research questions and study design; Experimental setup; statistical-validity text |
+| Author order and contributions | Existing contribution record | Reordered all manuscript, supplement, repository, and machine-readable citation metadata to the approved order; retained Ali Jamali as corresponding author and Taha Mansouri as senior/last author; preserved the supplied actual contributions | None | Both title pages; both supplements; declarations; `credit_author_statement.txt`; `README.md`; `CITATION.cff` |
+| AI-assistance disclosure | Publisher-policy review and author-provided disclosure scope | Added a neutral Elsevier declaration immediately before the references and an equivalent Springer declaration; recorded spelling/grammar and sentence-structure support plus limited wording, formatting, and software/documentation support; retained author verification and responsibility | Publisher submission portals may request the same disclosure in a separate form | Both manuscript declaration sections; `paper_elsevier_ivc/generative_ai_declaration.txt` |
+| Review-time reproducibility | Public GitHub repository; code; locked `uv.lock`; exact revisions; configs; builders; audits; hashes; manifests; curated tables/figures | Replaced future-release promises with the public repository URL; added inspection and full-regeneration paths; documented precisely what Git does and does not contain | Full numerical regeneration requires public source data, provider weights, and fresh embedding extraction; cached embeddings and raw predictions are not in Git | `README.md`; `REPRODUCIBILITY.md`; `ARTIFACTS.md`; availability statements; final-submission audits; `CITATION.cff` |
+| Reference validity | 81 bibliography records and primary-source literature audit | Re-resolved bibliography links; checked all cited keys; synchronized both bibliographies; corrected several entry types/pages and the author list for *The Efficiency Misnomer* | Seven preprint-formatted works still lack a verified authoritative same-work publication record | Both `references.bib` files; both `literature_audit.md` files |
+| Journal synchronization and build quality | Parallel Springer MVA and Elsevier IVC sources | Synchronized the scientific body and supplement while preserving template-specific front matter, floats, CRediT form, disclosure heading, and bibliography style; rebuilt both main papers and supplements | Normal underfull-box and publisher-template bookmark/PDF-string warnings remain; there are no LaTeX errors or unresolved citations/references | `paper_springer_mva/`; `paper_elsevier_ivc/` |
+
+## Reference audit outcome
+
+The seven entries formatted as arXiv preprints were checked against authoritative publisher and conference records: VTAB, SigLIP2, the e-commerce embedding benchmark, DINOv3, LookBench, FashionStylist, and ZooClaw-FashionSigLIP2. No verified peer-reviewed same-work record was found that justified replacing the cited arXiv record. The e-commerce record notes FTC 2025 acceptance, but no matching authoritative chapter page or DOI was located, so speculative proceedings metadata was not added. No arXiv reference was upgraded in this revision.
+
+All 81 manuscript citation keys resolve to bibliography entries. DOI and explicit URL targets were rechecked; no unresolved 404 or mismatched destination was found. Model-card and workshop references are retained only where they are the primary record for the released checkpoint or dataset claim.
+
+## Reproducibility boundary
+
+The review repository is public at <https://github.com/alifarzadjamali/fashion-compatibility-benchmark>. It exposes the locked design, exact checkpoint revisions, dependency declaration and lock, experiment configurations, protocol builders and manifests, audit summaries, statistical and figure/table code, curated derived results, manuscript sources, and protocol/artifact hashes.
+
+The repository does not redistribute original source images, pretrained weights, cached frozen embeddings, fitted binary objects, or raw per-example predictions. `artifacts/final_artifact_manifest.csv` records the frozen-run inventory and hashes but is not a distribution claim. Full regeneration therefore requires acquiring the public source datasets and provider checkpoints and running the documented extraction pipeline.
+
+## Verification
+
+- Springer MVA main manuscript: compiled successfully with pdfLaTeX/BibTeX; no LaTeX errors and no unresolved citations or references.
+- Springer supplementary material: compiled successfully; `ESM_1.pdf` refreshed.
+- Elsevier IVC main manuscript: compiled successfully with pdfLaTeX/BibTeX; no LaTeX errors and no unresolved citations or references.
+- Elsevier supplementary material: compiled successfully; `supplementary_material.pdf` refreshed.
+- The scientific body from Introduction through Conclusion is substantively synchronized across the two journal sources; remaining diffs are journal-layout commands.
+- The rendered title pages and Elsevier PDF metadata use: Ali Jamali; Ali Alameer; Maryam Vadikheil; Parham Imanzadeh Charandabi; Taha Mansouri.
+- Primary result-table point estimates, confidence intervals, dataset counts, and frozen statistical outcomes were not changed.
+- No encoder, extraction, training, prediction, or new experimental analysis was run.
+
+## Concise change summary
+
+The revision now advocates the study through its strongest evidence: a controlled seven-representation comparison, cross-dataset family-level replication, A100 corroboration, provenance-robust conclusions, and extensive robustness and reproducibility support. Leakage claims are bounded to audited mechanisms; IQON selection is presented transparently as a quantified integrity/coverage trade-off; the six hypothesis contrasts and existing probe/negative controls are explained directly. Both journal packages now carry the approved author order, publisher-appropriate AI disclosures, current public-code availability language, synchronized scientific wording, audited references, and refreshed PDFs.

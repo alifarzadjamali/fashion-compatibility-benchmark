@@ -14,9 +14,9 @@
 
 \title[Supplementary information]{Online Resource 1: Supplementary Information for ``Frozen Visual Representations for Relational Outfit Compatibility: A Leakage-Audited Cross-Dataset Study''}
 \author*[1]{\fnm{Ali} \sur{Jamali}}\email{a.jamali2@salford.ac.uk}
+\author[1]{\fnm{Ali} \sur{Alameer}}
 \author[1]{\fnm{Maryam} \sur{Vadikheil}}
 \author[1]{\fnm{Parham} \sur{Imanzadeh Charandabi}}
-\author[1]{\fnm{Ali} \sur{Alameer}}
 \author[1]{\fnm{Taha} \sur{Mansouri}}
 \affil*[1]{\orgdiv{School of Science, Engineering and Environment}, \orgname{University of Salford}, \orgaddress{\city{Manchester}, \country{United Kingdom}}}
 \maketitle
@@ -25,13 +25,13 @@
 
 \section{Purpose and frozen evidence boundary}
 
-This supplement expands the audit trail and robustness results without rerunning encoders or model training. Primary claims are based on Polyvore-D-Clean, the prospective IQON3000-Clean replication, and unchanged A100 evaluation. Historical Polyvore-D is retained only for literature-facing comparison. Post-audit diagnostics use frozen metadata, manifests, questions, and predictions and are explicitly identified below.
+This supplement expands the audit trail and robustness results without rerunning encoders or model training. Primary claims are based on Polyvore-D-Clean, prospective replication on the frozen IQON3000-Clean protocol, and unchanged A100 evaluation. Historical Polyvore-D is retained only for literature-facing comparison. Post-audit diagnostics use frozen metadata, manifests, questions, and predictions and are explicitly identified below.
 
 \section{Protocol construction details}
 
 Polyvore-D-Clean is built from pooled historical positives after removing eight exact duplicate outfits. Exact file-byte and decoded-pixel hashes identify 120 duplicate-image groups. The outfit graph joins outfits sharing an item identifier or exact image group; entire connected components are assigned to one split. This yields 16,991/2,999/15,142 positive outfits and zero audited cross-split item, exact encoded-image, decoded-image, or outfit overlap.
 
-IQON source validation starts from 308,747 JSON records. There are 297,916 valid outfits with at least two distinct items, 610 duplicate outfits, 3,568 users, and 712,170 unique source items. The largest item/image-connected component has 292,197 outfits (98.08\%), which makes a whole-component three-way split incompatible with useful evaluation sizes. The frozen balanced greedy hypergraph packing keeps identifiers and exact-image groups indivisible and discards boundary-conflicting outfits. Its exact targets are 86,800/12,400/24,800 outfits, or 41.62\% of valid outfits. This is an explicitly retained subset, not a claim to represent all IQON records.
+IQON source validation starts from 308,747 JSON records. There are 297,916 valid outfits with at least two distinct items, 610 duplicate outfits, 3,568 users, and 712,170 unique source items. The largest item/image-connected component has 292,197 outfits (98.08\%), which makes a whole-component three-way split incompatible with useful evaluation sizes. The frozen balanced greedy hypergraph packing keeps identifiers and exact-image groups indivisible and discards boundary-conflicting outfits. Its exact targets are 86,800/12,400/24,800 outfits, or 41.62\% of valid outfits. The retained-versus-excluded audit makes this coverage trade-off explicit: 98.74\% of source users and the category mixture are preserved, while retained outfits are shorter and use less frequently repeated items.
 
 Both clean datasets use one type- and length-aware corrupted outfit per positive for CP: every source item is replaced by a different same-category, within-split item. FITB uses one true item and three distinct same-category distractors drawn only from the same split, with candidate positions balanced. Seeds 42--46 vary these constructions while preserving the item partitions.
 
@@ -208,7 +208,7 @@ The 10\%, 25\%, 50\%, and 100\% fractions reduce only labelled training outfits.
 
 Across seeds 42--46, Polyvore CP Spearman agreement with the primary construction is 1.000, 1.000, 1.000, 0.893, and 1.000; FITB is 0.964 for every seed. IQON CP agreement is 1.000, 1.000, 0.964, 1.000, and 1.000; FITB is 1.000, 0.964, 0.964, 0.964, and 1.000. Standard deviations across constructions range from 0.00055 to 0.00206 for CP and 0.00122 to 0.00538 for FITB. These are measurement-construction effects, distinct from test-sample confidence intervals.
 
-Removing Marqo-FashionSigLIP and GR-Lite leaves five checkpoints with no documented direct evaluation exposure, while still acknowledging possible web contamination. On Polyvore, SigLIP2 leads at 0.8892 CP and 0.6528 FITB; on IQON, CLIP leads at 0.7042 and 0.4364. FashionCLIP remains below CLIP on both datasets. Thus three conclusions survive the restriction: VLMs exceed ResNet50 and DINOv3, the broad hierarchy replicates, and fashion specialization is not universally beneficial. The full-roster statement that Marqo is strongest on IQON does not survive by definition and is always qualified by provenance.
+Removing Marqo-FashionSigLIP and GR-Lite, the two checkpoints with the greatest fashion-data provenance uncertainty, leaves the tier-level result intact. On Polyvore, SigLIP2 leads at 0.8892 CP and 0.6528 FITB; on IQON, CLIP leads at 0.7042 and 0.4364. FashionCLIP remains below CLIP on both datasets. Thus three conclusions survive the restriction: VLMs exceed ResNet50 and DINOv3, the broad hierarchy replicates, and fashion specialization is not universally beneficial.
 
 \section{A100 label and facet sensitivity}
 

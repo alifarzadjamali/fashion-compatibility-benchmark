@@ -1,5 +1,5 @@
 Data and code availability
 
-Derived split manifests, predictions, statistical outputs, and publication artifacts will be deposited with the public project release. Original Polyvore, IQON3000, and A100 images are not redistributed and must be obtained from their respective sources subject to their terms.
+Curated audit summaries, derived result tables, statistical outputs, protocol hashes, publication artifacts, evaluation code, frozen configuration, checkpoint revisions, artifact manifests, and reproduction instructions are publicly available during review at https://github.com/alifarzadjamali/fashion-compatibility-benchmark.
 
-The complete evaluation code, frozen configuration, protocol hashes, checkpoint revisions, and artifact manifests will be made publicly available in the archival project release associated with the article.
+Original Polyvore, IQON3000, and A100 images are not redistributed and must be obtained from their respective sources subject to their terms. Pretrained model weights are obtained from their original providers. Cached frozen embeddings, fitted binary artifacts, and raw per-example predictions are not included in the Git repository; reproduction requires running the documented extraction and evaluation pipeline.

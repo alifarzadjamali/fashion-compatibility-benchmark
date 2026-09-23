@@ -1,6 +1,10 @@
 # Literature and journal-fit audit
 
-Audit updated: 15 September 2026. The bibliography contains 81 records. Metadata were checked against an original publisher proceedings/article page, PMLR/JMLR/OpenReview, the official arXiv record, or (for a released checkpoint without a paper) the provider model card. DOI, venue, year, volume, issue, and page fields were included only when those records exposed them. arXiv-issued DOIs are identified as such. No discovery page or secondary blog is used as bibliographic authority.
+Audit updated: 22 September 2026. The bibliography contains 81 records. Metadata were checked against an original publisher proceedings/article page, PMLR/JMLR/OpenReview, the official arXiv record, or (for a released checkpoint without a paper) the provider model card. DOI, venue, year, volume, issue, and page fields were included only when those records exposed them. arXiv-issued DOIs are identified as such. No discovery page or secondary blog is used as bibliographic authority.
+
+## Re-audit of the seven arXiv-designated records
+
+The seven entries formatted as arXiv preprints were checked again against official publisher and conference records. VTAB, SigLIP2, DINOv3, LookBench, FashionStylist, and ZooClaw-FashionSigLIP2 still have no confirmed authoritative peer-reviewed version of the same work. The e-commerce benchmark's official arXiv record states acceptance at FTC 2025, and the Springer FTC 2025 proceedings volumes were checked, but no matching authoritative chapter page or DOI was found. It therefore remains cited by its verified arXiv record with the acceptance note rather than speculative proceedings metadata. No arXiv entry was replaced in this revision. All DOI and explicit URL targets in the bibliography were re-resolved; none produced a mismatched destination or unresolved 404.
 
 ## Machine Vision and Applications and Springer Nature requirements
 

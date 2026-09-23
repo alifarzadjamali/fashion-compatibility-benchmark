@@ -106,7 +106,7 @@ def main() -> None:
     metadata = {
         "created_utc": datetime.now(UTC).isoformat(),
         "protocol": "historical_polyvore_d",
-        "protocol_warning": "Packaged historical disjoint split has known cross-split item overlap; not leakage-free.",
+        "protocol_warning": "Packaged historical disjoint split has known cross-split item overlap; not eligible as leakage-audited primary evidence.",
         "primary_models": list(PRIMARY_MODEL_KEYS),
         "checkpoints": {
             key: {"checkpoint": spec.checkpoint, "revision": spec.revision}

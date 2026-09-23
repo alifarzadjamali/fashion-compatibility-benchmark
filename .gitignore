@@ -47,7 +47,8 @@ htmlcov/
 *.onnx
 
 # Generated reports (only curated publication outputs are force-tracked)
-/reports/
+/reports/*
+!/reports/no_rerun_supervisor_revision.md
 
 # Notebooks and temporary/editor files
 .ipynb_checkpoints/

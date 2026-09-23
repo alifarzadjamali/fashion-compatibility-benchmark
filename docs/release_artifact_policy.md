@@ -21,3 +21,10 @@ Excluded:
 The private artifact manifest may list files absent from the public repository. This is intentional:
 it provides an auditable inventory and hashes for the completed run without publishing restricted or
 large data products.
+
+## Release review
+
+Before publishing a release, verify that the public tree contains the expected
+source, configuration, tests, manifests, and report artifacts. Re-run the
+credential and oversized-file scans, confirm that generated private outputs are
+still ignored, and compare the final artifact manifest with the release tag.

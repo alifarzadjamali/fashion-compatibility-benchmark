@@ -17,7 +17,6 @@ with multiple rank reversals. The defensible conclusion is that fashion retrieva
 reliable proxy for relational outfit compatibility in this small exact-match subset; it is not proof
 of zero association.
 
-The clean-provenance sensitivity excludes Marqo and GR-Lite. SigLIP2 then leads Polyvore and CLIP
+The provenance-restricted sensitivity excludes Marqo and GR-Lite. SigLIP2 then leads Polyvore and CLIP
 leads IQON, while FashionCLIP trails its generic CLIP counterpart. Hence the broad modern-VLM signal
 survives, whereas a general fashion-specialization advantage does not.
-

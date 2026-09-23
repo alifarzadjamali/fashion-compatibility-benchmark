@@ -35,7 +35,7 @@
 ## 2026-09-12 — Historical-protocol pilot authorization
 
 - The pilot is authorized on the unchanged packaged Polyvore-D files and is labeled
-  `historical_polyvore_d`, never “truly leakage-free.”
+  `historical_polyvore_d`, never as leakage-audited primary evidence.
 - DINOv2 ViT-B/14 (`facebook/dinov2-base`) replaces unavailable DINOv3 for Gate 1. DINOv3 remains
   planned for the full experiment after access is granted.
 - The pilot roster is locked to ResNet50, DINOv2 ViT-B/14, CLIP ViT-L/14, and FashionCLIP 2.0.
@@ -130,7 +130,7 @@
   for every representation.
 - XGBoost and MLP are robustness checks, not replacements for the locked Logistic Regression primary.
   Their lower absolute accuracy is reported rather than tuned away.
-- Marqo-FashionSigLIP is excluded in the clean-provenance sensitivity table because it remains
+- Marqo-FashionSigLIP is excluded in the provenance-restricted sensitivity table because it remains
   `possibly_exposed`; it remains in the scientifically useful full benchmark with a clear flag.
 
 ## 2026-09-13 - Efficiency profile

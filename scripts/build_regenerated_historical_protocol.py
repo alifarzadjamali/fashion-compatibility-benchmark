@@ -24,7 +24,7 @@ def main() -> None:
     manifest = {
         "protocol": "historical_polyvore_d_regenerated",
         "role": "secondary bridge isolating question-generation from repartitioning",
-        "warning": "Retains historical cross-split item overlap; not leakage-free.",
+        "warning": "Retains historical cross-split item overlap; not eligible as leakage-audited primary evidence.",
         "seed": args.seed,
         "splits": {},
     }
