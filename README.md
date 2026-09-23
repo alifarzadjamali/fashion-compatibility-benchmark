@@ -14,7 +14,8 @@ The public review repository is
 [github.com/alifarzadjamali/fashion-compatibility-benchmark](https://github.com/alifarzadjamali/fashion-compatibility-benchmark).
 Start with [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the execution path and
 [ARTIFACTS.md](ARTIFACTS.md) for the exact boundary between committed and regeneration-required
-artifacts.
+artifacts. See [docs/repository_layout.md](docs/repository_layout.md) for a directory guide and
+[CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations.
 
 ## Evidence stack
 
