@@ -11,7 +11,7 @@ def cp_metrics(labels, scores) -> dict[str, float]:
         raise ValueError("Labels and scores must be non-empty vectors with identical shapes")
     if not np.isfinite(scores).all():
         raise ValueError("Scores must be finite")
-    if np.unique(labels).size < 2:
+    if np.all(labels == labels[0]):
         raise ValueError("ROC-AUC requires both positive and negative labels")
     return {
         "roc_auc": float(roc_auc_score(labels, scores)),
