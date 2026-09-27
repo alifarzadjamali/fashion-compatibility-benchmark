@@ -27,6 +27,7 @@ def evaluate_fitb(questions: Sequence[FITBQuestion], scorer: Callable[[tuple[str
 
 def random_fitb_accuracy(candidate_counts: Sequence[int], seed: int) -> float:
     rng = np.random.default_rng(seed)
-    draws = [int(rng.integers(count)) for count in candidate_counts]
+    counts = np.asarray(candidate_counts, dtype=np.int64)
+    draws = rng.integers(counts)
     # Intended for official questions where the correct index is checked separately by caller.
-    return float(np.mean([draw == 0 for draw in draws]))
+    return float(np.mean(draws == 0))
