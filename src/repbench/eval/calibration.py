@@ -18,10 +18,15 @@ def _validate_calibration_inputs(labels, probabilities, n_bins: int) -> tuple[np
     return labels, probabilities
 
 
+def _bin_indices(probabilities: np.ndarray, n_bins: int) -> np.ndarray:
+    """Assign probabilities to equal-width bins, including one in the last bin."""
+    return np.minimum((probabilities * n_bins).astype(int), n_bins - 1)
+
+
 def expected_calibration_error(labels, probabilities, n_bins: int = 15) -> float:
     labels, probabilities = _validate_calibration_inputs(labels, probabilities, n_bins)
     # Right-closed final bin ensures p=1 is included; p=0 belongs to bin zero.
-    indices = np.minimum((probabilities * n_bins).astype(int), n_bins - 1)
+    indices = _bin_indices(probabilities, n_bins)
     error = 0.0
     for bin_index in range(n_bins):
         mask = indices == bin_index
@@ -44,7 +49,7 @@ def calibration_metrics(labels, probabilities, primary_bins: int = 15) -> dict[s
 
 def reliability_bins(labels, probabilities, n_bins: int = 15) -> list[dict]:
     labels, probabilities = _validate_calibration_inputs(labels, probabilities, n_bins)
-    indices = np.minimum((probabilities * n_bins).astype(int), n_bins - 1)
+    indices = _bin_indices(probabilities, n_bins)
     rows = []
     for bin_index in range(n_bins):
         mask = indices == bin_index
