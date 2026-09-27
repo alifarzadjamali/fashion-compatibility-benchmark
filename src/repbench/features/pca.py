@@ -35,9 +35,15 @@ class TrainOnlyPCA:
         scaled = self.scaler_.transform(values) if self.scaler_ else values
         return normalize(self.pca_.transform(scaled), norm="l2").astype(np.float32)
 
-    def fit_transform_splits(self, train: np.ndarray, valid: np.ndarray, test: np.ndarray):
+    def fit_transform_splits(
+        self, train: np.ndarray, valid: np.ndarray, test: np.ndarray
+    ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        """Fit exclusively on training embeddings before transforming every split."""
         self.fit(train)
-        return self.transform(train), self.transform(valid), self.transform(test)
+        transformed_train = self.transform(train)
+        transformed_valid = self.transform(valid)
+        transformed_test = self.transform(test)
+        return transformed_train, transformed_valid, transformed_test
 
     @property
     def explained_variance_ratio(self) -> float:
