@@ -92,6 +92,21 @@ def grouping(protocol: Path, set_to_component: dict[str, int]):
     return cp_groups, fitb_groups
 
 
+def attach_cluster_intervals(summary: pd.DataFrame, intervals: pd.DataFrame) -> pd.DataFrame:
+    """Join group-aware intervals to each dataset/checkpoint result."""
+    keys = ["dataset", "representation"]
+    result = summary.copy()
+    for metric in ("cp_auc", "pr_auc", "fitb_acc"):
+        selected = intervals.loc[intervals.metric == metric, keys + ["ci_low", "ci_high"]]
+        selected = selected.rename(columns={
+            "ci_low": f"{metric}_cluster_low", "ci_high": f"{metric}_cluster_high"
+        })
+        result = result.merge(selected, on=keys, how="left", validate="one_to_one")
+        if result[[f"{metric}_cluster_low", f"{metric}_cluster_high"]].isna().any().any():
+            raise ValueError(f"Missing cluster intervals for {metric}")
+    return result
+
+
 def main() -> None:
     rows = []
     pairwise_rows = []
@@ -171,7 +186,11 @@ def main() -> None:
                         "resamples": N_BOOTSTRAP,
                     }
                 )
-    pd.DataFrame(rows).to_csv("artifacts/component_cluster_bootstrap.csv", index=False)
+    intervals = pd.DataFrame(rows)
+    intervals.to_csv("artifacts/component_cluster_bootstrap.csv", index=False)
+    attach_cluster_intervals(
+        pd.read_csv("artifacts/paper_main_results.csv"), intervals
+    ).to_csv("artifacts/paper_main_results_with_cluster_ci.csv", index=False)
     pd.DataFrame(pairwise_rows).to_csv(
         "artifacts/component_cluster_pairwise.csv", index=False
     )

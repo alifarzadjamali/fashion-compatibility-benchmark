@@ -151,16 +151,6 @@ def validate_a100_baseline() -> list[dict]:
 
 
 def validate_paper_outputs() -> list[dict]:
-    required_reports = [
-        "final_experiment_report.md",
-        "final_statistics_report.md",
-        "final_calibration_report.md",
-        "final_efficiency_report.md",
-        "final_cross_dataset_report.md",
-        "final_a100_report.md",
-        "final_reviewer_red_team.md",
-        "paper_readiness_report_v2.md",
-    ]
     required_tables = [
         "main_polyvore_iqon_results.csv",
         "dataset_protocol_comparison.csv",
@@ -191,8 +181,7 @@ def validate_paper_outputs() -> list[dict]:
         "iqon_pca_native_robustness.pdf",
     ]
     paths = (
-        [Path("reports") / name for name in required_reports]
-        + [Path("reports/tables/final") / name for name in required_tables]
+        [Path("reports/tables/final") / name for name in required_tables]
         + [Path("reports/figures/final") / name for name in required_figures]
     )
     missing = [path.as_posix() for path in paths if not path.is_file() or path.stat().st_size == 0]

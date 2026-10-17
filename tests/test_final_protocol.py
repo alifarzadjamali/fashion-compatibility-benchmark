@@ -13,11 +13,13 @@ def digest(path: Path) -> str:
 
 
 def test_frozen_protocol_hash_and_roster_are_exact():
-    document = Path("docs/final_experimental_protocol.md")
+    document = Path("configs/final_experimental_protocol.txt")
     config_path = Path("configs/final_experimental_protocol.yaml")
-    recorded = json.loads(Path("artifacts/final_experimental_protocol_hash.json").read_text())
+    recorded = json.loads(Path("configs/final_experimental_protocol_hash.json").read_text())
     assert digest(document) == recorded["files"][document.as_posix()]
     assert digest(config_path) == recorded["files"][config_path.as_posix()]
+    combined = document.read_bytes().replace(b"\r\n", b"\n") + config_path.read_bytes().replace(b"\r\n", b"\n")
+    assert hashlib.sha256(combined).hexdigest() == recorded["combined_sha256"]
     config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
     configured = tuple(row["key"] for row in config["representations"])
     assert configured == PRIMARY_MODEL_KEYS

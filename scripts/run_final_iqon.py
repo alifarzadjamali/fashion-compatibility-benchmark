@@ -202,7 +202,7 @@ def run_model(args, dataset: PolyvoreDisjoint, model_key: str) -> dict:
         "timestamp_utc": datetime.now(UTC).isoformat(),
         "dataset": args.dataset_key,
         "protocol_manifest_sha256": sha256(args.protocol_root / "manifest.json"),
-        "final_protocol_hash": json.loads(Path("artifacts/final_experimental_protocol_hash.json").read_text())["combined_sha256"],
+        "final_protocol_hash": json.loads(Path("configs/final_experimental_protocol_hash.json").read_text())["combined_sha256"],
         "seed": args.seed,
         "model_key": model_key,
         "revision": PRIMARY_ENCODERS[model_key].revision,

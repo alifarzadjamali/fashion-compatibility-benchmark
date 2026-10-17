@@ -1,157 +1,175 @@
 # Fashion Compatibility Benchmark
 
-RepBench-Fashion is a controlled benchmark of seven frozen visual representations for relational
-outfit Compatibility Prediction (CP) and Fill-in-the-Blank (FITB). It holds train-only preprocessing,
-PCA-256, symmetric pair features, Logistic Regression, labels, candidates, and validation logic fixed
-so that the released representation checkpoint is the experimental unit.
+RepBench-Fashion compares seven frozen image representations for outfit compatibility
+prediction (CP) and fill-in-the-blank completion (FITB). Each representation uses the same
+train-only preprocessing, PCA-256, symmetric pair features, and logistic classifier.
+The encoders are ResNet50, DINOv3, CLIP, SigLIP2, FashionCLIP, Marqo-FashionSigLIP, and GR-Lite.
+Checkpoint revisions and experimental settings are in
+[`configs/final_experimental_protocol.yaml`](configs/final_experimental_protocol.yaml).
 
-The broad modern contrastive-VLM tier advantage replicates across the two leakage-audited corpora and
-is corroborated at tier level by A100. The principal conclusion remains stable across construction
-seeds, feature dimensionality, nonlinear downstream learning, provenance restrictions, label
-availability, and dependence-aware sensitivity analyses.
+## Repository contents
 
-The public review repository is
-[github.com/alifarzadjamali/fashion-compatibility-benchmark](https://github.com/alifarzadjamali/fashion-compatibility-benchmark).
-Start with [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the execution path and
-[ARTIFACTS.md](ARTIFACTS.md) for the exact boundary between committed and regeneration-required
-artifacts. See [docs/repository_layout.md](docs/repository_layout.md) for a directory guide and
-[CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations.
+- `src/repbench/`: datasets, encoders, features, models, and evaluation functions.
+- `scripts/`: data preparation, protocol audits, extraction, training, and analysis.
+- `configs/`: checkpoint settings and the frozen experimental protocol.
+- `tests/`: unit tests and optional checks against locally available datasets.
 
-## Evidence stack
+Datasets, weights, embeddings, predictions, generated reports, and manuscripts stay local
+and are ignored by Git. Scripts create `data/`, `artifacts/`, and `reports/` as needed.
+The source licenses are separate from the [Apache-2.0 code license](LICENSE); see [NOTICE](NOTICE).
 
-- `historical_polyvore_d`: unchanged packaged historical protocol, retained only for comparison;
-  it does not satisfy the audited split-integrity controls.
-- `polyvore_d_clean`: leakage-audited item-, encoded-image-, decoded-pixel-, and outfit-disjoint
-  protocol.
-- `iqon3000_clean`: prospective replication on a frozen leakage-audited IQON target.
-- A100: unchanged external human/expert-grounded LAT/AAT evaluation; never used for fitting or tuning.
+## Install
 
-The seven frozen representations are ResNet50 IMAGENET1K_V2, DINOv3 ViT-L/16, CLIP ViT-L/14@336,
-SigLIP2-B/16@384, FashionCLIP 2.0, Marqo-FashionSigLIP, and GR-Lite. Exact checkpoint revisions and
-provenance caveats are locked in `configs/final_experimental_protocol.yaml`.
-
-## Installation
-
-Python 3.12 and an NVIDIA CUDA environment were used by the locked experiments. `pyproject.toml`
-declares the dependency ranges and `uv.lock` records the resolved environment.
-
-Linux/macOS:
-
-```bash
-uv venv --python 3.12 .venv
-uv sync --extra dev
-.venv/bin/python -m pytest
-```
-
-Windows PowerShell:
+Use Python 3.12 and an NVIDIA GPU compatible with the locked CUDA 12.8 PyTorch wheels.
+The recorded experiments used Windows 11 and an RTX 5070 Ti with 16 GB VRAM.
+`uv.lock` pins the Python dependencies. Commands below run from the repository root.
 
 ```powershell
-uv venv --python 3.12 .venv
-uv sync --extra dev
-.venv\Scripts\python.exe -m pytest
+uv sync --locked --extra dev
+uv run --frozen python -m pytest
 ```
 
-Unit tests run without private datasets. Dataset-dependent integration tests skip until the
-independently obtained archives and generated protocols are present.
+The recorded versions were Python 3.12.13, PyTorch 2.11.0+cu128, Transformers 4.57.6,
+and scikit-learn 1.9.1. Different hardware and numerical libraries can change timings and
+floating-point results. Dataset-dependent tests skip when the required local files are absent.
 
-## Data and access
+## Obtain the inputs
 
-Original source images and annotations are not redistributed. Obtain each source under its own terms:
+Acquire the Polyvore Outfits, IQON3000, and A100 research datasets under their respective
+terms. The pipeline does not redistribute source images or annotations. Model weights come
+from the providers named in the encoder registry. DINOv3 requires approved Hugging Face
+access and local authentication.
 
-1. Polyvore Outfits from the official/publicly documented source or an authorized mirror.
-2. IQON3000 from its research release.
-3. A100 from the AiDLab-fAshIon-Data research archive.
-4. Request Hugging Face gated access for `facebook/dinov3-vitl16-pretrain-lvd1689m` and authenticate
-   locally. Never place a Hugging Face token in this repository.
+The commands below use these local locations, matching the analysis scripts' defaults:
 
-Preparation and audit entry points:
+| Input | Local location |
+| --- | --- |
+| Polyvore metadata, disjoint annotations, and images | `data/raw/polyvore_outfits/` |
+| IQON3000 source ZIP | `.venv/iqon_audit/IQON3000.zip` |
+| A100 source ZIP | `.venv/a100_audit/A100.zip` |
+
+Polyvore needs `images/`, `disjoint/`, and `polyvore_item_metadata.json`. For the supported
+Kaggle archive layout, `scripts/prepare_polyvore.py --kaggle-archive PATH` extracts these
+files. Its audit rejects the historical split's known item overlap after extraction;
+construct the clean protocol below before using it for the primary comparison.
+The preparation script's default metadata download does not supply the complete image archive.
+
+Keep these dataset directories when recreating the Python environment: some historical
+script defaults place data and embeddings inside `.venv/`. Most preparation and extraction
+scripts expose path overrides through `--help`; several analysis scripts use the defaults.
+
+## Construct the protocols
 
 ```powershell
-.venv\Scripts\python.exe scripts\prepare_polyvore.py --help
-.venv\Scripts\python.exe scripts\audit_iqon3000.py --help
-.venv\Scripts\python.exe scripts\prepare_a100.py --help
-.venv\Scripts\python.exe scripts\build_clean_protocol.py --help
-.venv\Scripts\python.exe scripts\build_iqon_clean_protocol.py --help
+uv run --frozen python scripts/build_clean_protocol.py --seed 20260912
+uv run --frozen python scripts/validate_clean_protocol.py
+
+uv run --frozen python scripts/audit_iqon3000.py --archive .venv/iqon_audit/IQON3000.zip --output artifacts/iqon3000_source_audit.json --catalog-dir .venv/iqon_audit/catalog
+uv run --frozen python scripts/audit_iqon_images.py --archive .venv/iqon_audit/IQON3000.zip --items .venv/iqon_audit/catalog/items.parquet --output-parquet .venv/iqon_audit/catalog/image_audit.parquet --output-report artifacts/iqon3000_image_audit.json
+uv run --frozen python scripts/resolve_iqon_image_variants.py --archive .venv/iqon_audit/IQON3000.zip --report artifacts/iqon3000_image_audit.json --image-audit .venv/iqon_audit/catalog/image_audit.parquet --output .venv/iqon_audit/catalog/image_audit_resolved.parquet
+uv run --frozen python scripts/build_iqon_clean_protocol.py --extract-images --seed 20260912
+uv run --frozen python scripts/audit_iqon_selection.py
+uv run --frozen python scripts/prepare_a100.py
 ```
 
-Generated data remain under ignored `data/`, `.venv/`, and `artifacts/` paths. The committed protocol
-manifests provide construction hashes and statistics without redistributing source images. Pretrained
-weights are downloaded from their original providers and remain subject to provider terms.
+Expected positive-outfit counts (train / validation / test) are 16,991 / 2,999 / 15,142
+for Polyvore-D-Clean and 86,800 / 12,400 / 24,800 for IQON3000-Clean. CP adds one synthetic
+negative per positive; FITB has four candidates. A100 retains its released five candidates
+and 100 questions per task, with no training or tuning on its labels.
 
-## Reproducing or inspecting the benchmark
+Both clean protocols enforce item and exact-image separation. IQON retains 41.62% of valid
+source outfits and is not user-disjoint. Exact-image audits do not exclude all transformed
+near-duplicates or overlap with upstream pretraining data.
 
-Reviewers can inspect all frozen summary results, audits, tables, figures, protocol hashes, and source
-without rerunning an encoder. A full numerical reproduction requires the public source datasets,
-provider weights, and a fresh embedding extraction because cached frozen embeddings are not committed.
+## Extract frozen features
 
-Read [REPRODUCIBILITY.md](REPRODUCIBILITY.md) and
-[`docs/final_experimental_protocol.md`](docs/final_experimental_protocol.md) before execution. The
-high-level sequence is:
+The following PowerShell loop extracts all seven representations. On other shells, run the
+two extraction commands for each model key. Historical Polyvore embeddings cover the pooled
+items used by the clean split; the clean runner repartitions them by the clean protocol.
 
 ```powershell
-# 1. Prepare/audit datasets and construct clean protocols.
-# 2. Extract each frozen representation once.
-.venv\Scripts\python.exe scripts\extract_embeddings.py --help
-
-# 3. Run the locked controlled probes and secondary analyses.
-.venv\Scripts\python.exe scripts\run_benchmark.py --help
-.venv\Scripts\python.exe scripts\run_final_iqon.py --help
-
-# Once immutable predictions exist, run scripts/final_phase_statistics.py.
-
-# 4. Validate and assemble paper artifacts.
-.venv\Scripts\python.exe scripts\make_final_outputs.py
-.venv\Scripts\python.exe scripts\validate_final_package.py
+$models = @('resnet50', 'dinov3_vitl16', 'clip_vitl14_336', 'siglip2_b16_384', 'fashionclip2', 'marqo_fashionsiglip', 'gr_lite')
+foreach ($model in $models) {
+    uv run --frozen python scripts/extract_embeddings.py --model-key $model --dataset-key historical_polyvore_d --batch-size 64
+    if ($LASTEXITCODE -ne 0) { throw "Polyvore extraction failed: $model" }
+    uv run --frozen python scripts/extract_embeddings.py --root .venv/iqon3000_clean --protocol-dir data/protocols/iqon3000_clean --dataset-key iqon3000_clean --output-root .venv/iqon3000_clean/embeddings --model-key $model --batch-size 32
+    if ($LASTEXITCODE -ne 0) { throw "IQON extraction failed: $model" }
+}
+uv run --frozen python scripts/extract_a100_embeddings.py
 ```
 
-Large generated outputs are intentionally absent. In particular, the Git repository does not contain
-cached frozen embeddings, fitted binary artifacts, raw per-example predictions, source images, or
-model weights. `artifacts/final_artifact_manifest.csv` records paths and hashes from the frozen run;
-it is an integrity inventory, not a statement that every listed file is distributed. Curated derived
-result tables and figures are committed under `reports/`.
+IQON extraction writes a dataset subdirectory. Pass that directory to the runner below.
+Extraction is the most expensive stage. `--skip-valid-existing` can reuse checked caches
+where the script supports it; do not mix checkpoint revisions or partial extraction runs.
 
-## Results
+## Train and evaluate
 
-Modern contrastive VLM representations form a consistently stronger compatibility tier than ResNet50
-and generic DINOv3. The family-level hierarchy replicates on the frozen IQON3000-Clean protocol and is
-corroborated by A100. Close checkpoint ordering is dataset-dependent, fashion specialization is
-recipe-dependent, and retrieval ranking is not a reliable compatibility-selection rule in the exact
-LookBench overlap. Calibration, efficiency, and provenance provide complementary selection criteria.
+```powershell
+uv run --frozen python scripts/run_benchmark.py --protocol-dir data/protocols/polyvore_d_clean --dataset-name polyvore_d_clean --prefix clean_primary
+uv run --frozen python scripts/restore_polyvore_classifiers.py
+uv run --frozen python scripts/run_final_iqon.py --embedding-root .venv/iqon3000_clean/embeddings/iqon3000_clean
+uv run --frozen python scripts/evaluate_a100.py
+```
 
-Start with:
+Primary outputs are `artifacts/clean_primary_results.csv`,
+`artifacts/final/iqon3000_clean/primary_results.csv`, and `artifacts/final/a100/summary.csv`.
+Several final-stage scripts refuse to overwrite completed outputs. Use a fresh working copy
+for a new experiment or preserve the previous output directory before rerunning.
 
-- `reports/final_experiment_report.md`
-- `reports/final_statistics_report.md`
-- `reports/final_reviewer_red_team.md`
-- `reports/paper_readiness_report_v2.md`
+Reference results from the frozen PCA-256 experiment:
 
-For repository-level guidance, see [`docs/final_experimental_protocol.md`](docs/final_experimental_protocol.md),
-[`docs/release_artifact_policy.md`](docs/release_artifact_policy.md), and the
-[maintenance checklist](docs/maintenance_checklist.md).
+| Representation | Polyvore CP AUC | Polyvore FITB | IQON CP AUC | IQON FITB |
+| --- | ---: | ---: | ---: | ---: |
+| ResNet50 | .6938 | .4063 | .5852 | .3166 |
+| DINOv3 | .7822 | .5048 | .6419 | .3660 |
+| CLIP | .8883 | .6500 | .7042 | .4364 |
+| SigLIP2 | .8892 | .6528 | .7031 | .4330 |
+| FashionCLIP | .8690 | .6175 | .6981 | .4275 |
+| Marqo-FashionSigLIP | .8897 | .6479 | .7221 | .4451 |
+| GR-Lite | .8277 | .5573 | .6511 | .3832 |
 
-## Reproducibility and limitations
+FITB chance accuracy is .25. These values compare complete released checkpoints;
+they do not isolate architecture, training data, or loss. Marqo and GR-Lite have greater
+fashion-data provenance uncertainty. Excluding them preserves the broad VLM advantage.
 
-- Test data never fit PCA, scalers, classifiers, hyperparameters, thresholds, or calibration.
-- A100 remains strictly external and uses its existing candidates and annotations.
-- Marqo-FashionSigLIP and GR-Lite have the greatest fashion-data provenance uncertainty; excluding
-  both preserves the family-level result but does not certify other web-pretrained models.
-- IQON-Clean is item/image-disjoint rather than user-disjoint. Its retained-subset audit preserves
-  98.74% of source users and the category mixture while identifying shifts in outfit length and item
-  repetition.
-- Exact-byte and decoded-pixel duplicates are excluded; transformed near-duplicates remain possible.
-- Original repository code and original documentation are licensed under Apache-2.0. Datasets,
-  annotations, model weights, and trademarks remain governed by their respective owners' terms.
+## Secondary experiments and analysis
 
-## License
+The primary commands above reproduce the main frozen-probe comparison. The full analysis
+also requires the following stages. Run each script's `--help` for dataset and output
+arguments before launching an experiment. Scripts without CLI arguments use repository defaults.
 
-This repository's original code, documentation, configuration, and original publication artifacts
-are available under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for exclusions and
-third-party-material boundaries.
+| Analysis | Entry points and prerequisites |
+| --- | --- |
+| Historical comparison | `run_benchmark.py --allow-known-overlap --prefix primary`; repeat with `--track native --prefix native` |
+| PCA width | Repeat historical and clean runs with `--pca-components 128` and `512`, using prefixes `historical_pca128`, `historical_pca512`, `clean_pca128`, and `clean_pca512` |
+| Clean native features | Repeat the clean `run_benchmark.py` command with `--track native --prefix clean_native` |
+| IQON native features | `run_benchmark.py` with the IQON root and protocol, `--embedding-root .venv/iqon3000_clean/embeddings --embedding-dataset-key iqon3000_clean --dataset-name iqon3000_clean --track native --prefix iqon_native` |
+| Historical question bridge | `build_regenerated_historical_protocol.py`, then `run_benchmark.py` with that protocol, `--allow-known-overlap --dataset-name historical_polyvore_d_regenerated --prefix historical_regenerated` |
+| Label fractions and alternative learners | `run_robustness.py` for historical and clean Polyvore; for IQON use `--jobs xgboost --prefix iqon_xgboost --pca-root artifacts/final/iqon3000_clean` with the IQON dataset, protocol, and embedding arguments |
+| Construction seeds | `build_construction_stability.py`, then `run_construction_stability.py` for both clean datasets |
+| Contextual baseline | `run_outfit_transformer_baseline.py` for each clean dataset, then `evaluate_a100_outfit_transformer.py` |
+| Provenance and efficiency | `write_model_audit.py`, `extend_provenance_for_iqon.py`, `profile_efficiency.py` |
+| Polyvore intervals and comparisons | `analyze_benchmark.py`, `paper_statistics.py`, `cluster_bootstrap.py`, then `make_paper_artifacts.py`; the last step needs efficiency measurements and robustness runs |
+| IQON and A100 statistics | `final_phase_statistics.py` after their predictions exist |
+| Calibration and subgroups | `final_calibration.py`, `final_subgroup_analysis.py`, `render_reliability.py` |
+| Additional validity checks | `audit_question_construction.py`, `audit_iqon_dependence.py`, `audit_external_image_overlap.py` |
+| Final tables and figures | `make_final_outputs.py`, `make_paper_revision_figures.py`, then `validate_final_package.py` after all required experiments and analyses |
 
-See `docs/decision_log.md` and `reports/final_reviewer_red_team.md` for the complete audit trail.
+The optional feature-standardization diagnostic needs a preserved development run and is
+skipped when that run is absent. It is not required for the final experimental package.
 
-## Authors and citation
+Generated outputs stay under ignored `artifacts/` and `reports/`. The validator checks
+experiment payloads, numerical tables, and figures; it does not require editorial reports
+or journal manuscripts. No full experiment is launched by the unit test command.
 
-Author order: Ali Jamali (first and corresponding), Ali Alameer, Maryam Vadikheil, Parham Imanzadeh
-Charandabi, and Taha Mansouri (senior/last). Machine-readable citation metadata are in
-[CITATION.cff](CITATION.cff). No archival DOI is claimed.
+The frozen protocol text is preserved verbatim in
+[`configs/final_experimental_protocol.txt`](configs/final_experimental_protocol.txt), including
+its historical local-path references. The YAML is its machine-readable counterpart.
+[`configs/final_experimental_protocol_hash.json`](configs/final_experimental_protocol_hash.json)
+records their LF-normalized hashes and the original combined hash
+`96ffd69883c381f83a853ca6f73fbc30cbd891366ba34f79ceb314cbe8d0f16b`.
+These files specify the experiment; generated audit inventories are local outputs.
+
+## Citation
+
+Author and repository citation metadata are in [CITATION.cff](CITATION.cff).

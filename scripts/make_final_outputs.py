@@ -315,7 +315,7 @@ def main() -> None:
     baseline_table()
     save(pd.read_csv("artifacts/model_audit.csv"), "provenance_exposure")
     save(pd.read_csv("artifacts/final/calibration/calibration_metrics.csv"), "calibration_metrics")
-    protocol_hash = json.loads(Path("artifacts/final_experimental_protocol_hash.json").read_text(encoding="utf-8"))
+    protocol_hash = json.loads(Path("configs/final_experimental_protocol_hash.json").read_text(encoding="utf-8"))
     run_metadata = json.loads(Path("artifacts/final/iqon3000_clean/resnet50/run_metadata.json").read_text(encoding="utf-8"))
     save(pd.DataFrame([{
         "protocol": protocol_hash["protocol_name"],
@@ -336,7 +336,7 @@ def main() -> None:
         "representation_families.csv", "lookbench_overlap_by_protocol.csv",
         "lookbench_rank_correlations.csv", "lookbench_rank_reversals.csv",
         "pca_native_robustness.csv", "downstream_learner_robustness.csv",
-        "low_data_results.csv", "feature_standardization_audit.csv",
+        "low_data_results.csv",
     ):
         shutil.copy2(Path("reports/tables") / name, TABLES / name)
     figures(polyvore, iqon, a100, efficiency)

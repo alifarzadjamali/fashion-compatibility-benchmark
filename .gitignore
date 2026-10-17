@@ -28,7 +28,7 @@ htmlcov/
 /caches/
 .cache/
 
-# Generated experiment state (selected audit summaries are force-tracked)
+# Generated experiment state
 /artifacts/
 /logs/
 /runs/
@@ -46,9 +46,8 @@ htmlcov/
 *.safetensors
 *.onnx
 
-# Generated reports (only curated publication outputs are force-tracked)
-/reports/*
-!/reports/no_rerun_supervisor_revision.md
+# Generated reports
+/reports/
 
 # Notebooks and temporary/editor files
 .ipynb_checkpoints/
@@ -62,3 +61,13 @@ Thumbs.db
 
 # Internal handoff notes
 RepBench_Fashion_Codex_Handoff_v1.md
+
+# Local manuscripts, editorial notes, and workspace settings
+/paper/
+/paper_*/
+/docs/
+/.vscode/
+/.github/
+/.local/
+*.md
+!README.md

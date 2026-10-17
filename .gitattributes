@@ -13,3 +13,4 @@
 *.jpg binary
 *.jpeg binary
 *.pdf binary
+*.txt text eol=lf

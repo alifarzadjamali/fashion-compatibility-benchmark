@@ -392,16 +392,19 @@ def main() -> None:
                 )
     pd.DataFrame(pca_rows).to_csv(table_root / "pca_native_robustness.csv", index=False)
 
-    scaled = pd.read_csv("artifacts/primary_results.csv")
-    unscaled = pd.read_csv("artifacts/provisional_unscaled_primary/primary_results.csv")
-    standardization = scaled[["representation", "cp_auc", "fitb_acc", "best_c"]].merge(
-        unscaled[["representation", "cp_auc", "fitb_acc", "best_c"]],
-        on="representation",
-        suffixes=("_scaled", "_unscaled"),
-    )
-    standardization["cp_auc_change"] = standardization.cp_auc_scaled - standardization.cp_auc_unscaled
-    standardization["fitb_change"] = standardization.fitb_acc_scaled - standardization.fitb_acc_unscaled
-    standardization.to_csv(table_root / "feature_standardization_audit.csv", index=False)
+    # This diagnostic uses a historical development run, not a primary experiment.
+    if Path("artifacts/provisional_unscaled_primary/primary_results.csv").is_file():
+        scaled = pd.read_csv("artifacts/primary_results.csv")
+        unscaled = pd.read_csv("artifacts/provisional_unscaled_primary/primary_results.csv")
+        standardization = scaled[["representation", "cp_auc", "fitb_acc", "best_c"]].merge(
+            unscaled[["representation", "cp_auc", "fitb_acc", "best_c"]],
+            on="representation",
+            suffixes=("_scaled", "_unscaled"),
+        )
+        standardization["cp_auc_change"] = standardization.cp_auc_scaled - standardization.cp_auc_unscaled
+        standardization["fitb_change"] = standardization.fitb_acc_scaled - standardization.fitb_acc_unscaled
+        standardization.to_csv(table_root / "feature_standardization_audit.csv", index=False)
+
 
 
 if __name__ == "__main__":
