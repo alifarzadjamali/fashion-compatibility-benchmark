@@ -1,0 +1,7 @@
+Highlights
+
+- Modern frozen vision-language models outperform conventional visual encoders.
+- The representation hierarchy replicates across two leakage-audited datasets.
+- Fashion retrieval ranks do not predict relational compatibility ranks.
+- Calibration, efficiency, and data provenance change the preferred checkpoint.
+- Leakage and question audits strengthen outfit compatibility evaluation.

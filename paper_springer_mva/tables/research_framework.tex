@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\caption{Research questions, objectives, and evidence. Each row links a gap to its objective and contribution; Section~\ref{sec:discussion} gives the corresponding explicit answer.}
+\label{tab:framework}
+\centering\small\hyphenpenalty=10000\exhyphenpenalty=10000
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.22\textwidth}>{\raggedright\arraybackslash}p{.30\textwidth}>{\raggedright\arraybackslash}p{.25\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Gap $\rightarrow$ objective & Research question & Contribution & Main evidence \\
+\midrule
+G1 Controlled-transfer gap $\rightarrow$ O1 compare and replicate & RQ1 How do frozen checkpoints compare on leakage-audited Polyvore, and does the hierarchy replicate on the frozen IQON protocol? & C1 Controlled seven-checkpoint benchmark with family-level replication under provenance restrictions & Table~\ref{tab:main}; Fig.~\ref{fig:crossdataset}; Secs.~\ref{sec:poly}, \ref{sec:iqon} \\
+G2 Model/construct boundaries $\rightarrow$ O2 assess scope & RQ2 Does the result extend to A100, contextual learning, specialization, and retrieval ranking? & C2 External evaluation and assessment of scope & Figs.~\ref{fig:a100}, \ref{fig:retrieval}; Secs.~\ref{sec:a100}, \ref{sec:retrieval} \\
+G3 Single-axis selection $\rightarrow$ O3 compare operational criteria & RQ3 Do discrimination, benchmark calibration, cost, and provenance favour the same checkpoint? & C3 Multi-criterion model-selection audit & Table~\ref{tab:efficiency}; Figs.~\ref{fig:calibration}, \ref{fig:pareto} \\
+G4 Validity risks $\rightarrow$ O4 stress-test conclusions & RQ4 Which conclusions survive leakage, construction, selection, dependence, and probe-sensitivity audits? & C4 Leakage-audited protocols and reproducible validity/robustness suite & Sections~\ref{sec:protocolaudit}, \ref{sec:robustness}; Online Resource 1 \\
+\bottomrule
+\end{tabularx}
+\end{table*}

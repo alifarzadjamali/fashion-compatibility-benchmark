@@ -13,9 +13,11 @@ Checkpoint revisions and experimental settings are in
 - `scripts/`: data preparation, protocol audits, extraction, training, and analysis.
 - `configs/`: checkpoint settings and the frozen experimental protocol.
 - `tests/`: unit tests and optional checks against locally available datasets.
+- [`paper_elsevier_ivc/`](paper_elsevier_ivc/main.pdf): Image and Vision Computing manuscript and supplement.
+- [`paper_springer_mva/`](paper_springer_mva/main.pdf): Machine Vision and Applications manuscript and supplement.
 
-Datasets, weights, embeddings, predictions, generated reports, and manuscripts stay local
-and are ignored by Git. Scripts create `data/`, `artifacts/`, and `reports/` as needed.
+Datasets, weights, embeddings, predictions, and generated reports stay local
+and are ignored by Git. The two journal manuscript packages are tracked. Scripts create `data/`, `artifacts/`, and `reports/` as needed.
 The source licenses are separate from the [Apache-2.0 code license](LICENSE); see [NOTICE](NOTICE).
 
 ## Install

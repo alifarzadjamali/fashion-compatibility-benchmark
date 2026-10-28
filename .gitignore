@@ -52,6 +52,11 @@ htmlcov/
 # Notebooks and temporary/editor files
 .ipynb_checkpoints/
 *.log
+*.aux
+*.bbl
+*.blg
+*.out
+*.spl
 *.tmp
 *.temp
 *.bak
@@ -62,12 +67,13 @@ Thumbs.db
 # Internal handoff notes
 RepBench_Fashion_Codex_Handoff_v1.md
 
-# Local manuscripts, editorial notes, and workspace settings
+# Local drafts and workspace settings
 /paper/
-/paper_*/
 /docs/
 /.vscode/
 /.github/
 /.local/
 *.md
 !README.md
+!/paper_elsevier_ivc/*.md
+!/paper_springer_mva/*.md
