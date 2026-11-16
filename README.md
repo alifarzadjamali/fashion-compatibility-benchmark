@@ -193,7 +193,3 @@ its historical local-path references. The YAML is its machine-readable counterpa
 records their LF-normalized hashes and the original combined hash
 `96ffd69883c381f83a853ca6f73fbc30cbd891366ba34f79ceb314cbe8d0f16b`.
 These files specify the experiment; generated audit inventories are local outputs.
-
-## Citation
-
-Author and repository citation metadata are in [CITATION.cff](CITATION.cff).

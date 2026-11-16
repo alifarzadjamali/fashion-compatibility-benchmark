@@ -83,9 +83,5 @@ RepBench_Fashion_Codex_Handoff_v1.md
 
 # Local drafts and workspace settings
 /paper/
-/docs/
 /.vscode/
-/.github/
 /.local/
-*.md
-!README.md
