@@ -13,12 +13,29 @@ Checkpoint revisions and experimental settings are in
 - `scripts/`: data preparation, protocol audits, extraction, training, and analysis.
 - `configs/`: checkpoint settings and the frozen experimental protocol.
 - `tests/`: unit tests and optional checks against locally available datasets.
-- [`paper_elsevier_ivc/`](paper_elsevier_ivc/main.pdf): Image and Vision Computing manuscript and supplement.
-- [`paper_springer_mva/`](paper_springer_mva/main.pdf): Machine Vision and Applications manuscript and supplement.
+- [`paper_elsevier_ivc/`](paper_elsevier_ivc/main.tex): Image and Vision Computing manuscript source and supplement.
+- [`paper_springer_mva/`](paper_springer_mva/main.tex): Machine Vision and Applications manuscript source and supplement.
 
 Datasets, weights, embeddings, predictions, and generated reports stay local
 and are ignored by Git. The two journal manuscript packages are tracked. Scripts create `data/`, `artifacts/`, and `reports/` as needed.
 The source licenses are separate from the [Apache-2.0 code license](LICENSE); see [NOTICE](NOTICE).
+
+## Build the manuscripts
+
+The two journal folders contain the same scientific text, bibliography, and PDF figures.
+Their TeX wrappers, layout commands, declarations, and required class/style files differ by
+journal. Each folder builds independently with a TeX distribution that provides `latexmk`,
+`pdflatex`, `bibtex`, and the packages named in its `main.tex` and `supplementary.tex`.
+From the repository root, build the main paper and supplement for either journal with:
+
+```powershell
+cd paper_elsevier_ivc  # or paper_springer_mva
+latexmk -pdf -outdir=build main.tex
+latexmk -pdf -outdir=build supplementary.tex
+```
+
+New builds go to the ignored `build/` directory. Each journal folder also carries the
+reviewed `main.pdf` and `supplementary.pdf` reference renders.
 
 ## Install
 
@@ -37,10 +54,15 @@ floating-point results. Dataset-dependent tests skip when the required local fil
 
 ## Obtain the inputs
 
-Acquire the Polyvore Outfits, IQON3000, and A100 research datasets under their respective
-terms. The pipeline does not redistribute source images or annotations. Model weights come
-from the providers named in the encoder registry. DINOv3 requires approved Hugging Face
-access and local authentication.
+Acquire [Polyvore Outfits](https://mariya.fyi/polyvore), the
+[IQON3000 metadata archive](https://drive.google.com/open?id=1sTfUoNPid9zG_MgV--lWZTBP1XZpmcK8),
+and the [A100 research archive](https://github.com/AemikaChow/AiDLab-fAshIon-Data/blob/main/Datasets/A100.md)
+under their respective terms. The pipeline does not redistribute source images or annotations.
+Model weights come from the providers named in the encoder registry. DINOv3 requires approved
+Hugging Face access and local authentication. The frozen protocol records SHA-256 checksums
+for the IQON3000 (`305660cc09bd941a15096b6efeb536013efe0d534d9cd517419a49cd9ee650fd`)
+and A100 (`31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829`)
+ZIP files; verify your downloads before construction.
 
 The commands below use these local locations, matching the analysis scripts' defaults:
 

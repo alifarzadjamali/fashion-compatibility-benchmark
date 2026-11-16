@@ -57,12 +57,26 @@ htmlcov/
 *.blg
 *.out
 *.spl
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.bcf
+*.run.xml
 *.tmp
 *.temp
 *.bak
 *.swp
 Thumbs.db
 .DS_Store
+
+# Journal build products and optional raster figure exports
+/paper_*/build/
+/paper_*/main.pdf
+/paper_*/supplementary.pdf
+/paper_*/figures/*.png
 
 # Internal handoff notes
 RepBench_Fashion_Codex_Handoff_v1.md
@@ -75,5 +89,3 @@ RepBench_Fashion_Codex_Handoff_v1.md
 /.local/
 *.md
 !README.md
-!/paper_elsevier_ivc/*.md
-!/paper_springer_mva/*.md
