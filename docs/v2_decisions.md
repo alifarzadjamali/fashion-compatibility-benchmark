@@ -100,3 +100,34 @@
 - Booking job 34 extended by owner; END_TIME 2026-11-18T21:04:43 (server).
   POG go/skip not yet tested. G4 (remaining: POG decision, checksum record),
   G5, G6 and G7 are NOT started. G5/G7 are not expected to fit this booking.
+
+## 2026-11-18 — POG go/skip probe (G4)
+
+- POG metadata downloaded from the README Google Drive folder without manual
+  steps (gdown 5.2.0): item_data.txt.zip 426 MB, outfit_data.txt.zip 88 MB,
+  user_data.txt.7z 8.71 GB. 1,013,136 outfits; 583,464 items used by outfits;
+  75 categories; every used item has a pic_url.
+- Probe `scripts/v2/pog_probe.py`: seed 20261118, 1,000 items sampled from items
+  used by outfits, 8 req/s cap, generic UA, magic-byte validation, no images
+  stored. Target = 124,000 random outfits (IQON-Clean size) → 184,339 items.
+- First run (`probe.json`, retained) reported SKIP at 81.4% success. All 186
+  failures were a probe defect, not dead links: scheme-relative URLs
+  (`//img.alicdn.com/...`) raised ValueError before any request was made. All
+  814 absolute URLs succeeded. Fixed by resolving `//` to `http:` (the scheme
+  of all other POG URLs) and re-ran with the same seed and sample (`probe-r2.json`).
+  The go/skip criterion itself was not changed.
+- Some CDN responses are WebP although URLs end in .png; per-image SHA-256 of
+  the received bytes is the identity, not the URL suffix.
+- Booking job 34 extended again: at 16:21 server time, 14:43:26 left
+  (ends ≈ 07:04 on 2026-11-19).
+- Corrected probe (`probe-r2.json`): **GO** — success 99.6% (3×HTTP 400,
+  1×HTTP 404), 7.95 req/s, 184,339 target items → projected 6.4 h and ≈73 GB.
+  3.4% of responses were WebP. Remaining G4 issue: POG images must survive the
+  booking wipe (no redistribution via GitHub); a private mirror location is an
+  owner decision. Final success on required items must be ≥95% or POG is skipped.
+- Owner approved POG image acquisition plus a private byte-identical mirror on
+  the owner's laptop (not GitHub). `scripts/v2/pog_download.py` (same seed and
+  target as the probe; resumable JSONL manifest with per-image SHA-256; atomic
+  writes) started 16:29 server time; projected finish ≈ 23:30. Measured
+  laptop↔DGX link: 18.6 MB/s down, 48.7 MB/s up, so a ≈73 GB restore next
+  booking takes ≈25 min instead of a ≈6.5 h CDN re-download.
