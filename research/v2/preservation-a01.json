@@ -1,0 +1,26 @@
+{
+  "verified_utc": "2026-11-18T14:21:00.094703+00:00",
+  "commit": "ae40dc05d154340027fa6a51f6f962a73c21b19f",
+  "branch": "v2-readiness",
+  "method": "fresh HTTPS shallow clone and SHA-256 comparison",
+  "status": "PASS",
+  "files": {
+    "research/v2/readiness/2026-11-18-a02/g1/environment.json": "fddf59302e098e7b224122f312e1bd45c1e5be2c0165bd7530417e707c0003c8",
+    "research/v2/readiness/2026-11-18-a02/g1/gate.json": "0e7903358e69c13aaa8563ebe0c8fcf80fd0cac850c3d9107c29ebed5de4f7cb",
+    "research/v2/readiness/2026-11-18-a02/g1/pytest.txt": "fd1ded4e6dc6fb5ec6cf76a92e83e7e269662ea04be8811ba07d3d1a43736d1e",
+    "research/v2/readiness/2026-11-18-a02/g2/clip_vitl14_336.json": "c0063deb111c1134c82da823de9fa54d45897fab543760d2b2d07954d78af9b7",
+    "research/v2/readiness/2026-11-18-a02/g2/dinov3_vitl16.json": "34478d47e17b8a350e899113cc26e5428a40edf21694ecc6b9dae0cb514d760f",
+    "research/v2/readiness/2026-11-18-a02/g2/dinov3_vitl16_336.json": "d94d4c044b6b09da051894ba853914c83591048fca92bcf1f66f5dfef3766f24",
+    "research/v2/readiness/2026-11-18-a02/g2/fashionclip2.json": "d5031d1297b73cf8728a5aa049751baf9ca6509215d0cbc88d12fcc277316e15",
+    "research/v2/readiness/2026-11-18-a02/g2/gr_lite.json": "2a9e4b5e01aa3f5a7fd26c4406fb77ca55afcea41f326620aa9313108452f85b",
+    "research/v2/readiness/2026-11-18-a02/g2/marqo_fashionsiglip.json": "1cd4587554160c3afd51ac0ea43e2651f547424a1abe3acd4f4e1e06c6d1bbba",
+    "research/v2/readiness/2026-11-18-a02/g2/pe_core_l14_336.json": "96ec015edf74b999ba7dd22fa02ed6894491775b3d663d569bb96b8994064bac",
+    "research/v2/readiness/2026-11-18-a02/g2/resnet50.json": "0056a51e039c180e023d2de0844bcb888617c2ec4b3976dcad7e56538b702b87",
+    "research/v2/readiness/2026-11-18-a02/g2/siglip2_b16_384.json": "e9e1eb09896b8a9f856c959dd38c4393422e611c0d8719f486bba76864133f83",
+    "research/v2/readiness/2026-11-18-a02/g2/siglip2_so400m_384.json": "37e7ed005b97283c3657669ac588d1a7f92927bf8ed1b2dc9af877cd5aefa6a7",
+    "research/v2/readiness/2026-11-18/g1-setup.txt": "e978030c9f8570ecac3150bc579617e137306bdb623760e8240952008fb0f213",
+    "research/v2/readiness/2026-11-18/g1/environment.json": "123b49193598e04bd34afd77f935f1059904728bbddad5ae6870a71bed2602cd",
+    "research/v2/readiness/2026-11-18/g1/gate.json": "f337c560ebc04cfe734f24e868d33309753b0121f98c2e34e7e2880d1a06df43",
+    "research/v2/readiness/2026-11-18/g1/pytest.txt": "90d9d4eeb67d1b9ac289f8f0f7248245fa88d8a38a4a3a1b403c592c2b0c3bcb"
+  }
+}

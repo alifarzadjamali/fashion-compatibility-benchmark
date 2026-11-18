@@ -1,0 +1,23 @@
+{
+  "source": "iqon3000",
+  "source_page": "https://drive.google.com/open?id=1sTfUoNPid9zG_MgV--lWZTBP1XZpmcK8",
+  "expected_sha256": "305660cc09bd941a15096b6efeb536013efe0d534d9cd517419a49cd9ee650fd",
+  "provider_version": null,
+  "checksum_established_now": false,
+  "utc": "2026-11-18T14:27:29.507228+00:00",
+  "existing_partial_bytes": 0,
+  "transfer_wall_seconds": 221.47116929100594,
+  "curl_returncode": 0,
+  "transfer": {
+    "http_code": 200,
+    "size_download": 7570353423,
+    "speed_download": 34183960,
+    "time_total": 221.459225,
+    "num_redirects": 0
+  },
+  "sha256": "305660cc09bd941a15096b6efeb536013efe0d534d9cd517419a49cd9ee650fd",
+  "checksum_seconds": 3.4882017459894996,
+  "bytes": 7570353423,
+  "status": "PASS",
+  "total_seconds": 224.96950916899368
+}

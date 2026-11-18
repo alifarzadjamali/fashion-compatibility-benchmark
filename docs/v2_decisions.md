@@ -55,3 +55,48 @@
   Drive. Added checksum-verifying archive acquisition, with resumable partial
   files and numeric transfer evidence only. Polyvore source identity/checksum
   remains unresolved; do not substitute a similarly named Kaggle dataset.
+- **Owner-approved G3 amendment:** original v1 split files/hashes and prediction
+  artifacts are no longer available anywhere; only paper/README numbers survive.
+  Owner explicitly approved replacing original-hash identity with two independent
+  matching deterministic rebuilds, published outfit-count checks and ResNet50/CLIP
+  reproduction against the published v1 values at the handoff tolerances. Label
+  this revised G3 throughout; never claim original split identity was verified.
+  Disclose this limitation in the v2 protocol and manuscript deviation table.
+- HF authentication is present at the DGX default credential path
+  `/data/a_jamali2/.cache/huggingface/token`. Access to the pinned gated DINOv3
+  config was verified successfully without exposing the credential. The first
+  unauthenticated failures are retained; retry only affected models.
+- Owner requests **fewer than 15 commits per day**. Batch related code and evidence
+  changes; do not create a commit for every improvement. One agent-created commit
+  has been pushed so far in this booking.
+- Owner can extend the booking. Provisional Phase 1 estimate communicated:
+  16–24 hours, recommending 24 hours total initially. This includes remaining
+  engineering and validation, not just GPU execution; it is not a G6-derived
+  full-study estimate. Reassess after acquisition and revised G3. Continue using
+  actual `timeleft` until an extension is reflected by the server. Phase 2 remains
+  unauthorized regardless of booking extension.
+
+## 2026-11-18 — revised G3 run status (booking job 34)
+
+- Code on the DGX checkout was byte-compared (rsync checksum dry run) against
+  the local workspace before commit: identical for src/scripts/tests/configs.
+- Polyvore-D-Clean: two deterministic rebuilds hash-identical; counts
+  16,991/2,999/15,142 match published; clean-protocol audit PASS. ResNet50
+  PCA-256 reproduction PASS (ΔCP AUC 1.8e-6, ΔFITB 6.5e-4). Polyvore source is
+  the Kaggle archive `yiitcandeime/polyvore` (sha256 03f00b12…, checksum first
+  established now). Its identity to the v1 copy is supported by count and metric
+  reproduction, not by an original hash; disclose this.
+- IQON3000-Clean: two rebuilds hash-identical; counts 86,800/12,400/24,800 match
+  published; 434,089 verified images extracted.
+- Measured G3 extraction rates on GB10: ResNet50 ≈ 464 img/s, CLIP-L/336 ≈
+  79 img/s (v1 precision, end-to-end incl. decode). IQON CLIP (~434k images)
+  needs ≈ 90 min, which did not fit the remaining booking; owner chose to extend
+  the booking rather than defer IQON CLIP.
+- A100: the public SharePoint link returned a 59 KB HTML page (sha256
+  1a796786…), not the archive. The owner's v1 copy was transferred instead and
+  verified on the DGX: `data/a100_audit/A100.zip` sha256 31773883…f829, matching
+  the recorded v1 hash. The failed HTML `.part` file is retained as evidence.
+  Record that the public link is not a reliable acquisition path.
+- Booking job 34 extended by owner; END_TIME 2026-11-18T21:04:43 (server).
+  POG go/skip not yet tested. G4 (remaining: POG decision, checksum record),
+  G5, G6 and G7 are NOT started. G5/G7 are not expected to fit this booking.

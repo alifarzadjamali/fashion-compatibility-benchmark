@@ -1,0 +1,9 @@
+{
+  "stage": "polyvore extraction",
+  "image_count": 152785,
+  "expected_v1_image_count": 152785,
+  "status": "PASS",
+  "elapsed_seconds": 11.10711188800633,
+  "archive_sha256": "03f00b1253dff35c2e9431e84aad9d9a02969f57e57d05975dee38906141f74e",
+  "extractor_sha256": "958891d15b9b8399cfba26d3bd1b8b622f3d4152da4659bfb1252bb28152c62a"
+}

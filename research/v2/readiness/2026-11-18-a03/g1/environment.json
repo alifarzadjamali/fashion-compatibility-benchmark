@@ -1,0 +1,355 @@
+{
+  "captured_utc": "2026-11-18T14:32:57.901686+00:00",
+  "platform": "Linux-7.0.0-1025-nvidia-aarch64-with-glibc2.39",
+  "architecture": "aarch64",
+  "python": "3.12.3",
+  "uv_lock_sha256": "1ada4edfb7d1287fceab06ba19eee506e88f6c1180e386c43a4f656d1f194fd7",
+  "git_commit": {
+    "returncode": 0,
+    "stdout": "83b4979dd950bdca63bb82854bd9d64d340ad243\n",
+    "stderr": ""
+  },
+  "git_status": {
+    "returncode": 0,
+    "stdout": " M pyproject.toml\n M scripts/audit_a100_internal_images.py\n M scripts/audit_dinov2.py\n M scripts/audit_external_image_overlap.py\n M scripts/audit_iqon_selection.py\n M scripts/audit_question_construction.py\n M scripts/build_construction_stability.py\n M scripts/build_iqon_clean_protocol.py\n M scripts/evaluate_a100.py\n M scripts/evaluate_a100_outfit_transformer.py\n M scripts/extract_a100_embeddings.py\n M scripts/final_subgroup_analysis.py\n M scripts/make_final_outputs.py\n M scripts/prepare_a100.py\n M scripts/prepare_polyvore.py\n M scripts/profile_efficiency.py\n M scripts/run_final_iqon.py\n M src/repbench/encoders/hf_encoder.py\n M src/repbench/encoders/open_clip_encoder.py\n M src/repbench/encoders/torchvision_encoder.py\n M uv.lock\n?? configs/v1_published_reference.json\n?? configs/v2_sources.json\n?? research/\n?? scripts/capture_env.py\n?? scripts/v2/\n?? src/repbench/utils/paths.py\n?? src/repbench/v2/\n?? tests/test_v2_download.py\n?? tests/test_v2_encoders.py\n?? tests/test_v2_foundations.py\n?? tests/test_v2_state.py\n",
+    "stderr": ""
+  },
+  "nvidia_smi": {
+    "returncode": 0,
+    "stdout": "\n==============NVSMI LOG==============\n\nTimestamp                                              : Wed Nov 18 14:32:57 2026\nDriver Version                                         : 580.178.04\nCUDA Version                                           : 13.0\n\nAttached GPUs                                          : 1\nGPU 0000000F:01:00.0\n    Product Name                                       : NVIDIA GB10\n    Product Brand                                      : NVIDIA RTX\n    Product Architecture                               : Blackwell\n    Display Mode                                       : Requested functionality has been deprecated\n    Display Attached                                   : Yes\n    Display Active                                     : Disabled\n    Persistence Mode                                   : Enabled\n    Addressing Mode                                    : ATS\n    MIG Mode\n        Current                                        : N/A\n        Pending                                        : N/A\n    Accounting Mode                                    : Disabled\n    Accounting Mode Buffer Size                        : 4000\n    Driver Model\n        Current                                        : N/A\n        Pending                                        : N/A\n    Serial Number                                      : N/A\n    GPU UUID                                           : GPU-3272353a-4192-0f1a-36e2-eddbd8c27d22\n    GPU PDI                                            : 0x5c76a4cbec44fd4a\n    Minor Number                                       : 0\n    VBIOS Version                                      : 9A.0B.34.00.00\n    MultiGPU Board                                     : No\n    Board ID                                           : 0xf0100\n    Board Part Number                                  : N/A\n    GPU Part Number                                    : 2E12-275-A1\n    FRU Part Number                                    : N/A\n    Platform Info\n        Chassis Serial Number                          : \n        Slot Number                                    : 0\n        Tray Index                                     : 0\n        Host ID                                        : 1\n        Peer Type                                      : Direct Connected\n        Module Id                                      : 1\n        GPU Fabric GUID                                : 0x0000000000000000\n    Inforom Version\n        Image Version                                  : N/A\n        OEM Object                                     : N/A\n        ECC Object                                     : N/A\n        Power Management Object                        : N/A\n    Inforom BBX Object Flush\n        Latest Timestamp                               : N/A\n        Latest Duration                                : N/A\n    GPU Operation Mode\n        Current                                        : N/A\n        Pending                                        : N/A\n    GPU C2C Mode                                       : Enabled\n    GPU Virtualization Mode\n        Virtualization Mode                            : None\n        Host VGPU Mode                                 : N/A\n        vGPU Heterogeneous Mode                        : N/A\n    GPU Recovery Action                                : None\n    GSP Firmware Version                               : 580.178.04\n    IBMNPU\n        Relaxed Ordering Mode                          : N/A\n    PCI\n        Bus                                            : 0x01\n        Device                                         : 0x00\n        Domain                                         : 0x000F\n        Base Classcode                                 : 0x3\n        Sub Classcode                                  : 0x0\n        Device Id                                      : 0x2E1210DE\n        Bus Id                                         : 0000000F:01:00.0\n        Sub System Id                                  : 0x21EC10DE\n        GPU Link Info\n            PCIe Generation\n                Max                                    : 1\n                Current                                : 1\n                Device Current                         : 1\n                Device Max                             : 5\n                Host Max                               : 5\n            Link Width\n                Max                                    : 16x\n                Current                                : 1x\n        Bridge Chip\n            Type                                       : N/A\n            Firmware                                   : N/A\n        Replays Since Reset                            : 0\n        Replay Number Rollovers                        : 0\n        Tx Throughput                                  : N/A\n        Rx Throughput                                  : N/A\n        Atomic Caps Outbound                           : FETCHADD_32 FETCHADD_64 SWAP_32 SWAP_64 CAS_32 CAS_64 \n        Atomic Caps Inbound                            : N/A\n    Fan Speed                                          : N/A\n    Performance State                                  : P0\n    Clocks Event Reasons\n        Idle                                           : Not Active\n        Applications Clocks Setting                    : Not Active\n        SW Power Cap                                   : Not Active\n        HW Slowdown                                    : Not Active\n            HW Thermal Slowdown                        : Not Active\n            HW Power Brake Slowdown                    : Not Active\n        Sync Boost                                     : Not Active\n        SW Thermal Slowdown                            : Not Active\n        Display Clock Setting                          : Not Active\n    Clocks Event Reasons Counters\n        SW Power Capping                               : 55312328324 us\n        Sync Boost                                     : 0 us\n        SW Thermal Slowdown                            : 0 us\n        HW Thermal Slowdown                            : 0 us\n        HW Power Braking                               : 0 us\n    Sparse Operation Mode                              : N/A\n    FB Memory Usage\n        Total                                          : N/A\n        Reserved                                       : N/A\n        Used                                           : N/A\n        Free                                           : N/A\n    BAR1 Memory Usage\n        Total                                          : N/A\n        Used                                           : N/A\n        Free                                           : N/A\n    Conf Compute Protected Memory Usage\n        Total                                          : 0 MiB\n        Used                                           : 0 MiB\n        Free                                           : 0 MiB\n    Compute Mode                                       : Default\n    Utilization\n        GPU                                            : 0 %\n        Memory                                         : 0 %\n        Encoder                                        : 0 %\n        Decoder                                        : 0 %\n        JPEG                                           : 0 %\n        OFA                                            : 0 %\n    Encoder Stats\n        Active Sessions                                : 0\n        Average FPS                                    : 0\n        Average Latency                                : 0\n    FBC Stats\n        Active Sessions                                : 0\n        Average FPS                                    : 0\n        Average Latency                                : 0\n    DRAM Encryption Mode\n        Current                                        : N/A\n        Pending                                        : N/A\n    ECC Mode\n        Current                                        : N/A\n        Pending                                        : N/A\n    ECC Errors\n        Volatile\n            SRAM Correctable                           : N/A\n            SRAM Uncorrectable Parity                  : N/A\n            SRAM Uncorrectable SEC-DED                 : N/A\n            DRAM Correctable                           : N/A\n            DRAM Uncorrectable                         : N/A\n        Aggregate\n            SRAM Correctable                           : N/A\n            SRAM Uncorrectable Parity                  : N/A\n            SRAM Uncorrectable SEC-DED                 : N/A\n            DRAM Correctable                           : N/A\n            DRAM Uncorrectable                         : N/A\n            SRAM Threshold Exceeded                    : N/A\n        Aggregate Uncorrectable SRAM Sources\n            SRAM L2                                    : N/A\n            SRAM SM                                    : N/A\n            SRAM Microcontroller                       : N/A\n            SRAM PCIE                                  : N/A\n            SRAM Other                                 : N/A\n        Channel Repair Pending                         : N/A\n        TPC Repair Pending                             : N/A\n        Unrepairable Memory                            : N/A\n    Retired Pages\n        Single Bit ECC                                 : N/A\n        Double Bit ECC                                 : N/A\n        Pending Page Blacklist                         : N/A\n    Remapped Rows                                      : N/A\n    Temperature\n        GPU Current Temp                               : 34 C\n        GPU T.Limit Temp                               : 62 C\n        GPU Shutdown T.Limit Temp                      : N/A\n        GPU Slowdown T.Limit Temp                      : N/A\n        GPU Max Operating T.Limit Temp                 : 0 C\n        GPU Target Temperature                         : N/A\n        Memory Current Temp                            : N/A\n        Memory Max Operating T.Limit Temp              : N/A\n    GPU Power Readings\n        Average Power Draw                             : 9.18 W\n        Instantaneous Power Draw                       : 10.69 W\n        Current Power Limit                            : N/A\n        Requested Power Limit                          : N/A\n        Default Power Limit                            : N/A\n        Min Power Limit                                : N/A\n        Max Power Limit                                : N/A\n    GPU Memory Power Readings \n        Average Power Draw                             : N/A\n        Instantaneous Power Draw                       : N/A\n    Module Power Readings\n        Average Power Draw                             : N/A\n        Instantaneous Power Draw                       : N/A\n        Current Power Limit                            : N/A\n        Requested Power Limit                          : N/A\n        Default Power Limit                            : N/A\n        Min Power Limit                                : N/A\n        Max Power Limit                                : N/A\n    Power Smoothing                                    : N/A\n    Workload Power Profiles\n        Requested Profiles                             : N/A\n        Enforced Profiles                              : N/A\n    Clocks\n        Graphics                                       : 2398 MHz\n        SM                                             : 2398 MHz\n        Memory                                         : N/A\n        Video                                          : 2054 MHz\n    Applications Clocks\n        Graphics                                       : 2418 MHz\n        Memory                                         : N/A\n    Default Applications Clocks\n        Graphics                                       : 2418 MHz\n        Memory                                         : N/A\n    Deferred Clocks\n        Memory                                         : N/A\n    Max Clocks\n        Graphics                                       : 3003 MHz\n        SM                                             : 3003 MHz\n        Memory                                         : N/A\n        Video                                          : 3003 MHz\n    Max Customer Boost Clocks\n        Graphics                                       : N/A\n    Clock Policy\n        Auto Boost                                     : N/A\n        Auto Boost Default                             : N/A\n    Fabric\n        State                                          : N/A\n        Status                                         : N/A\n        CliqueId                                       : N/A\n        ClusterUUID                                    : N/A\n        Health\n            Summary                                    : N/A\n            Bandwidth                                  : N/A\n            Route Recovery in progress                 : N/A\n            Route Unhealthy                            : N/A\n            Access Timeout Recovery                    : N/A\n            Incorrect Configuration                    : N/A\n            Partition Assigned                         : N/A\n    Processes\n        GPU instance ID                   : N/A\n        Compute instance ID               : N/A\n        Process ID                        : 2484\n            Type                          : G\n            Name                          : /usr/lib/xorg/Xorg\n            Used GPU Memory               : 66 MiB\n        GPU instance ID                   : N/A\n        Compute instance ID               : N/A\n        Process ID                        : 2824\n            Type                          : G\n            Name                          : /usr/bin/gnome-shell\n            Used GPU Memory               : 18 MiB\n        GPU instance ID                   : N/A\n        Compute instance ID               : N/A\n        Process ID                        : 2830795\n            Type                          : C\n            Name                          : /home/a_jamali2/fashion-compatibility-benchmark/.venv/bin/python\n            Used GPU Memory               : 263 MiB\n    Capabilities\n        EGM                                            : disabled\n\n",
+    "stderr": ""
+  },
+  "timeleft": {
+    "returncode": 0,
+    "stdout": "Spark booking: 2:32:46 left (h:mm:ss). Copy results off before it ends.\n",
+    "stderr": ""
+  },
+  "torch_config": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 201703\n  - Intel(R) MKL-DNN v3.10.2 (Git Hash f1d471933dc852f956fd05389f9313c7148783d5)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: DEFAULT\n  - CUDA Runtime 13.0\n  - NVCC architecture flags: -gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_90,code=sm_90;-gencode;arch=compute_100,code=sm_100;-gencode;arch=compute_110,code=sm_110;-gencode;arch=compute_120,code=sm_120\n  - CuDNN 91.9  (built against CUDA 13.1)\n  - Build settings: BLAS_INFO=nvpl, BUILD_TYPE=Release, COMMIT_SHA=70d99e998b4955e0049d13a98d77ae1b14db1f45, CUDA_VERSION=13.0, CUDNN_VERSION=9.19.0, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -ffunction-sections -fdata-sections -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_MSLK -DUSE_PYTORCH_QNNPACK -DAT_BUILD_ARM_VEC256_WITH_SLEEF -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=nvpl, TORCH_VERSION=2.11.0, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKLDNN=1, USE_MPI=OFF, USE_NCCL=1, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+  "torch_version": "2.11.0+cu130",
+  "cuda_runtime": "13.0",
+  "cuda_available": true,
+  "packages": [
+    {
+      "name": "av",
+      "version": "19.0.2"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.1"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.4.0"
+    },
+    {
+      "name": "cuda-bindings",
+      "version": "13.5.0"
+    },
+    {
+      "name": "cuda-pathfinder",
+      "version": "1.8.1"
+    },
+    {
+      "name": "cuda-toolkit",
+      "version": "13.0.2"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1"
+    },
+    {
+      "name": "filelock",
+      "version": "3.32.6"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.65.0"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.7.0"
+    },
+    {
+      "name": "ftfy",
+      "version": "6.3.1"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.6.0"
+    },
+    {
+      "name": "huggingface_hub",
+      "version": "0.36.2"
+    },
+    {
+      "name": "idna",
+      "version": "3.19"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.3"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.11.2"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.26.0"
+    },
+    {
+      "name": "networkx",
+      "version": "3.6.1"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.3"
+    },
+    {
+      "name": "nvidia-cublas",
+      "version": "13.1.0.3"
+    },
+    {
+      "name": "nvidia-cuda-cupti",
+      "version": "13.0.85"
+    },
+    {
+      "name": "nvidia-cuda-nvrtc",
+      "version": "13.0.88"
+    },
+    {
+      "name": "nvidia-cuda-runtime",
+      "version": "13.0.96"
+    },
+    {
+      "name": "nvidia-cudnn-cu13",
+      "version": "9.19.0.56"
+    },
+    {
+      "name": "nvidia-cufft",
+      "version": "12.0.0.61"
+    },
+    {
+      "name": "nvidia-cufile",
+      "version": "1.15.1.6"
+    },
+    {
+      "name": "nvidia-curand",
+      "version": "10.4.0.35"
+    },
+    {
+      "name": "nvidia-cusolver",
+      "version": "12.0.4.66"
+    },
+    {
+      "name": "nvidia-cusparse",
+      "version": "12.6.3.3"
+    },
+    {
+      "name": "nvidia-cusparselt-cu13",
+      "version": "0.8.0"
+    },
+    {
+      "name": "nvidia-nccl-cu13",
+      "version": "2.28.9"
+    },
+    {
+      "name": "nvidia-nvjitlink",
+      "version": "13.0.88"
+    },
+    {
+      "name": "nvidia-nvshmem-cu13",
+      "version": "3.4.5"
+    },
+    {
+      "name": "nvidia-nvtx",
+      "version": "13.0.85"
+    },
+    {
+      "name": "open_clip_torch",
+      "version": "3.3.0"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pandas",
+      "version": "2.3.3"
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0"
+    },
+    {
+      "name": "pyarrow",
+      "version": "23.0.1"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.2"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0"
+    },
+    {
+      "name": "pytz",
+      "version": "2026.3.post1"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3"
+    },
+    {
+      "name": "qwen-vl-utils",
+      "version": "0.0.14"
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.10"
+    },
+    {
+      "name": "repbench-fashion",
+      "version": "0.1.0"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2"
+    },
+    {
+      "name": "ruff",
+      "version": "0.16.7"
+    },
+    {
+      "name": "safetensors",
+      "version": "0.8.0"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1"
+    },
+    {
+      "name": "setuptools",
+      "version": "81.0.0"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0"
+    },
+    {
+      "name": "tabulate",
+      "version": "0.10.0"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.6.0"
+    },
+    {
+      "name": "timm",
+      "version": "1.0.29"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.22.2"
+    },
+    {
+      "name": "torch",
+      "version": "2.11.0+cu130"
+    },
+    {
+      "name": "torchvision",
+      "version": "0.26.0+cu130"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1"
+    },
+    {
+      "name": "transformers",
+      "version": "4.57.6"
+    },
+    {
+      "name": "triton",
+      "version": "3.6.0"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.4"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.7.0"
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.8.3"
+    },
+    {
+      "name": "xgboost",
+      "version": "3.4.1"
+    }
+  ],
+  "container_digest": null,
+  "environment_method": "uv locked host environment",
+  "model_revisions": "Not loaded yet; recorded separately by G2",
+  "dataset_checksums": "Not acquired yet; recorded separately by G4",
+  "gpu": "NVIDIA GB10",
+  "compute_capability": [
+    12,
+    1
+  ],
+  "bf16_supported": true
+}

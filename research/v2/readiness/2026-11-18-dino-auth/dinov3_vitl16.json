@@ -1,0 +1,25 @@
+{
+  "model_key": "dinov3_vitl16",
+  "spec": {
+    "model_key": "dinov3_vitl16",
+    "checkpoint": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+    "revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "family": "self_supervised_vision",
+    "input_resolution": 224,
+    "embedding_dim": 1024,
+    "trust_remote_code": false,
+    "use_safetensors": true,
+    "backend": "huggingface",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "702e250a1b3d3f8a03bb9a0101941df21d8b2ede1a6eda3775d777a4624b6d53",
+  "utc": "2026-11-18T14:30:39.060689+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "FAIL",
+  "download_seconds": 12.469517791003454,
+  "new_hf_cache_bytes": 1212560393,
+  "hf_effective_mib_per_second": 92.7371629983866,
+  "download_measurement": "new HF blob bytes / snapshot wall time; cache hits included; not wire bytes",
+  "error_type": "ValueError",
+  "total_seconds": 13.494563498010393
+}

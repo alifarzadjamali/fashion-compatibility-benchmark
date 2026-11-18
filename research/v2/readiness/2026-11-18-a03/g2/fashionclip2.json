@@ -1,0 +1,42 @@
+{
+  "model_key": "fashionclip2",
+  "spec": {
+    "model_key": "fashionclip2",
+    "checkpoint": "patrickjohncyh/fashion-clip",
+    "revision": "7e3ba62ce16b379a1ab479346b66f192e76f51b7",
+    "family": "fashion_vision_language",
+    "input_resolution": 224,
+    "embedding_dim": 512,
+    "trust_remote_code": false,
+    "use_safetensors": true,
+    "backend": "huggingface",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "b7632c8f4984a49ea3321428696a6c8fa98bc87eb26bf7b9d05b0027b4b5be90",
+  "utc": "2026-11-18T14:33:17.264825+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "PASS",
+  "download_seconds": 0.1439322060032282,
+  "new_hf_cache_bytes": 0,
+  "hf_effective_mib_per_second": 0.0,
+  "download_measurement": "new HF blob bytes / snapshot wall time; cache hits included; not wire bytes",
+  "load_seconds": 1.3110005159978755,
+  "attention_method": "sdpa",
+  "image_tower_parameters": 87849216,
+  "total_parameters": 151277313,
+  "preprocess_and_transfer_seconds": 0.07122838697978295,
+  "two_smoke_passes_seconds": 0.31719642999814823,
+  "peak_allocator_bytes": 443065856,
+  "shape": [
+    64,
+    512
+  ],
+  "max_cosine_drift": 2.384185791015625e-07,
+  "checks": {
+    "finite": true,
+    "expected_shape": true,
+    "deterministic_within_1e_3": true,
+    "bf16": true
+  },
+  "total_seconds": 1.8966449909785297
+}

@@ -1,0 +1,9 @@
+{
+  "stage": "IQON verified image extraction",
+  "status": "PASS",
+  "items": 434089,
+  "reused_verified_images": 0,
+  "bytes_written": 1531576052,
+  "elapsed_seconds": 52.772036473994376,
+  "image_audit_sha256": "21cee3c66cbec6b5f315e4b3e4fece712403ce528ecc926650fa707e3915ef77"
+}

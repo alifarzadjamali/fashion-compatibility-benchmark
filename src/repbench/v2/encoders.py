@@ -93,7 +93,9 @@ class V2Encoder:
                 self.processor = _GRLiteProcessor()
             else:
                 self.processor = AutoImageProcessor.from_pretrained(
-                    spec.checkpoint, revision=spec.revision, use_fast=False
+                    spec.checkpoint,
+                    revision=spec.revision,
+                    use_fast=spec.model_key.startswith("dinov3_"),
                 )
                 if spec.model_key == "dinov3_vitl16_336":
                     self.processor.size = {"height": 336, "width": 336}

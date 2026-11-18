@@ -1,0 +1,42 @@
+{
+  "gate_part": "G3 revised published-metric reproduction",
+  "dataset": "polyvore_d_clean",
+  "model": "resnet50",
+  "status": "PASS",
+  "deltas_from_published": {
+    "cp_auc": 1.7891508485856633e-06,
+    "fitb": 0.0006475630696077261
+  },
+  "metrics": {
+    "dataset": "polyvore_d_clean",
+    "track": "pca256",
+    "representation": "resnet50",
+    "checkpoint": "torchvision ResNet50_Weights.IMAGENET1K_V2",
+    "revision": "11ad3fa6",
+    "family": "supervised_cnn",
+    "native_embedding_dim": 2048,
+    "outfit_feature_dim": 512,
+    "outfit_standardization": true,
+    "cp_auc": 0.6938017891508486,
+    "pr_auc": 0.6918866716220886,
+    "fitb_acc": 0.4069475630696077,
+    "validation_auc": 0.7021612517054424,
+    "best_c": 0.01,
+    "c_at_upper_boundary": false,
+    "pca_explained_variance": 0.5304220914840698,
+    "train_seconds": 0.3066054869850632,
+    "single_outfit_scoring_ms": 0.00010762954076426468,
+    "extraction_seconds": 329.03651719598565,
+    "extract_images_per_second": 464.3405580086295,
+    "peak_vram_mb": 427.03662109375,
+    "embedding_storage_mb": 1193.6331787109375
+  },
+  "elapsed_seconds": 8.71921662898967,
+  "embedding_metadata_hashes": {
+    "train": "b36c34af48ed4b3488cfd03b034a5ebb53450dde023a11b07d3aff470c53bd08",
+    "valid": "9cff3e4f817ca4fda4ee7ddffb113071836ee64188cd4a51f1651da560158c73",
+    "test": "ef427efb4ef4ec9b9a3a300171c170a0650be5271970e59f117e150e42c0e358"
+  },
+  "original_split_identity": "UNVERIFIABLE",
+  "reference_sha256": "b328321f0558a214e5dc29936235f2663423bc77f000c200acbba5f33e8bf169"
+}

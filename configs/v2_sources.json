@@ -12,11 +12,12 @@
     "expected_sha256": "31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829"
   },
   "polyvore": {
-    "url": null,
-    "source_page": "https://mariya.fyi/polyvore",
+    "url": "https://www.kaggle.com/api/v1/datasets/download/yiitcandeime/polyvore?datasetVersionNumber=1",
+    "source_page": "https://www.kaggle.com/datasets/yiitcandeime/polyvore",
     "relative_path": "raw/polyvore_outfits.zip",
     "expected_sha256": null,
-    "note": "Original archive identity and checksum unresolved; do not choose an arbitrary similarly named Kaggle dataset."
+    "note": "Provider API file listing matches legacy extractor prefix polyvore-outfit-dataset/polyvore_outfits/. Establish first archive checksum explicitly; validate counts and audits before G4. Original archive hash unavailable.",
+    "provider_version": 1
   },
   "pog": {
     "url": null,
