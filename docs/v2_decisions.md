@@ -131,3 +131,9 @@
   writes) started 16:29 server time; projected finish ≈ 23:30. Measured
   laptop↔DGX link: 18.6 MB/s down, 48.7 MB/s up, so a ≈73 GB restore next
   booking takes ≈25 min instead of a ≈6.5 h CDN re-download.
+- **Owner decision (2026-11-18 17:02):** POG final-acquisition skip threshold
+  relaxed from the handoff's 95% to **90%** success on required items. This is a
+  pre-freeze deviation from HANDOFF §4 and goes in the deviation table. The
+  running download was started with the 95% label; its report is re-judged at 90%.
+  Observed so far: 0.38% failures (57/15,000). Items lost drop whole outfits, so
+  the POG retention / selection-effect audit must report outfits lost.

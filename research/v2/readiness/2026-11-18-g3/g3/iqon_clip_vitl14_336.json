@@ -1,0 +1,42 @@
+{
+  "gate_part": "G3 revised published-metric reproduction",
+  "dataset": "iqon3000_clean",
+  "model": "clip_vitl14_336",
+  "status": "PASS",
+  "deltas_from_published": {
+    "cp_auc": 5.6817442767975734e-05,
+    "fitb": -6.935483870967873e-05
+  },
+  "metrics": {
+    "dataset": "iqon3000_clean",
+    "track": "pca256",
+    "representation": "clip_vitl14_336",
+    "checkpoint": "openai/clip-vit-large-patch14-336",
+    "revision": "ce19dc912ca5cd21c8a653c79e251e808ccabcd1",
+    "family": "generic_vision_language",
+    "native_embedding_dim": 768,
+    "outfit_feature_dim": 512,
+    "outfit_standardization": true,
+    "cp_auc": 0.704256817442768,
+    "pr_auc": 0.6856665529014113,
+    "fitb_acc": 0.43633064516129033,
+    "validation_auc": 0.6994329214360042,
+    "best_c": 0.01,
+    "c_at_upper_boundary": false,
+    "pca_explained_variance": 0.9172564148902893,
+    "train_seconds": 1.749961504014209,
+    "single_outfit_scoring_ms": 0.00010587213893131775,
+    "extraction_seconds": 5321.512050634017,
+    "extract_images_per_second": 81.57249215442097,
+    "peak_vram_mb": 1454.8134765625,
+    "embedding_storage_mb": 1271.7454833984375
+  },
+  "elapsed_seconds": 20.880682581977453,
+  "embedding_metadata_hashes": {
+    "train": "6c63c5afafa4aca8679d856ffebf1c73de70a9ca012ccdc3ec1712c98fd43891",
+    "valid": "1ef018ba0d6c7acdc950cae579960ab365b98ad77432ee095853f18de7da89b1",
+    "test": "0c1987a6657b6282e36f076a4d03d16022de7ea2aa7bde1310287dc9035acbc2"
+  },
+  "original_split_identity": "UNVERIFIABLE",
+  "reference_sha256": "b328321f0558a214e5dc29936235f2663423bc77f000c200acbba5f33e8bf169"
+}

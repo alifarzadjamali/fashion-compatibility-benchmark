@@ -1,0 +1,57 @@
+{
+  "gate": "G3",
+  "status": "PASS",
+  "variant": "REVISED, owner-approved (2026-11-18)",
+  "criteria": "two hash-identical deterministic rebuilds per dataset; published outfit counts; ResNet50 and CLIP-L/336 PCA-256 published metrics within \u00b10.002 CP AUC / \u00b10.005 FITB",
+  "original_split_identity": "UNVERIFIABLE: original v1 split files/hashes unavailable; disclose in paper",
+  "parts": {
+    "iqon_clip_vitl14_336.json": {
+      "status": "PASS",
+      "sha256": "adac1c3074e349df8baabaae8a60e9638409a502d0d3560572d0eae2374cdcd8",
+      "deltas": {
+        "cp_auc": 5.6817442767975734e-05,
+        "fitb": -6.935483870967873e-05
+      }
+    },
+    "iqon_image_audit.json": {
+      "status": null,
+      "sha256": "ad793e817c39f2bde110a60e6b7ffe9d8654a7a88731ad3c7e05c9956a6fddfb"
+    },
+    "iqon_reconstruction.json": {
+      "status": "PASS",
+      "sha256": "6c787150fbc4326861407f28e50826358e5e99c11af6cfc2f2d5949ef97702d5"
+    },
+    "iqon_resnet50.json": {
+      "status": "PASS",
+      "sha256": "3e4ac705cc8db16489853149cba3a0dc45e7c0d2b8976dbbe8f4118db9aa9bb5",
+      "deltas": {
+        "cp_auc": -0.00013991122528622668,
+        "fitb": -0.0003903225806451416
+      }
+    },
+    "iqon_source_audit.json": {
+      "status": null,
+      "sha256": "42b710db1d81190fda3e3a48aa1fc40d3be0a93625c3dc0171245a58195ce876"
+    },
+    "polyvore_clip_vitl14_336.json": {
+      "status": "PASS",
+      "sha256": "f7d5eec2edea47a221a3675bdb759e3c8c8d909aed527edf289b254e690fd2c1",
+      "deltas": {
+        "cp_auc": 3.2136177293695667e-06,
+        "fitb": -0.00048210276053362033
+      }
+    },
+    "polyvore_reconstruction.json": {
+      "status": "PASS",
+      "sha256": "4f53a56eb51b41be13b89235932c67ac2d05cd059189a6c2ec3923b0fe1905b3"
+    },
+    "polyvore_resnet50.json": {
+      "status": "PASS",
+      "sha256": "648781e22c0613194543d95f5509d634fb3579b3c2f7d4494a4a2f6a45e671f0",
+      "deltas": {
+        "cp_auc": 1.7891508485856633e-06,
+        "fitb": 0.0006475630696077261
+      }
+    }
+  }
+}

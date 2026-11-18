@@ -1,0 +1,42 @@
+{
+  "gate_part": "G3 revised published-metric reproduction",
+  "dataset": "iqon3000_clean",
+  "model": "resnet50",
+  "status": "PASS",
+  "deltas_from_published": {
+    "cp_auc": -0.00013991122528622668,
+    "fitb": -0.0003903225806451416
+  },
+  "metrics": {
+    "dataset": "iqon3000_clean",
+    "track": "pca256",
+    "representation": "resnet50",
+    "checkpoint": "torchvision ResNet50_Weights.IMAGENET1K_V2",
+    "revision": "11ad3fa6",
+    "family": "supervised_cnn",
+    "native_embedding_dim": 2048,
+    "outfit_feature_dim": 512,
+    "outfit_standardization": true,
+    "cp_auc": 0.5850600887747138,
+    "pr_auc": 0.5730243688177608,
+    "fitb_acc": 0.31620967741935485,
+    "validation_auc": 0.5801008877471383,
+    "best_c": 0.1,
+    "c_at_upper_boundary": false,
+    "pca_explained_variance": 0.533208966255188,
+    "train_seconds": 1.5869014310010243,
+    "single_outfit_scoring_ms": 0.0001055989844189753,
+    "extraction_seconds": 932.5540190704342,
+    "extract_images_per_second": 465.4840267941776,
+    "peak_vram_mb": 427.03662109375,
+    "embedding_storage_mb": 3391.3206787109375
+  },
+  "elapsed_seconds": 26.33351694198791,
+  "embedding_metadata_hashes": {
+    "train": "95be529e82b6d19add60b58d2c93364c08985b5ac43eaf4e60263b6c09f42540",
+    "valid": "df394207fc3d9bef3de68cc103a0b2606dddc41fd88bbbdfdeff8bd30d8b66b5",
+    "test": "97c7d8a5a3d65de2e3fce37c37297711f1dfb242d8fb79ecca219bb4d4902d73"
+  },
+  "original_split_identity": "UNVERIFIABLE",
+  "reference_sha256": "b328321f0558a214e5dc29936235f2663423bc77f000c200acbba5f33e8bf169"
+}

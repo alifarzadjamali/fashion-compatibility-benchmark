@@ -1,0 +1,23 @@
+{
+  "gate_part": "G6 speed test (planning measurement)",
+  "utc": "2026-11-18T17:05:43.187162+00:00",
+  "model": "resnet50",
+  "checkpoint": "torchvision ResNet50_Weights.IMAGENET1K_V2",
+  "revision": "11ad3fa6",
+  "images": 5000,
+  "image_source": "Polyvore-D-Clean train images, seeded sample (development data)",
+  "seed": 20261118,
+  "batch_size": 32,
+  "cpu_prep_threads": 8,
+  "dtype": "bfloat16",
+  "embedding_dim": 2048,
+  "load_seconds": 0.4,
+  "end_to_end_seconds": 7.02,
+  "end_to_end_images_per_second": 711.76,
+  "gpu_forward_seconds": 6.59,
+  "gpu_images_per_second": 758.96,
+  "cpu_prep_seconds_summed_over_threads": 40.96,
+  "bottleneck": "gpu",
+  "allocator_peak_gb": 0.22,
+  "concurrent_load_note": "concurrent: POG CDN image download (network-bound, ~1 CPU core)"
+}

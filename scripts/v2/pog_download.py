@@ -4,7 +4,7 @@ Target selection is identical to `pog_probe.py` (same seed, same 124k outfits).
 Resumable: every verified image is appended to `manifest.jsonl` (item id, path,
 bytes, kind, SHA-256); a restart skips items already recorded. Files are written
 atomically. Images are research-only and never redistributed; only the summary
-report goes to Git. Final success on required items must be >= 95% (skip rule).
+report goes to Git. Final success on required items must be >= 90% (owner-revised skip rule; HANDOFF said 95%).
 """
 
 from __future__ import annotations
@@ -59,7 +59,7 @@ def main():
     parser.add_argument("--workers", type=int, default=8)
     parser.add_argument("--timeout", type=float, default=30.0)
     parser.add_argument("--retries", type=int, default=3)
-    parser.add_argument("--min-success", type=float, default=0.95)
+    parser.add_argument("--min-success", type=float, default=0.90)  # owner decision 2026-11-18
     args = parser.parse_args()
     if args.report.exists():
         raise FileExistsError(args.report)
