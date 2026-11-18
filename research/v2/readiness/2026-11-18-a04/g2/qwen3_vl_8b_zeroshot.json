@@ -1,0 +1,43 @@
+{
+  "model_key": "qwen3_vl_8b_zeroshot",
+  "spec": {
+    "model_key": "qwen3_vl_8b_zeroshot",
+    "checkpoint": "Qwen/Qwen3-VL-8B-Instruct",
+    "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "family": "zero_shot_mllm",
+    "input_resolution": 0,
+    "embedding_dim": 0,
+    "trust_remote_code": false,
+    "use_safetensors": true,
+    "backend": "qwen_generation",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "425b5edb7c5c99336ee3f69c82ea002c9035003b2ed15646bee119d2ac274a2d",
+  "utc": "2026-11-18T17:23:54.050738+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "PASS",
+  "download_seconds": 0.15971998200984672,
+  "new_hf_cache_bytes": 0,
+  "hf_effective_mib_per_second": 0.0,
+  "download_measurement": "new HF blob bytes / snapshot wall time; cache hits included; not wire bytes",
+  "load_seconds": 97.28049364098115,
+  "attention_method": "sdpa",
+  "image_tower_parameters": 576388336,
+  "total_parameters": 8767123696,
+  "preprocess_and_transfer_seconds": 0.05568378200405277,
+  "two_smoke_passes_seconds": 5.961740124999778,
+  "peak_allocator_bytes": 18513932800,
+  "shape": [
+    64,
+    151936
+  ],
+  "smoke_kind": "next-token log probabilities, not embeddings",
+  "max_logprob_drift": 0.0,
+  "checks": {
+    "finite": true,
+    "expected_shape": true,
+    "deterministic_within_1e_3": true,
+    "bf16": true
+  },
+  "total_seconds": 103.47495843001525
+}

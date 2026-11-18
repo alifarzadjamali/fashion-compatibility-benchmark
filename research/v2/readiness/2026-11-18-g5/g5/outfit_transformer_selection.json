@@ -1,0 +1,56 @@
+{
+  "rule": "highest mean best-validation CP AUC across seeds; ties -> smaller lr",
+  "selected_lr": 0.0001,
+  "seeds": [
+    42,
+    43
+  ],
+  "grid": [
+    {
+      "lr": 0.0001,
+      "mean": 0.5508333333333334,
+      "std": 0.003535533905932819,
+      "count": 2
+    },
+    {
+      "lr": 0.0003,
+      "mean": 0.5372222222222223,
+      "std": 0.008249579113843088,
+      "count": 2
+    }
+  ],
+  "runs": [
+    {
+      "lr": 0.0001,
+      "seed": 42,
+      "best_valid_auc": 0.5533333333333335,
+      "best_epoch": 1,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0001,
+      "seed": 43,
+      "best_valid_auc": 0.5483333333333333,
+      "best_epoch": 1,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0003,
+      "seed": 42,
+      "best_valid_auc": 0.5313888888888889,
+      "best_epoch": 7,
+      "early_stopping_fired": false
+    },
+    {
+      "lr": 0.0003,
+      "seed": 43,
+      "best_valid_auc": 0.5430555555555556,
+      "best_epoch": 7,
+      "early_stopping_fired": false
+    }
+  ],
+  "early_stopping_fired_count": 2,
+  "runs_total": 4,
+  "run_json_sha256": "4ec83330378cc039372eb0836f42c22b5efa59f9352a56e79a16171aff27ee06",
+  "created_utc": "2026-11-18T18:26:40.884134+00:00"
+}

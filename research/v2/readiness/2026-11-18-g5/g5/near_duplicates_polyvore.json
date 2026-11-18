@@ -1,0 +1,102 @@
+{
+  "kind": "cross_split_near_duplicate_audit",
+  "dataset_name": "polyvore_d_clean",
+  "protocol_root": "/data/a_jamali2/repbench/data/v2/g3_polyvore/rebuild_a",
+  "protocol_sha256": {
+    "compatibility_test.txt": "8ef5cdd082f6096a1e61d86dfb686bb720b76211ae6c816ce17238bf6a8346c8",
+    "compatibility_train.txt": "a9a912039503c3d212784d2445f1f01e6d8cb8017a733ad42aba1c8317c80e15",
+    "compatibility_valid.txt": "34e2aa6131d06e280b7d5c34df4005d2fd1fbdcce0bc4494997448596f751ea8",
+    "duplicates_removed.json": "2b94bda65e33b9e9cdb4e4596f660c7f16cbb7f5ac044be3114e8210c079ee35",
+    "fill_in_blank_test.json": "4b899196a045bae04f93e0b2ec695668eb3b7e0edce94577b97e128079fa3603",
+    "fill_in_blank_train.json": "06ebe6145d126e1b34f6a70dadfd6c2bc4c50fbeaf104613fe85e9b8420269c2",
+    "fill_in_blank_valid.json": "92380cd5553b6b1895dd7f614e0d289552c1fe81001cfcf7bdeabedc84462371",
+    "manifest.json": "cdd485f7b837c13278569b2a103dcd964effd5b9ea7a0e12a6abd362c9e775d7",
+    "test.json": "850a0b643c5098f956958fab2892716299156acb81d7608003db331e95eb5c16",
+    "train.json": "0493ef92332ae7a9b2d68e5a2bbfe27d674a0e4dbdefe88790e9c19df075104b",
+    "valid.json": "2d9ebea117105ff4919b17497d443f169d8f1a6c8e1fb7f6a55900a884d0800a"
+  },
+  "images_root": "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images",
+  "items_per_split": {
+    "train": 68166,
+    "valid": 13780,
+    "test": 70839
+  },
+  "outfits_per_split": {
+    "train": 16991,
+    "valid": 2999,
+    "test": 15142
+  },
+  "shared_item_ids": {
+    "train-test": 0,
+    "valid-test": 0,
+    "train-valid": 0
+  },
+  "unreadable_images": [],
+  "phash": {
+    "algorithm": "64-bit DCT pHash (imagehash.phash algorithm), PIL Lanczos 32x32",
+    "threshold": "hamming <= 4",
+    "multi_index_bands": [
+      [
+        51,
+        13
+      ],
+      [
+        38,
+        13
+      ],
+      [
+        25,
+        13
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        0,
+        12
+      ]
+    ],
+    "multi_index_stats": {
+      "largest_bucket": 1594,
+      "verified_comparisons": 48510302
+    },
+    "unique_hashes": 151990,
+    "near_unique_hash_pairs": 9630,
+    "identical_hash_groups_cross_split": 356,
+    "pair_counts": {
+      "train-test": 4522,
+      "valid-test": 988,
+      "train-valid": 949
+    },
+    "flagged_valid_items_from_train": 540,
+    "listing_truncated": false
+  },
+  "embedding": null,
+  "affected_test_items": {
+    "phash_train": 2730,
+    "phash_valid": 790
+  },
+  "affected_test_outfits": {
+    "phash_train": 2554,
+    "phash_valid": 784,
+    "phash_any": 2894,
+    "any_method": 2894
+  },
+  "affected_test_outfit_fraction": {
+    "phash_train": 0.16866992471271958,
+    "phash_valid": 0.05177651565182935,
+    "phash_any": 0.19112402588825783,
+    "any_method": 0.19112402588825783
+  },
+  "pairs_csv_sha256": "bfddb2afca7cc36cd5916593d67b6d84fd06a554d3d1a09fe9a7d2d467f4d3ed",
+  "workers": 12,
+  "runtime": {
+    "read_protocol_seconds": 0.8495395299978554,
+    "phash_seconds": 7.163467802980449,
+    "phash_match_seconds": 0.48981928001740016,
+    "total_seconds": 8.823190436000004
+  },
+  "finished_utc": "2026-11-18T18:32:48.596024+00:00",
+  "notes": "Pair counts are image-pair counts (exact); listing capped at 200000 per method. Affected test outfits contain >= 1 test item with a near duplicate in train or valid."
+}

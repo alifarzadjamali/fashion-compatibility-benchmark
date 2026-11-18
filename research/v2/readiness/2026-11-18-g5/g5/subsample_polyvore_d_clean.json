@@ -1,0 +1,19 @@
+{
+  "purpose": "G5 dry-run subsample; train/valid only; test never read",
+  "source": "/data/a_jamali2/repbench/data/v2/g3_polyvore/rebuild_a",
+  "source_manifest_sha256": "cdd485f7b837c13278569b2a103dcd964effd5b9ea7a0e12a6abd362c9e775d7",
+  "fraction": 0.02,
+  "seed": 20261118,
+  "counts": {
+    "train": {
+      "cp_pairs": 340,
+      "fitb": 340,
+      "outfits": 3130
+    },
+    "valid": {
+      "cp_pairs": 60,
+      "fitb": 60,
+      "outfits": 573
+    }
+  }
+}

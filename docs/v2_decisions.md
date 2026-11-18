@@ -137,3 +137,74 @@
   running download was started with the 95% label; its report is re-judged at 90%.
   Observed so far: 0.38% failures (57/15,000). Items lost drop whole outfits, so
   the POG retention / selection-effect audit must report outfits lost.
+
+## 2026-11-18 — POG clean protocol builder (G4) — OWNER DECISIONS NEEDED
+
+`src/repbench/v2/pog.py`, `scripts/v2/build_pog_protocol.py` (two identical builds,
+all audits pass on the real metadata; final rebuild with the image manifest pending).
+- **Retention:** of the 124,000 target outfits, 78,725 (63.5%) survive the split:
+  479 duplicate tuples, 44,704 packing conflicts (one item component holds 95.5%
+  of outfits, so whole-component assignment is impossible), 92 in tiny categories.
+  Splits: train 56,548 / valid 7,144 / test 15,033 (71.8/9.1/19.1%). Zero cross-split
+  item/image/outfit overlap; zero collisions. Selection effect: dropped outfits use
+  more popular (hub) items (median reuse 7 vs 3) and are slightly longer.
+  Rule kept from IQON (seeded order, discard outfits touching two splits); only
+  change: assign to the split furthest below its 70/10/20 share.
+  **Decision A:** accept ~79k POG outfits, or enlarge the image target (more downloads).
+- **Grouping:** only 12.5% of target outfits are ever clicked in user_data, so
+  user groups are ~singletons (largest user group: 6 outfits) — a user-cluster
+  bootstrap on POG is not a real dependence correction. Test's largest item
+  component holds 47% of test outfits (same issue as v1 IQON, HANDOFF §6.5).
+  **Decision B (recommended):** POG primary = two-way user × item-component
+  bootstrap (or Louvain sub-communities of the item graph); report user-only as
+  sensitivity. Needs owner sign-off before freeze.
+- **Decision C:** same-category negatives use raw `cate_id` (74 categories);
+  categories with < 10 distinct images inside a split are excluded (92 outfits).
+- Seeds: construction 20260912 (as IQON); question seeds 20260912 + 10,000×(1,2,3).
+
+## 2026-11-18 — G6 speed test PASS and full-run projection
+
+- `scripts/v2/g6_speed.py` (via `run_g6.sh`): 5,000 seeded Polyvore-Clean *train*
+  images per encoder, v2 settings (bf16, SDPA), threaded CPU preprocessing overlapping
+  GPU. All 15 encoders measured; all GPU-bound. End-to-end img/s: ResNet50 712,
+  DINOv3-L 228, DINOv3-L@336 103, CLIP-L/336 97, PE-Core-L 80, SigLIP2-So400m 72,
+  Qwen3-VL-Emb-2B 50, Qwen3-VL-Emb-8B 21 (others in `research/v2/readiness/2026-11-18-g6/g6/`).
+  Concurrent load during the test: POG CDN download (network-bound, ~1 core).
+- **Projected extraction (771,213 images per encoder: Polyvore 152,785 + IQON
+  434,089 + POG 184,339): 28.9 GPU-hours** for all 15 encoders; Qwen-8B 10.1 h and
+  Qwen-2B 4.3 h are half of it.
+- **Projected full Phase 2 run:** extraction ≈ 29 h + zero-shot MLLM (≈6,200
+  questions; s/question from G5) + OutfitTransformer (2 lr × 5 seeds × 3 inputs ×
+  3 datasets) + profiling ≈ 1–2 h; probes are CPU and overlap extraction.
+  Planning figure: **≈ 40 GPU-hours, ≈ 2–2.5 days wall clock**, refined after G5.
+  Extraction is resumable (`extract_v2.py` state files) but caches do not survive a
+  booking wipe, so each booking must finish whole encoder × dataset units.
+
+## 2026-11-18 — G1/G2 re-run (a04) and G5 dry run PASS
+
+- New v2 code synced; G1 (env + pytest incl. all new tests) and G2 (15 encoders +
+  MLLM, determinism) re-run as attempt `2026-11-18-a04`: both PASS. G5 binds to a04.
+- **G5 PASS** (`research/v2/readiness/2026-11-18-g5/g5/gate.json`): 22 stages, no
+  manual steps, ~65 min: 2% train/valid subsample of Polyvore-Clean and
+  IQON3000-Clean × {ResNet50, SigLIP2-So400m, Qwen3-VL-Emb-2B} → v2 extraction →
+  probes (native/PCA-128/256/512 × logistic/XGBoost/MLP + operator sensitivity) →
+  paired cluster bootstrap/Holm/DeLong/McNemar/TOST/rank intervals → temperature
+  calibration → Friedman/Nemenyi → generated tables/macros/figures → number check;
+  OutfitTransformer v2 (lr grid, 2 seeds, short), zero-shot Qwen3-VL-8B (24 valid
+  questions; 0.36 s/question; letter mass > 0.997), GPU profiler (3 encoders),
+  Polyvore near-duplicate audit, environment capture. Test split never read for
+  scoring. POG joins the dry run after its image download completes.
+- Dry-run development numbers (2% valid, not for the paper): native/logistic CP AUC
+  Polyvore 0.685 / 0.865 / 0.832, IQON 0.591 / 0.729 / 0.723 (ResNet50 / SigLIP2-So400m
+  / Qwen-2B) — tier ordering as expected.
+- **Finding (owner decision D):** IQON Qwen-2B PCA-128 logistic kept selecting C at
+  the lower grid edge after 4 automatic extensions (recorded in failures.csv, not
+  hidden). Native selections sit at C=1e-4–1e-3. Recommend extending the frozen
+  grid downward to 1e-6 and re-checking on full train data before freeze.
+- **Finding (owner decision E):** Polyvore-Clean near-duplicate audit (pHash
+  Hamming ≤ 4): 6,459 cross-split image pairs; **19.1% of test outfits** contain an
+  item with a near-duplicate in train/valid. pHash on white-background product shots
+  may over-flag similar plain items, so before freeze: visually inspect a seeded
+  sample of ~100 pairs to calibrate the threshold, and add the embedding-cosine
+  criterion. The exclusion-sensitivity analysis is pre-registered either way.
+- MLLM timing implies ≈ 40 min for ~6,200 frozen questions in Phase 2.

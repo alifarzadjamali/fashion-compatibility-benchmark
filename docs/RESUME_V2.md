@@ -5,18 +5,18 @@ agent session reads `HANDOFF_V2.md` (goal and rules), then this file (where we
 are, how to restart), then `docs/v2_decisions.md` (why). Do not rely on chat
 history.
 
-Last updated: 2026-11-18 17:20 (DGX server time), booking job 34 (ends ≈ 2026-11-19 13:00 per `timeleft`).
+Last updated: 2026-11-18 18:45 (DGX server time), booking job 34 (ends ≈ 2026-11-19 13:00 per `timeleft`).
 
 ## 1. Gate status
 
 | Gate | Status | Evidence |
 |---|---|---|
-| G1 Environment | PASS | `research/v2/readiness/2026-11-18-a03/g1/` |
-| G2 Models (15 encoders + MLLM, pinned) | PASS | `research/v2/readiness/2026-11-18-a03/g2/gate.json` |
+| G1 Environment | PASS (re-run on current code) | `research/v2/readiness/2026-11-18-a04/g1/` |
+| G2 Models (15 encoders + MLLM, pinned) | PASS (re-run on current code) | `research/v2/readiness/2026-11-18-a04/g2/gate.json` |
 | G3 Reproduce v1 (**revised**, owner-approved) | **PASS** — both datasets: identical rebuilds, published counts; ResNet50 + CLIP within tolerance (max abs Δ 0.00065) | `research/v2/readiness/2026-11-18-g3/g3/gate.json` |
 | G4 Data | All archives verified and mirrored to laptop; POG probe **GO** (99.6%); POG image download running (skip threshold 90%, owner); POG split builder in progress | `research/v2/readiness/2026-11-18-pog/` |
-| G5 Pipeline dry run | IN PROGRESS — probe/calibration/rank stats/pipeline/tables/number-checker built and tested locally; baselines + POG builder being built | — |
-| G6 Speed test | RUNNING (all 15 encoders, 5,000 Polyvore train images each) | `research/v2/readiness/2026-11-18-g6/g6/` |
+| G5 Pipeline dry run | **PASS** (Polyvore + IQON, 3 encoders, 22 stages); POG to be added after image download | `research/v2/readiness/2026-11-18-g5/g5/gate.json` |
+| G6 Speed test | **PASS** — all 15 encoders; projected extraction 28.9 GPU-h, full run ≈ 40 GPU-h | `research/v2/readiness/2026-11-18-g6/g6/gate.json` |
 | G7 Freeze | NOT STARTED — needs owner decisions (§4) | — |
 
 Phase 2 (full run) is **not authorized**. It requires all gates PASS, the
@@ -69,6 +69,8 @@ the DGX has no GitHub write credential by owner decision).
 
 ## 4. Open owner decisions (needed before G7 freeze)
 
+Detailed in `docs/v2_decisions.md` (Decisions A–E): POG retention (A), POG grouping (B), POG categories (C), C-grid lower bound (D), near-duplicate threshold (E). Also:
+
 - Is Qwen3-VL-Embedding in the "uncertain provenance" group (HANDOFF §3)?
 - POG `cate_id` → "same-category" mapping for negatives (75 categories in use).
 - Confirm POG target = 124,000 outfits sampled with seed 20261118 (current
@@ -83,3 +85,24 @@ the DGX has no GitHub write credential by owner decision).
    SigLIP2-So400m, Qwen3-VL-Emb); log the projected full-run time.
 4. Build the G5 pipeline pieces (HANDOFF §7.8–7.9) and run the 2% dry run.
 5. Draft `configs/v2_protocol.yaml` for owner review (G7).
+
+## 6. Why v2 is a stronger paper than v1 (review issue → v2 status)
+
+| v1 weakness (review ID) | v2 fix | Status |
+|---|---|---|
+| Specialization contrasts not parent-matched (P0-1) | True parents in roster: FashionCLIP2↔OpenCLIP-B/32-LAION2B, Marqo-FashionSigLIP↔SigLIP-B/16, GR-Lite↔DINOv3@336 | roster pinned, G2 PASS |
+| Claims fragile to feature width; unreported native runs (P0-2) | Native features primary; PCA-128/256/512 + alternative pair operator as sensitivities; XGBoost **and** MLP on all datasets (P1-4) | `src/repbench/v2/probe.py` |
+| Two different "best model" sets (P0-3) | One coded validation-only selection rule | `src/repbench/v2/selection.py` |
+| Hand-copied tables, small numeric errors (P0-4, P0-11) | All tables/number macros generated; `check_paper_numbers.py` fails on hand-typed values | `scripts/v2/make_tables_v2.py` |
+| CIs mislabelled / "conservative" bootstrap wrong (P0-5, P0-6) | Declared grouping per dataset; two-way user × item-component bootstrap; POG grouping problem found and surfaced (Decision B) | `scripts/v2/pipeline.py` |
+| Efficiency table not like-for-like (P0-7) | One device, GPU-only CUDA-event latency median+IQR, FLOPs, allocator peak, energy, separate preprocessing | `scripts/v2/profile_efficiency_v2.py`; G6 measured all 15 encoders |
+| C at grid edge (P0-8) | Grid {1e-4..1e4} with automatic validation-only extension; failure recorded, never silent | `src/repbench/v2/logistic.py` |
+| Dated roster, no MLLM (P1-1, P1-2) | 15 encoders incl. PE-Core, SigLIP2, DINOv3, Qwen3-VL-Embedding 2B/8B; zero-shot Qwen3-VL-8B by option-letter log-prob | G2 PASS; `scripts/v2/mllm_zeroshot.py` |
+| Undertrained OutfitTransformer on ResNet only (P1-3) | lr grid, ≤100 epochs, patience 10, 5 seeds, three input encoders, clean split guard | `scripts/v2/run_outfit_transformer_v2.py` |
+| Statistics incomplete/non-uniform (P1-6) | All pairwise Holm, DeLong, exact McNemar everywhere, TOST with pre-set margins, rank intervals, Friedman/Nemenyi CD, Kendall W | pipeline + `rank_statistics.py` |
+| Shallow calibration (P1-7) | Temperature/Platt on validation, Brier decomposition, clustered ECE CIs | `calibration_v2.py` |
+| No near-duplicate audit (P2-4) | pHash (multi-index) + embedding cosine across splits, exclusion list for sensitivity | `scripts/v2/near_duplicate_audit.py` |
+| Single replication dataset | **POG added** as blind third dataset (99.6% image availability, ~79k clean outfits) | G4 in progress |
+| v1 split provenance unrecorded | Revised G3: two identical rebuilds + published counts + metric reproduction (max abs Δ 0.00065); all archives SHA-256 pinned and mirrored | G3 PASS |
+
+Not yet done (Phase 2 / manuscript): full-run numbers, deviation table, qualitative figure, citation fixes (HANDOFF §10).
