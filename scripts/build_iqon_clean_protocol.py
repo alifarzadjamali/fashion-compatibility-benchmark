@@ -4,16 +4,18 @@ import argparse
 import json
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 from repbench.data.iqon import construct_iqon_clean, extract_selected_images
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--catalog-dir", type=Path, default=Path(".venv/iqon_audit/catalog"))
-    parser.add_argument("--archive", type=Path, default=Path(".venv/iqon_audit/IQON3000.zip"))
+    parser.add_argument("--catalog-dir", type=Path, default=data_path("iqon_audit/catalog"))
+    parser.add_argument("--archive", type=Path, default=data_path("iqon_audit/IQON3000.zip"))
     parser.add_argument("--source-audit", type=Path, default=Path("artifacts/iqon3000_source_audit.json"))
     parser.add_argument("--output", type=Path, default=Path("data/protocols/iqon3000_clean"))
-    parser.add_argument("--images-root", type=Path, default=Path(".venv/iqon3000_clean/images"))
+    parser.add_argument("--images-root", type=Path, default=data_path("iqon3000_clean/images"))
     parser.add_argument("--seed", type=int, default=20260912)
     parser.add_argument("--extract-images", action="store_true")
     args = parser.parse_args()

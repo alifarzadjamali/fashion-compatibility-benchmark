@@ -6,6 +6,8 @@ import hashlib
 import json
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 from PIL import Image
 
 
@@ -27,7 +29,7 @@ def referenced_ids(path: Path) -> tuple[set[str], int]:
 
 def main() -> None:
     protocol_root = Path("data/protocols/a100")
-    image_root = Path(".venv/a100/images")
+    image_root = data_path("a100/images")
     task_data = {}
     task_signatures = {}
     for task in ("LAT", "AAT"):

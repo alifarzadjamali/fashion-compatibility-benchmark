@@ -7,6 +7,8 @@ import platform
 import shutil
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 import matplotlib
 import numpy as np
 import pandas as pd
@@ -96,7 +98,7 @@ def dataset_table() -> pd.DataFrame:
 def model_and_efficiency_tables(polyvore: pd.DataFrame, iqon: pd.DataFrame) -> pd.DataFrame:
     audit = pd.read_csv("artifacts/model_audit.csv")
     efficiency = pd.read_csv("artifacts/efficiency_profile.csv")
-    iqon_root = Path(".venv/iqon3000_clean/embeddings/iqon3000_clean")
+    iqon_root = data_path("iqon3000_clean/embeddings/iqon3000_clean")
     extraction_rows = []
     for model in PRIMARY_MODEL_KEYS:
         metadata = [json.loads((iqon_root / model / f"{split}_metadata.json").read_text()) for split in ("train", "valid", "test")]

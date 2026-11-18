@@ -10,6 +10,8 @@ import time
 from datetime import UTC, datetime
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 import joblib
 import numpy as np
 import pandas as pd
@@ -224,9 +226,9 @@ def run_model(args, dataset: PolyvoreDisjoint, model_key: str) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset-root", type=Path, default=Path(".venv/iqon3000_clean"))
+    parser.add_argument("--dataset-root", type=Path, default=data_path("iqon3000_clean"))
     parser.add_argument("--protocol-root", type=Path, default=Path("data/protocols/iqon3000_clean"))
-    parser.add_argument("--embedding-root", type=Path, default=Path(".venv/iqon3000_clean/embeddings"))
+    parser.add_argument("--embedding-root", type=Path, default=data_path("iqon3000_clean/embeddings"))
     parser.add_argument("--output-root", type=Path, default=Path("artifacts/final/iqon3000_clean"))
     parser.add_argument("--dataset-key", default="iqon3000_clean")
     parser.add_argument("--models", nargs="+", default=list(PRIMARY_MODEL_KEYS))

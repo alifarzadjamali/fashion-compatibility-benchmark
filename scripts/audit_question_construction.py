@@ -8,6 +8,8 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 import pandas as pd
 from PIL import Image
 
@@ -31,7 +33,7 @@ def item_hashes(dataset: str, item_ids: set[str]) -> dict[str, str]:
             values = pool.map(lambda item_id: decoded_hash(root / f"{item_id}.jpg"), ordered, chunksize=128)
             return dict(zip(ordered, values, strict=True))
     audit = pd.read_parquet(
-        ".venv/iqon_audit/catalog/image_audit_resolved.parquet",
+        data_path("iqon_audit/catalog/image_audit_resolved.parquet"),
         columns=["item_id", "decoded_rgb_sha256"],
     )
     audit.item_id = audit.item_id.astype(str)

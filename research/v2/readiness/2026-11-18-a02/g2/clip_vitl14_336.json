@@ -1,0 +1,42 @@
+{
+  "model_key": "clip_vitl14_336",
+  "spec": {
+    "model_key": "clip_vitl14_336",
+    "checkpoint": "openai/clip-vit-large-patch14-336",
+    "revision": "ce19dc912ca5cd21c8a653c79e251e808ccabcd1",
+    "family": "generic_vision_language",
+    "input_resolution": 336,
+    "embedding_dim": 768,
+    "trust_remote_code": false,
+    "use_safetensors": false,
+    "backend": "huggingface",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "a12c8bd10bbfb2a3480fceff4ceba19c0219b87ff68b7896383b2a80614b03cf",
+  "utc": "2026-11-18T14:17:00.544684+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "PASS",
+  "download_seconds": 12.799039989011362,
+  "new_hf_cache_bytes": 1715591413,
+  "hf_effective_mib_per_second": 127.8311083823394,
+  "download_measurement": "new HF blob bytes / snapshot wall time; cache hits included; not wire bytes",
+  "load_seconds": 1.5737032039905898,
+  "attention_method": "sdpa",
+  "image_tower_parameters": 304293888,
+  "total_parameters": 427944193,
+  "preprocess_and_transfer_seconds": 0.13841493398649618,
+  "two_smoke_passes_seconds": 1.55467985701398,
+  "peak_allocator_bytes": 2153022464,
+  "shape": [
+    64,
+    768
+  ],
+  "max_cosine_drift": 2.384185791015625e-07,
+  "checks": {
+    "finite": true,
+    "expected_shape": true,
+    "deterministic_within_1e_3": true,
+    "bf16": true
+  },
+  "total_seconds": 16.11834059600369
+}

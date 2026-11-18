@@ -4,12 +4,15 @@ import json
 import os
 from pathlib import Path
 
+from repbench.utils.paths import configure_cache_environment
+
+configure_cache_environment()
+
 import numpy as np
 import pandas as pd
 import torch
 from PIL import Image
 
-os.environ.setdefault("HF_HOME", str(Path(".venv/cache/huggingface").resolve()))
 
 from transformers import AutoImageProcessor, AutoModel
 

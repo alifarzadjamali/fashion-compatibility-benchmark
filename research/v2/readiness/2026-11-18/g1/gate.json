@@ -1,0 +1,16 @@
+{
+  "gate": "G1",
+  "status": "PASS",
+  "utc": "2026-11-18T14:08:46.078673+00:00",
+  "checks": {
+    "python312": true,
+    "gpu_visible": true,
+    "bf16_supported": true,
+    "bf16_sdpa_finite": true,
+    "bf16_matmul_finite": true,
+    "pytest": true,
+    "environment_capture": true
+  },
+  "check_seconds": 8.863242820021696,
+  "note": "Build timing is in setup log; skipped dataset tests do not certify data readiness."
+}

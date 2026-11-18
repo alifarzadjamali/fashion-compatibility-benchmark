@@ -9,8 +9,10 @@ import platform
 import time
 from pathlib import Path
 
-os.environ.setdefault("HF_HOME", str(Path(".venv/cache/huggingface").resolve()))
-os.environ.setdefault("TORCH_HOME", str(Path(".venv/cache/torch").resolve()))
+from repbench.utils.paths import configure_cache_environment
+
+configure_cache_environment()
+
 os.environ.setdefault("HF_HUB_OFFLINE", "1")
 os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
 

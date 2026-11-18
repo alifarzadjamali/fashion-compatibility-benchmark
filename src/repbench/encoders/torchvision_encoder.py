@@ -5,9 +5,12 @@ import time
 from collections.abc import Sequence
 from pathlib import Path
 
+from repbench.utils.paths import configure_cache_environment
+
+configure_cache_environment()
+
 import numpy as np
 
-os.environ.setdefault("TORCH_HOME", str(Path(".venv/cache/torch").resolve()))
 
 import torch
 from PIL import Image
