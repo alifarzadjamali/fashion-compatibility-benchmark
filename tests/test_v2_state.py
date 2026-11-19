@@ -41,3 +41,10 @@ def test_budget_reserves_upload_time(monkeypatch):
     )
     with pytest.raises(RuntimeError, match="deadline"):
         remaining_seconds()
+
+
+def test_parse_timeleft_with_days():
+    from repbench.v2.state import parse_timeleft
+
+    assert parse_timeleft("Spark booking: 1-00:35:23 left (h:mm:ss).") == 86400 + 35 * 60 + 23
+    assert parse_timeleft("Spark booking: 2:35:12 left (h:mm:ss).") == 2 * 3600 + 35 * 60 + 12

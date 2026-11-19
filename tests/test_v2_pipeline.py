@@ -69,7 +69,7 @@ def test_pipeline_end_to_end(tmp_path):
            "--models", "resnet50,clip_vitl14_336,siglip2_so400m_384",
            "--embeddings", str(tmp_path / "emb"), "--results", str(results),
            "--settings", "native,pca128", "--learners", "logistic,xgboost",
-           "--replicates", "200"]
+           "--replicates", "200", "--workers", "2"]
     subprocess.run(run, check=True, cwd=ROOT)
     metrics = (results / "metrics.csv").read_text()
     assert "native" in metrics and "abs_product_sum" in metrics

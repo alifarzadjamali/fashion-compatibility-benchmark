@@ -26,14 +26,32 @@ import pandas as pd
 MARGINS = {"cp_auc": (0.002, 0.005, 0.010), "fitb_acc": (0.005, 0.01, 0.02)}
 
 
-def load_store(root, dataset, model):
-    folder = root / dataset / model
+def _load_one(folder):
     meta = json.loads((folder / "metadata.json").read_text())
-    values = np.load(folder / "items.npy")
     if hashlib.sha256((folder / "items.npy").read_bytes()).hexdigest() != meta["items_sha256"]:
-        raise ValueError(f"Embedding checksum mismatch for {dataset}/{model}")
+        raise ValueError(f"Embedding checksum mismatch: {folder}")
+    values = np.load(folder / "items.npy")
     ids = json.loads((folder / "item_ids.json").read_text())
-    return {i: values[k] for k, i in enumerate(ids)}, meta
+    return ids, values, meta
+
+
+def load_store(root, dataset, model):
+    """One store, or the merge of its parts (e.g. trainvalid/ + test/); conflicts fail."""
+    folder = root / dataset / model
+    parts = [folder] if (folder / "metadata.json").exists() else sorted(
+        p for p in folder.iterdir() if (p / "metadata.json").exists())
+    if not parts:
+        raise FileNotFoundError(f"No embedding store under {folder}")
+    store, digests = {}, {}
+    for part in parts:
+        ids, values, meta = _load_one(part)
+        digests[part.name] = meta["items_sha256"]
+        for k, item in enumerate(ids):
+            if item in store and not np.array_equal(store[item], values[k]):
+                raise ValueError(f"Conflicting vectors for {item} across store parts")
+            store[item] = values[k]
+    combined = hashlib.sha256(json.dumps(digests, sort_keys=True).encode()).hexdigest()
+    return store, {"items_sha256": combined, "parts": digests}
 
 
 def cp_pairs(examples):
@@ -77,6 +95,60 @@ def groups_for(protocol, data, split, raw_cp_lines, raw_fitb, grouping):
     return cp, fitb
 
 
+_CTX = {}
+
+
+def _cell(job):
+    """Fit one probe cell in a forked worker (store shared copy-on-write) and save it."""
+    from repbench.v2.logistic import GridEdgeError
+    from repbench.v2.probe import run_probe
+
+    setting, learner, operator, path, fit_only = job
+    c = _CTX
+    try:
+        if fit_only:  # calibration needs fit-valid scores of the primary probe
+            out = run_probe(c["store"], c["train"], c["fit"], c["fit"], None, setting=setting,
+                            learner=learner, operator=operator, seed=c["seed"])
+        else:
+            out = run_probe(c["store"], c["train"], c["fit"], c["eval_cp"], c["eval_fitb"],
+                            setting=setting, learner=learner, operator=operator, seed=c["seed"])
+    except GridEdgeError as error:
+        out = {"error": "grid_edge", "detail": str(error)}
+    with open(path, "x") as stream:
+        json.dump(out, stream)
+    return str(path)
+
+
+def precompute(results, name, model, store, train_cp, fit_cp, eval_cp, eval_fitb, args):
+    import multiprocessing as mp
+
+    jobs = []
+    for setting in args.settings.split(","):
+        for learner in args.learners.split(","):
+            for operator in args.operators.split(","):
+                if operator != "abs_product" and (setting, learner) != ("native", "logistic"):
+                    continue
+                tag = setting if operator == "abs_product" else f"{setting}+{operator}"
+                path = results / "predictions" / f"{name}__{model}__{tag}__{learner}.json"
+                if not path.exists():
+                    jobs.append((setting, learner, operator, path, False))
+    fit_path = results / "predictions" / f"{name}__{model}__native__logistic__fitvalid.json"
+    if "native" in args.settings.split(",") and not fit_path.exists():
+        jobs.append(("native", "logistic", "abs_product", fit_path, True))
+    if not jobs:
+        return
+    _CTX.update(store=store, train=train_cp, fit=fit_cp, eval_cp=eval_cp, eval_fitb=eval_fitb,
+                seed=args.seed)
+    if args.workers <= 1:
+        for job in jobs:
+            _cell(job)
+    else:
+        with mp.get_context("fork").Pool(min(args.workers, len(jobs))) as pool:
+            for done in pool.imap_unordered(_cell, jobs):
+                print(f"done {Path(done).name}", flush=True)
+    _CTX.clear()
+
+
 def main():
     from repbench.data.polyvore import PolyvoreDisjoint
     from repbench.eval.paired_statistics import (
@@ -87,8 +159,6 @@ def main():
         pairwise_inference,
     )
     from repbench.v2.calibration_v2 import calibrate_and_evaluate
-    from repbench.v2.logistic import GridEdgeError
-    from repbench.v2.probe import run_probe
     from repbench.v2.rank_statistics import friedman_nemenyi, plot_critical_difference
     from repbench.v2.registry import V2_ENCODERS
     from repbench.v2.selection import select_models
@@ -106,9 +176,21 @@ def main():
     parser.add_argument("--frozen-protocol-hash", type=Path)
     parser.add_argument("--replicates", type=int, default=2000)
     parser.add_argument("--seed", type=int, default=20260912)
+    parser.add_argument("--stage", choices=["probes", "stats", "all"], default="all",
+                        help="probes: fit missing cells only; stats: no fitting (all cells must exist)")
+    parser.add_argument("--workers", type=int, default=1)
+    parser.add_argument("--selection-split", choices=["carveout", "valid"],
+                        help="default: valid when evaluating test (Phase 2), carve-out otherwise")
     args = parser.parse_args()
-    if args.eval_split == "test" and not args.frozen_protocol_hash:
-        raise PermissionError("Test evaluation requires the frozen v2 protocol (G7) and Phase 2")
+    if args.eval_split == "test":
+        if not args.frozen_protocol_hash or not args.frozen_protocol_hash.exists():
+            raise PermissionError("Test evaluation requires the frozen v2 protocol (G7) and Phase 2")
+        record = json.loads(args.frozen_protocol_hash.read_text())
+        if hashlib.sha256(Path(record["file"]).read_bytes()).hexdigest() != record["sha256"]:
+            raise PermissionError("Frozen protocol file changed since freeze; refusing")
+    selection_split = args.selection_split or ("valid" if args.eval_split == "test" else "carveout")
+    if selection_split == "valid" and args.eval_split == "valid":
+        raise ValueError("Cannot select on the split being evaluated")
     models = args.models.split(",")
     results = args.results
     (results / "predictions").mkdir(parents=True, exist_ok=True)
@@ -120,11 +202,16 @@ def main():
         protocol = Path(protocol)
         data = PolyvoreDisjoint(protocol.parent, protocol, name)
         train_pairs = cp_pairs(data.compatibility("train"))
-        rng = random.Random(f"{args.seed}:{name}:fitvalid")
-        fit_idx = set(rng.sample(range(len(train_pairs)), max(2, len(train_pairs) // 5)))
-        flat = lambda pairs: [e for p in pairs for e in p]  # noqa: E731
-        train_cp = flat(p for i, p in enumerate(train_pairs) if i not in fit_idx)
-        fit_cp = flat(p for i, p in enumerate(train_pairs) if i in fit_idx)
+        flat = lambda pairs: [e for p in pairs for e in p]
+        if selection_split == "valid":  # Phase 2: fit train, select/calibrate valid, eval test
+            fit_idx = set()
+            train_cp = flat(train_pairs)
+            fit_cp = flat(cp_pairs(data.compatibility("valid")))
+        else:  # dry run: valid stands in for test, so select on a seeded train carve-out
+            rng = random.Random(f"{args.seed}:{name}:fitvalid")
+            fit_idx = set(rng.sample(range(len(train_pairs)), max(2, len(train_pairs) // 5)))
+            train_cp = flat(p for i, p in enumerate(train_pairs) if i not in fit_idx)
+            fit_cp = flat(p for i, p in enumerate(train_pairs) if i in fit_idx)
         eval_examples = data.compatibility(args.eval_split)
         eval_cp = [e for e in eval_examples if e.label == 1] + [e for e in eval_examples if e.label == 0]
         eval_fitb = data.fitb(args.eval_split)
@@ -137,7 +224,8 @@ def main():
             (cp_groups, fitb_groups), cp_second, fitb_second = grouped, None, None
         manifest["inputs"][name] = {
             "protocol": str(protocol), "grouping": grouping,
-            "train_pairs": len(train_pairs) - len(fit_idx), "fit_valid_pairs": len(fit_idx),
+            "selection_split": selection_split,
+            "train_pairs": len(train_cp) // 2, "fit_valid_pairs": len(fit_cp) // 2,
             "eval_cp": len(eval_cp), "eval_fitb": len(eval_fitb),
             "cp_clusters": len(set(cp_groups)), "fitb_clusters": len(set(fitb_groups)),
         }
@@ -145,6 +233,10 @@ def main():
         for model in models:
             store, meta = load_store(args.embeddings, name, model)
             manifest["inputs"][f"{name}/{model}"] = meta["items_sha256"]
+            if args.stage != "stats":
+                precompute(results, name, model, store, train_cp, fit_cp, eval_cp, eval_fitb, args)
+            if args.stage == "probes":
+                continue
             for setting in args.settings.split(","):
                 for learner in args.learners.split(","):
                     for operator in args.operators.split(","):
@@ -153,18 +245,9 @@ def main():
                             continue
                         tag = setting if operator == "abs_product" else f"{setting}+{operator}"
                         path = results / "predictions" / f"{name}__{model}__{tag}__{learner}.json"
-                        if path.exists():
-                            out = json.loads(path.read_text())
-                        else:
-                            try:
-                                out = run_probe(store, train_cp, fit_cp, eval_cp, eval_fitb,
-                                                setting=setting, learner=learner,
-                                                operator=operator, seed=args.seed)
-                            except GridEdgeError as error:
-                                # Recorded, never silently dropped: a pre-freeze grid decision.
-                                out = {"error": "grid_edge", "detail": str(error)}
-                            with path.open("x") as stream:
-                                json.dump(out, stream)
+                        if not path.exists():
+                            raise FileNotFoundError(f"Missing probe cell {path.name}; run --stage probes")
+                        out = json.loads(path.read_text())
                         if "error" in out:
                             failures.append(dict(dataset=name, model=model, setting=tag,
                                                  learner=learner, error=out["error"]))
@@ -179,11 +262,14 @@ def main():
                                 value = roc_auc_score(out["cp"]["labels"], out["cp"]["scores"])
                             rows.append(dict(dataset=name, model=model, setting=tag, learner=learner,
                                              split=args.eval_split, metric=metric, value=value,
-                                             selection=json.dumps(out["selection"]["chosen"])))
+                                             selection=json.dumps(out["selection"]["chosen"]),
+                                             validation_auc=out["selection"]["validation_auc"]))
                         if (tag, learner) == ("native", "logistic"):  # calibration on primary
-                            fit_scores = run_probe(store, train_cp, fit_cp, fit_cp, None,
-                                                   setting=setting, learner=learner,
-                                                   seed=args.seed)["cp"]["scores"]
+                            fit_out = json.loads((results / "predictions" /
+                                                  f"{name}__{model}__native__logistic__fitvalid.json").read_text())
+                            if "error" in fit_out:
+                                continue
+                            fit_scores = fit_out["cp"]["scores"]
                             try:
                                 calibration = calibrate_and_evaluate(
                                     [e.label for e in fit_cp], fit_scores, out["cp"]["labels"],
@@ -201,6 +287,8 @@ def main():
                                     temperature=calibration["params"],
                                     **{k: v for k, v in calibration[phase].items()
                                        if isinstance(v, int | float)}))
+        if args.stage == "probes":
+            continue
         # Paired statistics per (setting, learner) across models.
         for tag, learner in sorted({(t, l) for (_, t, l) in outputs}):
             if any((m, tag, learner) not in outputs for m in models):
@@ -232,7 +320,7 @@ def main():
                 rank_rows += [{**common, **r} for r in inference["rank_intervals"]]
                 equivalence_rows += [{**common, **r} for r in inference["equivalence"]]
         native = [dict(dataset=name, split="valid", metric="cp_auc", setting="native",
-                       model_key=r["model"], value=r["value"])
+                       model_key=r["model"], value=r["validation_auc"])  # never eval-split scores
                   for r in rows if r["dataset"] == name and r["setting"] == "native"
                   and r["learner"] == "logistic" and r["metric"] == "cp_auc"]
         families = {m: V2_ENCODERS[m].family for m in models}
@@ -242,6 +330,9 @@ def main():
                 dataset=name if name.endswith("_clean") else name + "_clean", families=families)
         except ValueError as error:  # e.g. dry-run roster lacks a fashion model
             selection[name] = {"status": "not selectable with this roster", "reason": str(error)}
+    if args.stage == "probes":
+        print(f"probe cells complete for {models}")
+        return
     metrics = pd.DataFrame(rows)
     for frame, file in ((metrics, "metrics.csv"), (pd.DataFrame(pairwise_rows), "pairwise.csv"),
                         (pd.DataFrame(rank_rows), "rank_intervals.csv"),

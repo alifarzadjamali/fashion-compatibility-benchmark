@@ -373,8 +373,16 @@ def construct_pog_clean(
     target_outfits: int = POG_TARGET_OUTFITS,
     min_category_groups: int = MIN_CATEGORY_GROUPS,
     ratios: Mapping[str, float] = SPLIT_RATIOS,
+    image_equivalence: Mapping[str, str] | None = None,
+    image_equivalence_info: Mapping | None = None,
+    protocol_name: str | None = None,
 ) -> dict:
     """Build the POG clean protocol into a new directory and return its manifest.
+
+    ``image_equivalence`` (v2-Clean, owner decision E): ``{item_id: group_id}`` of
+    near-duplicate images; exact-image identities linked by a group are merged into one
+    identity (indivisible packing node, distinct-image rule for questions, audit).
+    ``None`` (default) reproduces the original construction byte for byte.
 
     ``download_manifest``: ``manifest.jsonl`` from ``pog_download.py``. When given, items
     absent from it are unavailable (their outfits are dropped) and exact-image identity
@@ -452,6 +460,11 @@ def construct_pog_clean(
         item_to_group = {item: "sha256:" + available[item]["sha256"] for item in pool_items}
     else:
         item_to_group = {item: "item:" + item for item in pool_items}
+    exact_identity = item_to_group
+    if image_equivalence is not None:
+        from repbench.data.image_equivalence import merge_identities
+
+        item_to_group = merge_identities(exact_identity, image_equivalence)
     shared_image_groups = Counter(item_to_group.values())
     pool_components = _components(pool, item_to_group)
 
@@ -616,6 +629,22 @@ def construct_pog_clean(
         "category_support": support_report,
         "splits": {},
     }
+    if protocol_name is not None:
+        manifest["protocol"] = protocol_name
+    if image_equivalence is not None:
+        from repbench.data.image_equivalence import manifest_record
+
+        manifest["settings"]["image_identity"] += (
+            "; near-duplicate image-equivalence groups merged (near:<smallest identity>)"
+        )
+        manifest["construction_rules"].insert(
+            6,
+            "Merge exact-image identities linked by a near-duplicate image-equivalence group "
+            "(v2-Clean) into one identity before packing, category support and questions.",
+        )
+        manifest["image_equivalence"] = manifest_record(
+            image_equivalence, pool_items, image_equivalence_info
+        )
 
     for split_index, split in enumerate(SPLITS):
         rows_in = final[split]
@@ -641,6 +670,8 @@ def construct_pog_clean(
                 "cate_id": cate_ids[item],
                 "image_identity": item_to_group[item],
             }
+            if image_equivalence is not None:
+                metadata[item]["exact_image_identity"] = exact_identity[item]
             image_paths[item] = (
                 available[item]["path"] if available is not None else f"images/{item[:2]}/{item}"
             )

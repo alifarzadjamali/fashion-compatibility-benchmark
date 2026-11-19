@@ -1,0 +1,27 @@
+{
+ "kind": "polyvore_v2_clean_feasibility_simulation",
+ "note": "Laptop simulation from polyvore_outfits.zip (sha256 03f00b12...): v1 construct_clean_protocol component/assignment logic with exact SHA-256 image groups (v1) vs exact + near-duplicate equivalence groups (v2, thresholds of polyvore_laptop_equivalence_report.json). Not the protocol build; question generation not run. eq_audit = equivalence groups spanning two splits.",
+ "exact_sha256_duplicate_groups": 120,
+ "results": {
+  "v1": {
+   "components": 15613,
+   "largest": 14679,
+   "counts": {
+    "train": 16991,
+    "valid": 2999,
+    "test": 15142
+   },
+   "eq_audit": 553
+  },
+  "v2": {
+   "components": 14839,
+   "largest": 15663,
+   "counts": {
+    "train": 16991,
+    "valid": 2999,
+    "test": 15142
+   },
+   "eq_audit": 0
+  }
+ }
+}

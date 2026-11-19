@@ -24,7 +24,7 @@ LETTERS = "ABCDE"
 # Qwen3-VL: 16 px patches merged 2x2, so one visual token covers 32x32 pixels.
 PIXELS_PER_VISUAL_TOKEN = 32 * 32
 DEFAULT_MIN_PIXELS = 4 * PIXELS_PER_VISUAL_TOKEN
-DEFAULT_MAX_PIXELS = 256 * PIXELS_PER_VISUAL_TOKEN
+DEFAULT_MAX_PIXELS = 144 * PIXELS_PER_VISUAL_TOKEN  # 384x384, uniform budget (decision F)
 DEFAULT_MAX_INPUT_TOKENS = 16384
 PROMPT_VERSION = "fitb-letter-v1"
 INTRO_TEXT = "Here are the items of a partial outfit:"
@@ -141,12 +141,9 @@ def _load_image(value):
         with Image.open(value) as opened:
             opened.load()
             image = opened.copy()
-    if image.mode in ("RGBA", "LA") or (image.mode == "P" and "transparency" in image.info):
-        rgba = image.convert("RGBA")
-        canvas = Image.new("RGB", rgba.size, (255, 255, 255))
-        canvas.paste(rgba, mask=rgba.split()[-1])
-        return canvas
-    return image.convert("RGB")
+    from repbench.v2.images import to_rgb_on_white
+
+    return to_rgb_on_white(image)
 
 
 def qwen_vision_info(conversations):

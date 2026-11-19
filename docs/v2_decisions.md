@@ -253,3 +253,67 @@ all audits pass on the real metadata; final rebuild with the image manifest pend
   documented deviation from the provider default; (2) keep the provider default
   and budget the GPU time. Recommendation: (1), plus a provider-default spot check
   on a subsample to show the effect.
+
+## 2026-11-19 — OWNER DECISIONS for the freeze (approved by owner, ~12:10 server time)
+
+- **A** Accept POG-Clean retention (~77k of 124k target outfits); disclose retention
+  and the hub-item selection effect.
+- **B / grouping principle (all datasets):** cluster on every available dependence
+  source. IQON and POG: two-way user × item-component bootstrap (primary); user-only
+  as sensitivity. Polyvore (no user data): item-component bootstrap.
+- **C** POG same-category = raw `cate_id`; categories with < 10 distinct images in a
+  split excluded.
+- **D** Logistic C grid extended downward to 1e-6 (upper 1e4), automatic validation-
+  only extension retained and reported.
+- **E** **Rebuild all three clean protocols as "v2-Clean"** with near-duplicate
+  images merged into one indivisible unit (cannot cross splits). Rule is
+  model-free (no roster encoder decides splits): pHash Hamming ≤ 2 AND a pixel-level
+  colour/shape agreement check, calibrated on a labelled seeded sample. Applied
+  identically to Polyvore, IQON and POG. v1-Clean splits are kept only as the
+  comparison ("leakage inflation") analysis; G3 remains the v1 reproduction evidence.
+- **F** **Uniform input budget: no model sees more than 384×384 pixels.** Fixed-
+  resolution encoders use their native 224–384 px processors (unchanged); the three
+  dynamic-resolution Qwen models (Emb-2B, Emb-8B, zero-shot 8B) are capped at
+  max_pixels = 147,456 (= 384², 144 visual tokens) on all datasets. Provider-default
+  spot check on a seeded subsample reported in the supplement.
+- **Image decoding (all datasets):** images with alpha/transparency are composited onto
+  white before any model or audit (no-op for JPEG; affects POG PNGs, which otherwise
+  decode with arbitrary/black backgrounds — a hidden cross-dataset domain shift).
+- Per-model preprocessing (crop vs resize) follows each official processor and is
+  tabulated in the paper.
+
+## 2026-11-19 — Decision E implemented: v2-Clean near-duplicate equivalence (code ready; DGX build pending)
+
+- **Rule (model-free, identical for all three datasets), `scripts/v2/image_equivalence.py`:**
+  two images of the whole pre-split item pool are one unit iff pHash Hamming ≤ 2
+  (exact multi-index search, functions imported from `near_duplicate_audit.py`) AND
+  foreground-mean CIELAB Δa*b* ≤ 2.0 AND the 95th percentile of per-cell CIELAB ΔE over
+  the union foreground of 16×16 thumbnails ≤ 15.0 (white-composited 32×32 BOX
+  thumbnails; foreground = min channel < 245). Union-find closure; group id = smallest
+  item id. Aspect-ratio check implemented but **off** (all Polyvore images are 300×300,
+  so it cannot be calibrated). Note: this pHash's Hamming distances are always even.
+- **Calibration** (`research/v2/readiness/2026-11-19-image-equivalence/polyvore_calibration.json`,
+  ids + labels + metrics; labelled blind by the agent from side-by-side sheets, owner
+  seed included): plain whole-thumbnail MAD could not separate the owner's FALSE pairs
+  (navy/black blazer 5.6, belts 6.9) from TRUE re-encoded copies (up to 6.7); the
+  colour (Lab) + local-ΔE rule can. Fit set 124 pairs (owner seed, MAD-stratified,
+  two boundary rounds): precision 1.00, recall 0.81 (misses are boundary cases: shifted
+  crops, one recoloured copy). Owner seed 10/10 correct. **Held-out uniform random 36
+  pairs labelled after thresholds were fixed: precision 0.87 (2 FP: two thin gold
+  necklaces; pearl bracelet gold vs silver clasp), recall 1.00.** False merges only make
+  splits stricter.
+- Polyvore pool (152,785 images, from the zip on the laptop): 2,963 candidate pairs →
+  1,257 confirmed; 2,359 items in 1,150 groups (largest 6); input sha256 c12591f3….
+  Simulation with the v1 component/assignment code: v1-Clean split has **553 equivalence
+  groups spanning splits**; v2 has 0 with identical outfit counts 16,991/2,999/15,142.
+- **Builders:** optional `image_equivalence` (+ `image_equivalence_info`, `protocol_name`)
+  added to `construct_clean_protocol`, `construct_iqon_clean`, `construct_pog_clean`;
+  `None` reproduces the pre-change output byte for byte (golden-hash test on fixtures).
+  Groups join the exact-image unit (Polyvore components; IQON/POG merged identity
+  `near:<smallest>`), and are used for CP/FITB candidate exclusion (new for Polyvore).
+- **Build:** `scripts/v2/build_v2_clean.py --dataset {polyvore,iqon3000,pog}_v2_clean`
+  builds twice, requires identical hashes, runs existing audits + uniform audit + "no
+  group / merged identity spans splits"; manifest records equivalence file sha256,
+  report sha256, thresholds, input hash. IQON v2 selects different outfits, so images of
+  newly selected items must be extracted (`scripts/v2/extract_iqon_images.py`, resumes).
+- Tests: `tests/test_v2_image_equivalence.py` (+ fixtures `tests/v2_clean_fixtures.py`).

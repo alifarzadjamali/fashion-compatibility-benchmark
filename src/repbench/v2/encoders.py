@@ -14,7 +14,6 @@ configure_cache_environment()
 import torch
 import torch.nn.functional as F
 from huggingface_hub import hf_hub_download
-from PIL import Image
 
 
 def gr_sdpa(attention, x):
@@ -118,13 +117,9 @@ class V2Encoder:
 
     def prepare(self, images):
         """CPU-only decode/resize/normalize, no device transfers."""
-        decoded = []
-        for image in images:
-            if isinstance(image, Image.Image):
-                decoded.append(image.convert("RGB"))
-            else:
-                with Image.open(image) as opened:
-                    decoded.append(opened.convert("RGB"))
+        from repbench.v2.images import load_rgb
+
+        decoded = [load_rgb(image) for image in images]  # alpha -> white (all datasets)
         if self.spec.backend.startswith("qwen_"):
             from repbench.v2.qwen import prepare_qwen
 

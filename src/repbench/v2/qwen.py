@@ -51,14 +51,16 @@ def load_qwen(spec, dtype):
 def prepare_qwen(processor, images, *, embedding):
     from qwen_vl_utils import process_vision_info
 
+    from repbench.v2.images import QWEN_MAX_PIXELS, QWEN_MIN_PIXELS
+
     conversations = []
     for image in images:
         content = [
             {
                 "type": "image",
                 "image": image,
-                "min_pixels": 4 * 32 * 32,
-                "max_pixels": 1800 * 32 * 32,
+                "min_pixels": QWEN_MIN_PIXELS,
+                "max_pixels": QWEN_MAX_PIXELS,  # uniform 384x384 budget (decision F)
             }
         ]
         if embedding:

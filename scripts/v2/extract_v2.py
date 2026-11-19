@@ -60,10 +60,18 @@ def main():
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--workers", type=int, default=8)
     parser.add_argument("--chunk", type=int, default=4096)
+    parser.add_argument("--reuse-from", type=Path, nargs="*", default=[],
+                        help="verified earlier stores (same model+revision) whose vectors are copied; "
+                             "only valid when decoding is unchanged for these images (JPEG datasets)")
     args = parser.parse_args()
     splits = args.splits.split(",")
     if "test" in splits:
-        raise PermissionError("Test-split extraction is Phase 2 only (after G7 freeze)")
+        frozen = Path("configs/v2_protocol_hash.json")
+        if not frozen.exists():
+            raise PermissionError("Test-split extraction is Phase 2 only (after G7 freeze)")
+        record = json.loads(frozen.read_text())
+        if sha256(record["file"]) != record["sha256"]:
+            raise PermissionError("Frozen protocol file changed since freeze; refusing")
     require_gate(args.g2, "G2")
     require_budget(600)
     spec = V2_ENCODERS[args.model]
@@ -76,6 +84,7 @@ def main():
         "splits": splits,
         "batch_size": args.batch_size,
         "lock": sha256("uv.lock"),
+        "reuse_from": sorted(str(f) for f in args.reuse_from),
     }
     signature = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()
     out = args.output
@@ -101,13 +110,38 @@ def main():
         state = {"signature": signature, "offset": 0, "seconds": 0.0}
         array = None
 
+    reused = {}
+    for folder in args.reuse_from:
+        meta = json.loads((folder / "metadata.json").read_text())
+        if meta["model"] != args.model or meta["revision"] != spec.revision:
+            raise ValueError(f"Reuse store {folder} is a different model/revision")
+        if sha256(folder / "items.npy") != meta["items_sha256"]:
+            raise ValueError(f"Reuse store {folder} failed checksum")
+        old_ids = json.loads((folder / "item_ids.json").read_text())
+        old_values = np.load(folder / "items.npy", mmap_mode="r")
+        for k, item in enumerate(old_ids):
+            reused.setdefault(item, (old_values, k))
+    reuse_count = sum(i in reused for i in ids)
+    if array is None and reuse_count:
+        dim = next(iter(reused.values()))[0].shape[1]
+        array = np.lib.format.open_memmap(partial, mode="w+", dtype=np.float32, shape=(len(ids), dim))
+    if reuse_count and state["offset"] == 0 and not state.get("reused"):
+        for k, item in enumerate(ids):
+            if item in reused:
+                values, row = reused[item]
+                array[k] = values[row]
+        array.flush()
+        state["reused"] = reuse_count
+    todo = [k for k, item in enumerate(ids) if item not in reused]
+    print(f"{args.dataset}/{args.model}: reused {reuse_count}, to extract {len(todo)}", flush=True)
+
     def prepare(batch):
-        return encoder.prepare([resolve(i) for i in batch])
+        return encoder.prepare([resolve(ids[k]) for k in batch])
 
     with ThreadPoolExecutor(args.workers) as pool, torch.inference_mode():
-        for offset in range(state["offset"], len(ids), args.chunk):
+        for offset in range(state["offset"], len(todo), args.chunk):
             require_budget(300)
-            chunk = ids[offset : offset + args.chunk]
+            chunk = todo[offset : offset + args.chunk]
             batches = [chunk[i : i + args.batch_size] for i in range(0, len(chunk), args.batch_size)]
             t0 = time.perf_counter()
             outputs = []
@@ -120,13 +154,13 @@ def main():
                 array = np.lib.format.open_memmap(
                     partial, mode="w+", dtype=np.float32, shape=(len(ids), values.shape[1])
                 )
-            array[offset : offset + len(chunk)] = values
+            array[chunk] = values
             array.flush()
             state["offset"] = offset + len(chunk)
             state["seconds"] += time.perf_counter() - t0
             state_path.with_suffix(".tmp").write_text(json.dumps(state))
             state_path.with_suffix(".tmp").replace(state_path)
-            print(f"{args.dataset}/{args.model}: {state['offset']}/{len(ids)}", flush=True)
+            print(f"{args.dataset}/{args.model}: {state['offset']}/{len(todo)} new", flush=True)
     dim = array.shape[1]
     del array
     partial.rename(out / "items.npy")
@@ -143,10 +177,12 @@ def main():
             "dtype": "bfloat16",
             "attention": encoder.attention_method,
             "items": len(ids),
+            "reused_items": reuse_count,
+            "reused_from": [str(f) for f in args.reuse_from],
             "embedding_dim": dim,
             "load_seconds": round(load_seconds, 2),
             "extract_seconds": round(state["seconds"], 2),
-            "images_per_second": round(len(ids) / max(state["seconds"], 1e-9), 2),
+            "images_per_second": round(len(todo) / max(state["seconds"], 1e-9), 2),
             "allocator_peak_gb": round(torch.cuda.max_memory_allocated() / 2**30, 2),
             "items_sha256": sha256(out / "items.npy"),
             "item_ids_sha256": sha256(out / "item_ids.json"),

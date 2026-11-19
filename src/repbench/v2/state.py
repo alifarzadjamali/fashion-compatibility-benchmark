@@ -27,11 +27,16 @@ def write_json(path, value):
 
 def remaining_seconds():
     result = subprocess.run(["timeleft"], text=True, capture_output=True, timeout=10, check=False)
-    match = re.search(r"(\d+):(\d{2}):(\d{2})\s+left", result.stdout)
-    if result.returncode or not match:
+    return parse_timeleft(result.stdout, result.returncode)
+
+
+def parse_timeleft(text, returncode=0):
+    """Parse `timeleft` output, including the Slurm day form `D-HH:MM:SS`."""
+    match = re.search(r"(?:(\d+)-)?(\d+):(\d{2}):(\d{2})\s+left", text)
+    if returncode or not match:
         raise RuntimeError("Cannot establish booking deadline from timeleft; refuse GPU job")
-    hours, minutes, seconds = map(int, match.groups())
-    return hours * 3600 + minutes * 60 + seconds
+    days, hours, minutes, seconds = (int(g or 0) for g in match.groups())
+    return days * 86400 + hours * 3600 + minutes * 60 + seconds
 
 
 def require_budget(job_seconds, reserve_seconds=1800):

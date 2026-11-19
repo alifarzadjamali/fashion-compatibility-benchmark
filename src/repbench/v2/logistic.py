@@ -6,7 +6,7 @@ import numpy as np
 
 from repbench.models.logistic import LogisticCompatibility
 
-V2_C_GRID = tuple(10.0**power for power in range(-4, 5))
+V2_C_GRID = tuple(10.0**power for power in range(-6, 5))  # 1e-6..1e4 (owner decision D)
 
 
 class GridEdgeError(ValueError):

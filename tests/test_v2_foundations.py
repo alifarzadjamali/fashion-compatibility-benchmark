@@ -53,5 +53,5 @@ def test_edge_grid_fails_closed_on_uninformative_validation():
     with pytest.raises(GridEdgeError):
         model.fit(x, y, x, y)
     assert len(model.grid_extensions_) == 1
-    assert min(model.c_grid) == pytest.approx(1e-5)
-    assert V2_C_GRID == tuple(10.0**i for i in range(-4, 5))
+    assert min(model.c_grid) == pytest.approx(1e-7)
+    assert V2_C_GRID == tuple(10.0**i for i in range(-6, 5))

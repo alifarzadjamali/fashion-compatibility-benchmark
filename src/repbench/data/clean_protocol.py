@@ -286,8 +286,17 @@ def file_sha256(path: Path) -> str:
 
 
 def construct_clean_protocol(
-    raw_root: Path, output_root: Path, seed: int = 20260912
+    raw_root: Path,
+    output_root: Path,
+    seed: int = 20260912,
+    image_equivalence: dict[str, str] | None = None,
+    image_equivalence_info: dict | None = None,
+    protocol_name: str | None = None,
 ) -> dict:
+    """Build Polyvore-D-Clean. ``image_equivalence`` (v2-Clean, owner decision E) maps
+    item IDs to near-duplicate image groups; grouped items are linked like exact image
+    duplicates and treated as one image in question generation. ``None`` (default)
+    reproduces the original construction byte for byte."""
     historical_root = raw_root / "disjoint"
     if output_root.resolve() == historical_root.resolve():
         raise ValueError("Refusing to overwrite the historical protocol")
@@ -298,7 +307,18 @@ def construct_clean_protocol(
     outfits, duplicates = deduplicate_outfits(rows_by_source)
     item_ids = {str(item["item_id"]) for row in outfits for item in row["items"]}
     image_duplicate_groups = exact_file_duplicate_groups(raw_root, item_ids)
-    components = build_components(outfits, image_duplicate_groups)
+    near_groups: list[list[str]] = []
+    question_identity: dict[str, str] | None = None
+    if image_equivalence is not None:
+        from repbench.data.image_equivalence import equivalence_groups
+
+        near_groups = equivalence_groups(image_equivalence, item_ids)
+        identity = UnionFind()
+        for group in image_duplicate_groups + near_groups:
+            for item_id in group[1:]:
+                identity.union(group[0], item_id)
+        question_identity = {item_id: identity.find(item_id) for item_id in item_ids}
+    components = build_components(outfits, image_duplicate_groups + near_groups)
     original_counts = {split: len(rows_by_source[split]) for split in SPLITS}
     targets = proportional_targets(len(outfits), original_counts)
     assigned = assign_components(components, targets)
@@ -329,14 +349,34 @@ def construct_clean_protocol(
         "largest_component_items": len(components[0].item_ids),
         "splits": {},
     }
+    if protocol_name is not None:
+        manifest["protocol"] = protocol_name
+    if image_equivalence is not None:
+        from repbench.data.image_equivalence import manifest_record
+
+        manifest["construction_rules"].insert(
+            4,
+            "Link distinct item IDs in one near-duplicate image-equivalence group (v2-Clean) "
+            "and treat linked/exact-duplicate items as one image for CP/FITB candidate exclusion.",
+        )
+        manifest["image_equivalence"] = manifest_record(
+            image_equivalence, item_ids, image_equivalence_info
+        )
     for split_index, split in enumerate(SPLITS):
         clean_rows = []
         for row in sorted(assigned[split], key=lambda value: str(value["set_id"])):
             clean_rows.append({"items": row["items"], "set_id": row["set_id"]})
         outfit_path = output_root / f"{split}.json"
         outfit_path.write_text(json.dumps(clean_rows, indent=2), encoding="utf-8")
+        split_question_identity = None
+        if question_identity is not None:
+            split_question_identity = {
+                str(item["item_id"]): question_identity[str(item["item_id"])]
+                for row in clean_rows
+                for item in row["items"]
+            }
         cp_lines, fitb_rows, diagnostics = generate_questions(
-            clean_rows, metadata, seed + 10_000 * (split_index + 1)
+            clean_rows, metadata, seed + 10_000 * (split_index + 1), split_question_identity
         )
         cp_path = output_root / f"compatibility_{split}.txt"
         cp_path.write_text("\n".join(cp_lines) + "\n", encoding="utf-8")
