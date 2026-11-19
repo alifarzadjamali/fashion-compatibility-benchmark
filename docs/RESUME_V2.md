@@ -21,6 +21,11 @@ Last updated: 2026-11-19 12:00 (DGX server time), booking job 34 (ends 2026-11-2
 
 Phase 2 (full run) **authorized by the owner at the freeze (2026-11-19)**; running per §3b.
 
+Phase 2 progress (server time; started 2026-11-19 15:57 with G2 a08, run checkout `~/fcb-freeze`):
+- 22:01 — train/valid extraction done for 13 encoders × 3 v2-Clean datasets (`TV_CHAIN_DONE`);
+  copied to laptop `~/repbench-results/emb/`. Test extraction and CPU probes started 22:02/22:05.
+  No failures (`$F/failed/` empty).
+
 Revised G3 = two identical deterministic rebuilds + published counts + published
 metrics within ±0.002 AUC / ±0.005 FITB. Original v1 split identity is
 UNVERIFIABLE (original files lost); disclose in the paper.
