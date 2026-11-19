@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "Fashion Compatibility Benchmark"
+type: software
+authors:
+  - given-names: "Ali Farzad"
+    family-names: "Jamali"
+    orcid: "https://orcid.org/0009-0001-0678-4155"
+repository-code: "https://github.com/alifarzadjamali/fashion-compatibility-benchmark"
+url: "https://github.com/alifarzadjamali/fashion-compatibility-benchmark"
