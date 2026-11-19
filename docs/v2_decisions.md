@@ -208,3 +208,48 @@ all audits pass on the real metadata; final rebuild with the image manifest pend
   sample of ~100 pairs to calibrate the threshold, and add the embedding-cosine
   criterion. The exclusion-sensitivity analysis is pre-registered either way.
 - MLLM timing implies ≈ 40 min for ~6,200 frozen questions in Phase 2.
+- **Decision E evidence (visual check, 2026-11-18 18:40):** in a seeded sample of 10
+  Hamming-0 cross-split pairs (385 such pairs in total), 7 are the same product
+  photo in train and test (re-encoded/resized copies), 3 are false positives
+  (low-texture item vs different item; same blazer in another colour; different
+  belts). So Polyvore-Clean still contains genuine cross-split image near-duplicates
+  that v1's exact-byte / decoded-pixel disjointness did not catch — a substantive
+  new validity finding for v2. Recommended rule for the freeze: near-duplicate =
+  pHash Hamming ≤ 2 AND embedding cosine ≥ 0.95 (colour-sensitive); primary results
+  on the protocol as built, with the pre-registered exclusion sensitivity, OR rebuild
+  splits merging near-duplicate images into one component (owner choice).
+  Review sheet with 100 seeded pairs (Hamming 0/2/4) for the owner:
+  `~/repbench-mirror/near_dup_review_polyvore.pdf` (contains dataset images; never commit).
+
+## 2026-11-19 — POG acquisition and final split; overnight stall
+
+- The agent session stalled overnight on a permission prompt (~12 h idle DGX GPU
+  after 21:40). Lesson: approve tool permissions for unattended runs beforehand.
+- POG images: **PASS, 183,806 / 184,339 verified (99.71%)**, 72.98 GB (png 177,921,
+  webp 5,750, jpeg 135); failures 322×HTTP 400, 208×HTTP 404, 3×URL-encoding
+  (non-ASCII URL; fixable). Manifest sha256 0e4d669e…; target-outfits sha256 e4d40789….
+  The report labels the rule 95% (job started before the owner's 90% revision); it
+  passes either way.
+- POG clean protocol rebuilt on the DGX with the image manifest (exact-image
+  identity = SHA-256 of image bytes) and user clicks: two builds hash-identical, all
+  audits pass. **train 54,626 / valid 7,276 / test 14,947 (76,849 outfits)**; zero
+  cross-split item/image/outfit overlap; largest item component 95.6% of pool.
+  Evidence: `research/v2/readiness/2026-11-19-pog/`.
+- Full-data development extraction (TRAIN+VALID only) of Polyvore-Clean for all 15
+  encoders completed 18:34–21:41 (≈ 3.1 h, consistent with G6).
+- **Bug found by the full-data run (not by the 2% dry run):** 9 / 33,982
+  Polyvore-Clean train CP outfits list the same item twice; the v2 pair operator
+  rejects repeated items (v1 silently included the self-pair). Fix in
+  `src/repbench/v2/probe.py`: order-preserving de-duplication within an outfit (a
+  repeated item adds no pairwise information). Valid/test contain none. This changes
+  code after G2 a04, so G1/G2 must be re-run at the next booking start (standard).
+- **Finding (owner decision F, 2026-11-19):** Qwen3-VL-Embedding cost scales with
+  image resolution (dynamic resolution, 4–1,800 visual tokens/image). Measured
+  rates: Polyvore ≈ 50 img/s, IQON ≈ 124 img/s, **POG ≈ 7 img/s** (large PNGs).
+  G6 timed Polyvore only, so the projection under-estimates POG: Qwen-2B ≈ 7 h and
+  Qwen-8B ≈ 17 h on POG alone → full run ≈ 60+ GPU-h, not ≈ 40. Options before
+  freeze: (1) cap Qwen `max_pixels` uniformly (e.g. 256 visual tokens ≈ the
+  384-px budget of the other encoders) — fairer and ~7× cheaper on POG, a
+  documented deviation from the provider default; (2) keep the provider default
+  and budget the GPU time. Recommendation: (1), plus a provider-default spot check
+  on a subsample to show the effect.

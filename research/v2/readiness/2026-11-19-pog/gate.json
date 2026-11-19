@@ -1,0 +1,54 @@
+{
+  "gate": "G4",
+  "status": "PASS",
+  "utc": "2026-11-19T11:46:16.497619+00:00",
+  "checksums": {
+    "archives_sha256": {
+      "raw/polyvore_outfits.zip": "03f00b1253dff35c2e9431e84aad9d9a02969f57e57d05975dee38906141f74e",
+      "iqon_audit/IQON3000.zip": "305660cc09bd941a15096b6efeb536013efe0d534d9cd517419a49cd9ee650fd",
+      "a100_audit/A100.zip": "31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829",
+      "raw/pog/item_data.txt.zip": "e3ead4e42a04eb4bf74786474983e9b9e255cc13a400130756d08ce2e0883aa3",
+      "raw/pog/outfit_data.txt.zip": "9818caf2a1323d2cf7c32a4be7924121bb83b0c7dbcf5d7854b62df94da13a47",
+      "raw/pog/user_data.txt.7z": "e4f1d8203b9ea52fea86aa8ca850ff273a77f2255cf6c2050b8a38a271be8237",
+      "raw/pog/pog_images.tar": "8b091ed982d503bec260d1533413eb6292e8e0161eb89dc0dee5aefdc520d2c6"
+    },
+    "verified": "each archive hashed on DGX and laptop mirror, identical; POG tar: all 183,806 images re-hashed against manifest"
+  },
+  "pog": {
+    "go_skip": "GO",
+    "probe_success": 0.996,
+    "acquisition_success": 0.99711,
+    "rule": "owner-revised >= 0.90 (handoff 0.95)",
+    "split_counts": {
+      "train": 54626,
+      "valid": 7276,
+      "test": 14947
+    },
+    "cross_split_overlap": {
+      "train_valid": {
+        "item_ids": 0,
+        "image_identities": 0,
+        "outfit_tuples": 0
+      },
+      "train_test": {
+        "item_ids": 0,
+        "image_identities": 0,
+        "outfit_tuples": 0
+      },
+      "valid_test": {
+        "item_ids": 0,
+        "image_identities": 0,
+        "outfit_tuples": 0
+      }
+    },
+    "builds_hash_identical": true,
+    "audits_pass": true
+  },
+  "a100": "owner v1 copy, sha256 matches recorded v1 value",
+  "open_owner_decisions": "A (POG retention), B (POG grouping), C (POG categories) \u2014 see docs/v2_decisions.md",
+  "evidence": [
+    "2026-11-18-pog/probe-r2.json",
+    "2026-11-18-pog/acquisition.json",
+    "2026-11-19-pog/build.json"
+  ]
+}

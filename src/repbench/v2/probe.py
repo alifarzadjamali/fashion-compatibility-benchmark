@@ -135,7 +135,10 @@ def run_probe(embeddings, train_cp, fit_valid_cp, eval_cp, eval_fitb, *, setting
     items = dict(zip(needed, projected))
 
     def features(examples):
-        return pair_outfit_matrix([tuple(e) for e in examples], items, operator=operator)
+        # A repeated item adds no pairwise information; 9/33,982 Polyvore-Clean train CP
+        # outfits list an item twice. De-duplicate order-preservingly (logged decision).
+        return pair_outfit_matrix([tuple(dict.fromkeys(e)) for e in examples], items,
+                                  operator=operator)
 
     scaler = StandardScaler().fit(features(e.item_ids for e in train_cp))
     x_train = scaler.transform(features(e.item_ids for e in train_cp))

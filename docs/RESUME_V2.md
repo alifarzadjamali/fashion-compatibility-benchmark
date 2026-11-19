@@ -5,7 +5,7 @@ agent session reads `HANDOFF_V2.md` (goal and rules), then this file (where we
 are, how to restart), then `docs/v2_decisions.md` (why). Do not rely on chat
 history.
 
-Last updated: 2026-11-18 18:45 (DGX server time), booking job 34 (ends ≈ 2026-11-19 13:00 per `timeleft`).
+Last updated: 2026-11-19 12:00 (DGX server time), booking job 34 (ends 2026-11-20 13:04).
 
 ## 1. Gate status
 
@@ -14,7 +14,7 @@ Last updated: 2026-11-18 18:45 (DGX server time), booking job 34 (ends ≈ 2026-
 | G1 Environment | PASS (re-run on current code) | `research/v2/readiness/2026-11-18-a04/g1/` |
 | G2 Models (15 encoders + MLLM, pinned) | PASS (re-run on current code) | `research/v2/readiness/2026-11-18-a04/g2/gate.json` |
 | G3 Reproduce v1 (**revised**, owner-approved) | **PASS** — both datasets: identical rebuilds, published counts; ResNet50 + CLIP within tolerance (max abs Δ 0.00065) | `research/v2/readiness/2026-11-18-g3/g3/gate.json` |
-| G4 Data | All archives verified and mirrored to laptop; POG probe **GO** (99.6%); POG image download running (skip threshold 90%, owner); POG split builder in progress | `research/v2/readiness/2026-11-18-pog/` |
+| G4 Data | **PASS** — all 7 archives SHA-256 verified on DGX and laptop mirror; POG GO (99.71% images), clean split 54,626/7,276/14,947, two identical builds, zero cross-split overlap | `research/v2/readiness/2026-11-19-pog/gate.json` |
 | G5 Pipeline dry run | **PASS** (Polyvore + IQON, 3 encoders, 22 stages); POG to be added after image download | `research/v2/readiness/2026-11-18-g5/g5/gate.json` |
 | G6 Speed test | **PASS** — all 15 encoders; projected extraction 28.9 GPU-h, full run ≈ 40 GPU-h | `research/v2/readiness/2026-11-18-g6/g6/gate.json` |
 | G7 Freeze | NOT STARTED — needs owner decisions (§4) | — |
@@ -45,7 +45,7 @@ Expected archive SHA-256 (verify after every copy):
 | POG item_data.txt.zip | `raw/pog/` | `e3ead4e42a04eb4bf74786474983e9b9e255cc13a400130756d08ce2e0883aa3` |
 | POG outfit_data.txt.zip | `raw/pog/` | `9818caf2a1323d2cf7c32a4be7924121bb83b0c7dbcf5d7854b62df94da13a47` |
 | POG user_data.txt.7z | `raw/pog/` | `e4f1d8203b9ea52fea86aa8ca850ff273a77f2255cf6c2050b8a38a271be8237` |
-| POG images (tar) | `raw/pog/mirror/` | added to `~/repbench-mirror/SHA256SUMS` when complete |
+| POG images (tar of `mirror/`, 183,806 images + manifest) | `raw/pog/pog_images.tar` → extract to `raw/pog/` | `8b091ed982d503bec260d1533413eb6292e8e0161eb89dc0dee5aefdc520d2c6` |
 
 The public A100 SharePoint link returns an HTML page, not the archive; use the mirror.
 
@@ -69,7 +69,7 @@ the DGX has no GitHub write credential by owner decision).
 
 ## 4. Open owner decisions (needed before G7 freeze)
 
-Detailed in `docs/v2_decisions.md` (Decisions A–E): POG retention (A), POG grouping (B), POG categories (C), C-grid lower bound (D), near-duplicate threshold (E). Also:
+Detailed in `docs/v2_decisions.md` (Decisions A–F): POG retention (A), POG grouping (B), POG categories (C), C-grid lower bound (D), near-duplicate threshold (E), Qwen image-resolution cap (F). Also:
 
 - Is Qwen3-VL-Embedding in the "uncertain provenance" group (HANDOFF §3)?
 - POG `cate_id` → "same-category" mapping for negatives (75 categories in use).
