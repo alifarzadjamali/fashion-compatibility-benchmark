@@ -17,10 +17,9 @@ Last updated: 2026-11-19 12:00 (DGX server time), booking job 34 (ends 2026-11-2
 | G4 Data | **PASS** — all 7 archives SHA-256 verified on DGX and laptop mirror; POG GO (99.71% images), clean split 54,626/7,276/14,947, two identical builds, zero cross-split overlap | `research/v2/readiness/2026-11-19-pog/gate.json` |
 | G5 Pipeline dry run | **PASS** (Polyvore + IQON, 3 encoders, 22 stages); POG to be added after image download | `research/v2/readiness/2026-11-18-g5/g5/gate.json` |
 | G6 Speed test | **PASS** — all 15 encoders; projected extraction 28.9 GPU-h, full run ≈ 40 GPU-h | `research/v2/readiness/2026-11-18-g6/g6/gate.json` |
-| G7 Freeze | NOT STARTED — needs owner decisions (§4) | — |
+| G7 Freeze | **PASS** — owner sign-off 2026-11-19; protocol sha256 34c92bef…; tag `v2-freeze` | `configs/v2_protocol.yaml`, `configs/v2_protocol_hash.json` |
 
-Phase 2 (full run) is **not authorized**. It requires all gates PASS, the
-`v2-freeze` tag, and explicit owner approval.
+Phase 2 (full run) **authorized by the owner at the freeze (2026-11-19)**; running per §3b.
 
 Revised G3 = two identical deterministic rebuilds + published counts + published
 metrics within ±0.002 AUC / ±0.005 FITB. Original v1 split identity is

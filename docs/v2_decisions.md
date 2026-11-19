@@ -363,3 +363,11 @@ prediction files carry provenance (eval split, selection split, store hash) chec
 at the stats stage; Polyvore item components merge v2-Clean near-duplicate groups
 (verified against the protocol manifest's SHA-256); extraction finalisation edge
 cases handled. Calibration ECE CIs use primary clusters only (documented).
+
+## 2026-11-19 — G7 FREEZE (owner sign-off)
+
+- Owner signed off the frozen protocol. `configs/v2_protocol.yaml`
+  sha256 34c92beff6a81bbbf06a35e1307968abf916086a07fd865b1e77c9a895ca4bda
+  (`configs/v2_protocol_hash.json`); tag `v2-freeze`. No v2 test-split, POG-test or
+  A100 outcome had been computed or viewed before this point (test extraction and
+  scoring are code-guarded on this hash). Phase 2 authorized by the owner.
