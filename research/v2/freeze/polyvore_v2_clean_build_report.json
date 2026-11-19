@@ -1,0 +1,155 @@
+{
+ "stage": "v2-Clean protocol construction (two deterministic builds)",
+ "dataset": "polyvore_v2_clean",
+ "status": "PASS",
+ "builds_hash_identical": true,
+ "mismatched_files": [],
+ "file_sha256": {
+  "compatibility_test.txt": "1ce1c9e476b8c58b0bfc65594ea1b58c49d2413a539fe57ec1bd449de196c8c1",
+  "compatibility_train.txt": "10465f134024dfda556e177ac744d026472a58608dc2be24010ada98b03d1ea8",
+  "compatibility_valid.txt": "8c81dca918cc10188dde03e0e579dd8c0e817ab94b8d1d3e130b2b1c4ae63229",
+  "duplicates_removed.json": "2b94bda65e33b9e9cdb4e4596f660c7f16cbb7f5ac044be3114e8210c079ee35",
+  "fill_in_blank_test.json": "4335986db671360686f756ff70b941773d843bdeca5f2621d8b9d3b40adf252f",
+  "fill_in_blank_train.json": "d59686caf925a354d9a83f4a2589c34d512caec363bd5b53557e22090c68d360",
+  "fill_in_blank_valid.json": "cf07b4ec8ad8a498c01a3de8e12700284c5f4bdfa5ee8b9a1ea517c63a952b58",
+  "manifest.json": "e48e4a4288b928e7a081d9dad3d01cb7cf5a014b71da10425f8d2a74c90f1991",
+  "test.json": "0aeb419c0ffc2742ca500737d8d3b9b950a8bf4eeb245f44d2189ce8f7daee38",
+  "train.json": "69e640fd1ca99192b0d91502f74deacfdf4daf1c1c4cd3b100aafdce9a422ac1",
+  "valid.json": "5b385b40eeb3e9250cd1ed3c9808f3d8378e994118845b8d7bed248dbc321b03"
+ },
+ "image_equivalence": {
+  "file": "equivalence_groups.json",
+  "sha256": "e2e80ed332fe99986cd2a44084f9b222da0b15092d27ffd43dc37c119058ee9b",
+  "report_file": "equivalence_report.json",
+  "report_sha256": "ee80b67aa21fbce731d52e7603339979252cd0c117ca31e5c9d520fbe5ca1863",
+  "rule": "pHash Hamming <= h AND foreground-mean Delta a*b* <= c AND p95 of 16x16 per-cell Delta E over the union foreground <= s",
+  "thresholds": {
+   "phash_hamming_max": 2,
+   "colour_delta_ab_max": 2.0,
+   "structure_delta_e_p95_max": 15.0,
+   "foreground_min_channel_below": 245,
+   "aspect_tolerance": null
+  },
+  "signature_version": "phash64-dct+thumb32-rgb-box-white-v1",
+  "input_sha256": "c12591f36ef8d940e93e362714f1a6f46f2428ae32505a80a56190b926d67e98",
+  "input_items_hashed": 152785,
+  "unreadable_images": 0,
+  "pairs": {
+   "candidates": 2963,
+   "confirmed": 1257,
+   "rejected": 1706,
+   "by_hamming": {
+    "0": {
+     "candidates": 831,
+     "confirmed": 651
+    },
+    "2": {
+     "candidates": 2132,
+     "confirmed": 606
+    }
+   }
+  },
+  "groups": {
+   "items_in_groups": 2359,
+   "groups": 1150,
+   "largest_group": 6,
+   "size_distribution": {
+    "2": 1102,
+    "3": 40,
+    "4": 6,
+    "5": 1,
+    "6": 1
+   }
+  },
+  "mapping_sha256": "297014637c4aa189e54a5e258e4d7e0ad2d9ea74ca546cfe875544305e70f266",
+  "mapping_items": 2359,
+  "pool_items_in_groups": 2359,
+  "pool_groups": 1150,
+  "largest_pool_group": 6
+ },
+ "splits": {
+  "train": 16991,
+  "valid": 2999,
+  "test": 15142
+ },
+ "audits": {
+  "existing_inspect_clean_protocol": {
+   "passes": true,
+   "item_overlap_counts": {
+    "train_valid": 0,
+    "train_test": 0,
+    "valid_test": 0
+   },
+   "global_duplicate_outfits": 0,
+   "missing_images": {
+    "train": 0,
+    "valid": 0,
+    "test": 0
+   }
+  },
+  "uniform_exact_image": {
+   "cross_split": {
+    "train_valid": {
+     "item_ids": 0,
+     "image_identities": 0,
+     "outfit_tuples": 0
+    },
+    "train_test": {
+     "item_ids": 0,
+     "image_identities": 0,
+     "outfit_tuples": 0
+    },
+    "valid_test": {
+     "item_ids": 0,
+     "image_identities": 0,
+     "outfit_tuples": 0
+    }
+   },
+   "splits": {
+    "train": {
+     "outfits": 16991,
+     "duplicate_outfit_tuples": 0,
+     "cp_balanced": true,
+     "cp_category_and_length_matched": true,
+     "cp_negative_duplicates": 0,
+     "cp_negative_equals_positive": 0,
+     "fitb_invalid": 0
+    },
+    "valid": {
+     "outfits": 2999,
+     "duplicate_outfit_tuples": 0,
+     "cp_balanced": true,
+     "cp_category_and_length_matched": true,
+     "cp_negative_duplicates": 0,
+     "cp_negative_equals_positive": 0,
+     "fitb_invalid": 0
+    },
+    "test": {
+     "outfits": 15142,
+     "duplicate_outfit_tuples": 0,
+     "cp_balanced": true,
+     "cp_category_and_length_matched": true,
+     "cp_negative_duplicates": 0,
+     "cp_negative_equals_positive": 0,
+     "fitb_invalid": 0
+    }
+   },
+   "passes": true
+  },
+  "image_equivalence_not_split": {
+   "groups_present": 1150,
+   "groups_spanning_splits": 0,
+   "examples": [],
+   "merged_identities_spanning_splits": 0,
+   "merged_examples": [],
+   "passes": true
+  },
+  "passes": true
+ },
+ "timings": {
+  "build_a_seconds": 15.1,
+  "build_b_seconds": 15.4,
+  "audit_seconds": 20.0
+ },
+ "note": "No model run; no test outcome read. v1-Clean splits are kept for the leakage-inflation comparison only."
+}

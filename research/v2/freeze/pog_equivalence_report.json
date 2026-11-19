@@ -1,0 +1,94 @@
+{
+  "kind": "v2_image_equivalence_groups",
+  "dataset": "pog",
+  "rule": "pHash Hamming <= h AND foreground-mean Delta a*b* <= c AND p95 of 16x16 per-cell Delta E over the union foreground <= s",
+  "thresholds": {
+    "phash_hamming_max": 2,
+    "colour_delta_ab_max": 2.0,
+    "structure_delta_e_p95_max": 15.0,
+    "foreground_min_channel_below": 245,
+    "aspect_tolerance": null
+  },
+  "signature_version": "phash64-dct+thumb32-rgb-box-white-v1",
+  "phash": "64-bit DCT pHash (scripts/v2/near_duplicate_audit.py), alpha on white",
+  "thumbnail": "32x32 RGB, PIL BOX resample of the white-composited image",
+  "signature_source": {
+    "pool_items": 183054
+  },
+  "input_items_hashed": 183054,
+  "input_sha256": "4579eecd0bf69aa7ffb680c8a25bc22c3734ecc206f8b7b3fe7cbc1aaa3f3656",
+  "input_sha256_definition": "sha256 over sorted lines 'item_id<TAB>image_bytes_sha256\\n'",
+  "unreadable_images": [],
+  "candidate_stats": {
+    "unique_hashes": 180661,
+    "largest_identical_hash_group": 209,
+    "identical_hash_item_pairs": 24807,
+    "near_unique_hash_pairs": 3057,
+    "near_hash_item_pairs": 3656,
+    "multi_index_bands": [
+      [
+        42,
+        22
+      ],
+      [
+        21,
+        21
+      ],
+      [
+        0,
+        21
+      ]
+    ],
+    "multi_index_stats": {
+      "largest_bucket": 636,
+      "verified_comparisons": 2107103
+    }
+  },
+  "pairs": {
+    "candidates": 28463,
+    "confirmed": 26234,
+    "rejected": 2229,
+    "by_hamming": {
+      "0": {
+        "candidates": 24807,
+        "confirmed": 24658
+      },
+      "2": {
+        "candidates": 3656,
+        "confirmed": 1576
+      }
+    }
+  },
+  "groups": {
+    "items_in_groups": 6388,
+    "groups": 2812,
+    "largest_group": 209,
+    "size_distribution": {
+      "2": 2474,
+      "3": 243,
+      "4": 52,
+      "5": 17,
+      "6": 10,
+      "7": 5,
+      "8": 1,
+      "9": 3,
+      "10": 3,
+      "11": 1,
+      "16": 1,
+      "22": 1,
+      "209": 1
+    }
+  },
+  "outputs_sha256": {
+    "equivalence_groups.json": "c43ead3519a81c14a437d5217c3420db74232cc478a49e78118d551762e88670",
+    "candidate_pairs.csv": "9ec599adb03fce3e10c10b5a0c6140f327f165352419ba16a4601936526ccf22"
+  },
+  "workers": 10,
+  "runtime": {
+    "pool_seconds": 9.89,
+    "signature_seconds": 170.7,
+    "match_seconds": 2.39,
+    "total_seconds": 183.34
+  },
+  "finished_utc": "2026-11-19T12:30:27.599575+00:00"
+}

@@ -25,3 +25,21 @@ def test_palette_transparency_and_plain_rgb():
 
 def test_uniform_pixel_budget():
     assert MAX_PIXELS == 384 * 384 == QWEN_MAX_PIXELS == 144 * 32 * 32
+
+
+def test_store_loader_merges_parts(tmp_path):
+    import hashlib
+    import json
+
+    from repbench.v2.stores import load_embedding_store
+
+    for part, ids in (("trainvalid", ["a", "b"]), ("test", ["b", "c"])):
+        folder = tmp_path / part
+        folder.mkdir()
+        vectors = {"a": [1, 0], "b": [0, 1], "c": [1, 1]}
+        np.save(folder / "items.npy", np.asarray([vectors[i] for i in ids], dtype=np.float32))
+        (folder / "item_ids.json").write_text(json.dumps(ids))
+        digest = hashlib.sha256((folder / "items.npy").read_bytes()).hexdigest()
+        (folder / "metadata.json").write_text(json.dumps({"items_sha256": digest}))
+    store, _ = load_embedding_store(tmp_path)
+    assert sorted(store) == ["a", "b", "c"]

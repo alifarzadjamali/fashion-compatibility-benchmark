@@ -67,9 +67,25 @@ the DGX has no GitHub write credential by owner decision).
 6. Agent: push evidence from the laptop after each gate; verify with
    `scripts/v2/verify_preservation.py`. Max 14 commits per calendar day.
 
+## 3b. Phase 2 (full run) procedure — after the owner signs the freeze
+
+- DGX checkouts: `~/fcb-freeze` = the **run** checkout (code certified by the latest
+  G1/G2 attempt; never sync into it while jobs run — `require_gate` rejects changed
+  files); `~/fcb-dev` = scratch checkout for preparation/testing;
+  `~/fashion-compatibility-benchmark` = Phase 1 history.
+- v2-Clean protocols: `$R/v2/{polyvore,iqon3000,pog}_v2_clean/build_a` (+ `build_report.json`);
+  A100: `$R/v2/a100_v2`; frozen MLLM ids: `research/v2/freeze/`.
+- Freeze: `scripts/v2/write_protocol.py --final --splits ... --question-ids ... --equivalence ...`
+  → `configs/v2_protocol.yaml` + hash → owner sign-off → commit + tag `v2-freeze`.
+- Run: `scripts/v2/run_full_gpu.sh <g2 gate>` (tmux `repbench-gpu`) and
+  `scripts/v2/run_full_cpu.sh` (tmux `repbench-cpu`); outputs under `$R/v2/full/`
+  (emb/, results/, mllm/, outfit_transformer/, a100_*, profile/, generated/).
+  Both lanes resume safely; `STOP_GPU` file stops the GPU lane between steps.
+- Copy `$R/v2/full/` (minus caches) to the laptop `~/repbench-results/` incrementally.
+
 ## 4. Open owner decisions (needed before G7 freeze)
 
-Detailed in `docs/v2_decisions.md` (Decisions A–F): POG retention (A), POG grouping (B), POG categories (C), C-grid lower bound (D), near-duplicate threshold (E), Qwen image-resolution cap (F). Also:
+**All decided 2026-11-19** (A–F, see `docs/v2_decisions.md`). Formerly: POG retention (A), POG grouping (B), POG categories (C), C-grid lower bound (D), near-duplicate threshold (E), Qwen image-resolution cap (F). Also:
 
 - Is Qwen3-VL-Embedding in the "uncertain provenance" group (HANDOFF §3)?
 - POG `cate_id` → "same-category" mapping for negatives (75 categories in use).

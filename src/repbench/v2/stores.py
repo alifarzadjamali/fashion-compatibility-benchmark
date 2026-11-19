@@ -22,6 +22,18 @@ def load_embedding_store(path):
     Items present in several files must have identical vectors.
     """
     path = Path(path)
+    if path.is_dir() and not (path / "items.npy").exists() and not any(path.glob("*_item_ids.json")):
+        parts = sorted(p for p in path.iterdir() if (p / "items.npy").exists())
+        if parts:  # Phase 2 layout: <model>/trainvalid/ + <model>/test/ (or all/)
+            merged, provenance = {}, {"parts": {}}
+            for part in parts:
+                store, prov = load_embedding_store(part)
+                provenance["parts"][part.name] = prov
+                for item, vector in store.items():
+                    if item in merged and not np.array_equal(merged[item], vector):
+                        raise ValueError(f"Conflicting vectors for {item} across {path}")
+                    merged[item] = vector
+            return merged, provenance
     sources = []
     if path.is_file() and path.suffix == ".npz":
         with np.load(path, allow_pickle=False) as data:
@@ -76,3 +88,49 @@ def protocol_hashes(protocol, names=None):
     if names is None:
         names = sorted(p.name for p in protocol.iterdir() if p.is_file())
     return {name: sha256(protocol / name) for name in names if (protocol / name).is_file()}
+
+
+def store_directories(folder):
+    """Every v2 extraction directory (``items.npy``) under ``folder``: the folder itself
+    and/or its immediate subdirectories (e.g. ``trainvalid/`` and ``test/``), sorted."""
+    folder = Path(folder)
+    found = [folder] if (folder / "items.npy").is_file() else []
+    if folder.is_dir():
+        found += sorted(p for p in folder.iterdir() if p.is_dir() and (p / "items.npy").is_file())
+    if not found:
+        raise FileNotFoundError(f"No v2 embedding store (items.npy) in {folder} or its subdirectories")
+    return found
+
+
+def load_model_store(root, dataset, model, *, verify_checksum=True):
+    """Merge all store directories of one (dataset, model) into item_id -> float32 vector.
+
+    Each directory needs ``items.npy``, ``item_ids.json`` and ``metadata.json``; with
+    ``verify_checksum`` the ``items_sha256`` recorded in metadata must match. An item that
+    occurs in several directories must have bit-identical vectors (else ValueError).
+    Returns (store, provenance) with per-directory hashes.
+    """
+    folder = Path(root) / dataset / model
+    store, provenance = {}, {"dataset": dataset, "model": model, "directories": {}}
+    for directory in store_directories(folder):
+        meta_path = directory / "metadata.json"
+        meta = json.loads(meta_path.read_text()) if meta_path.is_file() else {}
+        digest = sha256(directory / "items.npy")
+        if verify_checksum:
+            if "items_sha256" not in meta:
+                raise ValueError(f"{directory} lacks metadata.json items_sha256")
+            if digest != meta["items_sha256"]:
+                raise ValueError(f"Embedding checksum mismatch in {directory}")
+        part, _ = load_embedding_store(directory)
+        for item, vector in part.items():
+            previous = store.get(item)
+            if previous is not None and not np.array_equal(previous, vector):
+                raise ValueError(f"Item {item} has conflicting embeddings across {folder} stores")
+            store[item] = vector
+        provenance["directories"][str(directory.relative_to(folder)) or "."] = {
+            "items_sha256": digest, "items": len(part)}
+    dims = {len(v) for v in store.values()}
+    if len(dims) != 1:
+        raise ValueError(f"Inconsistent embedding dimensions across {folder} stores: {dims}")
+    provenance["items"] = len(store)
+    return store, provenance

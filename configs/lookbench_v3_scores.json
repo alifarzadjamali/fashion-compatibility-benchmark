@@ -1,0 +1,102 @@
+{
+  "benchmark": "LookBench v3 (13 Apr 2026); live benchmark - record the access date",
+  "source": "TO FILL: LookBench v3 paper citation/URL, table number and access date. Do not fill from memory.",
+  "metric": "TO FILL: LookBench metric used (v1 used fine-grained Recall@1 from LookBench Table 3)",
+  "instructions": "Fill 'score' only from the LookBench v3 paper/leaderboard, set 'exact_match' true only when LookBench evaluated the identical checkpoint/resolution/embedding (state why in 'match_basis'), else false. Models with score null or exact_match not true are listed but excluded from the correlation (repbench.v2.sensitivities.run_lookbench).",
+  "notes": [
+    "HANDOFF_V2 6.9 states Marqo-FashionCLIP = 63.24 in LookBench v3; verify against the paper before entering it.",
+    "v1 (scripts/analyze_benchmark.py) used an earlier LookBench version; its numbers are not v3 and are not reused here."
+  ],
+  "models": {
+    "resnet50": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "dinov3_vitl16": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "clip_vitl14_336": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "siglip2_b16_384": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "fashionclip2": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "marqo_fashionsiglip": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "gr_lite": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "dinov3_vitl16_336": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "pe_core_l14_336": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "siglip2_so400m_384": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "siglip_b16_224": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "openclip_b32_laion2b": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "marqo_fashionclip": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "qwen3_vl_emb_2b": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    },
+    "qwen3_vl_emb_8b": {
+      "lookbench_label": null,
+      "score": null,
+      "exact_match": null,
+      "match_basis": null
+    }
+  }
+}

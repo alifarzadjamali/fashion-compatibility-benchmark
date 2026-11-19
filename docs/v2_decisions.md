@@ -317,3 +317,49 @@ all audits pass on the real metadata; final rebuild with the image manifest pend
   report sha256, thresholds, input hash. IQON v2 selects different outfits, so images of
   newly selected items must be extracted (`scripts/v2/extract_iqon_images.py`, resumes).
 - Tests: `tests/test_v2_image_equivalence.py` (+ fixtures `tests/v2_clean_fixtures.py`).
+
+## 2026-11-19 — A100 v2 path (implementation decisions)
+
+- A100 prepared with v1 `prepare_a100` unchanged (LAT 100, AAT 100 questions, 5
+  candidates each, 1,663 images, all JPEG; LAT archive/majority disagreements at
+  questions 92–94, 96, 98–100; no majority ties; label files keep v1 sha256).
+- A100 is embedded and scored only after the freeze (guarded). Each corpus-trained
+  primary probe (native/logistic) is re-fitted through the identical code path and
+  seed and must reproduce the pipeline's chosen C and validation AUC
+  (`--verify-pipeline-results`), then scores A100; A100 is never used in fitting.
+- Statistics: question bootstrap; LAT-majority primary, LAT-archive and mLAT
+  sensitivities, AAT overall + 6 facets; Holm within corpus × setting × learner ×
+  task × metric; TOST margins 2/5/10 pp. The zero-shot MLLM is its own family (CIs);
+  cross-corpus comparisons of the same encoder are descriptive only.
+- A100 MLLM question ids frozen: all 100 LAT + all 100 AAT.
+
+## 2026-11-19 — Sensitivity-analysis technical defaults (agent-level decisions)
+
+- Failure consensus: CP "correct" at probability ≥ 0.5 (v1 rule).
+- Construction seeds 42–46: total uncertainty = mean bootstrap variance + between-seed
+  variance, normal CI (Rubin's variant also reported).
+- Near-duplicate exclusion: primary = drop affected test outfits (`any_method`), item-
+  level exclusion as secondary; audits re-run on each v2-Clean split with pHash and
+  embedding cosine ≥ 0.95 using DINOv3-L (pre-specified; self-supervised image model).
+- LookBench v3 correlation: scores to be transcribed from the LookBench v3 paper into
+  `configs/lookbench_v3_scores.json` (exact-match models only) — CPU-only, Phase 3.
+- FITB pairwise comparisons now include Cohen's h (metric-name mismatch fixed).
+
+## 2026-11-19 — Independent pre-freeze review: findings and fixes
+
+An independent reviewer read the Phase 2 code and reproduced each finding before
+reporting. All confirmed issues were fixed before the freeze:
+1. A100 stage could not read Phase 2 split stores (trainvalid/ + test/) → shared loader
+   now merges verified parts.
+2. A100 probe re-fit used the dry-run carve-out instead of the Phase 2 rule (train on
+   TRAIN, select on VALID) and would have aborted verification → same rule as pipeline.
+3. Pre-freeze TRAIN+VALID chain existed only on the DGX → `scripts/v2/run_full_trainvalid.sh`.
+4. Protocol promised Platt scaling and cluster-adjusted McNemar that the code did not
+   compute → both now computed (calibration rows per method; `mcnemar_cluster_p`).
+5. Stale carve-out wording → protocol regenerated from code.
+Robustness: lanes record failures (`$F/failed/`) instead of stalling or silently
+skipping; OutfitTransformer always runs ResNet50 even if selection is incomplete;
+prediction files carry provenance (eval split, selection split, store hash) checked
+at the stats stage; Polyvore item components merge v2-Clean near-duplicate groups
+(verified against the protocol manifest's SHA-256); extraction finalisation edge
+cases handled. Calibration ECE CIs use primary clusters only (documented).

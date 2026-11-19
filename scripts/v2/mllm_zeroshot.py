@@ -38,6 +38,9 @@ from repbench.v2.mllm_zeroshot import (
 from repbench.v2.state import sha256, write_json
 from repbench.v2.stores import image_resolver
 
+ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_PROTOCOL_HASH = ROOT / "configs" / "v2_protocol_hash.json"
+
 
 def fitb_source_file(protocol, split):
     for name in (f"fill_in_blank_{split}.json", f"fill_in_the_blank_{split}.json"):
@@ -65,6 +68,8 @@ def load_all_questions(args):
         return fitb_source_file(args.protocol_root, args.split), questions
     source = args.a100_root / f"{args.split.lower()}.json"
     rows = json.loads(source.read_text())
+    # Prepared by scripts/v2/prepare_a100_v2.py: image_paths.json (else {id}.jpg).
+    resolve = image_resolver(args.images_root or args.a100_root / "images", args.a100_root)
     questions = []
     for row in rows:
         lat = args.split.upper() == "LAT"
@@ -77,8 +82,8 @@ def load_all_questions(args):
         questions.append(
             MCQuestion(
                 f"{args.split.upper()}_{row['question_num']}",
-                tuple(args.images_root / f"{i}.jpg" for i in row["question"]),
-                tuple(args.images_root / f"{i}.jpg" for i in row["answers"]),
+                tuple(resolve(i) for i in row["question"]),
+                tuple(resolve(i) for i in row["answers"]),
                 int(correct),
                 extra,
             )
@@ -117,12 +122,21 @@ def score(args):
     frozen = json.loads(args.ids.read_text())
     args.source, args.split = frozen["source"], frozen["split"]
     args.dataset_name = frozen["dataset_name"]
+    if args.source == "fitb" and args.images_root is None:
+        raise SystemExit("--images-root is required to score FITB questions")
     is_test = args.source == "a100" or args.split == "test"
     if is_test and not args.confirm_protocol_frozen:
         raise SystemExit(
             "Test/A100 scoring is blocked before the protocol freeze; pass "
             "--confirm-protocol-frozen only after the owner has frozen configs/v2_protocol.yaml"
         )
+    if is_test:
+        from repbench.v2.a100 import require_frozen_protocol
+
+        try:
+            require_frozen_protocol(args.frozen_protocol_hash, root=ROOT)
+        except PermissionError as error:
+            raise SystemExit(str(error)) from error
     source, questions = load_all_questions(args)
     if sha256(source) != frozen["source_sha256"]:
         raise ValueError("Question source changed since the ids were frozen")
@@ -222,7 +236,8 @@ def main(argv=None):
     freeze.add_argument("--source", choices=["fitb", "a100"], default="fitb")
     freeze.add_argument("--protocol-root", type=Path, help="Clean protocol directory (fitb)")
     freeze.add_argument("--dataset-name", default="")
-    freeze.add_argument("--images-root", type=Path, default=Path("."))
+    freeze.add_argument("--images-root", type=Path, default=None,
+                        help="FITB image root; A100 default <a100-root>/images")
     freeze.add_argument("--a100-root", type=Path, help="Prepared A100 dir with lat.json/aat.json")
     freeze.add_argument("--split", required=True, help="FITB split, or LAT/AAT for A100")
     freeze.add_argument("--n", type=int, default=2000)
@@ -232,7 +247,8 @@ def main(argv=None):
     run.add_argument("--ids", type=Path, required=True)
     run.add_argument("--protocol-root", type=Path)
     run.add_argument("--a100-root", type=Path)
-    run.add_argument("--images-root", type=Path, required=True)
+    run.add_argument("--images-root", type=Path, default=None,
+                     help="required for fitb; A100 default <a100-root>/images")
     run.add_argument("--output-dir", type=Path, required=True)
     run.add_argument("--option-seed", type=int, default=20261118)
     run.add_argument("--min-pixels", type=int, default=DEFAULT_MIN_PIXELS)
@@ -241,12 +257,16 @@ def main(argv=None):
     run.add_argument("--limit", type=int, default=0, help="Score only the first N frozen ids")
     run.add_argument("--confirm-protocol-frozen", action="store_true")
     run.add_argument("--skip-budget-check", action="store_true")
+    run.add_argument("--frozen-protocol-hash", type=Path, default=DEFAULT_PROTOCOL_HASH,
+                     help="G7 hash file; required (and verified) for test/A100 scoring")
     args = parser.parse_args(argv)
     if args.command == "freeze-ids":
         if args.source == "fitb" and not args.protocol_root:
             parser.error("--protocol-root is required for fitb")
         if args.source == "a100" and not args.a100_root:
             parser.error("--a100-root is required for a100")
+        if args.source == "fitb" and args.images_root is None:
+            args.images_root = Path(".")
         freeze_ids(args)
     else:
         score(args)

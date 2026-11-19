@@ -62,8 +62,28 @@ def cp_pairs(examples):
     return list(zip(positive, negative, strict=True))
 
 
-def item_components(outfits):
+EQUIVALENCE = {}  # dataset name -> groups file (from --equivalence)
+
+
+def equivalence_map(protocol, name):
+    """v2-Clean near-duplicate groups merged by the split builder (decision E). The file
+    must match the SHA-256 the protocol manifest recorded; v1-format protocols have none."""
+    manifest = protocol / "manifest.json"
+    info = json.loads(manifest.read_text()).get("image_equivalence") if manifest.exists() else None
+    if not info:
+        return {}
+    path = EQUIVALENCE.get(name)
+    if path is None:
+        raise ValueError(f"{name}: protocol merged near-duplicates; pass --equivalence {name}=<groups>")
+    if hashlib.sha256(Path(path).read_bytes()).hexdigest() != info["sha256"]:
+        raise ValueError(f"{name}: equivalence file does not match the protocol manifest")
+    data = json.loads(Path(path).read_text())
+    return data.get("groups", data)
+
+
+def item_components(outfits, equivalence=None):
     parent = {}
+    equivalence = equivalence or {}
 
     def find(x):
         while parent.setdefault(x, x) != x:
@@ -75,6 +95,8 @@ def item_components(outfits):
         first = find(outfit.item_ids[0])
         for item in outfit.item_ids[1:]:
             parent[find(item)] = first
+    for item, group in equivalence.items():  # near-duplicates are one dependence unit
+        parent[find(item)] = find("eq:" + str(group))
     return {o.set_id: find(o.item_ids[0]) for o in outfits}
 
 
@@ -86,7 +108,7 @@ def groups_for(protocol, data, split, raw_cp_lines, raw_fitb, grouping):
     if grouping == "user":
         mapping = json.loads((protocol / f"group_ids_{split}.json").read_text())
     elif grouping == "component":
-        mapping = item_components(data.outfits(split))
+        mapping = item_components(data.outfits(split), equivalence_map(protocol, data.dataset_name))
     else:
         raise ValueError(f"Unknown grouping {grouping}")
     positives = [line.split()[1].split("_", 1)[0] for line in raw_cp_lines if line.startswith("1")]
@@ -114,6 +136,7 @@ def _cell(job):
                             setting=setting, learner=learner, operator=operator, seed=c["seed"])
     except GridEdgeError as error:
         out = {"error": "grid_edge", "detail": str(error)}
+    out["provenance"] = c["provenance"]
     with open(path, "x") as stream:
         json.dump(out, stream)
     return str(path)
@@ -138,7 +161,7 @@ def precompute(results, name, model, store, train_cp, fit_cp, eval_cp, eval_fitb
     if not jobs:
         return
     _CTX.update(store=store, train=train_cp, fit=fit_cp, eval_cp=eval_cp, eval_fitb=eval_fitb,
-                seed=args.seed)
+                seed=args.seed, provenance=args.provenance)
     if args.workers <= 1:
         for job in jobs:
             _cell(job)
@@ -152,6 +175,7 @@ def precompute(results, name, model, store, train_cp, fit_cp, eval_cp, eval_fitb
 def main():
     from repbench.data.polyvore import PolyvoreDisjoint
     from repbench.eval.paired_statistics import (
+        cluster_adjusted_mcnemar,
         cluster_bootstrap,
         delong_covariance,
         delong_pvalue,
@@ -179,6 +203,8 @@ def main():
     parser.add_argument("--stage", choices=["probes", "stats", "all"], default="all",
                         help="probes: fit missing cells only; stats: no fitting (all cells must exist)")
     parser.add_argument("--workers", type=int, default=1)
+    parser.add_argument("--equivalence", nargs="*", default=[],
+                        help="name=equivalence_groups.json for v2-Clean protocols (verified)")
     parser.add_argument("--selection-split", choices=["carveout", "valid"],
                         help="default: valid when evaluating test (Phase 2), carve-out otherwise")
     args = parser.parse_args()
@@ -188,6 +214,7 @@ def main():
         record = json.loads(args.frozen_protocol_hash.read_text())
         if hashlib.sha256(Path(record["file"]).read_bytes()).hexdigest() != record["sha256"]:
             raise PermissionError("Frozen protocol file changed since freeze; refusing")
+    EQUIVALENCE.update(dict(item.split("=", 1) for item in args.equivalence))
     selection_split = args.selection_split or ("valid" if args.eval_split == "test" else "carveout")
     if selection_split == "valid" and args.eval_split == "valid":
         raise ValueError("Cannot select on the split being evaluated")
@@ -233,6 +260,8 @@ def main():
         for model in models:
             store, meta = load_store(args.embeddings, name, model)
             manifest["inputs"][f"{name}/{model}"] = meta["items_sha256"]
+            args.provenance = {"eval_split": args.eval_split, "selection_split": selection_split,
+                               "items_sha256": meta["items_sha256"]}
             if args.stage != "stats":
                 precompute(results, name, model, store, train_cp, fit_cp, eval_cp, eval_fitb, args)
             if args.stage == "probes":
@@ -248,6 +277,9 @@ def main():
                         if not path.exists():
                             raise FileNotFoundError(f"Missing probe cell {path.name}; run --stage probes")
                         out = json.loads(path.read_text())
+                        if out.get("provenance") and out["provenance"] != args.provenance:
+                            raise ValueError(f"{path.name} was fitted on other inputs: "
+                                             f"{out['provenance']} != {args.provenance}")
                         if "error" in out:
                             failures.append(dict(dataset=name, model=model, setting=tag,
                                                  learner=learner, error=out["error"]))
@@ -270,23 +302,24 @@ def main():
                             if "error" in fit_out:
                                 continue
                             fit_scores = fit_out["cp"]["scores"]
-                            try:
-                                calibration = calibrate_and_evaluate(
-                                    [e.label for e in fit_cp], fit_scores, out["cp"]["labels"],
-                                    out["cp"]["scores"], method="temperature",
-                                    eval_groups=cp_groups,
-                                    replicates=min(args.replicates, 1000), seed=args.seed)
-                            except ValueError as error:
-                                failures.append(dict(dataset=name, model=model, setting=tag,
-                                                     learner=learner,
-                                                     error=f"calibration: {error}"))
-                                continue
-                            for phase in ("before", "after"):
-                                calibration_rows.append(dict(
-                                    dataset=name, model=model, phase=phase,
-                                    temperature=calibration["params"],
-                                    **{k: v for k, v in calibration[phase].items()
-                                       if isinstance(v, int | float)}))
+                            for method in ("temperature", "platt"):
+                                try:
+                                    calibration = calibrate_and_evaluate(
+                                        [e.label for e in fit_cp], fit_scores, out["cp"]["labels"],
+                                        out["cp"]["scores"], method=method,
+                                        eval_groups=cp_groups,
+                                        replicates=min(args.replicates, 1000), seed=args.seed)
+                                except ValueError as error:
+                                    failures.append(dict(dataset=name, model=model, setting=tag,
+                                                         learner=learner,
+                                                         error=f"calibration {method}: {error}"))
+                                    continue
+                                for phase in ("before", "after"):
+                                    calibration_rows.append(dict(
+                                        dataset=name, model=model, method=method, phase=phase,
+                                        params=json.dumps(calibration["params"], default=float),
+                                        **{k: v for k, v in calibration[phase].items()
+                                           if isinstance(v, int | float)}))
         if args.stage == "probes":
             continue
         # Paired statistics per (setting, learner) across models.
@@ -302,7 +335,8 @@ def main():
                                          groups=groups, second_groups=second,
                                          labels=labels if metric == "cp_auc" else None,
                                          replicates=args.replicates, seed=args.seed)
-                inference = pairwise_inference(boot, models, metric=metric, margins=MARGINS[metric])
+                inference = pairwise_inference(boot, models, metric="cp_auc" if metric == "cp_auc" else "accuracy",
+                                               margins=MARGINS[metric])
                 for estimate in inference["model_estimates"]:
                     for row in rows:
                         if (row["dataset"], row["model"], row["setting"], row["learner"], row["metric"]) == (
@@ -315,7 +349,10 @@ def main():
                 for comparison in inference["comparisons"]:
                     i, j = models.index(comparison["left"]), models.index(comparison["right"])
                     extra = ({"delong_p": delong_pvalue(auc, cov, i, j)} if metric == "cp_auc"
-                             else {"mcnemar_exact_p": exact_mcnemar(fitb[:, i], fitb[:, j])["pvalue"]})
+                             else {"mcnemar_exact_p": exact_mcnemar(fitb[:, i], fitb[:, j])["pvalue"],
+                                   "mcnemar_cluster_p": cluster_adjusted_mcnemar(
+                                       fitb[:, i], fitb[:, j], groups,
+                                       replicates=args.replicates, seed=args.seed)["pvalue"]})
                     pairwise_rows.append({**common, **comparison, **extra})
                 rank_rows += [{**common, **r} for r in inference["rank_intervals"]]
                 equivalence_rows += [{**common, **r} for r in inference["equivalence"]]

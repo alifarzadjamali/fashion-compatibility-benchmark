@@ -19,34 +19,48 @@ PY=.venv/bin/python
 STOP=/data/$USER/repbench/STOP_GPU
 DATASETS="iqon3000_v2_clean pog_v2_clean polyvore_v2_clean"
 declare -A IMG=([iqon3000_v2_clean]=$R/iqon3000_clean/images [pog_v2_clean]=$R/raw/pog/mirror
-                [polyvore_v2_clean]=$R/raw/polyvore_outfits/images)
+                [polyvore_v2_clean]=$R/raw/polyvore_outfits/images [a100]=$R/v2/a100_v2/images)
+declare -A PROT=([iqon3000_v2_clean]=$R/v2/iqon3000_v2_clean/build_a [pog_v2_clean]=$R/v2/pog_v2_clean/build_a
+                 [polyvore_v2_clean]=$R/v2/polyvore_v2_clean/build_a [a100]=$R/v2/a100_v2)
 BASE="resnet50 fashionclip2 openclip_b32_laion2b marqo_fashionclip marqo_fashionsiglip siglip_b16_224
  siglip2_b16_384 dinov3_vitl16 gr_lite dinov3_vitl16_336 clip_vitl14_336 pe_core_l14_336 siglip2_so400m_384"
-step() { [ -f "$STOP" ] && { echo "STOP requested"; exit 0; }; echo "=== $* $(date '+%F %T')"; "$@"; echo "rc=$? $(date '+%F %T')"; }
+mkdir -p $F/failed
+step() {  # run once, retry once; on second failure record it (the CPU lane skips that unit)
+  [ -f "$STOP" ] && { echo "STOP requested"; exit 0; }
+  echo "=== $* $(date '+%F %T')"
+  "$@" || { echo "retry $(date '+%F %T')"; "$@"; } || { echo "FAILED: $*" | tee -a $F/failed/GPU_STEPS; return 1; }
+  echo "ok $(date '+%F %T')"
+}
+extract() {  # dataset model splits output-subdir
+  step $PY scripts/v2/extract_v2.py --g2 "$g2" --dataset $1 --protocol ${PROT[$1]} --images-root ${IMG[$1]} \
+    --model $2 --splits $3 --output $F/emb/$1/$2/$4 || echo "extraction failed" > $F/failed/$1.$2
+}
 
 # Pre-freeze train/valid extraction must have finished.
 until grep -q TV_CHAIN_DONE "$LOG/full-tv.log" 2>/dev/null; do sleep 60; done
-for d in $DATASETS; do for m in $BASE; do
-  step $PY scripts/v2/extract_v2.py --g2 "$g2" --dataset $d --protocol $R/v2/$d/build_a \
-    --images-root ${IMG[$d]} --model $m --splits test --output $F/emb/$d/$m/test
-done; done
-for m in qwen3_vl_emb_2b qwen3_vl_emb_8b; do for d in $DATASETS; do
-  step $PY scripts/v2/extract_v2.py --g2 "$g2" --dataset $d --protocol $R/v2/$d/build_a \
-    --images-root ${IMG[$d]} --model $m --splits train,valid,test --output $F/emb/$d/$m/all
-done; done
+for d in $DATASETS; do for m in $BASE; do extract $d $m test test; done; done
+for m in qwen3_vl_emb_2b qwen3_vl_emb_8b; do for d in $DATASETS; do extract $d $m train,valid,test all; done; done
+# A100: external test, 1,663 images; every encoder (cheap). Embedded only after freeze.
+for m in $BASE qwen3_vl_emb_2b qwen3_vl_emb_8b; do extract a100 $m test test; done
 echo EXTRACTION_DONE
 for d in $DATASETS; do
   step $PY scripts/v2/mllm_zeroshot.py score --ids research/v2/freeze/mllm_ids_$d.json \
     --protocol-root $R/v2/$d/build_a --images-root ${IMG[$d]} --output-dir $F/mllm/$d --confirm-protocol-frozen
 done
-if [ -f research/v2/freeze/mllm_ids_a100.json ]; then
-  step $PY scripts/v2/mllm_zeroshot.py score --ids research/v2/freeze/mllm_ids_a100.json \
-    --a100-root $R/v2/a100 --images-root $R/v2/a100/images --output-dir $F/mllm/a100 --confirm-protocol-frozen
-fi
+for t in lat aat; do
+  step $PY scripts/v2/mllm_zeroshot.py score --ids research/v2/freeze/mllm_ids_a100_$t.json \
+    --a100-root $R/v2/a100_v2 --output-dir $F/mllm/a100_$t --confirm-protocol-frozen
+done
 # OutfitTransformer needs the validation-only selection written by the CPU lane.
-until [ -f $F/results/selection.json ]; do sleep 120; done
+until [ -f $F/results/selection.json ] || [ -f $F/STATS_FAILED ]; do sleep 120; done
 for d in $DATASETS; do
-  inputs=$($PY -c "import json,sys;s=json.load(open('$F/results/selection.json'))['$d'];print(' '.join(dict.fromkeys(['resnet50',s['generic'],s['fashion']])))")
+  # Always ResNet50; plus validation-selected best generic/fashion when selection succeeded.
+  inputs=$($PY -c "
+import json,os
+p='$F/results/selection.json'; s=json.load(open(p)).get('$d', {}) if os.path.exists(p) else {}
+picked=[s.get('generic'), s.get('fashion')]
+print(' '.join(dict.fromkeys(['resnet50']+[m for m in picked if m])))")
+  [ "$inputs" = resnet50 ] && echo "WARNING: selection missing for $d; OutfitTransformer on resnet50 only" | tee -a $F/failed/GPU_STEPS
   for m in $inputs; do
     out=$F/outfit_transformer/$d/$m
     step $PY scripts/v2/run_outfit_transformer_v2.py train --protocol-root $R/v2/$d/build_a --dataset-name $d \

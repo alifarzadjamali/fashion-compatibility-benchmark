@@ -102,7 +102,7 @@ def main():
         "datasets": {
             "archives_sha256": archives,
             "protocols": {
-                "polyvore_v2_clean": {"grouping": "item_component"},
+                "polyvore_v2_clean": {"grouping": "item_component (near-duplicate groups merged)"},
                 "iqon3000_v2_clean": {"grouping": "two_way_user_x_item_component",
                                       "sensitivity": "user_only"},
                 "pog_v2_clean": {"grouping": "two_way_user_x_item_component",
@@ -152,7 +152,7 @@ def main():
             "paired_cluster_bootstrap": {"replicates": 2000, "seed": 20260912},
             "all_pairwise": "Holm within dataset x metric",
             "cp": ["bootstrap", "DeLong (ignores clustering; disagreements explained)"],
-            "fitb_a100": ["exact McNemar", "cluster sign-flip McNemar where users cluster"],
+            "fitb_a100": ["exact McNemar", "cluster sign-flip McNemar (FITB, primary clusters)"],
             "equivalence_tost_margins": {"cp_auc": [0.002, 0.005, 0.010],
                                          "fitb_pp": [0.5, 1.0, 2.0], "a100_pp": [2.0, 5.0, 10.0]},
             "rank": ["bootstrap rank intervals", "Friedman + Nemenyi CD (descriptive)", "Kendall W"],
@@ -162,7 +162,7 @@ def main():
         "calibration": {"metrics": ["brier", "log_loss", "ece_10", "ece_15", "ece_20"],
                         "posthoc": ["temperature", "platt"], "fit_on": "valid split",
                         "brier_decomposition": "Murphy, 10 equal-width bins",
-                        "ece_ci": "clustered bootstrap"},
+                        "ece_ci": "bootstrap over primary clusters (user for IQON/POG, component for Polyvore)"},
         "baselines": {
             "outfit_transformer": {"lr_grid": [1e-4, 3e-4], "max_epochs": 100, "patience": 10,
                                    "seeds": [42, 43, 44, 45, 46],

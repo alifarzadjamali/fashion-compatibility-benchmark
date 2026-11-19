@@ -101,6 +101,9 @@ def main():
     encoder = V2Encoder(spec)
     load_seconds = time.perf_counter() - started
     state_path, partial = out / "state.json", out / "items.partial.npy"
+    if (out / "items.npy").exists() and not partial.exists():
+        raise FileExistsError(f"{out}: items.npy without metadata.json (interrupted finalisation); "
+                              "inspect, then remove the incomplete store and re-run")
     if state_path.exists():
         state = json.loads(state_path.read_text())
         if state["signature"] != signature:
@@ -188,7 +191,7 @@ def main():
             "item_ids_sha256": sha256(out / "item_ids.json"),
         },
     )
-    state_path.unlink()
+    state_path.unlink(missing_ok=True)
 
 
 if __name__ == "__main__":
