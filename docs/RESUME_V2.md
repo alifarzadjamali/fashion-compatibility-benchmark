@@ -42,6 +42,14 @@ Phase 2 progress (server time; started 2026-11-19 15:57 with G2 a08, run checkou
   Backup started on the laptop (`~/repbench-results/laptop_backup/`, same frozen code,
   separate output dir): Polyvore 14 models + IQON Qwen-8B probe re-fits.
   If the DGX returns: copy `$F/results` first (it holds the post-14:00 predictions).
+- **23:46 Fri — laptop backup**: DGX still refused (hourly retries). Polyvore probes **complete
+  on the laptop** (14 models × 14 cells = 196 predictions in `laptop_backup/results/`). The
+  2-worker forked pool deadlocked on Qwen-8B native logistic/MLP (no CPU for >1 h); killed and
+  re-fitted with `--workers 1` (`run2.sh`, rc=0). IQON Qwen-8B cannot run on the laptop: killed
+  by the OOM killer twice (peak RSS 28 GB of 30 GB, `run3.log`). It needs the DGX copy or a new
+  GPU/large-RAM booking. Laptop now has 44 of 45 probe units (616 of 630 prediction files; all but IQON Qwen-8B).
+  Still needs the DGX or a new booking: IQON Qwen-8B probes, near-dup audits, construction-seed
+  and provenance sensitivities (need raw images), OutfitTransformer, profiling.
 
 Revised G3 = two identical deterministic rebuilds + published counts + published
 metrics within ±0.002 AUC / ±0.005 FITB. Original v1 split identity is
