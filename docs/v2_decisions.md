@@ -371,3 +371,20 @@ cases handled. Calibration ECE CIs use primary clusters only (documented).
   (`configs/v2_protocol_hash.json`); tag `v2-freeze`. No v2 test-split, POG-test or
   A100 outcome had been computed or viewed before this point (test extraction and
   scoring are code-guarded on this hash). Phase 2 authorized by the owner.
+
+## 2026-11-20 — Phase 2 deviation D1 (code/config bug, no science change)
+
+- Found by a downstream rehearsal (stats + all sensitivities on finished IQON
+  predictions, 100 replicates, scratch checkout `~/fcb-dev`, scratch output dir) run
+  before the live CPU lane reached those stages.
+- Bug: `configs/v2_sensitivity_datasets.json` carried a top-level `"_note"` string;
+  `run_sensitivities.py near-duplicates` iterates all config entries and crashed on it
+  (`AttributeError: 'str' object has no attribute 'get'`). Would have aborted the
+  near-duplicate-exclusion and LookBench sensitivities in the live run.
+- Fix: removed the `"_note"` key (comment only; no path or value changed). Applied to
+  the run checkout `~/fcb-freeze` at 2026-11-20 ~13:45 UTC, before the CPU lane's
+  sensitivity stage. No `.py` file changed: the G1/G2 code-hash bindings (a08) remain
+  valid (verified with `require_gate`). The frozen protocol and its hash are unchanged.
+- Verified: every sensitivity step (label fractions, construction seeds, provenance,
+  subgroups, near duplicates, LookBench) plus stats, tables and the Polyvore
+  near-duplicate audit completed in the rehearsal with empty failure lists.

@@ -1,8 +1,5 @@
 {
-  "_note": "DGX paths for scripts/v2/run_sensitivities.py --dataset-config (Phase 2). R=/data/a_jamali2/repbench/data",
-  "polyvore_v2_clean": {"identity": "polyvore_raw", "raw_root": "/data/a_jamali2/repbench/data/raw/polyvore_outfits",
-                        "image_equivalence": "/data/a_jamali2/repbench/data/v2/image_equivalence/polyvore/equivalence_groups.json"},
-  "iqon3000_v2_clean": {"identity": "iqon_catalog", "catalog": "/data/a_jamali2/repbench/data/v2/iqon_preparation/catalog",
-                        "image_equivalence": "/data/a_jamali2/repbench/data/v2/image_equivalence/iqon/equivalence_groups.json"},
+  "polyvore_v2_clean": {"identity": "polyvore_raw", "raw_root": "/data/a_jamali2/repbench/data/raw/polyvore_outfits", "image_equivalence": "/data/a_jamali2/repbench/data/v2/image_equivalence/polyvore/equivalence_groups.json"},
+  "iqon3000_v2_clean": {"identity": "iqon_catalog", "catalog": "/data/a_jamali2/repbench/data/v2/iqon_preparation/catalog", "image_equivalence": "/data/a_jamali2/repbench/data/v2/image_equivalence/iqon/equivalence_groups.json"},
   "pog_v2_clean": {}
 }

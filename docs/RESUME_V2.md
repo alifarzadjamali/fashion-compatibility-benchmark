@@ -25,6 +25,13 @@ Phase 2 progress (server time; started 2026-11-19 15:57 with G2 a08, run checkou
 - 22:01 — train/valid extraction done for 13 encoders × 3 v2-Clean datasets (`TV_CHAIN_DONE`);
   copied to laptop `~/repbench-results/emb/`. Test extraction and CPU probes started 22:02/22:05.
   No failures (`$F/failed/` empty).
+- 01:58 Fri — test extraction done (13 encoders × 3). Qwen-2B all splits done ~05:25; Qwen-8B
+  IQON 07:55, POG 11:32, Polyvore running. Laptop copy: all base + Qwen-2B + IQON Qwen-8B.
+- 13:45 Fri — downstream rehearsal (`$R/v2/rehearsal`, scratch) passed stats, tables, all
+  sensitivities, Polyvore near-dup audit; found + fixed config bug D1 (see decisions log).
+  Measured: stats 2 min/IQON at 100 reps; label fractions ~9.5 min and construction seeds
+  ~20 min per model on IQON (serial). Projected finish: probes ~20:00 Fri, stats ~21:30,
+  sensitivities ~11:30 Sat, A100/tables/profiling ~13:30 Sat. Booking ends ~Mon 16:00.
 
 Revised G3 = two identical deterministic rebuilds + published counts + published
 metrics within ±0.002 AUC / ±0.005 FITB. Original v1 split identity is
