@@ -32,6 +32,16 @@ Phase 2 progress (server time; started 2026-11-19 15:57 with G2 a08, run checkou
   Measured: stats 2 min/IQON at 100 reps; label fractions ~9.5 min and construction seeds
   ~20 min per model on IQON (serial). Projected finish: probes ~20:00 Fri, stats ~21:30,
   sensitivities ~11:30 Sat, A100/tables/profiling ~13:30 Sat. Booking ends ~Mon 16:00.
+- 13:55 Fri — ALL extraction done (incl. Qwen-8B, A100); 14:27–14:32 MLLM zero-shot done (3 FITB
+  sets + A100 LAT/AAT). Laptop: all embeddings (SHA-256 verified, `SHA256SUMS_emb.txt`), MLLM,
+  protocols, 433 probe predictions (all IQON except Qwen-8B; all POG; Polyvore resnet50).
+  E3: laptop re-fit of Polyvore resnet50 matches DGX (test AUC |Δ| 2e-6, FITB identical).
+- **16:48 Fri — DGX ACCESS LOST**: ssh refused "pam_slurm_adopt: you have no active jobs on this
+  node" (Slurm job no longer active?); still refused at 17:19. Last seen: 44/45 probe units
+  done, IQON Qwen-8B probes running; stats/sensitivities/OT/profiling not started.
+  Backup started on the laptop (`~/repbench-results/laptop_backup/`, same frozen code,
+  separate output dir): Polyvore 14 models + IQON Qwen-8B probe re-fits.
+  If the DGX returns: copy `$F/results` first (it holds the post-14:00 predictions).
 
 Revised G3 = two identical deterministic rebuilds + published counts + published
 metrics within ±0.002 AUC / ±0.005 FITB. Original v1 split identity is
