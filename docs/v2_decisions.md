@@ -388,3 +388,25 @@ cases handled. Calibration ECE CIs use primary clusters only (documented).
 - Verified: every sensitivity step (label fractions, construction seeds, provenance,
   subgroups, near duplicates, LookBench) plus stats, tables and the Polyvore
   near-duplicate audit completed in the rehearsal with empty failure lists.
+
+## 2026-11-21 — Phase 2 deviation D2 (infrastructure, no science change)
+
+- The Slurm booking ended unexpectedly on 2026-11-20 at ~16:48 (job 34; ssh refused by
+  `pam_slurm_adopt`). The node storage was wiped. At that point the run had finished
+  all embedding extraction (15 encoders × 3 datasets + A100), the MLLM zero-shot
+  scoring and 44 of 45 probe units; stats, sensitivities, OutfitTransformer and
+  profiling had not started.
+- Restored on a new booking (job 37, 2026-11-21) from the laptop copies, which were
+  SHA-256 verified against the DGX before the loss (`SHA256SUMS_emb.txt`): the frozen code
+  at commit 240bd85 (protocol hash `34c92bef…a4bda`, unchanged), all embeddings,
+  protocols, image-equivalence groups, MLLM outputs and the DGX-origin probe predictions.
+- G1/G2 re-run on job 37 with the same code (attempt `2026-11-21-a09`, PASS); the evidence
+  is committed under `research/v2/readiness/2026-11-21-a09/`. The run is bound to a09.
+- The 14 probe units without restored DGX predictions (13 Polyvore encoders, one of which
+  had an incomplete copy, plus IQON Qwen3-VL-Emb-8B) are re-fitted on job 37 with the
+  same frozen code and commands (`scripts/v2/run_phase2b_cpu.sh`, the probe + stats part of
+  `run_full_cpu.sh`). A laptop re-fit of the same units (same code) is kept as a
+  cross-machine check only.
+- Orchestration only: sensitivity subcommands run as parallel processes instead of one
+  serial `run_sensitivities.py all` call (same subcommands, arguments and outputs).
+- No frozen setting, split, model, grid, seed or statistic changed.

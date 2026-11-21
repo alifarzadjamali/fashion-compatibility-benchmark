@@ -1,0 +1,42 @@
+{
+  "model_key": "resnet50",
+  "spec": {
+    "model_key": "resnet50",
+    "checkpoint": "torchvision ResNet50_Weights.IMAGENET1K_V2",
+    "revision": "11ad3fa6",
+    "family": "supervised_cnn",
+    "input_resolution": 224,
+    "embedding_dim": 2048,
+    "trust_remote_code": false,
+    "use_safetensors": null,
+    "backend": "torchvision",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "b87290701a06bcfdf30d37b6056c96e894fefa86c9d9c61dd5392c386fa732a8",
+  "utc": "2026-11-21T10:37:45.137245+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "PASS",
+  "download_seconds": 1.1519878171384335e-06,
+  "new_hf_cache_bytes": 0,
+  "hf_effective_mib_per_second": 0.0,
+  "download_measurement": "torchvision weight transfer included in load_seconds",
+  "load_seconds": 1.6938658140134066,
+  "attention_method": "not applicable (CNN)",
+  "image_tower_parameters": 23508032,
+  "total_parameters": 23508032,
+  "preprocess_and_transfer_seconds": 0.07890187698649243,
+  "two_smoke_passes_seconds": 0.665124305000063,
+  "peak_allocator_bytes": 428456960,
+  "shape": [
+    64,
+    2048
+  ],
+  "max_cosine_drift": 2.384185791015625e-07,
+  "checks": {
+    "finite": true,
+    "expected_shape": true,
+    "deterministic_within_1e_3": true,
+    "bf16": true
+  },
+  "total_seconds": 2.4920790910255164
+}

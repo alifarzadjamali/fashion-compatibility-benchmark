@@ -50,6 +50,11 @@ Phase 2 progress (server time; started 2026-11-19 15:57 with G2 a08, run checkou
   GPU/large-RAM booking. Laptop now has 44 of 45 probe units (616 of 630 prediction files; all but IQON Qwen-8B).
   Still needs the DGX or a new booking: IQON Qwen-8B probes, near-dup audits, construction-seed
   and provenance sensitivities (need raw images), OutfitTransformer, profiling.
+- **10:07 Sat — new booking, job 37** (ssh port 2222, ends Wed 25 Nov 09:44). Old node wiped
+  (deviation D2). 10:30 code restored (frozen commit, protocol hash verified), env installed;
+  10:37 G1/G2 a09 PASS (13 min, all 15 encoders + MLLM pinned). 10:55 probes + stats lane
+  started in tmux `fcb-cpu` (`run_phase2b_cpu.sh`); upload of embeddings and dataset archives
+  from the laptop in progress (~45 MB/s). Next: stats → selection.json → OutfitTransformer (GPU).
 
 Revised G3 = two identical deterministic rebuilds + published counts + published
 metrics within ±0.002 AUC / ±0.005 FITB. Original v1 split identity is
