@@ -1,0 +1,50 @@
+{
+  "config": {
+    "prompt_version": "fitb-letter-v1",
+    "model": "Qwen/Qwen3-VL-8B-Instruct",
+    "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "ids_file": "research/v2/freeze/mllm_ids_a100_aat.json",
+    "ids_sha256": "7b432c2bf7e566cabdc7cb592ac854ea8235351972b95d436fc8090017ad58bc",
+    "source": "a100",
+    "dataset_name": "",
+    "split": "AAT",
+    "option_seed": 20261118,
+    "min_pixels": 4096,
+    "max_pixels": 147456,
+    "max_visual_tokens_per_image": 144,
+    "max_input_tokens": 16384,
+    "limit": 0,
+    "scoring": "argmax next-token log-prob over bare letter tokens at the final position",
+    "a100_correct": "LAT majority_gt_index (primary); AAT archive_gt_index"
+  },
+  "questions": 100,
+  "accuracy": 0.74,
+  "accuracy_ci95_question_bootstrap": [
+    0.65,
+    0.82
+  ],
+  "ci_note": "Descriptive iid question bootstrap (2000 reps); the \u00a76.3 script is primary.",
+  "accuracy_combined_letter_variants": 0.74,
+  "seconds_per_question_mean": 0.7929652043210809,
+  "seconds_per_question_median": 0.7944720809755381,
+  "seconds_total": 79.29652043210808,
+  "preprocess_seconds_per_question_mean": 0.09240456568892114,
+  "forward_seconds_per_question_mean": 0.7005606386321597,
+  "allocator_peak_bytes": 17934183424,
+  "allocator_peak_label": "torch.cuda.max_memory_allocated (allocator peak, not device total)",
+  "letter_probability_mass_median": 0.9998281324043578,
+  "letter_probability_mass_min": 0.8964354780538646,
+  "predicted_letter_counts": {
+    "A": 9,
+    "B": 24,
+    "C": 26,
+    "D": 23,
+    "E": 18
+  },
+  "input_tokens_max": 1552,
+  "results_sha256": "0245a5f30a70d9ff2ba28e89a99111843ce7113475e1a20509a4c7a183b86f0d",
+  "device": "NVIDIA GB10",
+  "finished_utc": "2026-11-20T14:32:18.801758+00:00"
+}

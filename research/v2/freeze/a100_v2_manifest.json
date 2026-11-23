@@ -1,0 +1,127 @@
+{
+ "kind": "a100_v2_prepared",
+ "version": "a100-v2-prepare-1",
+ "role": "external human/expert test set; evaluated unchanged; never fitted, tuned, calibrated or used for selection",
+ "archive": "/data/a_jamali2/repbench/data/a100_audit/A100.zip",
+ "archive_sha256": "31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829",
+ "expected_archive_sha256": "31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829",
+ "split": "test",
+ "tasks": {
+  "LAT": {
+   "questions": 100,
+   "items": 680,
+   "candidates_per_question": [
+    5
+   ],
+   "partial_outfit_sizes": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  "AAT": {
+   "questions": 100,
+   "items": 983,
+   "candidates_per_question": [
+    5
+   ],
+   "partial_outfit_sizes": [
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ },
+ "items": 1663,
+ "lat_primary_gt": "majority of gt_distribution (first maximum on ties)",
+ "lat_sensitivity_gt": "archive gt",
+ "mlat": "mean over LAT questions of gt_distribution[chosen candidate]",
+ "aat_gt": "archive gt",
+ "aat_facets": {
+  "Color": [
+   1,
+   20
+  ],
+  "Style": [
+   21,
+   52
+  ],
+  "Occasion": [
+   53,
+   67
+  ],
+  "Season": [
+   68,
+   79
+  ],
+  "Material": [
+   80,
+   91
+  ],
+  "Balance": [
+   92,
+   100
+  ]
+ },
+ "lat_majority_ties": [],
+ "lat_archive_majority_disagreements": [
+  92,
+  93,
+  94,
+  96,
+  98,
+  99,
+  100
+ ],
+ "image_decoding": "repbench.v2.images.to_rgb_on_white; JPEG bytes kept (no alpha, compositing is a no-op); other formats composited on white -> PNG",
+ "image_formats": {
+  "('JPEG', 'RGB', False)": 1663
+ },
+ "composited_items": [],
+ "polyvore_format": "split 'test': pseudo-sets <T><nnn> (partial outfit + primary gt) and <T><nnn>d (other candidates) exist only for key resolution; no CP examples",
+ "v1_prepare_manifest": {
+  "archive_sha256": "31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829",
+  "tasks": {
+   "AAT": {
+    "questions": 100,
+    "candidates_per_question": [
+     5
+    ],
+    "referenced_images": 983,
+    "archive_images": 987,
+    "label_sha256": "0702b2e2eba2fccedb5123bd655d79f4115fdc8017c013b223dbf2946f49e2d8"
+   },
+   "LAT": {
+    "questions": 100,
+    "candidates_per_question": [
+     5
+    ],
+    "referenced_images": 680,
+    "archive_images": 7427,
+    "label_sha256": "d43baab3b7cd58e706a726860a98e3d2f39d82fda24c8067871e85f0aeca8c30"
+   }
+  },
+  "lat_archive_majority_disagreements": [
+   92,
+   93,
+   94,
+   96,
+   98,
+   99,
+   100
+  ]
+ },
+ "files": {
+  "aat.json": "0702b2e2eba2fccedb5123bd655d79f4115fdc8017c013b223dbf2946f49e2d8",
+  "compatibility_test.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "fill_in_blank_test.json": "06c793122c143e95518fe237f0ec5874cd9b107de09c8ee8ff9cbfd37401a6fa",
+  "image_paths.json": "e8d18871c2807b7a572104af2ce96f9100a3ba51726a8a75f8799836994bc555",
+  "lat.json": "d43baab3b7cd58e706a726860a98e3d2f39d82fda24c8067871e85f0aeca8c30",
+  "questions.json": "d0185febc45555d84394c3e39ca887410116d2ca39e17da901bf266981b853fd",
+  "test.json": "dcea818e5a99e2c8731d18fb26fc4c2c052e37355f133a6579dcdb1948042e45",
+  "v1_prepare_manifest.json": "49303a19ba7ff50201d5120c3fe5dad37fbcd46744e0cd18d9ae6ec7b79b29c0"
+ }
+}

@@ -1,0 +1,26 @@
+{
+  "valid_cp_auc": 0.8255727897244426,
+  "valid_fitb_accuracy": 0.495243504188556,
+  "config": {
+    "lr": 0.0001,
+    "seed": 46,
+    "max_epochs": 100,
+    "patience": 10,
+    "batch_size": 50,
+    "weight_decay": 0.0001,
+    "model_dim": 64,
+    "min_delta": 1e-07,
+    "loss": "focal BCE gamma=2 alpha=0.25 (v1)",
+    "optimizer": "AdamW",
+    "precision": "float32"
+  },
+  "encoder": "siglip2_so400m_384",
+  "best_epoch": 15,
+  "best_valid_auc": 0.8255727897244426,
+  "epochs_run": 25,
+  "early_stopping_fired": true,
+  "training_seconds": 2057.471789213014,
+  "device": "cuda",
+  "best_state_sha256": "3c2e1f842e69b2eb421cf79874f86599fabf92e80f7c85a6585a362e098456cf",
+  "finished_utc": "2026-11-23T14:31:36.142261+00:00"
+}

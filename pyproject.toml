@@ -18,10 +18,11 @@ dependencies = [
   "pillow>=11,<13",
   "pyarrow>=19,<24",
   "pyyaml>=6,<7",
+  "qwen-vl-utils==0.0.14",
   "scikit-learn>=1.6,<2",
   "tabulate>=0.9,<1",
-  "torch==2.11.0+cu128",
-  "torchvision==0.26.0+cu128",
+  "torch==2.11.0+cu130",
+  "torchvision==0.26.0+cu130",
   "transformers>=4.56,<5",
   "xgboost>=3,<4",
 ]
@@ -41,10 +42,10 @@ line-length = 100
 target-version = "py312"
 
 [[tool.uv.index]]
-name = "pytorch-cu128"
-url = "https://download.pytorch.org/whl/cu128"
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
 explicit = true
 
 [tool.uv.sources]
-torch = { index = "pytorch-cu128" }
-torchvision = { index = "pytorch-cu128" }
+torch = { index = "pytorch-cu130" }
+torchvision = { index = "pytorch-cu130" }

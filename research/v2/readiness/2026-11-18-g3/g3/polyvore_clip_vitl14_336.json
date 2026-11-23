@@ -1,0 +1,42 @@
+{
+  "gate_part": "G3 revised published-metric reproduction",
+  "dataset": "polyvore_d_clean",
+  "model": "clip_vitl14_336",
+  "status": "PASS",
+  "deltas_from_published": {
+    "cp_auc": 3.2136177293695667e-06,
+    "fitb": -0.00048210276053362033
+  },
+  "metrics": {
+    "dataset": "polyvore_d_clean",
+    "track": "pca256",
+    "representation": "clip_vitl14_336",
+    "checkpoint": "openai/clip-vit-large-patch14-336",
+    "revision": "ce19dc912ca5cd21c8a653c79e251e808ccabcd1",
+    "family": "generic_vision_language",
+    "native_embedding_dim": 768,
+    "outfit_feature_dim": 512,
+    "outfit_standardization": true,
+    "cp_auc": 0.8883032136177293,
+    "pr_auc": 0.8864210383856643,
+    "fitb_acc": 0.6495178972394664,
+    "validation_auc": 0.9007311095473528,
+    "best_c": 100.0,
+    "c_at_upper_boundary": false,
+    "pca_explained_variance": 0.9101759195327759,
+    "train_seconds": 0.31549528799951077,
+    "single_outfit_scoring_ms": 0.00010450117201799003,
+    "extraction_seconds": 1914.0310118619236,
+    "extract_images_per_second": 79.82368052196522,
+    "peak_vram_mb": 1454.8134765625,
+    "embedding_storage_mb": 447.6126708984375
+  },
+  "elapsed_seconds": 6.125987803010503,
+  "embedding_metadata_hashes": {
+    "train": "1a85f55c76408b2fad397080c18ff10bd2134393cbfa7a3b5fa7dbd5868483d3",
+    "valid": "3c5a043ac86ca6d36d4b256d1da53fbafb300b694c8ca328acd7c6e486a040b3",
+    "test": "ab9dec2e29a77e3d8859639cfe6caa93c3e044ca78c7438c1ca91be0d4b2940e"
+  },
+  "original_split_identity": "UNVERIFIABLE",
+  "reference_sha256": "b328321f0558a214e5dc29936235f2663423bc77f000c200acbba5f33e8bf169"
+}

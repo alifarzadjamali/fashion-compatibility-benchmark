@@ -1,0 +1,42 @@
+{
+  "model_key": "siglip2_b16_384",
+  "spec": {
+    "model_key": "siglip2_b16_384",
+    "checkpoint": "google/siglip2-base-patch16-384",
+    "revision": "f775b65a79762255128c981547af89addcfe0f88",
+    "family": "generic_vision_language",
+    "input_resolution": 384,
+    "embedding_dim": 768,
+    "trust_remote_code": false,
+    "use_safetensors": true,
+    "backend": "huggingface",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "ba9c8c424451cbb76c631ef27b8fcaad5f95b1a8f2702b998177690dad0aa4a3",
+  "utc": "2026-11-21T10:38:32.645767+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "PASS",
+  "download_seconds": 14.217958767025266,
+  "new_hf_cache_bytes": 1540620776,
+  "hf_effective_mib_per_second": 103.33765130903305,
+  "download_measurement": "new HF blob bytes / snapshot wall time; cache hits included; not wire bytes",
+  "load_seconds": 1.4063130900030956,
+  "attention_method": "sdpa",
+  "image_tower_parameters": 93176064,
+  "total_parameters": 375479810,
+  "preprocess_and_transfer_seconds": 0.16243796003982425,
+  "two_smoke_passes_seconds": 0.7112610170152038,
+  "peak_allocator_bytes": 1537594368,
+  "shape": [
+    64,
+    768
+  ],
+  "max_cosine_drift": 2.384185791015625e-07,
+  "checks": {
+    "finite": true,
+    "expected_shape": true,
+    "deterministic_within_1e_3": true,
+    "bf16": true
+  },
+  "total_seconds": 16.549677890026942
+}

@@ -1,0 +1,30 @@
+{
+  "iqon3000": {
+    "url": "https://drive.usercontent.google.com/download?id=1sTfUoNPid9zG_MgV--lWZTBP1XZpmcK8&export=download&confirm=t",
+    "source_page": "https://drive.google.com/open?id=1sTfUoNPid9zG_MgV--lWZTBP1XZpmcK8",
+    "relative_path": "iqon_audit/IQON3000.zip",
+    "expected_sha256": "305660cc09bd941a15096b6efeb536013efe0d534d9cd517419a49cd9ee650fd"
+  },
+  "a100": {
+    "url": "https://polyuit-my.sharepoint.com/:u:/g/personal/xingxzou_polyu_edu_hk/ERZywzt1zEdFuLktparpceoBoD_N_GaW2dD_noifl7EbNw?e=c2HygP&download=1",
+    "source_page": "https://github.com/AemikaChow/AiDLab-fAshIon-Data/blob/main/Datasets/A100.md",
+    "relative_path": "a100_audit/A100.zip",
+    "expected_sha256": "31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829"
+  },
+  "polyvore": {
+    "url": "https://www.kaggle.com/api/v1/datasets/download/yiitcandeime/polyvore?datasetVersionNumber=1",
+    "source_page": "https://www.kaggle.com/datasets/yiitcandeime/polyvore",
+    "relative_path": "raw/polyvore_outfits.zip",
+    "expected_sha256": null,
+    "note": "Provider API file listing matches legacy extractor prefix polyvore-outfit-dataset/polyvore_outfits/. Establish first archive checksum explicitly; validate counts and audits before G4. Original archive hash unavailable.",
+    "provider_version": 1
+  },
+  "pog": {
+    "url": null,
+    "source_page": "https://github.com/wenyuer/POG",
+    "metadata_folder": "https://drive.google.com/drive/folders/1xFdx5xuNXHGsUVG2VIohFTXf9S7G5veq",
+    "relative_path": "raw/pog/metadata.zip",
+    "expected_sha256": null,
+    "note": "Resolve metadata filenames, then perform the frozen-seed 1000-URL availability check. No image redistribution."
+  }
+}

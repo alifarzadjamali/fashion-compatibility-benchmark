@@ -1,0 +1,57 @@
+{
+ "split": "test",
+ "excluded": [
+  "marqo_fashionsiglip",
+  "marqo_fashionclip",
+  "gr_lite",
+  "qwen3_vl_emb_2b",
+  "qwen3_vl_emb_8b"
+ ],
+ "datasets": {
+  "polyvore_v2_clean": {
+   "models": [
+    "clip_vitl14_336",
+    "dinov3_vitl16",
+    "dinov3_vitl16_336",
+    "fashionclip2",
+    "openclip_b32_laion2b",
+    "pe_core_l14_336",
+    "resnet50",
+    "siglip2_b16_384",
+    "siglip2_so400m_384",
+    "siglip_b16_224"
+   ],
+   "cells": 13
+  },
+  "iqon3000_v2_clean": {
+   "models": [
+    "clip_vitl14_336",
+    "dinov3_vitl16",
+    "dinov3_vitl16_336",
+    "fashionclip2",
+    "openclip_b32_laion2b",
+    "pe_core_l14_336",
+    "resnet50",
+    "siglip2_b16_384",
+    "siglip2_so400m_384",
+    "siglip_b16_224"
+   ],
+   "cells": 13
+  },
+  "pog_v2_clean": {
+   "models": [
+    "clip_vitl14_336",
+    "dinov3_vitl16",
+    "dinov3_vitl16_336",
+    "fashionclip2",
+    "openclip_b32_laion2b",
+    "pe_core_l14_336",
+    "resnet50",
+    "siglip2_b16_384",
+    "siglip2_so400m_384",
+    "siglip_b16_224"
+   ],
+   "cells": 13
+  }
+ }
+}

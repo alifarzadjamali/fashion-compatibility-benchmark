@@ -1,0 +1,8 @@
+{
+ "scores_file": "configs/lookbench_v3_scores.json",
+ "scores_sha256": "9de80f9533b8b814985efaa323bff41d7e982afbdf37485298628c74776d4be2",
+ "metrics_file": "/data/a_jamali2/repbench/data/v2/full/results/metrics.csv",
+ "metrics_sha256": "10e7bf249b05b65a810e175664f01d1f28fc622ecac5d3c8c2b57bbb1d7bd3e6",
+ "source": "TO FILL: LookBench v3 paper citation/URL, table number and access date. Do not fill from memory.",
+ "benchmark": "LookBench v3 (13 Apr 2026); live benchmark - record the access date"
+}

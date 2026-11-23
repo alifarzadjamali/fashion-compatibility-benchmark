@@ -1,5 +1,10 @@
 # Fashion Compatibility Benchmark
 
+**v2 preparation:** see [DGX readiness operations](docs/dgx_v2_readiness.md) and
+[the decision log](docs/v2_decisions.md). The v2 protocol is not frozen and the
+full experiment is not authorized. The remainder of this README documents v1;
+its evaluation commands must not be used for new pre-freeze test evaluations.
+
 RepBench-Fashion compares seven frozen image representations for outfit compatibility
 prediction (CP) and fill-in-the-blank completion (FITB). Each representation uses the same
 train-only preprocessing, PCA-256, symmetric pair features, and logistic classifier.

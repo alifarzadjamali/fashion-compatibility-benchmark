@@ -1,0 +1,43 @@
+{
+  "dataset_name": "iqon3000_v2_clean",
+  "protocol_root": "/data/a_jamali2/repbench/data/v2/iqon3000_v2_clean/build_a",
+  "protocol_sha256": {
+    "compatibility_test.txt": "a5d77d4eb91fd0084ebb96fbea3ea40dc9402b9dad55b030a88be1ce6fd19b24",
+    "compatibility_train.txt": "903eeccecd575ec59eae34f739906dd2cce7851c8866a066ebde43875588240e",
+    "compatibility_valid.txt": "a2681c5f627899d4db53c4f77ca3a9b5878f5d3698a99b54d9b8b6a1bc81123c",
+    "fill_in_blank_test.json": "6576a0950801a999fde0f640d00c7960663b1374730b34be69e757e113bab44d",
+    "fill_in_blank_train.json": "a5d026226f6a09959fb349ddcbcfd66292eef0aef3e6db7fa2777fe9c20230ae",
+    "fill_in_blank_valid.json": "3572f7751ef9cb949bdf2dd36a53ec48fc277a7433b59b08d5be488232725557",
+    "group_ids_test.json": "0c58f2781dd11e04ccae04b421bd12368e56b3ff38955d34699b3dc95cc34e5a",
+    "group_ids_train.json": "d104cf5f967e53dc5df288788855779066307068a5eec9c3deb1178d53f781e1",
+    "group_ids_valid.json": "e432fc92d8e0c140e4fcbad48ad93d243bcc3c09929eeb3413cdbf1c12110887",
+    "manifest.json": "02d5239f13c4636d81dd0a21e928af19d0c2ff8d16dbcf04f5c56729e88d49be",
+    "test.json": "d6be4e9adbd91e7f91a8eecaa63f79df7c4307a125745b24526e8613dc50139d",
+    "train.json": "dd61d4c5be4f2d8dfa249b6290e5d0614f5e78b2eddde2a9b5ce432293c658eb",
+    "valid.json": "e86cb4e0daff9aa576f98d329491b95fd6bbf3e9d7e1c7efa2eb65878b9dc366"
+  },
+  "encoder": "marqo_fashionsiglip",
+  "embeddings": {
+    "parts": {
+      "test": {
+        "path": "/data/a_jamali2/repbench/data/v2/full/emb/iqon3000_v2_clean/marqo_fashionsiglip/test",
+        "sha256": {
+          "/data/a_jamali2/repbench/data/v2/full/emb/iqon3000_v2_clean/marqo_fashionsiglip/test/items.npy": "144ca2cb77d8d523b9e96fc39657cf116543a9f105feb6f8a772c01114baf526",
+          "/data/a_jamali2/repbench/data/v2/full/emb/iqon3000_v2_clean/marqo_fashionsiglip/test/item_ids.json": "112c7530ca55b1440d42608805fce23f0760ae7d7c085fdcc4cbe3818c9aefd2"
+        }
+      },
+      "trainvalid": {
+        "path": "/data/a_jamali2/repbench/data/v2/full/emb/iqon3000_v2_clean/marqo_fashionsiglip/trainvalid",
+        "sha256": {
+          "/data/a_jamali2/repbench/data/v2/full/emb/iqon3000_v2_clean/marqo_fashionsiglip/trainvalid/items.npy": "a9f86889a48d774f8f0f291193218e185c80da889cd35f5001d54dfdf7681402",
+          "/data/a_jamali2/repbench/data/v2/full/emb/iqon3000_v2_clean/marqo_fashionsiglip/trainvalid/item_ids.json": "ec87ff834809137862e4e77a2dc2c6b5f6d0d45ab378c153efecea1851e0512a"
+        }
+      }
+    }
+  },
+  "max_length": 19,
+  "architecture": "repbench.models.outfit_transformer.OutfitTransformer (v1, unchanged)",
+  "early_stopping": "validation CP ROC-AUC, patience 10",
+  "max_epochs": 100,
+  "batch_size": 50
+}

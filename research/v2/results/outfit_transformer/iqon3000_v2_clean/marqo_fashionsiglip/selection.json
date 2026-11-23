@@ -1,0 +1,101 @@
+{
+  "rule": "highest mean best-validation CP AUC across seeds; ties -> smaller lr",
+  "selected_lr": 0.0003,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "grid": [
+    {
+      "lr": 0.0003,
+      "mean": 0.8818642418231534,
+      "std": 0.0014445748443986906,
+      "count": 5
+    },
+    {
+      "lr": 0.0001,
+      "mean": 0.8796571489675784,
+      "std": 0.0016080910338669419,
+      "count": 5
+    }
+  ],
+  "runs": [
+    {
+      "lr": 0.0001,
+      "seed": 42,
+      "best_valid_auc": 0.8816189421012026,
+      "best_epoch": 15,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0001,
+      "seed": 43,
+      "best_valid_auc": 0.8795230673064127,
+      "best_epoch": 11,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0001,
+      "seed": 44,
+      "best_valid_auc": 0.8772911710853207,
+      "best_epoch": 12,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0001,
+      "seed": 45,
+      "best_valid_auc": 0.8805322938054214,
+      "best_epoch": 12,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0001,
+      "seed": 46,
+      "best_valid_auc": 0.8793202705395348,
+      "best_epoch": 9,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0003,
+      "seed": 42,
+      "best_valid_auc": 0.8812318331173401,
+      "best_epoch": 9,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0003,
+      "seed": 43,
+      "best_valid_auc": 0.8816597055596124,
+      "best_epoch": 11,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0003,
+      "seed": 44,
+      "best_valid_auc": 0.8818389995550817,
+      "best_epoch": 18,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0003,
+      "seed": 45,
+      "best_valid_auc": 0.8842360942472951,
+      "best_epoch": 13,
+      "early_stopping_fired": true
+    },
+    {
+      "lr": 0.0003,
+      "seed": 46,
+      "best_valid_auc": 0.8803545766364375,
+      "best_epoch": 25,
+      "early_stopping_fired": true
+    }
+  ],
+  "early_stopping_fired_count": 10,
+  "runs_total": 10,
+  "run_json_sha256": "dc45aa60d85774917cd8d3fd8e4f43d50aaadb5f2cb7844f01a3813397da8e5e",
+  "created_utc": "2026-11-23T18:52:31.583275+00:00"
+}

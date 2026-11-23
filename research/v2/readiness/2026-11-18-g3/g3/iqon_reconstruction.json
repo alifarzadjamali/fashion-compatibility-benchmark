@@ -1,0 +1,61 @@
+{
+  "gate_part": "G3 revised split reconstruction (metric reproduction still required)",
+  "dataset": "iqon3000_clean",
+  "status": "PASS",
+  "counts": [
+    [
+      86800,
+      12400,
+      24800
+    ],
+    [
+      86800,
+      12400,
+      24800
+    ]
+  ],
+  "published_expected_counts": [
+    86800,
+    12400,
+    24800
+  ],
+  "two_rebuild_hashes_match": true,
+  "hashes": [
+    {
+      "compatibility_test.txt": "ef81bfefe659c1020eaa3d8dd2b8dc5e3c6b75c17ecc33c08d67cbd1a96180c9",
+      "compatibility_train.txt": "c5325a611e4f9dba6eb89ab9194d7bec027c99762d1063d4aa2f85488cbc2dea",
+      "compatibility_valid.txt": "6301ca45af3fe0e1cfbb8a1cad8b82eb8941cee0e405ca6795204e92add5e907",
+      "fill_in_blank_test.json": "3e210abbf9dd17a3b48f620e98771be4ed6b20a504d32dd1cfc745b5f3af0091",
+      "fill_in_blank_train.json": "12d7beab86c6d24d1f4f5032325e8df7208d0d0e1f2cae353d679d6f869d09aa",
+      "fill_in_blank_valid.json": "8c77d27f5eb528e40a862be3246d38b39a58f830860f0adcaf6c701a3a69b2e7",
+      "group_ids_test.json": "d338f99b30a43b12b31a388edec32ffe7e61ab3ba08f2cc6cc129148205f0d0d",
+      "group_ids_train.json": "414f791f880ac8a078d5485b49df5e8e23d9a2ffd485823f3624a12a12a72e63",
+      "group_ids_valid.json": "d405b9f1b2cb74e02b0e6336a338c7998e3a3a8dff8c571e24aecf7a51239b73",
+      "manifest.json": "2405e875b54a0b2d87801e88ee0b7ae0a65c9b77e46bdae9a55a15948987b634",
+      "test.json": "34af102984971bf9b1fd0aee5933e90b5c025fd6108ee69db07a8be30b6f865f",
+      "train.json": "a872d2c2c4af2b722b67f6715314aca9441c84fca6ed730e72d7b69b98e5a8a1",
+      "valid.json": "e83c880d48287caa9e34786900afd17c9c8583a612c13bf7222069b1ed4ba3ec"
+    },
+    {
+      "compatibility_test.txt": "ef81bfefe659c1020eaa3d8dd2b8dc5e3c6b75c17ecc33c08d67cbd1a96180c9",
+      "compatibility_train.txt": "c5325a611e4f9dba6eb89ab9194d7bec027c99762d1063d4aa2f85488cbc2dea",
+      "compatibility_valid.txt": "6301ca45af3fe0e1cfbb8a1cad8b82eb8941cee0e405ca6795204e92add5e907",
+      "fill_in_blank_test.json": "3e210abbf9dd17a3b48f620e98771be4ed6b20a504d32dd1cfc745b5f3af0091",
+      "fill_in_blank_train.json": "12d7beab86c6d24d1f4f5032325e8df7208d0d0e1f2cae353d679d6f869d09aa",
+      "fill_in_blank_valid.json": "8c77d27f5eb528e40a862be3246d38b39a58f830860f0adcaf6c701a3a69b2e7",
+      "group_ids_test.json": "d338f99b30a43b12b31a388edec32ffe7e61ab3ba08f2cc6cc129148205f0d0d",
+      "group_ids_train.json": "414f791f880ac8a078d5485b49df5e8e23d9a2ffd485823f3624a12a12a72e63",
+      "group_ids_valid.json": "d405b9f1b2cb74e02b0e6336a338c7998e3a3a8dff8c571e24aecf7a51239b73",
+      "manifest.json": "2405e875b54a0b2d87801e88ee0b7ae0a65c9b77e46bdae9a55a15948987b634",
+      "test.json": "34af102984971bf9b1fd0aee5933e90b5c025fd6108ee69db07a8be30b6f865f",
+      "train.json": "a872d2c2c4af2b722b67f6715314aca9441c84fca6ed730e72d7b69b98e5a8a1",
+      "valid.json": "e83c880d48287caa9e34786900afd17c9c8583a612c13bf7222069b1ed4ba3ec"
+    }
+  ],
+  "rebuild_seconds": [
+    50.565203557984205,
+    54.48819229999208
+  ],
+  "published_reference_sha256": "b328321f0558a214e5dc29936235f2663423bc77f000c200acbba5f33e8bf169",
+  "original_split_identity": "UNVERIFIABLE: original files/hashes unavailable"
+}

@@ -1,0 +1,623 @@
+{
+  "protocol": "pog_clean",
+  "version": "0.1-provisional",
+  "construction_seed": 20260912,
+  "question_seeds": {
+    "train": 20270912,
+    "valid": 20280912,
+    "test": 20290912
+  },
+  "target_selection": {
+    "function": "scripts/v2/pog_download.py:load_target",
+    "rule": "random.Random(seed).sample(sorted (outfit_id, items) tuples, n)",
+    "seed": 20261118,
+    "requested_outfits": 124000,
+    "selected_outfits": 124000,
+    "selected_items": 184339,
+    "target_outfit_ids_sha256": "e4d407891f930b23250cf6375aaf3e2359ada13c61ca6e5f4a936ca3635d7218"
+  },
+  "inputs": {
+    "item_data": {
+      "name": "item_data.txt",
+      "sha256": "2d2676cac8fa1f5df2a56f776d202a2e1f760506d6670e346a0b855f8eb4183f"
+    },
+    "outfit_data": {
+      "name": "outfit_data.txt",
+      "sha256": "37bf8845cc59e53985fbc8bcd15153f8ff5937957c1d03944f4afb7db354a68a"
+    },
+    "download_manifest": {
+      "name": "manifest.jsonl",
+      "sha256": "0e4d669e4d562577a9918ebba7fc0709bff5207a363700fcd85f084eac2f1ccf",
+      "records": 183806,
+      "invalid_or_torn_lines": 0
+    },
+    "user_clicks": {
+      "name": "pog_user_clicks.json",
+      "sha256": "f496dcbdb440e4b4c4df0c0da7ef302ebedb055ec761babf792088ab19b3f600",
+      "source": {
+        "rule": "min_user_id: lexicographically smallest user_id whose line names the outfit",
+        "scan_counts": {
+          "lines": 19191117,
+          "lines_with_outfit": 19191117,
+          "target_outfit_clicks": 2428654
+        },
+        "source": {
+          "name": "user_data.txt",
+          "sha256": "ab508788a613ed3cb2abef1fad218d800a39935322e6f362e1a7d1921c36cc25",
+          "bytes": 21755657055,
+          "target_seed": 20261118,
+          "target_outfits": 124000,
+          "target_outfits_clicked": 15519
+        }
+      }
+    }
+  },
+  "settings": {
+    "split_ratios": {
+      "train": 0.7,
+      "valid": 0.1,
+      "test": 0.2
+    },
+    "min_distinct_images_per_category_per_split": 10,
+    "category_map": {
+      "name": "identity_cate_id",
+      "sha256": "identity"
+    },
+    "image_identity": "sha256 of downloaded image bytes",
+    "group_rule": "user:<smallest clicking user_id>, else unclicked:<outfit_id>"
+  },
+  "construction_rules": [
+    "Positive pool is the frozen 124k image-acquisition target (load_target, seed 20261118).",
+    "Drop outfits with fewer than two items or a repeated item.",
+    "Drop outfits containing an item without cate_id or pic_url.",
+    "Drop outfits containing an item absent from the download manifest (if given).",
+    "Keep the smallest outfit_id of duplicate sorted item-ID tuples.",
+    "Treat image identity (SHA-256 of bytes, else item ID) as indivisible hypergraph nodes.",
+    "Traverse outfits in a seeded permutation; join the owning split; seed new outfits into the split with the largest deficit against the 70/10/20 ratio; discard outfits touching nodes owned by two splits.",
+    "Within each split drop outfits in categories with fewer than the minimum distinct images (fixed point), so same-category questions can be generated.",
+    "Generate one category/length-matched CP negative and one four-way same-category FITB question per outfit, within split only, with distinct image identities.",
+    "Never use user IDs as model features; they only define bootstrap clusters."
+  ],
+  "provisional_decisions": [
+    "Category map for same-category negatives defaults to identity on fine-grained cate_id.",
+    "Packing uses proportional seeding instead of IQON fixed capacities (fixed image pool).",
+    "Bootstrap user group = smallest user_id among users who clicked the outfit.",
+    "Categories with fewer than 10 distinct images in a split are excluded there."
+  ],
+  "retention": {
+    "stages": [
+      {
+        "rule": "fewer_than_two_or_repeated_items",
+        "outfits_dropped": 0,
+        "outfits_remaining": 124000
+      },
+      {
+        "rule": "item_without_category_or_url",
+        "outfits_dropped": 0,
+        "outfits_remaining": 124000
+      },
+      {
+        "rule": "item_image_unavailable",
+        "outfits_dropped": 792,
+        "outfits_remaining": 123208
+      },
+      {
+        "rule": "duplicate_item_tuple",
+        "outfits_dropped": 474,
+        "outfits_remaining": 122734
+      },
+      {
+        "rule": "packing_conflict",
+        "outfits_dropped": 45805,
+        "outfits_remaining": 76929
+      },
+      {
+        "rule": "insufficient_category_support",
+        "outfits_dropped": 80,
+        "outfits_remaining": 76849
+      }
+    ],
+    "final_outfits": 76849,
+    "final_fraction_of_target": 0.61975,
+    "selection_effect": {
+      "target": {
+        "outfits": 124000,
+        "length_counts": {
+          "3": 60732,
+          "4": 47526,
+          "5": 14423,
+          "6": 1236,
+          "7": 80,
+          "8": 2,
+          "9": 1
+        },
+        "mean_length": 3.6485,
+        "mean_item_target_degree": 19.0444,
+        "median_item_target_degree": 4.0,
+        "top_cate_id_shares": {
+          "664162d351ab59ea042546db288bbf7c": 0.13882,
+          "126c091a8ff171f694733a624089e68a": 0.1015,
+          "b608ccb44928992e75009892971acd46": 0.06476,
+          "a6cd655d1645f38869be793d5fb194cb": 0.05418,
+          "2450d5bfc87a1f5b96e2837f5c87a70c": 0.05028,
+          "852a581f78e4f4d7ecf9972a038e440c": 0.04806,
+          "95c3a26ab13f3ec5cd28a281e3685e7b": 0.04538,
+          "3e600277f4bf92983bf6fcb0ac09e0d7": 0.0405,
+          "fc528592c3858f90196fbfacc814f235": 0.03495,
+          "03bfc1d4783966c69cc6aef8247e0103": 0.02831,
+          "8476c833956c74092868c24514562b0b": 0.02333,
+          "46eacb79120159c0d446c08e1f671b0f": 0.02231,
+          "022ab423f035b47ac0af5046c51ed093": 0.02104,
+          "6eb82f81b7105a1112fec1bb3c8dd62b": 0.01997,
+          "de802e3a05e11e88ddd894aa58e0f4d9": 0.01908
+        }
+      },
+      "retained": {
+        "outfits": 76849,
+        "length_counts": {
+          "3": 42543,
+          "4": 26956,
+          "5": 6748,
+          "6": 572,
+          "7": 29,
+          "9": 1
+        },
+        "mean_length": 3.5503,
+        "mean_item_target_degree": 15.0824,
+        "median_item_target_degree": 3.0,
+        "top_cate_id_shares": {
+          "664162d351ab59ea042546db288bbf7c": 0.13192,
+          "126c091a8ff171f694733a624089e68a": 0.10149,
+          "b608ccb44928992e75009892971acd46": 0.06171,
+          "a6cd655d1645f38869be793d5fb194cb": 0.05325,
+          "2450d5bfc87a1f5b96e2837f5c87a70c": 0.05125,
+          "852a581f78e4f4d7ecf9972a038e440c": 0.04764,
+          "3e600277f4bf92983bf6fcb0ac09e0d7": 0.04378,
+          "95c3a26ab13f3ec5cd28a281e3685e7b": 0.04223,
+          "fc528592c3858f90196fbfacc814f235": 0.03747,
+          "03bfc1d4783966c69cc6aef8247e0103": 0.02908,
+          "46eacb79120159c0d446c08e1f671b0f": 0.02415,
+          "8476c833956c74092868c24514562b0b": 0.02264,
+          "6eb82f81b7105a1112fec1bb3c8dd62b": 0.02121,
+          "022ab423f035b47ac0af5046c51ed093": 0.02113,
+          "bc11aa63d5a69b1b0f90c34fd2c62102": 0.02042
+        }
+      },
+      "discarded": {
+        "outfits": 47151,
+        "length_counts": {
+          "3": 18189,
+          "4": 20570,
+          "5": 7675,
+          "6": 664,
+          "7": 51,
+          "8": 2
+        },
+        "mean_length": 3.8086,
+        "mean_item_target_degree": 25.0639,
+        "median_item_target_degree": 7.0,
+        "top_cate_id_shares": {
+          "664162d351ab59ea042546db288bbf7c": 0.1493,
+          "126c091a8ff171f694733a624089e68a": 0.10151,
+          "b608ccb44928992e75009892971acd46": 0.06938,
+          "a6cd655d1645f38869be793d5fb194cb": 0.0556,
+          "95c3a26ab13f3ec5cd28a281e3685e7b": 0.05016,
+          "2450d5bfc87a1f5b96e2837f5c87a70c": 0.04882,
+          "852a581f78e4f4d7ecf9972a038e440c": 0.04871,
+          "3e600277f4bf92983bf6fcb0ac09e0d7": 0.03552,
+          "fc528592c3858f90196fbfacc814f235": 0.03111,
+          "03bfc1d4783966c69cc6aef8247e0103": 0.02716,
+          "8476c833956c74092868c24514562b0b": 0.02438,
+          "022ab423f035b47ac0af5046c51ed093": 0.02092,
+          "de802e3a05e11e88ddd894aa58e0f4d9": 0.0198,
+          "46eacb79120159c0d446c08e1f671b0f": 0.0195,
+          "6eb82f81b7105a1112fec1bb3c8dd62b": 0.01809
+        }
+      },
+      "discarded_by_packing_conflict": {
+        "outfits": 45805,
+        "length_counts": {
+          "3": 17451,
+          "4": 20140,
+          "5": 7521,
+          "6": 643,
+          "7": 48,
+          "8": 2
+        },
+        "mean_length": 3.8146,
+        "mean_item_target_degree": 25.2865,
+        "median_item_target_degree": 7.0,
+        "top_cate_id_shares": {
+          "664162d351ab59ea042546db288bbf7c": 0.15014,
+          "126c091a8ff171f694733a624089e68a": 0.10198,
+          "b608ccb44928992e75009892971acd46": 0.06947,
+          "a6cd655d1645f38869be793d5fb194cb": 0.05551,
+          "95c3a26ab13f3ec5cd28a281e3685e7b": 0.05064,
+          "2450d5bfc87a1f5b96e2837f5c87a70c": 0.04913,
+          "852a581f78e4f4d7ecf9972a038e440c": 0.04848,
+          "3e600277f4bf92983bf6fcb0ac09e0d7": 0.03537,
+          "fc528592c3858f90196fbfacc814f235": 0.03112,
+          "03bfc1d4783966c69cc6aef8247e0103": 0.02693,
+          "8476c833956c74092868c24514562b0b": 0.02439,
+          "022ab423f035b47ac0af5046c51ed093": 0.02087,
+          "de802e3a05e11e88ddd894aa58e0f4d9": 0.01996,
+          "46eacb79120159c0d446c08e1f671b0f": 0.01941,
+          "6eb82f81b7105a1112fec1bb3c8dd62b": 0.01802
+        }
+      }
+    }
+  },
+  "image_identity_groups_shared_by_multiple_items": 325,
+  "pool_components": {
+    "outfits": 122734,
+    "components": 4864,
+    "largest_component_outfits": 117334,
+    "largest_component_fraction": 0.956002,
+    "singleton_components": 4425,
+    "top_component_sizes": [
+      117334,
+      8,
+      7,
+      7,
+      6,
+      5,
+      5,
+      4,
+      4,
+      4
+    ]
+  },
+  "packing": {
+    "conflict_outfits_discarded": 45805,
+    "new_component_seeds": {
+      "train": 5626,
+      "valid": 3680,
+      "test": 6257
+    }
+  },
+  "category_support": {
+    "train": {
+      "outfits_dropped": 18,
+      "categories_excluded": [
+        "1fcbc792419d9edeed509ae4f390777d",
+        "2f31c28c89277ed7b750018066a28b35",
+        "a2c7889c9b8e05ec019b2923c4670302"
+      ],
+      "rounds": 2
+    },
+    "valid": {
+      "outfits_dropped": 20,
+      "categories_excluded": [
+        "1fcbc792419d9edeed509ae4f390777d",
+        "24ba242c5b46bb809b6ce85d8c6253e3",
+        "2e556f733e5e696b332938be598b68de",
+        "a2c7889c9b8e05ec019b2923c4670302",
+        "ab493384339108f4d90b1ae4d5a5ee3d",
+        "f08f67db51ee90dabdbcecddebbaf68f"
+      ],
+      "rounds": 2
+    },
+    "test": {
+      "outfits_dropped": 42,
+      "categories_excluded": [
+        "1fcbc792419d9edeed509ae4f390777d",
+        "24ba242c5b46bb809b6ce85d8c6253e3",
+        "2e556f733e5e696b332938be598b68de",
+        "2f31c28c89277ed7b750018066a28b35",
+        "6d399e81b6d56cdf82bed9c5b35a1885",
+        "9c80fa017627ab176669bf12c88736d4",
+        "cd6dcd4f56cf59b77135a6e4afb62105",
+        "f08f67db51ee90dabdbcecddebbaf68f",
+        "f73f5bb4371910a73adda7055c3bf9cc"
+      ],
+      "rounds": 2
+    }
+  },
+  "splits": {
+    "train": {
+      "outfits": 54626,
+      "unique_items": 96291,
+      "unique_image_identities": 95958,
+      "outfit_length_counts": {
+        "3": 28525,
+        "4": 20167,
+        "5": 5445,
+        "6": 461,
+        "7": 28
+      },
+      "semantic_categories": 68,
+      "item_components": {
+        "outfits": 54626,
+        "components": 1509,
+        "largest_component_outfits": 52641,
+        "largest_component_fraction": 0.963662,
+        "singleton_components": 1176,
+        "top_component_sizes": [
+          52641,
+          9,
+          8,
+          8,
+          6,
+          6,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      "groups": {
+        "groups": 54367,
+        "largest_group_outfits": 6,
+        "largest_group_fraction": 0.00011,
+        "singleton_groups": 54145,
+        "unclicked_outfits": 47584,
+        "top_group_sizes": [
+          6,
+          6,
+          5,
+          5,
+          5,
+          4,
+          4,
+          4,
+          3,
+          3
+        ]
+      },
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 54626,
+        "cp_negative_count": 54626,
+        "cp_unique_negative_count": 54626,
+        "cp_negative_item_usage_max": 5,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 54626,
+        "fitb_answer_index_counts": {
+          "0": 13657,
+          "1": 13657,
+          "2": 13656,
+          "3": 13656
+        },
+        "fitb_distractor_item_usage_max": 4
+      },
+      "sha256": {
+        "train.json": "918563d3179c999c967615842b903be0caac7cdc1940bf763a44cd359b6efdfc",
+        "compatibility_train.txt": "9e3efa3f6e64149da39d880b5d485f7fb865f9dfb0e1d83bc61ebd12a8820ce6",
+        "fill_in_blank_train.json": "b6c6d990f56b5f49a7e25ebb49c094fc547634be8c342546fe891f9c9ddf2169",
+        "group_ids_train.json": "770caf7e697665f3741ef92840beeb0cbe92b6df35d333341d05eca6ca75643c"
+      }
+    },
+    "valid": {
+      "outfits": 7276,
+      "unique_items": 20609,
+      "unique_image_identities": 20597,
+      "outfit_length_counts": {
+        "3": 4642,
+        "4": 2161,
+        "5": 439,
+        "6": 33,
+        "7": 1
+      },
+      "semantic_categories": 64,
+      "item_components": {
+        "outfits": 7276,
+        "components": 3295,
+        "largest_component_outfits": 2235,
+        "largest_component_fraction": 0.307174,
+        "singleton_components": 2564,
+        "top_component_sizes": [
+          2235,
+          223,
+          31,
+          30,
+          28,
+          14,
+          13,
+          13,
+          13,
+          12
+        ]
+      },
+      "groups": {
+        "groups": 7270,
+        "largest_group_outfits": 2,
+        "largest_group_fraction": 0.000275,
+        "singleton_groups": 7264,
+        "unclicked_outfits": 6372,
+        "top_group_sizes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 7276,
+        "cp_negative_count": 7276,
+        "cp_unique_negative_count": 7276,
+        "cp_negative_item_usage_max": 3,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 7276,
+        "fitb_answer_index_counts": {
+          "0": 1819,
+          "1": 1819,
+          "2": 1819,
+          "3": 1819
+        },
+        "fitb_distractor_item_usage_max": 3
+      },
+      "sha256": {
+        "valid.json": "cc410c09a11f70cc8dc5320ca8521bef0d193f7655ca27f3a2db7b4addb68405",
+        "compatibility_valid.txt": "a3bcad0d7e3a0d3eaa7acfc139befa2b4829d66e51c931ed6b8713fcf751b0b2",
+        "fill_in_blank_valid.json": "dc95a212816254bbd486ee0b68e1a70f55c0b9ff002e7652242fc4d19f063722",
+        "group_ids_valid.json": "2e9a283450d25c87df891749c0634e1bc00a8b5aa9db9872e0ae61aafcc25245"
+      }
+    },
+    "test": {
+      "outfits": 14947,
+      "unique_items": 39447,
+      "unique_image_identities": 39404,
+      "outfit_length_counts": {
+        "3": 9376,
+        "4": 4628,
+        "5": 864,
+        "6": 78,
+        "9": 1
+      },
+      "semantic_categories": 64,
+      "item_components": {
+        "outfits": 14947,
+        "components": 4902,
+        "largest_component_outfits": 8403,
+        "largest_component_fraction": 0.562186,
+        "singleton_components": 3972,
+        "top_component_sizes": [
+          8403,
+          21,
+          15,
+          14,
+          13,
+          12,
+          12,
+          11,
+          9,
+          9
+        ]
+      },
+      "groups": {
+        "groups": 14927,
+        "largest_group_outfits": 2,
+        "largest_group_fraction": 0.000134,
+        "singleton_groups": 14907,
+        "unclicked_outfits": 12997,
+        "top_group_sizes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 14947,
+        "cp_negative_count": 14947,
+        "cp_unique_negative_count": 14947,
+        "cp_negative_item_usage_max": 3,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 14947,
+        "fitb_answer_index_counts": {
+          "0": 3737,
+          "1": 3737,
+          "2": 3737,
+          "3": 3736
+        },
+        "fitb_distractor_item_usage_max": 3
+      },
+      "sha256": {
+        "test.json": "234e5e7798f07a7534d92549ee7ee049e771f238dfb9a89bec4a10eaaa18869d",
+        "compatibility_test.txt": "a167e4c21dd7abb4f7a668f66282639a6820101aaed2d20a228bb6ec7c0d5bb3",
+        "fill_in_blank_test.json": "0acc14ef52425dffa42c2b2df736d3ed8c85b758a2d5c93b065614753a56345c",
+        "group_ids_test.json": "6c459f0212e09125b62789f600daa99c4e3aab09edcd4ed9a90acf456bbfec76"
+      }
+    }
+  },
+  "image_paths": {
+    "file": "image_paths.json",
+    "extension_resolved": true,
+    "note": "POG images live at images/<id[:2]>/<id>.<png|jpeg|webp|gif> under the mirror root; PolyvoreDisjoint.image_path assumes images/<id>.jpg, so a POG-aware resolver is required."
+  },
+  "auxiliary_sha256": {
+    "polyvore_item_metadata.json": "dcc149cd60ef16b8df1b0d9005d233d42892b269a3e29b7eeb0601bb837b4079",
+    "image_paths.json": "6eea57b6f1972677258e4dc3704000035c58070e657f810d79f4e357c5240171",
+    "retention_dropped_outfits.json": "001d292416da431e2d337bfaea1e5ba91087b87b9225f1158122c1a586905d32"
+  },
+  "audit": {
+    "cross_split": {
+      "train_valid": {
+        "item_ids": 0,
+        "image_identities": 0,
+        "outfit_tuples": 0
+      },
+      "train_test": {
+        "item_ids": 0,
+        "image_identities": 0,
+        "outfit_tuples": 0
+      },
+      "valid_test": {
+        "item_ids": 0,
+        "image_identities": 0,
+        "outfit_tuples": 0
+      }
+    },
+    "splits": {
+      "train": {
+        "outfits": 54626,
+        "duplicate_outfit_tuples": 0,
+        "cp_positive": 54626,
+        "cp_negative": 54626,
+        "cp_balanced": true,
+        "cp_category_and_length_matched": true,
+        "cp_negative_duplicates": 0,
+        "cp_negative_equals_positive": 0,
+        "fitb_questions": 54626,
+        "fitb_invalid": 0,
+        "fitb_answer_index_counts": {
+          "0": 13657,
+          "1": 13657,
+          "2": 13656,
+          "3": 13656
+        }
+      },
+      "valid": {
+        "outfits": 7276,
+        "duplicate_outfit_tuples": 0,
+        "cp_positive": 7276,
+        "cp_negative": 7276,
+        "cp_balanced": true,
+        "cp_category_and_length_matched": true,
+        "cp_negative_duplicates": 0,
+        "cp_negative_equals_positive": 0,
+        "fitb_questions": 7276,
+        "fitb_invalid": 0,
+        "fitb_answer_index_counts": {
+          "0": 1819,
+          "1": 1819,
+          "2": 1819,
+          "3": 1819
+        }
+      },
+      "test": {
+        "outfits": 14947,
+        "duplicate_outfit_tuples": 0,
+        "cp_positive": 14947,
+        "cp_negative": 14947,
+        "cp_balanced": true,
+        "cp_category_and_length_matched": true,
+        "cp_negative_duplicates": 0,
+        "cp_negative_equals_positive": 0,
+        "fitb_questions": 14947,
+        "fitb_invalid": 0,
+        "fitb_answer_index_counts": {
+          "0": 3737,
+          "1": 3737,
+          "2": 3737,
+          "3": 3736
+        }
+      }
+    },
+    "passes": true
+  }
+}

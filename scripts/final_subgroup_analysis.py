@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_auc_score
@@ -103,7 +105,7 @@ def run_dataset(dataset_name: str, dataset_root: Path, protocol_root: Path) -> p
 def main() -> None:
     results = pd.concat((
         run_dataset("polyvore_d_clean", Path("data/raw/polyvore_outfits"), Path("data/protocols/polyvore_d_clean")),
-        run_dataset("iqon3000_clean", Path(".venv/iqon3000_clean"), Path("data/protocols/iqon3000_clean")),
+        run_dataset("iqon3000_clean", data_path("iqon3000_clean"), Path("data/protocols/iqon3000_clean")),
     ), ignore_index=True)
     table_root = Path("reports/tables/final")
     results.to_csv(table_root / "subgroup_performance.csv", index=False)

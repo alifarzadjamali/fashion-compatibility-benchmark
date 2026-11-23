@@ -1,0 +1,23 @@
+{
+  "source": "polyvore",
+  "source_page": "https://www.kaggle.com/datasets/yiitcandeime/polyvore",
+  "expected_sha256": null,
+  "provider_version": 1,
+  "checksum_established_now": true,
+  "utc": "2026-11-18T14:37:03.982449+00:00",
+  "existing_partial_bytes": 0,
+  "transfer_wall_seconds": 56.29477105301339,
+  "curl_returncode": 0,
+  "transfer": {
+    "http_code": 200,
+    "size_download": 2525121973,
+    "speed_download": 44862781,
+    "time_total": 56.285453,
+    "num_redirects": 1
+  },
+  "sha256": "03f00b1253dff35c2e9431e84aad9d9a02969f57e57d05975dee38906141f74e",
+  "checksum_seconds": 1.131818641006248,
+  "bytes": 2525121973,
+  "status": "ACQUIRED_PENDING_CONTENT_AUDIT",
+  "total_seconds": 57.4390532450052
+}

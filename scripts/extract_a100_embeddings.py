@@ -8,6 +8,8 @@ import json
 from datetime import UTC, datetime
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 import numpy as np
 
 from repbench.encoders.hf_encoder import HuggingFaceImageEncoder
@@ -18,8 +20,8 @@ from repbench.encoders.torchvision_encoder import ResNet50Encoder
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--images", type=Path, default=Path(".venv/a100/images"))
-    parser.add_argument("--output", type=Path, default=Path(".venv/a100/embeddings"))
+    parser.add_argument("--images", type=Path, default=data_path("a100/images"))
+    parser.add_argument("--output", type=Path, default=data_path("a100/embeddings"))
     parser.add_argument("--models", nargs="+", default=list(PRIMARY_MODEL_KEYS))
     parser.add_argument("--batch-size", type=int, default=64)
     parser.add_argument("--skip-valid-existing", action="store_true")

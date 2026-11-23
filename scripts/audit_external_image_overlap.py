@@ -7,6 +7,8 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 import pandas as pd
 from PIL import Image
 
@@ -28,12 +30,12 @@ def hash_paths(paths: list[Path]) -> tuple[set[str], set[str]]:
 
 
 def main() -> None:
-    a100_paths = sorted(Path(".venv/a100/images").glob("*.jpg"))
+    a100_paths = sorted(data_path("a100/images").glob("*.jpg"))
     polyvore_paths = sorted(Path("data/raw/polyvore_outfits/images").glob("*.jpg"))
     a100_encoded, a100_decoded = hash_paths(a100_paths)
     polyvore_encoded, polyvore_decoded = hash_paths(polyvore_paths)
     iqon = pd.read_parquet(
-        ".venv/iqon_audit/catalog/image_audit_resolved.parquet",
+        data_path("iqon_audit/catalog/image_audit_resolved.parquet"),
         columns=["encoded_sha256", "decoded_rgb_sha256"],
     )
     iqon_encoded = set(iqon.encoded_sha256.dropna())

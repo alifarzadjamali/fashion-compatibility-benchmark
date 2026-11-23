@@ -1,0 +1,23 @@
+{
+  "gate_part": "G6 speed test (planning measurement)",
+  "utc": "2026-11-18T17:20:00.798470+00:00",
+  "model": "gr_lite",
+  "checkpoint": "srpone/gr-lite",
+  "revision": "a8057f8aadaaab91670ad37949f6e1b5aa187e29",
+  "images": 5000,
+  "image_source": "Polyvore-D-Clean train images, seeded sample (development data)",
+  "seed": 20261118,
+  "batch_size": 32,
+  "cpu_prep_threads": 8,
+  "dtype": "bfloat16",
+  "embedding_dim": 1024,
+  "load_seconds": 1.63,
+  "end_to_end_seconds": 32.76,
+  "end_to_end_images_per_second": 152.63,
+  "gpu_forward_seconds": 32.43,
+  "gpu_images_per_second": 154.19,
+  "cpu_prep_seconds_summed_over_threads": 42.89,
+  "bottleneck": "gpu",
+  "allocator_peak_gb": 0.92,
+  "concurrent_load_note": "concurrent: POG CDN image download (network-bound, ~1 CPU core)"
+}

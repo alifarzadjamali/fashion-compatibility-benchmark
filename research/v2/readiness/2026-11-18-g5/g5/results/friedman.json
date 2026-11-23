@@ -1,0 +1,196 @@
+{
+ "label": "descriptive",
+ "models": [
+  "resnet50",
+  "siglip2_so400m_384",
+  "qwen3_vl_emb_2b"
+ ],
+ "blocks": [
+  "iqon3000_clean/native/logistic",
+  "iqon3000_clean/native/mlp",
+  "iqon3000_clean/native/xgboost",
+  "iqon3000_clean/native+abs_product_sum/logistic",
+  "iqon3000_clean/pca128/mlp",
+  "iqon3000_clean/pca128/xgboost",
+  "iqon3000_clean/pca256/logistic",
+  "iqon3000_clean/pca256/mlp",
+  "iqon3000_clean/pca256/xgboost",
+  "iqon3000_clean/pca512/logistic",
+  "iqon3000_clean/pca512/mlp",
+  "iqon3000_clean/pca512/xgboost",
+  "polyvore_d_clean/native/logistic",
+  "polyvore_d_clean/native/mlp",
+  "polyvore_d_clean/native/xgboost",
+  "polyvore_d_clean/native+abs_product_sum/logistic",
+  "polyvore_d_clean/pca128/logistic",
+  "polyvore_d_clean/pca128/mlp",
+  "polyvore_d_clean/pca128/xgboost",
+  "polyvore_d_clean/pca256/logistic",
+  "polyvore_d_clean/pca256/mlp",
+  "polyvore_d_clean/pca256/xgboost",
+  "polyvore_d_clean/pca512/logistic",
+  "polyvore_d_clean/pca512/mlp",
+  "polyvore_d_clean/pca512/xgboost"
+ ],
+ "n_blocks": 25,
+ "n_models": 3,
+ "higher_is_better": true,
+ "ranks": [
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   2.0,
+   1.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   2.0,
+   1.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   1.0,
+   2.0
+  ],
+  [
+   3.0,
+   2.0,
+   1.0
+  ]
+ ],
+ "average_ranks": {
+  "resnet50": 3.0,
+  "siglip2_so400m_384": 1.12,
+  "qwen3_vl_emb_2b": 1.88
+ },
+ "friedman_chi2": 44.72,
+ "friedman_df": 2,
+ "friedman_pvalue": 1.9461458507251594e-10,
+ "iman_davenport_f": 203.27272727272722,
+ "iman_davenport_pvalue": 3.697720123218988e-24,
+ "kendall_w": 0.8944,
+ "alpha": 0.05,
+ "nemenyi_q": 2.343700586378409,
+ "critical_difference": 0.6628986310796243,
+ "nemenyi_significant": [
+  [
+   0,
+   1,
+   1
+  ],
+  [
+   1,
+   0,
+   1
+  ],
+  [
+   1,
+   1,
+   0
+  ]
+ ]
+}

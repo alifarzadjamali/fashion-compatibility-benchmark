@@ -6,6 +6,8 @@ import json
 from collections import Counter
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 import numpy as np
 import pandas as pd
 
@@ -36,7 +38,7 @@ def counters(rows: list[dict]) -> tuple[Counter, Counter, Counter]:
 
 def main() -> None:
     protocol = Path("data/protocols/iqon3000_clean")
-    source = pd.read_parquet(".venv/iqon_audit/catalog/outfits.parquet")
+    source = pd.read_parquet(data_path("iqon_audit/catalog/outfits.parquet"))
     eligible = source[
         source.item_ids.map(lambda values: len(values) >= 2 and len(values) == len(set(values)))
     ].copy()

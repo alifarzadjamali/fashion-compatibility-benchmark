@@ -1,0 +1,42 @@
+{
+  "model_key": "openclip_b32_laion2b",
+  "spec": {
+    "model_key": "openclip_b32_laion2b",
+    "checkpoint": "laion/CLIP-ViT-B-32-laion2B-s34B-b79K",
+    "revision": "1a25a446712ba5ee05982a381eed697ef9b435cf",
+    "family": "generic_vision_language",
+    "input_resolution": 224,
+    "embedding_dim": 512,
+    "trust_remote_code": false,
+    "use_safetensors": true,
+    "backend": "open_clip_hub",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "2a9fa84ef5d378007824ecfc2529eabfcc00c6a28785c01840bbe55927713157",
+  "utc": "2026-11-18T14:20:07.794148+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "PASS",
+  "download_seconds": 7.086759180005174,
+  "new_hf_cache_bytes": 605143920,
+  "hf_effective_mib_per_second": 81.43499723564433,
+  "download_measurement": "new HF blob bytes / snapshot wall time; cache hits included; not wire bytes",
+  "load_seconds": 2.007749121024972,
+  "attention_method": "sdpa",
+  "image_tower_parameters": 87849216,
+  "total_parameters": 151277313,
+  "preprocess_and_transfer_seconds": 0.09266663799644448,
+  "two_smoke_passes_seconds": 0.2873152959800791,
+  "peak_allocator_bytes": 421580800,
+  "shape": [
+    64,
+    512
+  ],
+  "max_cosine_drift": 2.384185791015625e-07,
+  "checks": {
+    "finite": true,
+    "expected_shape": true,
+    "deterministic_within_1e_3": true,
+    "bf16": true
+  },
+  "total_seconds": 9.529604174982524
+}

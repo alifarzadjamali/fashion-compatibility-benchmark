@@ -1,0 +1,20 @@
+{
+  "source": "a100",
+  "source_page": "https://github.com/AemikaChow/AiDLab-fAshIon-Data/blob/main/Datasets/A100.md",
+  "expected_sha256": "31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829",
+  "provider_version": null,
+  "checksum_established_now": false,
+  "utc": "2026-11-18T14:31:14.744082+00:00",
+  "existing_partial_bytes": 0,
+  "transfer_wall_seconds": 1.5054708310053684,
+  "curl_returncode": 22,
+  "transfer": {
+    "http_code": 403,
+    "size_download": 0,
+    "speed_download": 0,
+    "time_total": 1.50009,
+    "num_redirects": 1
+  },
+  "status": "FAIL",
+  "reason": "transfer_failed; partial retained; inspect provider access"
+}

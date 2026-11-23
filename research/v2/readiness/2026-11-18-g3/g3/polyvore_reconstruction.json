@@ -1,0 +1,57 @@
+{
+  "gate_part": "G3 revised split reconstruction (metric reproduction still required)",
+  "dataset": "polyvore_d_clean",
+  "status": "PASS",
+  "counts": [
+    [
+      16991,
+      2999,
+      15142
+    ],
+    [
+      16991,
+      2999,
+      15142
+    ]
+  ],
+  "published_expected_counts": [
+    16991,
+    2999,
+    15142
+  ],
+  "two_rebuild_hashes_match": true,
+  "hashes": [
+    {
+      "compatibility_test.txt": "8ef5cdd082f6096a1e61d86dfb686bb720b76211ae6c816ce17238bf6a8346c8",
+      "compatibility_train.txt": "a9a912039503c3d212784d2445f1f01e6d8cb8017a733ad42aba1c8317c80e15",
+      "compatibility_valid.txt": "34e2aa6131d06e280b7d5c34df4005d2fd1fbdcce0bc4494997448596f751ea8",
+      "duplicates_removed.json": "2b94bda65e33b9e9cdb4e4596f660c7f16cbb7f5ac044be3114e8210c079ee35",
+      "fill_in_blank_test.json": "4b899196a045bae04f93e0b2ec695668eb3b7e0edce94577b97e128079fa3603",
+      "fill_in_blank_train.json": "06ebe6145d126e1b34f6a70dadfd6c2bc4c50fbeaf104613fe85e9b8420269c2",
+      "fill_in_blank_valid.json": "92380cd5553b6b1895dd7f614e0d289552c1fe81001cfcf7bdeabedc84462371",
+      "manifest.json": "cdd485f7b837c13278569b2a103dcd964effd5b9ea7a0e12a6abd362c9e775d7",
+      "test.json": "850a0b643c5098f956958fab2892716299156acb81d7608003db331e95eb5c16",
+      "train.json": "0493ef92332ae7a9b2d68e5a2bbfe27d674a0e4dbdefe88790e9c19df075104b",
+      "valid.json": "2d9ebea117105ff4919b17497d443f169d8f1a6c8e1fb7f6a55900a884d0800a"
+    },
+    {
+      "compatibility_test.txt": "8ef5cdd082f6096a1e61d86dfb686bb720b76211ae6c816ce17238bf6a8346c8",
+      "compatibility_train.txt": "a9a912039503c3d212784d2445f1f01e6d8cb8017a733ad42aba1c8317c80e15",
+      "compatibility_valid.txt": "34e2aa6131d06e280b7d5c34df4005d2fd1fbdcce0bc4494997448596f751ea8",
+      "duplicates_removed.json": "2b94bda65e33b9e9cdb4e4596f660c7f16cbb7f5ac044be3114e8210c079ee35",
+      "fill_in_blank_test.json": "4b899196a045bae04f93e0b2ec695668eb3b7e0edce94577b97e128079fa3603",
+      "fill_in_blank_train.json": "06ebe6145d126e1b34f6a70dadfd6c2bc4c50fbeaf104613fe85e9b8420269c2",
+      "fill_in_blank_valid.json": "92380cd5553b6b1895dd7f614e0d289552c1fe81001cfcf7bdeabedc84462371",
+      "manifest.json": "cdd485f7b837c13278569b2a103dcd964effd5b9ea7a0e12a6abd362c9e775d7",
+      "test.json": "850a0b643c5098f956958fab2892716299156acb81d7608003db331e95eb5c16",
+      "train.json": "0493ef92332ae7a9b2d68e5a2bbfe27d674a0e4dbdefe88790e9c19df075104b",
+      "valid.json": "2d9ebea117105ff4919b17497d443f169d8f1a6c8e1fb7f6a55900a884d0800a"
+    }
+  ],
+  "rebuild_seconds": [
+    14.97556420401088,
+    15.105601849994855
+  ],
+  "published_reference_sha256": "b328321f0558a214e5dc29936235f2663423bc77f000c200acbba5f33e8bf169",
+  "original_split_identity": "UNVERIFIABLE: original files/hashes unavailable"
+}

@@ -1,0 +1,7 @@
+dataset,split,compatibility_metric,lookbench_metric,n_models,status
+iqon3000_v2_clean,test,cp_auc,TO FILL: LookBench metric used (v1 used fine-grained Recall@1 from LookBench Table 3),0,insufficient: 0 models with a published exact score
+iqon3000_v2_clean,test,fitb_acc,TO FILL: LookBench metric used (v1 used fine-grained Recall@1 from LookBench Table 3),0,insufficient: 0 models with a published exact score
+pog_v2_clean,test,cp_auc,TO FILL: LookBench metric used (v1 used fine-grained Recall@1 from LookBench Table 3),0,insufficient: 0 models with a published exact score
+pog_v2_clean,test,fitb_acc,TO FILL: LookBench metric used (v1 used fine-grained Recall@1 from LookBench Table 3),0,insufficient: 0 models with a published exact score
+polyvore_v2_clean,test,cp_auc,TO FILL: LookBench metric used (v1 used fine-grained Recall@1 from LookBench Table 3),0,insufficient: 0 models with a published exact score
+polyvore_v2_clean,test,fitb_acc,TO FILL: LookBench metric used (v1 used fine-grained Recall@1 from LookBench Table 3),0,insufficient: 0 models with a published exact score

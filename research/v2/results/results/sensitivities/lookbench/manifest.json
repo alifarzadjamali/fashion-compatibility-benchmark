@@ -1,0 +1,8 @@
+{
+ "scores_file": "configs/lookbench_v3_scores.json",
+ "scores_sha256": "50e40a572d7b5b5f10f1b478481d4d43299b94215863ce8441cb60b7f3a84bdc",
+ "metrics_file": "/data/a_jamali2/repbench/data/v2/full/results/metrics.csv",
+ "metrics_sha256": "10e7bf249b05b65a810e175664f01d1f28fc622ecac5d3c8c2b57bbb1d7bd3e6",
+ "source": "Gao et al., LookBench, arXiv:2601.14706, https://arxiv.org/pdf/2601.14706 (latest version at access), Table 3 (Fine-Recall@1). Accessed 2026-11-23 13:00 GMT; transcribed by the owner from the PDF.",
+ "benchmark": "LookBench v3 (13 Apr 2026); live benchmark - record the access date"
+}

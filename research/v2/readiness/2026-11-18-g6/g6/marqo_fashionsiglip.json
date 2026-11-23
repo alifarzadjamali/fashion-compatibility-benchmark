@@ -1,0 +1,23 @@
+{
+  "gate_part": "G6 speed test (planning measurement)",
+  "utc": "2026-11-18T17:19:13.283191+00:00",
+  "model": "marqo_fashionsiglip",
+  "checkpoint": "Marqo/marqo-fashionSigLIP",
+  "revision": "c56244cc94f92419e8369fa71efdaf403b124ce8",
+  "images": 5000,
+  "image_source": "Polyvore-D-Clean train images, seeded sample (development data)",
+  "seed": 20261118,
+  "batch_size": 32,
+  "cpu_prep_threads": 8,
+  "dtype": "bfloat16",
+  "embedding_dim": 768,
+  "load_seconds": 3.43,
+  "end_to_end_seconds": 7.02,
+  "end_to_end_images_per_second": 711.78,
+  "gpu_forward_seconds": 6.7,
+  "gpu_images_per_second": 746.02,
+  "cpu_prep_seconds_summed_over_threads": 35.24,
+  "bottleneck": "gpu",
+  "allocator_peak_gb": 0.54,
+  "concurrent_load_note": "concurrent: POG CDN image download (network-bound, ~1 CPU core)"
+}

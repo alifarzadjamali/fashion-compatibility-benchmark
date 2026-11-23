@@ -1,0 +1,51 @@
+{
+  "gate": "G6",
+  "status": "PASS",
+  "missing_required": [],
+  "utc": "2026-11-18T17:20:01.444683+00:00",
+  "dataset_images": {
+    "polyvore_d_clean": 152785,
+    "iqon3000_clean": 434089,
+    "pog_target": 184339
+  },
+  "projected_extraction_hours_per_model": {
+    "clip_vitl14_336": 2.21,
+    "dinov3_vitl16": 0.94,
+    "dinov3_vitl16_336": 2.07,
+    "fashionclip2": 0.16,
+    "gr_lite": 1.4,
+    "marqo_fashionclip": 0.25,
+    "marqo_fashionsiglip": 0.3,
+    "openclip_b32_laion2b": 0.2,
+    "pe_core_l14_336": 2.66,
+    "qwen3_vl_emb_2b": 4.29,
+    "qwen3_vl_emb_8b": 10.09,
+    "resnet50": 0.3,
+    "siglip2_b16_384": 0.75,
+    "siglip2_so400m_384": 2.98,
+    "siglip_b16_224": 0.31
+  },
+  "projected_extraction_hours_measured_models": 28.9,
+  "models_measured": [
+    "clip_vitl14_336",
+    "dinov3_vitl16",
+    "dinov3_vitl16_336",
+    "fashionclip2",
+    "gr_lite",
+    "marqo_fashionclip",
+    "marqo_fashionsiglip",
+    "openclip_b32_laion2b",
+    "pe_core_l14_336",
+    "qwen3_vl_emb_2b",
+    "qwen3_vl_emb_8b",
+    "resnet50",
+    "siglip2_b16_384",
+    "siglip2_so400m_384",
+    "siglip_b16_224"
+  ],
+  "caveats": [
+    "A100 images excluded (small); MLLM zero-shot cost measured separately.",
+    "End-to-end rates include decode/preprocess; full-run I/O may differ.",
+    "Projection covers extraction only; probes, baselines and stats are extra."
+  ]
+}

@@ -6,6 +6,8 @@ import argparse
 import json
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 import joblib
 import numpy as np
 import pandas as pd
@@ -73,7 +75,7 @@ def evaluate_task(rows, embeddings, pca, scaler, classifier, task: str, model_ke
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--protocol", type=Path, default=Path("data/protocols/a100"))
-    parser.add_argument("--embedding-root", type=Path, default=Path(".venv/a100/embeddings"))
+    parser.add_argument("--embedding-root", type=Path, default=data_path("a100/embeddings"))
     parser.add_argument("--output", type=Path, default=Path("artifacts/final/a100"))
     args = parser.parse_args()
     if args.output.exists():

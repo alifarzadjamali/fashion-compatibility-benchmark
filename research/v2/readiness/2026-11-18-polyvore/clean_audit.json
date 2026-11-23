@@ -1,0 +1,98 @@
+{
+  "splits": {
+    "train": {
+      "outfits": 16991,
+      "unique_items": 68166,
+      "cp_examples": 33982,
+      "cp_positive": 16991,
+      "cp_negative": 16991,
+      "fitb_questions": 16991,
+      "fitb_answer_index_counts": {
+        "0": 4248,
+        "1": 4248,
+        "2": 4248,
+        "3": 4247
+      },
+      "missing_images": 0
+    },
+    "valid": {
+      "outfits": 2999,
+      "unique_items": 13780,
+      "cp_examples": 5998,
+      "cp_positive": 2999,
+      "cp_negative": 2999,
+      "fitb_questions": 2999,
+      "fitb_answer_index_counts": {
+        "0": 750,
+        "1": 750,
+        "2": 750,
+        "3": 749
+      },
+      "missing_images": 0
+    },
+    "test": {
+      "outfits": 15142,
+      "unique_items": 70839,
+      "cp_examples": 30284,
+      "cp_positive": 15142,
+      "cp_negative": 15142,
+      "fitb_questions": 15142,
+      "fitb_answer_index_counts": {
+        "0": 3786,
+        "1": 3786,
+        "2": 3785,
+        "3": 3785
+      },
+      "missing_images": 0
+    }
+  },
+  "item_overlap_counts": {
+    "train_valid": 0,
+    "train_test": 0,
+    "valid_test": 0
+  },
+  "passes_item_disjointness": true,
+  "global_duplicate_outfits": 0,
+  "clean_protocol_checks": {
+    "train": {
+      "cp_balanced": true,
+      "cp_category_and_length_matched": true,
+      "cp_unique_negatives": true,
+      "cp_negatives_not_positives": true,
+      "fitb_all_valid": true,
+      "fitb_answer_index_counts": {
+        "0": 4248,
+        "1": 4248,
+        "2": 4248,
+        "3": 4247
+      }
+    },
+    "valid": {
+      "cp_balanced": true,
+      "cp_category_and_length_matched": true,
+      "cp_unique_negatives": true,
+      "cp_negatives_not_positives": true,
+      "fitb_all_valid": true,
+      "fitb_answer_index_counts": {
+        "0": 750,
+        "1": 750,
+        "2": 750,
+        "3": 749
+      }
+    },
+    "test": {
+      "cp_balanced": true,
+      "cp_category_and_length_matched": true,
+      "cp_unique_negatives": true,
+      "cp_negatives_not_positives": true,
+      "fitb_all_valid": true,
+      "fitb_answer_index_counts": {
+        "0": 3786,
+        "1": 3786,
+        "2": 3785,
+        "3": 3785
+      }
+    }
+  },
+  "passes_clean_protocol": true
+}

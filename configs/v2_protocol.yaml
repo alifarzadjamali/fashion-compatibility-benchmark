@@ -1,0 +1,422 @@
+protocol: RepBench-Fashion v2
+phase: frozen before any v2 test-split or POG-test outcome is viewed
+decisions_log: docs/v2_decisions.md (owner decisions A-F, 2026-11-19)
+roster:
+  encoders:
+    resnet50:
+      checkpoint: torchvision ResNet50_Weights.IMAGENET1K_V2
+      revision: 11ad3fa6
+      family: supervised_cnn
+      input_resolution: 224
+      embedding_dim: 2048
+      backend: torchvision
+      inference_dtype: bfloat16
+    dinov3_vitl16:
+      checkpoint: facebook/dinov3-vitl16-pretrain-lvd1689m
+      revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+      family: self_supervised_vision
+      input_resolution: 224
+      embedding_dim: 1024
+      backend: huggingface
+      inference_dtype: bfloat16
+    clip_vitl14_336:
+      checkpoint: openai/clip-vit-large-patch14-336
+      revision: ce19dc912ca5cd21c8a653c79e251e808ccabcd1
+      family: generic_vision_language
+      input_resolution: 336
+      embedding_dim: 768
+      backend: huggingface
+      inference_dtype: bfloat16
+    siglip2_b16_384:
+      checkpoint: google/siglip2-base-patch16-384
+      revision: f775b65a79762255128c981547af89addcfe0f88
+      family: generic_vision_language
+      input_resolution: 384
+      embedding_dim: 768
+      backend: huggingface
+      inference_dtype: bfloat16
+    fashionclip2:
+      checkpoint: patrickjohncyh/fashion-clip
+      revision: 7e3ba62ce16b379a1ab479346b66f192e76f51b7
+      family: fashion_vision_language
+      input_resolution: 224
+      embedding_dim: 512
+      backend: huggingface
+      inference_dtype: bfloat16
+    marqo_fashionsiglip:
+      checkpoint: Marqo/marqo-fashionSigLIP
+      revision: c56244cc94f92419e8369fa71efdaf403b124ce8
+      family: fashion_vision_language
+      input_resolution: 224
+      embedding_dim: 768
+      backend: open_clip_hub
+      inference_dtype: bfloat16
+    gr_lite:
+      checkpoint: srpone/gr-lite
+      revision: a8057f8aadaaab91670ad37949f6e1b5aa187e29
+      family: fashion_retrieval
+      input_resolution: 336
+      embedding_dim: 1024
+      backend: huggingface
+      inference_dtype: bfloat16
+    dinov3_vitl16_336:
+      checkpoint: facebook/dinov3-vitl16-pretrain-lvd1689m
+      revision: ea8dc2863c51be0a264bab82070e3e8836b02d51
+      family: self_supervised_vision
+      input_resolution: 336
+      embedding_dim: 1024
+      backend: huggingface
+      inference_dtype: bfloat16
+    pe_core_l14_336:
+      checkpoint: timm/PE-Core-L-14-336
+      revision: 8eff41b3f687e50a323662c2dda5eb3588c6dd35
+      family: generic_vision_language
+      input_resolution: 336
+      embedding_dim: 1024
+      backend: open_clip_hub
+      inference_dtype: bfloat16
+    siglip2_so400m_384:
+      checkpoint: google/siglip2-so400m-patch16-384
+      revision: dd658faac399427308559e2c3ac1e99cbe43845d
+      family: generic_vision_language
+      input_resolution: 384
+      embedding_dim: 1152
+      backend: huggingface
+      inference_dtype: bfloat16
+    siglip_b16_224:
+      checkpoint: timm/ViT-B-16-SigLIP
+      revision: 41f575766f40e752fdd1383e9565b7f02388c1c4
+      family: generic_vision_language
+      input_resolution: 224
+      embedding_dim: 768
+      backend: open_clip_hub
+      inference_dtype: bfloat16
+    openclip_b32_laion2b:
+      checkpoint: laion/CLIP-ViT-B-32-laion2B-s34B-b79K
+      revision: 1a25a446712ba5ee05982a381eed697ef9b435cf
+      family: generic_vision_language
+      input_resolution: 224
+      embedding_dim: 512
+      backend: open_clip_hub
+      inference_dtype: bfloat16
+    marqo_fashionclip:
+      checkpoint: Marqo/marqo-fashionCLIP
+      revision: 44f4c655124ed71e90cbf528d82f508d69d8a81b
+      family: fashion_vision_language
+      input_resolution: 224
+      embedding_dim: 512
+      backend: open_clip_hub
+      inference_dtype: bfloat16
+    qwen3_vl_emb_2b:
+      checkpoint: Qwen/Qwen3-VL-Embedding-2B
+      revision: 9f2f7e710d6d81056aa5c0a4f04764fec6bb7bda
+      family: mllm_embedding
+      input_resolution: dynamic, max_pixels=147456
+      embedding_dim: 2048
+      backend: qwen_embedding
+      inference_dtype: bfloat16
+    qwen3_vl_emb_8b:
+      checkpoint: Qwen/Qwen3-VL-Embedding-8B
+      revision: 2c4565515e0f265c6511776e7193b22c0968ddc7
+      family: mllm_embedding
+      input_resolution: dynamic, max_pixels=147456
+      embedding_dim: 4096
+      backend: qwen_embedding
+      inference_dtype: bfloat16
+  zero_shot_mllm:
+    checkpoint: Qwen/Qwen3-VL-8B-Instruct
+    revision: 0c351dd01ed87e9c1b53cbc748cba10e6187ff3b
+    dtype: bfloat16
+    role: baseline, not a probe
+  matched_parent_pairs:
+  - - fashionclip2
+    - openclip_b32_laion2b
+  - - marqo_fashionsiglip
+    - siglip_b16_224
+  - - gr_lite
+    - dinov3_vitl16_336
+  provenance_uncertain_group:
+  - marqo_fashionsiglip
+  - marqo_fashionclip
+  - gr_lite
+  - qwen3_vl_emb_2b
+  - qwen3_vl_emb_8b
+  provenance_note: Qwen3-VL-Embedding added to the uncertain group (web-scale, undisclosed data)
+inputs:
+  image_decoding: alpha composited onto white for every dataset (repbench.v2.images)
+  pixel_budget: no model sees more than 147456 pixels (384x384); fixed-resolution encoders use official
+    processors; Qwen min/max_pixels=4096/147456
+  precision: 'uniform bfloat16 + PyTorch SDPA (GR-Lite: algebraically equivalent SDPA)'
+  determinism:
+    seed: 20260912
+    CUBLAS_WORKSPACE_CONFIG: :4096:8
+    cudnn_benchmark: false
+datasets:
+  archives_sha256:
+    raw/polyvore_outfits.zip: 03f00b1253dff35c2e9431e84aad9d9a02969f57e57d05975dee38906141f74e
+    iqon_audit/IQON3000.zip: 305660cc09bd941a15096b6efeb536013efe0d534d9cd517419a49cd9ee650fd
+    a100_audit/A100.zip: 31773883ab6fcf9c0de8182b7561f7319a1d928d542906b8c3c4b8674196f829
+    raw/pog/item_data.txt.zip: e3ead4e42a04eb4bf74786474983e9b9e255cc13a400130756d08ce2e0883aa3
+    raw/pog/outfit_data.txt.zip: 9818caf2a1323d2cf7c32a4be7924121bb83b0c7dbcf5d7854b62df94da13a47
+    raw/pog/user_data.txt.7z: e4f1d8203b9ea52fea86aa8ca850ff273a77f2255cf6c2050b8a38a271be8237
+    raw/pog/pog_images.tar: 8b091ed982d503bec260d1533413eb6292e8e0161eb89dc0dee5aefdc520d2c6
+  protocols:
+    polyvore_v2_clean:
+      grouping: item_component (near-duplicate groups merged)
+    iqon3000_v2_clean:
+      grouping: two_way_user_x_item_component
+      sensitivity: user_only
+    pog_v2_clean:
+      grouping: two_way_user_x_item_component
+      sensitivity: user_only
+      same_category: raw cate_id
+      min_category_images_per_split: 10
+    a100:
+      role: external human/expert test; evaluated unchanged, never trained on
+      lat_primary: majority label
+      lat_sensitivity: archive gt
+      also:
+      - mLAT
+      - AAT facets
+  near_duplicate_policy:
+    rule: 'model-free: pHash Hamming <= 2 AND pixel-level confirmation; equivalent images form one indivisible
+      unit across splits'
+    applies_to:
+    - polyvore
+    - iqon3000
+    - pog
+    equivalence_reports:
+      polyvore:
+        report_sha256: ee80b67aa21fbce731d52e7603339979252cd0c117ca31e5c9d520fbe5ca1863
+      iqon:
+        report_sha256: f3e0e2587de6da9374214ff2b26e399e93e6c1ec37433e1bf673e20955197c14
+      pog:
+        report_sha256: 71f7ab8d33c3e1fb2ba68e379c17ef4df7877ef529b0f9c2908ddf52c5260ece
+    comparison: v1-Clean splits evaluated only as leakage-inflation analysis
+  split_evidence:
+    polyvore_v2_clean:
+      report_sha256: 2d4e2e749ed05a9cce80bf4a4631d3f63def30796aaaa0e35dc3f4cf587c5efb
+      status: PASS
+      counts:
+        train: 16991
+        valid: 2999
+        test: 15142
+      file_sha256:
+        compatibility_test.txt: 1ce1c9e476b8c58b0bfc65594ea1b58c49d2413a539fe57ec1bd449de196c8c1
+        compatibility_train.txt: 10465f134024dfda556e177ac744d026472a58608dc2be24010ada98b03d1ea8
+        compatibility_valid.txt: 8c81dca918cc10188dde03e0e579dd8c0e817ab94b8d1d3e130b2b1c4ae63229
+        duplicates_removed.json: 2b94bda65e33b9e9cdb4e4596f660c7f16cbb7f5ac044be3114e8210c079ee35
+        fill_in_blank_test.json: 4335986db671360686f756ff70b941773d843bdeca5f2621d8b9d3b40adf252f
+        fill_in_blank_train.json: d59686caf925a354d9a83f4a2589c34d512caec363bd5b53557e22090c68d360
+        fill_in_blank_valid.json: cf07b4ec8ad8a498c01a3de8e12700284c5f4bdfa5ee8b9a1ea517c63a952b58
+        manifest.json: e48e4a4288b928e7a081d9dad3d01cb7cf5a014b71da10425f8d2a74c90f1991
+        test.json: 0aeb419c0ffc2742ca500737d8d3b9b950a8bf4eeb245f44d2189ce8f7daee38
+        train.json: 69e640fd1ca99192b0d91502f74deacfdf4daf1c1c4cd3b100aafdce9a422ac1
+        valid.json: 5b385b40eeb3e9250cd1ed3c9808f3d8378e994118845b8d7bed248dbc321b03
+    iqon3000_v2_clean:
+      report_sha256: 96e956579067b0db3183643e1fbf86dcd63f0bed50b07524fc4a56eced5272bc
+      status: PASS
+      counts:
+        train: 86800
+        valid: 11416
+        test: 22831
+      file_sha256:
+        compatibility_test.txt: a5d77d4eb91fd0084ebb96fbea3ea40dc9402b9dad55b030a88be1ce6fd19b24
+        compatibility_train.txt: 903eeccecd575ec59eae34f739906dd2cce7851c8866a066ebde43875588240e
+        compatibility_valid.txt: a2681c5f627899d4db53c4f77ca3a9b5878f5d3698a99b54d9b8b6a1bc81123c
+        fill_in_blank_test.json: 6576a0950801a999fde0f640d00c7960663b1374730b34be69e757e113bab44d
+        fill_in_blank_train.json: a5d026226f6a09959fb349ddcbcfd66292eef0aef3e6db7fa2777fe9c20230ae
+        fill_in_blank_valid.json: 3572f7751ef9cb949bdf2dd36a53ec48fc277a7433b59b08d5be488232725557
+        group_ids_test.json: 0c58f2781dd11e04ccae04b421bd12368e56b3ff38955d34699b3dc95cc34e5a
+        group_ids_train.json: d104cf5f967e53dc5df288788855779066307068a5eec9c3deb1178d53f781e1
+        group_ids_valid.json: e432fc92d8e0c140e4fcbad48ad93d243bcc3c09929eeb3413cdbf1c12110887
+        manifest.json: 02d5239f13c4636d81dd0a21e928af19d0c2ff8d16dbcf04f5c56729e88d49be
+        test.json: d6be4e9adbd91e7f91a8eecaa63f79df7c4307a125745b24526e8613dc50139d
+        train.json: dd61d4c5be4f2d8dfa249b6290e5d0614f5e78b2eddde2a9b5ce432293c658eb
+        valid.json: e86cb4e0daff9aa576f98d329491b95fd6bbf3e9d7e1c7efa2eb65878b9dc366
+    pog_v2_clean:
+      report_sha256: 5f4c82e81c496c00a2f090cc1d86d405d9147cd3a39fa09aef482dd616ebdf28
+      status: PASS
+      counts:
+        train: 54574
+        valid: 7043
+        test: 14692
+      file_sha256:
+        compatibility_test.txt: c4b2cebfaaccc020cb01c5f2e9bcf0c2cd93185742a591147f6100a9bcaf9466
+        compatibility_train.txt: d31f0b4f1cdcab5d8b156a8b35bf592df29fe02e929b1a66c68f3499ad447d67
+        compatibility_valid.txt: 1c4d4de8b22e6636edef71ff442d6cc3e688885d5bd7b7f251b32bb08a73b2c3
+        fill_in_blank_test.json: 943bbf4cf68127ebb8e3c218e1024d5a5856e05d4b077291b24316de2b3013cc
+        fill_in_blank_train.json: d7595509e51ef66840634fa09d941b312c36a463ff4cf9216d8e08360c158adf
+        fill_in_blank_valid.json: d487f8b33842e3294b88c0cc96a9373e912bd82f61c284259b74bf6bd6d246b3
+        group_ids_test.json: 10d1626153514fd48d424d54539549d73e4315a87ec66ff7550cc1998ad7517a
+        group_ids_train.json: 0d8544412ceb29c6e2cd3e25e7184cb9e2aa4769fd2cb87d79ab3198561698e4
+        group_ids_valid.json: 9aa4529b7942914c1cb7fc858ffbdf0176abf1d1cbf5e4bdbc39b2ea787d1078
+        image_paths.json: 8717e7c921d68a0d934479f1165430405d043294758d3cdd85dad32b8b274b26
+        manifest.json: c30dbd531a1319cf6ecaf6888dd6652807c920c521cfc40abb6c8f7b2ad84286
+        polyvore_item_metadata.json: 2c3debdde0df5720a3709b35a24c91205465b23957f3bfacc0f464a24ea4babd
+        retention_dropped_outfits.json: 121a11d1215beb6a383fb7c2733b957f1c0beb1b6ed604af0eb46a739628b0a8
+        test.json: 2ae7c8f343edbc27658937632ac68544f013f29553f72e10acd8902df1f0e4bd
+        train.json: c6549d75eee4ac0719d927646c4515e69553e0c6a1dcc3377231cc88a88f26ba
+        valid.json: eca4747bc6ada4af56f3d7a01b3dfc887715bf724b6725bdd8d64f342f647bd2
+    a100_v2:
+      report_sha256: b735a2eeff77a5cd08b752771d238b656617262e3da372c71650ebabe0ba51c8
+      status: null
+      counts: null
+      file_sha256: null
+  dependency_note: POG user clicks cover ~12.5% of outfits (decision B)
+probe:
+  primary: 'native: train-item StandardScaler -> L2 -> mean pair [|zi-zj|; zi*zj] -> train-outfit StandardScaler
+    -> logistic regression'
+  logistic_c_grid:
+  - 1.0e-06
+  - 1.0e-05
+  - 0.0001
+  - 0.001
+  - 0.01
+  - 0.1
+  - 1.0
+  - 10.0
+  - 100.0
+  - 1000.0
+  - 10000.0
+  c_grid_edge_rule: validation-only extension, up to 4 decades, recorded; failure recorded in failures.csv
+  fit_select_evaluate: fit on TRAIN; hyperparameters, C and post-hoc calibration selected/fitted on VALID
+    only; evaluated once on TEST (G5 dry run used a seeded 20% train carve-out because valid stood in
+    for test)
+  sensitivities:
+    pca_widths:
+    - 128
+    - 256
+    - 512
+    pca: randomized, train-items only, seed 20260912 (Halko et al. 2011); PCA-256 = v1 continuity
+    operator: abs_product_sum ([|zi-zj|; zi*zj; zi+zj])
+    learners:
+      xgboost:
+        grid:
+          max_depth:
+          - 3
+          - 6
+          n_estimators:
+          - 200
+          - 500
+          learning_rate:
+          - 0.1
+        tree_method: hist
+        device: cpu
+      mlp:
+        grid:
+          hidden_layer_sizes:
+          - - 256
+          - - 512
+            - 256
+          alpha:
+          - 0.0001
+          - 0.001
+        early_stopping: internal 10% of train
+    label_fractions:
+    - 0.1
+    - 0.25
+    - 0.5
+    - 1.0
+    construction_seeds:
+    - 42
+    - 43
+    - 44
+    - 45
+    - 46
+  fitb_rule: argmax of candidate probability; exact ties resolve to the lowest candidate index
+  repeated_items: de-duplicated within an outfit (order-preserving)
+model_selection_rule: 'highest VALID-split native CP AUC per dataset, read from probe selection evidence,
+  never from test (code: repbench.v2.selection.select_models); no hard-coded keys'
+statistics:
+  paired_cluster_bootstrap:
+    replicates: 2000
+    seed: 20260912
+  all_pairwise: Holm within dataset x metric
+  cp:
+  - bootstrap
+  - DeLong (ignores clustering; disagreements explained)
+  fitb_a100:
+  - exact McNemar
+  - cluster sign-flip McNemar (FITB, primary clusters)
+  equivalence_tost_margins:
+    cp_auc:
+    - 0.002
+    - 0.005
+    - 0.01
+    fitb_pp:
+    - 0.5
+    - 1.0
+    - 2.0
+    a100_pp:
+    - 2.0
+    - 5.0
+    - 10.0
+  rank:
+  - bootstrap rank intervals
+  - Friedman + Nemenyi CD (descriptive)
+  - Kendall W
+  effect_sizes:
+  - delta with CI
+  - Cohen h for accuracies
+  p_value_reporting: with floor, e.g. < 5e-4 at 2,000 replicates
+calibration:
+  metrics:
+  - brier
+  - log_loss
+  - ece_10
+  - ece_15
+  - ece_20
+  posthoc:
+  - temperature
+  - platt
+  fit_on: valid split
+  brier_decomposition: Murphy, 10 equal-width bins
+  ece_ci: bootstrap over primary clusters (user for IQON/POG, component for Polyvore)
+baselines:
+  outfit_transformer:
+    lr_grid:
+    - 0.0001
+    - 0.0003
+    max_epochs: 100
+    patience: 10
+    seeds:
+    - 42
+    - 43
+    - 44
+    - 45
+    - 46
+    inputs:
+    - resnet50
+    - selected best generic
+    - selected best fashion
+  zero_shot_mllm:
+    scoring: next-token log-prob of option letters; argmax over plain letter tokens
+    option_order: SHA-256(seed, question id) permutation, seed 20261118
+    questions: all A100 + 2,000 seeded FITB per clean test set
+    frozen_question_ids:
+      polyvore_v2_clean:
+        ids_file_sha256: dc01fbed31e2423d2457d2f9ee983e4f3fdaf324a237f1544c86836ea03ddcb7
+      iqon3000_v2_clean:
+        ids_file_sha256: 3223c7205cd20dc48b65df3c90ce3515c89c2057dcb434b68c6dd0bf7bf34d75
+      pog_v2_clean:
+        ids_file_sha256: 4ec62ec4bf16b0ececa3ab6e6048d18b72259cfe901eb5ccfca5c8b9129f9330
+      a100_lat:
+        ids_file_sha256: 5be56a93fc78963cebf2bdfe2239b03e2c979e8449008d525a952d70fc1a2082
+      a100_aat:
+        ids_file_sha256: 7b432c2bf7e566cabdc7cb592ac854ea8235351972b95d436fc8090017ad58bc
+efficiency: 'scripts/v2/profile_efficiency_v2.py on the DGX GB10, nothing else running: params, FlopCounterMode
+  GFLOPs, CUDA-event GPU-only latency (10 warm-up + 50 timed, median+IQR, batch 1/64), allocator peak,
+  CPU preprocessing separate, energy (NVML or 10 Hz power sampling, method stated), storage'
+audits:
+- cross-split near-duplicate (pHash + embedding cosine >= 0.95) exclusion sensitivity
+- IQON/POG retention and selection effect
+- lee-research Polyvore-D overlap cross-check
+- LookBench v3 comparison (regenerated on clean data)
+deviations_from_handoff:
+- 'G3 revised (owner): original v1 split identity unverifiable'
+- POG acquisition success threshold 90% (handoff 95%)
+- Qwen pixel cap 384x384 (provider default up to 1,800 visual tokens)
+- v2-Clean splits merge near-duplicate images (new; v1-Clean kept as comparison)
+- 'IQON primary grouping two-way user x item-component (handoff: user primary)'
+generated_utc: '2026-11-19T14:59:18.783068+00:00'

@@ -1,0 +1,23 @@
+{
+  "gate_part": "G6 speed test (planning measurement)",
+  "utc": "2026-11-18T17:18:43.464654+00:00",
+  "model": "siglip_b16_224",
+  "checkpoint": "timm/ViT-B-16-SigLIP",
+  "revision": "41f575766f40e752fdd1383e9565b7f02388c1c4",
+  "images": 5000,
+  "image_source": "Polyvore-D-Clean train images, seeded sample (development data)",
+  "seed": 20261118,
+  "batch_size": 32,
+  "cpu_prep_threads": 8,
+  "dtype": "bfloat16",
+  "embedding_dim": 768,
+  "load_seconds": 3.33,
+  "end_to_end_seconds": 7.17,
+  "end_to_end_images_per_second": 697.72,
+  "gpu_forward_seconds": 6.86,
+  "gpu_images_per_second": 728.59,
+  "cpu_prep_seconds_summed_over_threads": 35.6,
+  "bottleneck": "gpu",
+  "allocator_peak_gb": 0.54,
+  "concurrent_load_note": "concurrent: POG CDN image download (network-bound, ~1 CPU core)"
+}

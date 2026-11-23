@@ -7,7 +7,10 @@ import shutil
 import zipfile
 from pathlib import Path
 
-os.environ.setdefault("HF_HOME", str(Path(".venv/cache/huggingface").resolve()))
+from repbench.utils.paths import configure_cache_environment
+
+configure_cache_environment()
+
 
 from huggingface_hub import snapshot_download
 

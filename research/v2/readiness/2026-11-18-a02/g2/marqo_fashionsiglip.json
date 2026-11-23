@@ -1,0 +1,42 @@
+{
+  "model_key": "marqo_fashionsiglip",
+  "spec": {
+    "model_key": "marqo_fashionsiglip",
+    "checkpoint": "Marqo/marqo-fashionSigLIP",
+    "revision": "c56244cc94f92419e8369fa71efdaf403b124ce8",
+    "family": "fashion_vision_language",
+    "input_resolution": 224,
+    "embedding_dim": 768,
+    "trust_remote_code": false,
+    "use_safetensors": true,
+    "backend": "open_clip_hub",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "788eb4494d3e663dd05557008417a175edcb958a2b92db64620e4e8a42473fd3",
+  "utc": "2026-11-18T14:17:56.502475+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "PASS",
+  "download_seconds": 8.166542799008312,
+  "new_hf_cache_bytes": 812659289,
+  "hf_effective_mib_per_second": 94.90090372175314,
+  "download_measurement": "new HF blob bytes / snapshot wall time; cache hits included; not wire bytes",
+  "load_seconds": 3.606554280006094,
+  "attention_method": "sdpa",
+  "image_tower_parameters": 92884224,
+  "total_parameters": 203155970,
+  "preprocess_and_transfer_seconds": 0.0912896279769484,
+  "two_smoke_passes_seconds": 0.4028818520018831,
+  "peak_allocator_bytes": 708237312,
+  "shape": [
+    64,
+    768
+  ],
+  "max_cosine_drift": 2.384185791015625e-07,
+  "checks": {
+    "finite": true,
+    "expected_shape": true,
+    "deterministic_within_1e_3": true,
+    "bf16": true
+  },
+  "total_seconds": 12.322792273014784
+}

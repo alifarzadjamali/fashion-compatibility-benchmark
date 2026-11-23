@@ -1,0 +1,42 @@
+{
+  "model_key": "dinov3_vitl16",
+  "spec": {
+    "model_key": "dinov3_vitl16",
+    "checkpoint": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+    "revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "family": "self_supervised_vision",
+    "input_resolution": 224,
+    "embedding_dim": 1024,
+    "trust_remote_code": false,
+    "use_safetensors": true,
+    "backend": "huggingface",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "a1caaf14cb568c378bf15b83e04d15e20b2fd74a845c80d3cae244c2a4eac52d",
+  "utc": "2026-11-21T10:37:49.241864+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "PASS",
+  "download_seconds": 11.902696467994247,
+  "new_hf_cache_bytes": 1212560393,
+  "hf_effective_mib_per_second": 97.15342292437998,
+  "download_measurement": "new HF blob bytes / snapshot wall time; cache hits included; not wire bytes",
+  "load_seconds": 1.3869292159797624,
+  "attention_method": "sdpa",
+  "image_tower_parameters": 303129600,
+  "total_parameters": 303129600,
+  "preprocess_and_transfer_seconds": 0.03337034699507058,
+  "two_smoke_passes_seconds": 0.8198521989979781,
+  "peak_allocator_bytes": 953521664,
+  "shape": [
+    64,
+    1024
+  ],
+  "max_cosine_drift": 2.384185791015625e-07,
+  "checks": {
+    "finite": true,
+    "expected_shape": true,
+    "deterministic_within_1e_3": true,
+    "bf16": true
+  },
+  "total_seconds": 14.194625142030418
+}

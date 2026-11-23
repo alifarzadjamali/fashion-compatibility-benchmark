@@ -1,0 +1,42 @@
+{
+  "model_key": "gr_lite",
+  "spec": {
+    "model_key": "gr_lite",
+    "checkpoint": "srpone/gr-lite",
+    "revision": "a8057f8aadaaab91670ad37949f6e1b5aa187e29",
+    "family": "fashion_retrieval",
+    "input_resolution": 336,
+    "embedding_dim": 1024,
+    "trust_remote_code": true,
+    "use_safetensors": true,
+    "backend": "huggingface",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "b8074c760cc36fbc78307af0ef7ea4df90a4d9742dfc3e82408483c927715e09",
+  "utc": "2026-11-18T14:33:26.716921+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "PASS",
+  "download_seconds": 0.2337889600021299,
+  "new_hf_cache_bytes": 0,
+  "hf_effective_mib_per_second": 0.0,
+  "download_measurement": "new HF blob bytes / snapshot wall time; cache hits included; not wire bytes",
+  "load_seconds": 1.2921971369942185,
+  "attention_method": "sdpa; algebraic replacement of pinned GR-Lite eager attention",
+  "image_tower_parameters": 303129600,
+  "total_parameters": 303129600,
+  "preprocess_and_transfer_seconds": 0.09683306701481342,
+  "two_smoke_passes_seconds": 1.094492951000575,
+  "peak_allocator_bytes": 1331611648,
+  "shape": [
+    64,
+    1024
+  ],
+  "max_cosine_drift": 2.384185791015625e-07,
+  "checks": {
+    "finite": true,
+    "expected_shape": true,
+    "deterministic_within_1e_3": true,
+    "bf16": true
+  },
+  "total_seconds": 2.77087084701634
+}

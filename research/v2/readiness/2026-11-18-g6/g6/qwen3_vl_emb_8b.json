@@ -1,0 +1,23 @@
+{
+  "gate_part": "G6 speed test (planning measurement)",
+  "utc": "2026-11-18T17:15:37.473357+00:00",
+  "model": "qwen3_vl_emb_8b",
+  "checkpoint": "Qwen/Qwen3-VL-Embedding-8B",
+  "revision": "2c4565515e0f265c6511776e7193b22c0968ddc7",
+  "images": 5000,
+  "image_source": "Polyvore-D-Clean train images, seeded sample (development data)",
+  "seed": 20261118,
+  "batch_size": 32,
+  "cpu_prep_threads": 8,
+  "dtype": "bfloat16",
+  "embedding_dim": 4096,
+  "load_seconds": 95.97,
+  "end_to_end_seconds": 235.52,
+  "end_to_end_images_per_second": 21.23,
+  "gpu_forward_seconds": 235.1,
+  "gpu_images_per_second": 21.27,
+  "cpu_prep_seconds_summed_over_threads": 37.73,
+  "bottleneck": "gpu",
+  "allocator_peak_gb": 15.74,
+  "concurrent_load_note": "concurrent: POG CDN image download (network-bound, ~1 CPU core)"
+}

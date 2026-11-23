@@ -1,0 +1,32 @@
+{
+ "inputs": {
+  "polyvore_d_clean": {
+   "protocol": "/data/a_jamali2/repbench/data/v2/g5/2026-11-18-g5/protocols/polyvore_d_clean",
+   "grouping": "component",
+   "train_pairs": 272,
+   "fit_valid_pairs": 68,
+   "eval_cp": 120,
+   "eval_fitb": 60,
+   "cp_clusters": 56,
+   "fitb_clusters": 59
+  },
+  "polyvore_d_clean/resnet50": "0c2a76d0ee6a228c0ad0a714019dd32278635f291ba2ed821b3d720b443f055a",
+  "polyvore_d_clean/siglip2_so400m_384": "1b088f7734b7c3493443160260d336b5647450970f0660224769a86a4cff22b0",
+  "polyvore_d_clean/qwen3_vl_emb_2b": "ff01f573707fb5c9001d179f9cb8513488b0f5c4663ddd3b9d06b271fab16cde",
+  "iqon3000_clean": {
+   "protocol": "/data/a_jamali2/repbench/data/v2/g5/2026-11-18-g5/protocols/iqon3000_clean",
+   "grouping": "user",
+   "train_pairs": 1389,
+   "fit_valid_pairs": 347,
+   "eval_cp": 496,
+   "eval_fitb": 248,
+   "cp_clusters": 216,
+   "fitb_clusters": 208
+  },
+  "iqon3000_clean/resnet50": "545cc6e3921f71122dc4d082d4e02866adf044b02c5882b2634effa2b4a87b80",
+  "iqon3000_clean/siglip2_so400m_384": "79b0ffa97b6168def7fc5ae2b421d30f8b140d87ee10396d9f07421ec473bb0f",
+  "iqon3000_clean/qwen3_vl_emb_2b": "67dfce035ecce83ac645a151c45e07fcd7779a1f89e2106a118147c3e00e6147"
+ },
+ "seconds": 626.3064625263214,
+ "eval_split": "valid"
+}

@@ -8,6 +8,8 @@ import json
 import shutil
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 import pandas as pd
 
 from repbench.data.clean_protocol import SPLITS, file_sha256, generate_questions
@@ -40,7 +42,7 @@ def main() -> None:
     parser.add_argument("--dataset", choices=("iqon3000_clean", "polyvore_d_clean"), required=True)
     parser.add_argument("--polyvore-metadata", type=Path, default=Path("data/raw/polyvore_outfits/polyvore_item_metadata.json"))
     parser.add_argument("--polyvore-root", type=Path, default=Path("data/raw/polyvore_outfits"))
-    parser.add_argument("--iqon-image-audit", type=Path, default=Path(".venv/iqon_audit/catalog/image_audit_resolved.parquet"))
+    parser.add_argument("--iqon-image-audit", type=Path, default=data_path("iqon_audit/catalog/image_audit_resolved.parquet"))
     parser.add_argument("--seeds", nargs="+", type=int, default=[42, 43, 44, 45, 46])
     args = parser.parse_args()
     base_hash = file_sha256(args.base_protocol / "manifest.json")

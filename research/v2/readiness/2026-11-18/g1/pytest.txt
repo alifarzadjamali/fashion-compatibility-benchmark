@@ -1,0 +1,14 @@
+sss....sssss...........sss.....                                          [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_a100.py:15: A100 archive is intentionally absent from the public source release
+SKIPPED [1] tests/test_a100.py:24: A100 archive is intentionally absent from the public source release
+SKIPPED [1] tests/test_a100.py:31: A100 archive is intentionally absent from the public source release
+SKIPPED [1] tests/test_clean_protocol.py:23: Polyvore data are intentionally absent from the public source release
+SKIPPED [1] tests/test_clean_protocol.py:31: Polyvore data are intentionally absent from the public source release
+SKIPPED [1] tests/test_clean_protocol.py:36: Polyvore data are intentionally absent from the public source release
+SKIPPED [1] tests/test_clean_protocol.py:44: Polyvore data are intentionally absent from the public source release
+SKIPPED [1] tests/test_clean_protocol.py:49: Polyvore data are intentionally absent from the public source release
+SKIPPED [1] tests/test_iqon_clean.py:19: IQON3000 data are intentionally absent from the public source release
+SKIPPED [1] tests/test_iqon_clean.py:32: IQON3000 data are intentionally absent from the public source release
+SKIPPED [1] tests/test_iqon_clean.py:56: IQON3000 data are intentionally absent from the public source release
+20 passed, 11 skipped in 3.19s

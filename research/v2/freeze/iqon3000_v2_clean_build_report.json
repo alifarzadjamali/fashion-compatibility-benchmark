@@ -1,0 +1,191 @@
+{
+ "stage": "v2-Clean protocol construction (two deterministic builds)",
+ "dataset": "iqon3000_v2_clean",
+ "status": "PASS",
+ "builds_hash_identical": true,
+ "mismatched_files": [],
+ "file_sha256": {
+  "compatibility_test.txt": "a5d77d4eb91fd0084ebb96fbea3ea40dc9402b9dad55b030a88be1ce6fd19b24",
+  "compatibility_train.txt": "903eeccecd575ec59eae34f739906dd2cce7851c8866a066ebde43875588240e",
+  "compatibility_valid.txt": "a2681c5f627899d4db53c4f77ca3a9b5878f5d3698a99b54d9b8b6a1bc81123c",
+  "fill_in_blank_test.json": "6576a0950801a999fde0f640d00c7960663b1374730b34be69e757e113bab44d",
+  "fill_in_blank_train.json": "a5d026226f6a09959fb349ddcbcfd66292eef0aef3e6db7fa2777fe9c20230ae",
+  "fill_in_blank_valid.json": "3572f7751ef9cb949bdf2dd36a53ec48fc277a7433b59b08d5be488232725557",
+  "group_ids_test.json": "0c58f2781dd11e04ccae04b421bd12368e56b3ff38955d34699b3dc95cc34e5a",
+  "group_ids_train.json": "d104cf5f967e53dc5df288788855779066307068a5eec9c3deb1178d53f781e1",
+  "group_ids_valid.json": "e432fc92d8e0c140e4fcbad48ad93d243bcc3c09929eeb3413cdbf1c12110887",
+  "manifest.json": "02d5239f13c4636d81dd0a21e928af19d0c2ff8d16dbcf04f5c56729e88d49be",
+  "test.json": "d6be4e9adbd91e7f91a8eecaa63f79df7c4307a125745b24526e8613dc50139d",
+  "train.json": "dd61d4c5be4f2d8dfa249b6290e5d0614f5e78b2eddde2a9b5ce432293c658eb",
+  "valid.json": "e86cb4e0daff9aa576f98d329491b95fd6bbf3e9d7e1c7efa2eb65878b9dc366"
+ },
+ "image_equivalence": {
+  "file": "equivalence_groups.json",
+  "sha256": "6d4e358b8eec15607a45c852cc35fab6a77f05479358f1965cd26f2272a7997e",
+  "report_file": "equivalence_report.json",
+  "report_sha256": "f3e0e2587de6da9374214ff2b26e399e93e6c1ec37433e1bf673e20955197c14",
+  "rule": "pHash Hamming <= h AND foreground-mean Delta a*b* <= c AND p95 of 16x16 per-cell Delta E over the union foreground <= s",
+  "thresholds": {
+   "phash_hamming_max": 2,
+   "colour_delta_ab_max": 2.0,
+   "structure_delta_e_p95_max": 15.0,
+   "foreground_min_channel_below": 245,
+   "aspect_tolerance": null
+  },
+  "signature_version": "phash64-dct+thumb32-rgb-box-white-v1",
+  "input_sha256": "ebc55688e2339d828539f541d7e1a2c0474f0bdd141d722efbf8f175ff93dbf5",
+  "input_items_hashed": 712107,
+  "unreadable_images": 0,
+  "pairs": {
+   "candidates": 198563,
+   "confirmed": 109039,
+   "rejected": 89524,
+   "by_hamming": {
+    "0": {
+     "candidates": 75009,
+     "confirmed": 67598
+    },
+    "2": {
+     "candidates": 123554,
+     "confirmed": 41441
+    }
+   }
+  },
+  "groups": {
+   "items_in_groups": 139636,
+   "groups": 60261,
+   "largest_group": 262,
+   "size_distribution": {
+    "2": 47576,
+    "3": 9062,
+    "4": 2513,
+    "5": 692,
+    "6": 229,
+    "7": 79,
+    "8": 41,
+    "9": 17,
+    "10": 12,
+    "11": 7,
+    "12": 7,
+    "13": 2,
+    "14": 3,
+    "16": 5,
+    "17": 2,
+    "19": 2,
+    "20": 1,
+    "21": 1,
+    "22": 1,
+    "24": 1,
+    "26": 2,
+    "30": 1,
+    "33": 1,
+    "45": 1,
+    "177": 1,
+    "191": 1,
+    "262": 1
+   }
+  },
+  "mapping_sha256": "fcb69714db359b1d51c29c4622082b1df56af4d271e88b254b6e3fb888afcac1",
+  "mapping_items": 139636,
+  "pool_items_in_groups": 139636,
+  "pool_groups": 60261,
+  "largest_pool_group": 262
+ },
+ "splits": {
+  "train": 86800,
+  "valid": 11416,
+  "test": 22831
+ },
+ "audits": {
+  "existing_manifest_split_overlap": {
+   "passes": true,
+   "split_overlap": {
+    "train_valid": {
+     "item_ids": 0,
+     "encoded_sha256": 0,
+     "decoded_rgb_sha256": 0,
+     "outfit_tuples": 0,
+     "image_equivalence_nodes": 0
+    },
+    "train_test": {
+     "item_ids": 0,
+     "encoded_sha256": 0,
+     "decoded_rgb_sha256": 0,
+     "outfit_tuples": 0,
+     "image_equivalence_nodes": 0
+    },
+    "valid_test": {
+     "item_ids": 0,
+     "encoded_sha256": 0,
+     "decoded_rgb_sha256": 0,
+     "outfit_tuples": 0,
+     "image_equivalence_nodes": 0
+    }
+   }
+  },
+  "uniform_exact_image": {
+   "cross_split": {
+    "train_valid": {
+     "item_ids": 0,
+     "image_identities": 0,
+     "outfit_tuples": 0
+    },
+    "train_test": {
+     "item_ids": 0,
+     "image_identities": 0,
+     "outfit_tuples": 0
+    },
+    "valid_test": {
+     "item_ids": 0,
+     "image_identities": 0,
+     "outfit_tuples": 0
+    }
+   },
+   "splits": {
+    "train": {
+     "outfits": 86800,
+     "duplicate_outfit_tuples": 0,
+     "cp_balanced": true,
+     "cp_category_and_length_matched": true,
+     "cp_negative_duplicates": 0,
+     "cp_negative_equals_positive": 0,
+     "fitb_invalid": 0
+    },
+    "valid": {
+     "outfits": 11416,
+     "duplicate_outfit_tuples": 0,
+     "cp_balanced": true,
+     "cp_category_and_length_matched": true,
+     "cp_negative_duplicates": 0,
+     "cp_negative_equals_positive": 0,
+     "fitb_invalid": 0
+    },
+    "test": {
+     "outfits": 22831,
+     "duplicate_outfit_tuples": 0,
+     "cp_balanced": true,
+     "cp_category_and_length_matched": true,
+     "cp_negative_duplicates": 0,
+     "cp_negative_equals_positive": 0,
+     "fitb_invalid": 0
+    }
+   },
+   "passes": true
+  },
+  "image_equivalence_not_split": {
+   "groups_present": 51513,
+   "groups_spanning_splits": 0,
+   "examples": [],
+   "merged_identities_spanning_splits": 0,
+   "merged_examples": [],
+   "passes": true
+  },
+  "passes": true
+ },
+ "timings": {
+  "build_a_seconds": 26.9,
+  "build_b_seconds": 26.4,
+  "audit_seconds": 11.0
+ },
+ "note": "No model run; no test outcome read. v1-Clean splits are kept for the leakage-inflation comparison only."
+}

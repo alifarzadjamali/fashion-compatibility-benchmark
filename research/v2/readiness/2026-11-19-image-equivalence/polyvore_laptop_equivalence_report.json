@@ -1,0 +1,84 @@
+{
+  "kind": "v2_image_equivalence_groups",
+  "dataset": "polyvore",
+  "rule": "pHash Hamming <= h AND foreground-mean Delta a*b* <= c AND p95 of 16x16 per-cell Delta E over the union foreground <= s",
+  "thresholds": {
+    "phash_hamming_max": 2,
+    "colour_delta_ab_max": 2.0,
+    "structure_delta_e_p95_max": 15.0,
+    "foreground_min_channel_below": 245,
+    "aspect_tolerance": null
+  },
+  "signature_version": "phash64-dct+thumb32-rgb-box-white-v1",
+  "phash": "64-bit DCT pHash (scripts/v2/near_duplicate_audit.py), alpha on white",
+  "thumbnail": "32x32 RGB, PIL BOX resample of the white-composited image",
+  "signature_source": {
+    "cache": "poly_sigs.npz"
+  },
+  "input_items_hashed": 152785,
+  "input_sha256": "c12591f36ef8d940e93e362714f1a6f46f2428ae32505a80a56190b926d67e98",
+  "input_sha256_definition": "sha256 over sorted lines 'item_id<TAB>image_bytes_sha256\\n'",
+  "unreadable_images": [],
+  "candidate_stats": {
+    "unique_hashes": 151990,
+    "largest_identical_hash_group": 4,
+    "identical_hash_item_pairs": 831,
+    "near_unique_hash_pairs": 1825,
+    "near_hash_item_pairs": 2132,
+    "multi_index_bands": [
+      [
+        42,
+        22
+      ],
+      [
+        21,
+        21
+      ],
+      [
+        0,
+        21
+      ]
+    ],
+    "multi_index_stats": {
+      "largest_bucket": 238,
+      "verified_comparisons": 1081667
+    }
+  },
+  "pairs": {
+    "candidates": 2963,
+    "confirmed": 1257,
+    "rejected": 1706,
+    "by_hamming": {
+      "0": {
+        "candidates": 831,
+        "confirmed": 651
+      },
+      "2": {
+        "candidates": 2132,
+        "confirmed": 606
+      }
+    }
+  },
+  "groups": {
+    "items_in_groups": 2359,
+    "groups": 1150,
+    "largest_group": 6,
+    "size_distribution": {
+      "2": 1102,
+      "3": 40,
+      "4": 6,
+      "5": 1,
+      "6": 1
+    }
+  },
+  "outputs_sha256": {
+    "equivalence_groups.json": "e2e80ed332fe99986cd2a44084f9b222da0b15092d27ffd43dc37c119058ee9b",
+    "candidate_pairs.csv": "662683ea2f119057f1765cc81040e10eb79766ffd611eeb28d91929bfdda1f6d"
+  },
+  "workers": 8,
+  "runtime": {
+    "match_seconds": 1.41,
+    "total_seconds": 1.6
+  },
+  "finished_utc": "2026-11-19T12:17:08.056867+00:00"
+}

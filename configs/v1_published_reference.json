@@ -1,0 +1,38 @@
+{
+  "source_commit": "83b4979dd950bdca63bb82854bd9d64d340ad243",
+  "source_path": "README.md",
+  "source_sha256": "b1addb90c34ee7560d142f73d4aca32ba9476050a1ccedc1f34bf988443d3c58",
+  "models": {
+    "resnet50": {
+      "polyvore_cp_auc": 0.6938,
+      "polyvore_fitb": 0.4063,
+      "iqon_cp_auc": 0.5852,
+      "iqon_fitb": 0.3166
+    },
+    "clip_vitl14_336": {
+      "polyvore_cp_auc": 0.8883,
+      "polyvore_fitb": 0.65,
+      "iqon_cp_auc": 0.7042,
+      "iqon_fitb": 0.4364
+    }
+  },
+  "outfit_counts_train_valid_test": {
+    "polyvore_d_clean": [
+      16991,
+      2999,
+      15142
+    ],
+    "iqon3000_clean": [
+      86800,
+      12400,
+      24800
+    ]
+  },
+  "tolerances": {
+    "cp_auc_absolute": 0.002,
+    "fitb_absolute": 0.005
+  },
+  "rounding": "Published metrics have four decimal places; exact pilot values unavailable.",
+  "original_split_hashes": null,
+  "g3_amendment": "Owner approved two independent matching reconstructions, published counts and published metric comparisons; original split identity is unverifiable."
+}

@@ -1,0 +1,3 @@
+subsample_pog_clean	0	1
+extract_pog_clean_resnet50	0	58
+extract_pog_clean_siglip2_so400m_384	0	422

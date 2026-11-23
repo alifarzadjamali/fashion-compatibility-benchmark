@@ -1,0 +1,23 @@
+{
+  "gate_part": "G6 speed test (planning measurement)",
+  "utc": "2026-11-18T17:18:08.508858+00:00",
+  "model": "pe_core_l14_336",
+  "checkpoint": "timm/PE-Core-L-14-336",
+  "revision": "8eff41b3f687e50a323662c2dda5eb3588c6dd35",
+  "images": 5000,
+  "image_source": "Polyvore-D-Clean train images, seeded sample (development data)",
+  "seed": 20261118,
+  "batch_size": 32,
+  "cpu_prep_threads": 8,
+  "dtype": "bfloat16",
+  "embedding_dim": 1024,
+  "load_seconds": 7.3,
+  "end_to_end_seconds": 62.14,
+  "end_to_end_images_per_second": 80.46,
+  "gpu_forward_seconds": 61.83,
+  "gpu_images_per_second": 80.87,
+  "cpu_prep_seconds_summed_over_threads": 46.41,
+  "bottleneck": "gpu",
+  "allocator_peak_gb": 1.69,
+  "concurrent_load_note": "concurrent: POG CDN image download (network-bound, ~1 CPU core)"
+}

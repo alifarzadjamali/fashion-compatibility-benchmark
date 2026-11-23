@@ -6,6 +6,8 @@ import argparse
 import json
 from pathlib import Path
 
+from repbench.utils.paths import data_path
+
 import numpy as np
 import pandas as pd
 import torch
@@ -18,7 +20,7 @@ from repbench.models.outfit_transformer import OutfitTransformer
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--protocol", type=Path, default=Path("data/protocols/a100"))
-    parser.add_argument("--embedding-cache", type=Path, default=Path(".venv/a100/embeddings/resnet50"))
+    parser.add_argument("--embedding-cache", type=Path, default=data_path("a100/embeddings/resnet50"))
     parser.add_argument("--baseline-root", type=Path, default=Path("artifacts/final/baseline"))
     parser.add_argument("--output", type=Path, default=Path("artifacts/final/a100_outfit_transformer"))
     parser.add_argument("--seeds", nargs="+", type=int, help="Optional common seed subset; otherwise discover completed source seeds")

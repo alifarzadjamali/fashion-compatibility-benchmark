@@ -37,6 +37,7 @@ def _pack(
     outfits: pd.DataFrame,
     item_to_group: dict[str, str],
     seed: int,
+    allow_underfill: bool = False,
 ) -> tuple[dict[str, list[int]], dict]:
     rng = np.random.default_rng(seed)
     order = rng.permutation(len(outfits))
@@ -70,12 +71,16 @@ def _pack(
         assigned[split].append(int(index))
         if all(len(assigned[split]) == TARGET_COUNTS[split] for split in SPLITS):
             break
-    if any(len(assigned[split]) != TARGET_COUNTS[split] for split in SPLITS):
+    if not allow_underfill and any(len(assigned[split]) != TARGET_COUNTS[split] for split in SPLITS):
         raise RuntimeError(
             "Verified leakage groups cannot fill locked IQON capacities: "
             + repr({split: len(assigned[split]) for split in SPLITS})
         )
-    return assigned, {"conflict_outfits_skipped": conflicts, "owned_full_split_skipped": full}
+    packing = {"conflict_outfits_skipped": conflicts, "owned_full_split_skipped": full}
+    if allow_underfill:  # v2-Clean only; v1 output bytes unchanged
+        packing["allow_underfill"] = True
+        packing["capacity_shortfall"] = {s: TARGET_COUNTS[s] - len(assigned[s]) for s in SPLITS}
+    return assigned, packing
 
 
 def _protocol_rows(frame: pd.DataFrame, categories: dict[str, str]) -> list[dict]:
@@ -108,7 +113,14 @@ def construct_iqon_clean(
     source_audit_path: Path,
     archive_path: Path,
     seed: int = 20260912,
+    image_equivalence: dict[str, str] | None = None,
+    image_equivalence_info: dict | None = None,
+    allow_underfill: bool = False,
+    protocol_name: str | None = None,
 ) -> dict:
+    """Build IQON3000-Clean. ``image_equivalence`` (v2-Clean, owner decision E) joins the
+    decoded-RGB image groups of near-duplicate items into one indivisible node (also
+    used for question generation). ``None`` (default) reproduces the original build."""
     output_root.mkdir(parents=True, exist_ok=False)
     outfits = pd.read_parquet(catalog_dir / "outfits.parquet")
     outfits["canonical"] = outfits.item_ids.map(_canonical)
@@ -123,7 +135,13 @@ def construct_iqon_clean(
     categories, inconsistent_categories = _build_item_categories(outfits)
     image_by_item = images.set_index("item_id")
     item_to_group = image_by_item.decoded_rgb_sha256.to_dict()
-    assigned, packing = _pack(outfits, item_to_group, seed)
+    if image_equivalence is not None:
+        from repbench.data.image_equivalence import merge_identities
+
+        pool_items = {str(item) for values in outfits.item_ids for item in values}
+        pool_groups = {item: item_to_group[item] for item in pool_items}
+        item_to_group = {**item_to_group, **merge_identities(pool_groups, image_equivalence)}
+    assigned, packing = _pack(outfits, item_to_group, seed, allow_underfill=allow_underfill)
 
     metadata = {item: {"semantic_category": category} for item, category in categories.items()}
     selected_frames = {split: outfits.iloc[indices].copy() for split, indices in assigned.items()}
@@ -162,6 +180,19 @@ def construct_iqon_clean(
         "split_overlap": {},
         "splits": {},
     }
+    if protocol_name is not None:
+        manifest["protocol"] = protocol_name
+    if image_equivalence is not None:
+        from repbench.data.image_equivalence import manifest_record
+
+        manifest["construction_rules"].insert(
+            4,
+            "Join decoded-RGB groups of items in one near-duplicate image-equivalence group "
+            "(v2-Clean) into a single indivisible node, also used for CP/FITB exclusion.",
+        )
+        manifest["image_equivalence"] = manifest_record(
+            image_equivalence, pool_items, image_equivalence_info
+        )
     for left, right in (("train", "valid"), ("train", "test"), ("valid", "test")):
         left_rows = selected_frames[left]
         right_rows = selected_frames[right]
@@ -173,6 +204,11 @@ def construct_iqon_clean(
             "decoded_rgb_sha256": len(set(left_images.decoded_rgb_sha256) & set(right_images.decoded_rgb_sha256)),
             "outfit_tuples": len(set(left_rows.canonical) & set(right_rows.canonical)),
         }
+        if image_equivalence is not None:
+            manifest["split_overlap"][f"{left}_{right}"]["image_equivalence_nodes"] = len(
+                {item_to_group[item] for item in split_items[left]}
+                & {item_to_group[item] for item in split_items[right]}
+            )
     for split_index, split in enumerate(SPLITS):
         rows = selected_rows[split]
         outfit_path = output_root / f"{split}.json"

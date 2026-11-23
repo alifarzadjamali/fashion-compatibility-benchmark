@@ -1,0 +1,147 @@
+{
+  "kind": "cross_split_near_duplicate_audit",
+  "dataset_name": "pog_v2_clean",
+  "protocol_root": "/data/a_jamali2/repbench/data/v2/pog_v2_clean/build_a",
+  "protocol_sha256": {
+    "compatibility_test.txt": "c4b2cebfaaccc020cb01c5f2e9bcf0c2cd93185742a591147f6100a9bcaf9466",
+    "compatibility_train.txt": "d31f0b4f1cdcab5d8b156a8b35bf592df29fe02e929b1a66c68f3499ad447d67",
+    "compatibility_valid.txt": "1c4d4de8b22e6636edef71ff442d6cc3e688885d5bd7b7f251b32bb08a73b2c3",
+    "fill_in_blank_test.json": "943bbf4cf68127ebb8e3c218e1024d5a5856e05d4b077291b24316de2b3013cc",
+    "fill_in_blank_train.json": "d7595509e51ef66840634fa09d941b312c36a463ff4cf9216d8e08360c158adf",
+    "fill_in_blank_valid.json": "d487f8b33842e3294b88c0cc96a9373e912bd82f61c284259b74bf6bd6d246b3",
+    "group_ids_test.json": "10d1626153514fd48d424d54539549d73e4315a87ec66ff7550cc1998ad7517a",
+    "group_ids_train.json": "0d8544412ceb29c6e2cd3e25e7184cb9e2aa4769fd2cb87d79ab3198561698e4",
+    "group_ids_valid.json": "9aa4529b7942914c1cb7fc858ffbdf0176abf1d1cbf5e4bdbc39b2ea787d1078",
+    "image_paths.json": "8717e7c921d68a0d934479f1165430405d043294758d3cdd85dad32b8b274b26",
+    "manifest.json": "c30dbd531a1319cf6ecaf6888dd6652807c920c521cfc40abb6c8f7b2ad84286",
+    "polyvore_item_metadata.json": "2c3debdde0df5720a3709b35a24c91205465b23957f3bfacc0f464a24ea4babd",
+    "retention_dropped_outfits.json": "121a11d1215beb6a383fb7c2733b957f1c0beb1b6ed604af0eb46a739628b0a8",
+    "test.json": "2ae7c8f343edbc27658937632ac68544f013f29553f72e10acd8902df1f0e4bd",
+    "train.json": "c6549d75eee4ac0719d927646c4515e69553e0c6a1dcc3377231cc88a88f26ba",
+    "valid.json": "eca4747bc6ada4af56f3d7a01b3dfc887715bf724b6725bdd8d64f342f647bd2"
+  },
+  "images_root": "/data/a_jamali2/repbench/data/raw/pog/mirror",
+  "items_per_split": {
+    "train": 95628,
+    "valid": 19824,
+    "test": 39286
+  },
+  "outfits_per_split": {
+    "train": 54574,
+    "valid": 7043,
+    "test": 14692
+  },
+  "shared_item_ids": {
+    "train-test": 0,
+    "valid-test": 0,
+    "train-valid": 0
+  },
+  "unreadable_images": [],
+  "phash": {
+    "algorithm": "64-bit DCT pHash (imagehash.phash algorithm), PIL Lanczos 32x32",
+    "threshold": "hamming <= 4",
+    "multi_index_bands": [
+      [
+        51,
+        13
+      ],
+      [
+        38,
+        13
+      ],
+      [
+        25,
+        13
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        0,
+        12
+      ]
+    ],
+    "multi_index_stats": {
+      "largest_bucket": 5399,
+      "verified_comparisons": 59411211
+    },
+    "unique_hashes": 153377,
+    "near_unique_hash_pairs": 15549,
+    "identical_hash_groups_cross_split": 56,
+    "pair_counts": {
+      "train-test": 5083,
+      "valid-test": 1084,
+      "train-valid": 2505
+    },
+    "flagged_valid_items_from_train": 1033,
+    "listing_truncated": false
+  },
+  "embedding": {
+    "store": {
+      "parts": {
+        "test": {
+          "path": "/data/a_jamali2/repbench/data/v2/full/emb/pog_v2_clean/dinov3_vitl16/test",
+          "sha256": {
+            "/data/a_jamali2/repbench/data/v2/full/emb/pog_v2_clean/dinov3_vitl16/test/items.npy": "b1fa034478c90618bc72c9df5de1ca91d7bd2c633e204613b04a6a36886e417b",
+            "/data/a_jamali2/repbench/data/v2/full/emb/pog_v2_clean/dinov3_vitl16/test/item_ids.json": "65310c276542da02f679f812b0439bdb054a20202f243628e046ad6197897fbf"
+          }
+        },
+        "trainvalid": {
+          "path": "/data/a_jamali2/repbench/data/v2/full/emb/pog_v2_clean/dinov3_vitl16/trainvalid",
+          "sha256": {
+            "/data/a_jamali2/repbench/data/v2/full/emb/pog_v2_clean/dinov3_vitl16/trainvalid/items.npy": "2c9828b10136cbeec5743297272a54702fb3a54a795c1d8f6ff948b05d8aad40",
+            "/data/a_jamali2/repbench/data/v2/full/emb/pog_v2_clean/dinov3_vitl16/trainvalid/item_ids.json": "604839851885cd350d388df7c5f5a361c635131821796a7172fd30f833d22e3a"
+          }
+        }
+      }
+    },
+    "threshold": "cosine > 0.95",
+    "pair_counts": {
+      "train-test": 339866,
+      "valid-test": 70328,
+      "train-valid": 166965
+    },
+    "items_without_embedding": {
+      "train": 0,
+      "valid": 0,
+      "test": 0
+    },
+    "listing_truncated": true
+  },
+  "affected_test_items": {
+    "phash_train": 2159,
+    "embedding_train": 10111,
+    "phash_valid": 762,
+    "embedding_valid": 6433
+  },
+  "affected_test_outfits": {
+    "phash_train": 2772,
+    "embedding_train": 9685,
+    "phash_valid": 1024,
+    "embedding_valid": 7093,
+    "phash_any": 3096,
+    "embedding_any": 9981,
+    "any_method": 10518
+  },
+  "affected_test_outfit_fraction": {
+    "phash_train": 0.18867410835829024,
+    "embedding_train": 0.6592022869588892,
+    "phash_valid": 0.069697794718214,
+    "embedding_valid": 0.48277974407841,
+    "phash_any": 0.21072692621835012,
+    "embedding_any": 0.6793493057446229,
+    "any_method": 0.7158998094200926
+  },
+  "pairs_csv_sha256": "7b335ebb2750b77a88a20f3cd1aab14dd721d39b6905b8a961985a5c40162336",
+  "workers": 8,
+  "runtime": {
+    "read_protocol_seconds": 2.2748661539517343,
+    "phash_seconds": 178.57598375796806,
+    "phash_match_seconds": 0.5201954710064456,
+    "embedding_seconds": 62.31625480100047,
+    "total_seconds": 244.27345105295535
+  },
+  "finished_utc": "2026-11-23T09:51:29.508056+00:00",
+  "notes": "Pair counts are image-pair counts (exact); listing capped at 200000 per method. Affected test outfits contain >= 1 test item with a near duplicate in train or valid."
+}

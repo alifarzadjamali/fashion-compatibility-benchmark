@@ -1,0 +1,41 @@
+{
+  "dataset_name": "polyvore_v2_clean",
+  "protocol_root": "/data/a_jamali2/repbench/data/v2/polyvore_v2_clean/build_a",
+  "protocol_sha256": {
+    "compatibility_test.txt": "1ce1c9e476b8c58b0bfc65594ea1b58c49d2413a539fe57ec1bd449de196c8c1",
+    "compatibility_train.txt": "10465f134024dfda556e177ac744d026472a58608dc2be24010ada98b03d1ea8",
+    "compatibility_valid.txt": "8c81dca918cc10188dde03e0e579dd8c0e817ab94b8d1d3e130b2b1c4ae63229",
+    "duplicates_removed.json": "2b94bda65e33b9e9cdb4e4596f660c7f16cbb7f5ac044be3114e8210c079ee35",
+    "fill_in_blank_test.json": "4335986db671360686f756ff70b941773d843bdeca5f2621d8b9d3b40adf252f",
+    "fill_in_blank_train.json": "d59686caf925a354d9a83f4a2589c34d512caec363bd5b53557e22090c68d360",
+    "fill_in_blank_valid.json": "cf07b4ec8ad8a498c01a3de8e12700284c5f4bdfa5ee8b9a1ea517c63a952b58",
+    "manifest.json": "e48e4a4288b928e7a081d9dad3d01cb7cf5a014b71da10425f8d2a74c90f1991",
+    "test.json": "0aeb419c0ffc2742ca500737d8d3b9b950a8bf4eeb245f44d2189ce8f7daee38",
+    "train.json": "69e640fd1ca99192b0d91502f74deacfdf4daf1c1c4cd3b100aafdce9a422ac1",
+    "valid.json": "5b385b40eeb3e9250cd1ed3c9808f3d8378e994118845b8d7bed248dbc321b03"
+  },
+  "encoder": "resnet50",
+  "embeddings": {
+    "parts": {
+      "test": {
+        "path": "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/resnet50/test",
+        "sha256": {
+          "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/resnet50/test/items.npy": "3e285689db9dc0422d00edfbb59788541fb526e715c73b85532ca205017eb5df",
+          "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/resnet50/test/item_ids.json": "4c3978f92e76e7491bffac4185d84ea98b6f0f2182fc02d7f22fe3b7d332005c"
+        }
+      },
+      "trainvalid": {
+        "path": "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/resnet50/trainvalid",
+        "sha256": {
+          "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/resnet50/trainvalid/items.npy": "5622d4444de179169bc969d3ea13ddcc9d9d7b3d8b7eff303b87c19c3348bd7f",
+          "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/resnet50/trainvalid/item_ids.json": "f70017f7a498c72cfdc2da517bff34d7793d61cf2f6b8acc4360a8d9a41323e1"
+        }
+      }
+    }
+  },
+  "max_length": 16,
+  "architecture": "repbench.models.outfit_transformer.OutfitTransformer (v1, unchanged)",
+  "early_stopping": "validation CP ROC-AUC, patience 10",
+  "max_epochs": 100,
+  "batch_size": 50
+}

@@ -5,12 +5,15 @@ import time
 from collections.abc import Sequence
 from pathlib import Path
 
+from repbench.utils.paths import configure_cache_environment
+
+configure_cache_environment()
+
 import numpy as np
 import torch
 from PIL import Image
 from torchvision import transforms
 
-os.environ.setdefault("HF_HOME", str(Path(".venv/cache/huggingface").resolve()))
 
 from transformers import AutoImageProcessor, AutoModel, AutoProcessor
 

@@ -1,0 +1,21 @@
+{
+  "model_key": "dinov3_vitl16_336",
+  "spec": {
+    "model_key": "dinov3_vitl16_336",
+    "checkpoint": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+    "revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "family": "self_supervised_vision",
+    "input_resolution": 336,
+    "embedding_dim": 1024,
+    "trust_remote_code": false,
+    "use_safetensors": true,
+    "backend": "huggingface",
+    "cuda_dtype": "bfloat16"
+  },
+  "signature": "00873bf02c77912cd0df08c0169fa41224b51abae8a7f2c6ed6813b57e9bdab4",
+  "utc": "2026-11-18T14:18:27.300962+00:00",
+  "input": "64 synthetic RGB images; seed 20260912",
+  "status": "FAIL",
+  "error_type": "GatedRepoError",
+  "total_seconds": 0.287894115987001
+}
