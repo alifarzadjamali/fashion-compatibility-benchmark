@@ -410,3 +410,16 @@ cases handled. Calibration ECE CIs use primary clusters only (documented).
 - Orchestration only: sensitivity subcommands run as parallel processes instead of one
   serial `run_sensitivities.py all` call (same subcommands, arguments and outputs).
 - No frozen setting, split, model, grid, seed or statistic changed.
+
+### 2026-11-23 — D2 addendum: probe deadlock on job 37 (infrastructure, no science change)
+
+- Sat 2026-11-21 12:17 the IQON3000 Qwen3-VL-Embedding-8B probe unit (`--workers 6`) hung in a
+  forked-pool deadlock after 3 of 14 files (the same failure seen on the laptop for Polyvore
+  Qwen-8B, 2026-11-20). Processes stayed alive at 0% CPU; nothing was recorded in `failed/`, and
+  the monitoring loop did not tick, so it went undetected until Mon 2026-11-23 09:36 (~45 h lost).
+- Fix (code-bug-only, no `.py` change): killed the hung processes and restarted
+  `run_phase2b_cpu.sh` with `WORKERS=1`; completed cells are skipped by the existing logic.
+- The IQON preparation catalog (wiped with the node) is rebuilt with the README protocol-
+  construction scripts (`scripts/v2/run_phase2b_iqoncat.sh`); count fields are compared with the
+  committed audits in `research/v2/readiness/2026-11-18-g3/g3/`.
+- 649 DGX outputs (results, done markers, logs) copied to the laptop and SHA-256 verified.

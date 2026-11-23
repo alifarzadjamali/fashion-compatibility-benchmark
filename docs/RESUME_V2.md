@@ -156,3 +156,8 @@ the DGX has no GitHub write credential by owner decision).
 | v1 split provenance unrecorded | Revised G3: two identical rebuilds + published counts + metric reproduction (max abs Δ 0.00065); all archives SHA-256 pinned and mirrored | G3 PASS |
 
 Not yet done (Phase 2 / manuscript): full-run numbers, deviation table, qualitative figure, citation fixes (HANDOFF §10).
+
+- **09:50 Mon 23 Nov — job 37.** IQON Qwen-8B probe unit deadlocked Sat 12:17 (undetected ~45 h,
+  see v2_decisions D2 addendum); restarted with 1 worker. 44/45 probe units done, 619 prediction
+  files; 649 outputs copied to laptop `~/repbench-results/dgx37` and SHA-256 verified. IQON catalog
+  rebuild running (tmux fcb-iqoncat). Next: stats → selection → OutfitTransformer (GPU).
