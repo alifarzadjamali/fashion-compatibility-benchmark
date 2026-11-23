@@ -175,3 +175,8 @@ Not yet done (Phase 2 / manuscript): full-run numbers, deviation table, qualitat
   OutfitTransformer: Polyvore 3/3 streams (train+select+test) done; POG 13/30 and IQON 6/30 runs.
   Construction-seeds, label-fractions, provenance, subgroups, near-duplicates, LookBench all done.
   1,002 more files copied to laptop `~/repbench-results/dgx37` and SHA-256 verified.
+- **17:00 Mon 23 Nov — POG OutfitTransformer done (Polyvore + POG = 6/9 streams).** Mean test
+  CP-AUC over 5 seeds: Polyvore SigLIP2-So400m 0.942, Marqo-FashionCLIP 0.934, ResNet-50 0.829;
+  POG SigLIP2-So400m 0.829, Marqo-FashionSigLIP 0.810, ResNet-50 0.697 (all above the
+  corresponding linear probes). IQON 17/30 runs, ETA ~23:00–00:30; profiling follows. 606 OT files
+  copied to laptop and SHA-256 verified.
