@@ -434,3 +434,21 @@ selected hyperparameter differs in 24/196 files (near-tied validation AUCs; MLP 
 which accounts for the larger per-item score differences. The DGX outputs are the canonical results;
 the laptop copy is a reproducibility check only. Conclusion: results are machine-stable to
 floating-point tolerance; no conclusion depends on the machine.
+
+### 2026-11-23 — Phase 2b scheduling fixes (code-bug / scheduling only, no science change)
+
+- **LookBench CLI bug.** `run_sensitivities.py lookbench` crashes in `main()` (the lookbench
+  subparser has no `--equivalence`). `scripts/v2/run_phase2b_lookbench.sh` calls the same
+  `S.run_lookbench(results/metrics.csv, configs/lookbench_v3_scores.json, …, replicates=2000,
+  seed=PROBE_SEED)` that `run_sensitivities.py all` uses, writing to the same directory. No `.py`
+  change (gated); outputs identical to the `all` path.
+- **OutfitTransformer parallelised.** Measured sequential speed (IQON ≈1.75 min/epoch, GPU 13%
+  busy) projected ~48 h for the 9 dataset×encoder streams, more than the remaining booking. The
+  sequential lane was stopped after 15 min (its one unfinished, empty run directory removed as the
+  script instructs) and the 9 streams now run in parallel (`scripts/v2/run_phase2b_ot.sh`, tmux
+  `fcb-ot-*`) with byte-identical train/select/evaluate arguments (lrs 1e-4,3e-4; seeds 42–46;
+  ≤100 epochs; patience 10). Only `OMP_NUM_THREADS` is 2 per stream instead of 8 (CPU threading;
+  training runs on CUDA). Profiling (`scripts/v2/run_phase2b_profile.sh`, tmux `fcb-profile`) waits
+  for all 9 streams, then pauses the CPU lane as before.
+- Selection (validation only, `results/selection.json`): generic = SigLIP2-So400m@384 on all three
+  datasets; fashion = Marqo-FashionCLIP (Polyvore), Marqo-FashionSigLIP (IQON, POG).

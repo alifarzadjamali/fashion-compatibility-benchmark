@@ -165,3 +165,7 @@ Not yet done (Phase 2 / manuscript): full-run numbers, deviation table, qualitat
   prediction files present and copied to laptop (`~/repbench-results/dgx37`, SHA-256 verified).
   Paired statistics started 10:29. IQON catalog rebuilt (counts match committed G3 audits 21/21);
   near-duplicate audits for all 3 datasets done and copied. DGX watchdog (`watchdog_phase2b.sh`) live.
+- **11:05 Mon 23 Nov — stats done, OutfitTransformer running.** Stats + selection 10:29–10:43
+  (1,170 metric rows, 8,190 pairwise rows). OT moved to 9 parallel streams (GPU 13% → 83%).
+  Sensitivities: provenance, subgroups, LookBench done; label-fractions, construction-seeds running.
+  800 result files copied to laptop and SHA-256 verified.
