@@ -1,0 +1,361 @@
+dataset,model,setting,learner,split,metric,value,ci_low,ci_high,n,clusters,bootstrap_note,fraction,train_pairs,selected_c
+polyvore_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.893431537758321,0.8899126715719867,0.8971118715826972,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.8222801231946083,0.8177565827050828,0.8267541693771944,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.8194021027479725,0.8147904229482018,0.8242302611258701,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.8944135328688966,0.8906909547356905,0.8980869779282484,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,gr_lite,native,logistic,test,cp_auc,0.8312963916058609,0.8268234130417729,0.8358079204468166,30284,13750,paired cluster bootstrap,0.1,1700,0.0001
+polyvore_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.9072258383416021,0.9038155531562502,0.9105290984172553,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.908584848185995,0.9051769167711411,0.9117539456946575,30284,13750,paired cluster bootstrap,0.1,1700,0.0001
+polyvore_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.8992851383340776,0.8956710203044792,0.9027212195641904,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.9225697714521872,0.9194584203143151,0.9256277350173789,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.8996176638289565,0.8958726416148866,0.9031935531097169,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.9007245934279775,0.8969999709941986,0.9044256048235223,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,resnet50,native,logistic,test,cp_auc,0.6799936975795255,0.6742433654569958,0.6858622162747472,30284,13750,paired cluster bootstrap,0.1,1700,0.0001
+polyvore_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.9082719798647737,0.9050214878898906,0.9116731371166221,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.9217055013097426,0.9186688180628373,0.924843252891111,30284,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.9069699679733307,0.9036763117167492,0.9101667896280059,30284,13750,paired cluster bootstrap,0.1,1700,0.0001
+polyvore_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.6512349755646546,0.6434645045788506,0.658810791939352,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.5439175802403909,0.5358383269958221,0.5517220208703698,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.5414740457007,0.5333317914491509,0.5494246852829634,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.6524897635715229,0.6451969636155953,0.6601158720372398,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.5707304187029455,0.5632968177211861,0.5788649387993707,15142,13750,paired cluster bootstrap,0.1,1700,0.0001
+polyvore_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.6679434684982168,0.6605051448471817,0.675209358839232,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.6913221503103949,0.6840573089728338,0.6986210948444209,15142,13750,paired cluster bootstrap,0.1,1700,0.0001
+polyvore_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.6592920353982301,0.6518565621061851,0.6667107095141301,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.710276053361511,0.7029349969418421,0.7169478768056426,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.6536785101043455,0.6461733041873401,0.6611990090221113,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.6563862105402193,0.6492585349034347,0.663640642288461,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,resnet50,native,logistic,test,fitb_acc,0.39829612996962094,0.39008397273748907,0.40576367265810337,15142,13750,paired cluster bootstrap,0.1,1700,0.0001
+polyvore_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.6806894729890371,0.6732840673034606,0.6877689320139733,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.706973979659226,0.699514904844881,0.7141624749078971,15142,13750,paired cluster bootstrap,0.1,1700,0.001
+polyvore_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.6823405098401797,0.6747260919895014,0.6894855258053089,15142,13750,paired cluster bootstrap,0.1,1700,0.0001
+polyvore_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.8982305857038727,0.894620532018725,0.9016732030998578,30284,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.837305962935372,0.832799950259961,0.8416781370525638,30284,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.8342757465927143,0.8296846232890367,0.8388290499913444,30284,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.8988178628483535,0.8952517870155868,0.902257647943189,30284,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,gr_lite,native,logistic,test,cp_auc,0.8371097902738766,0.8326525490502833,0.8415223953620387,30284,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.9090636750416841,0.9055605092285856,0.9122651830644146,30284,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.9123483464535553,0.9089746536382163,0.9154914902806742,30284,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.9040137397145268,0.9005161974754067,0.9073595245288623,30284,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.926433247840838,0.9233040867480269,0.9293909603278627,30284,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.9057804778087999,0.9021962167471272,0.9094069391574894,30284,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.9083565270827354,0.9048982408171045,0.9118849896495553,30284,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,resnet50,native,logistic,test,cp_auc,0.7100048654884947,0.7043515476330054,0.7153898833768219,30284,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.9113579729470187,0.9081392529229707,0.9146581810507464,30284,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.9257381157490798,0.9226137031045891,0.9288310959478822,30284,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.9091903628435996,0.9057660482516117,0.912301267984941,30284,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.6548672566371682,0.6468793909947056,0.6620324551669338,15142,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.5542200501915203,0.5461517553646285,0.561558623541199,15142,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.5555408796724343,0.5477612159853784,0.563397784146811,15142,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.6645093118478405,0.6567118837392849,0.6716495169027064,15142,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.5732399947166821,0.5655539769100859,0.5815335329316673,15142,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.6772553163386607,0.67017039384347,0.6842524206782928,15142,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.6949544313829085,0.6873998173286229,0.7021375204330423,15142,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.67342491084401,0.6662038357497467,0.6808604694802693,15142,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.7108043851538767,0.7035881103357408,0.7178659385396232,15142,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.6575749570730419,0.6499298225986344,0.6651065323938539,15142,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.6629243164707437,0.6558358415886811,0.6702531629414478,15142,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,resnet50,native,logistic,test,fitb_acc,0.42814687623827763,0.4201098560906557,0.4358126101496798,15142,13750,paired cluster bootstrap,0.25,4248,0.0001
+polyvore_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.6857746664905561,0.6779997283976564,0.6928762488756594,15142,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.712917712323339,0.7058433737593606,0.7198718428802302,15142,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.6828028001584996,0.6753483375515243,0.690016342944133,15142,13750,paired cluster bootstrap,0.25,4248,0.001
+polyvore_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.9029693493240871,0.8995550039326992,0.9063942986522429,30284,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.8460089530466317,0.8415133729613667,0.8504477899077192,30284,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.843293334350546,0.8387762995845751,0.8475957617818936,30284,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.904383922195729,0.9008573327998696,0.9077544068693671,30284,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,gr_lite,native,logistic,test,cp_auc,0.8419450362919315,0.8374939970417803,0.846368759583132,30284,13750,paired cluster bootstrap,0.5,8496,0.0001
+polyvore_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.9133561396964109,0.9099919538527454,0.9166842784016108,30284,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.9143518538306697,0.9109704045258622,0.917415995636138,30284,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.9085649315044977,0.905102185526806,0.9119625977970856,30284,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.9281077450729668,0.9250878627083678,0.9309408903400892,30284,13750,paired cluster bootstrap,0.5,8496,0.0001
+polyvore_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.9120535324634537,0.9086253965584324,0.9153920626531012,30284,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.9147954639460218,0.9114196455541227,0.9180109297773832,30284,13750,paired cluster bootstrap,0.5,8496,0.0001
+polyvore_v2_clean,resnet50,native,logistic,test,cp_auc,0.728881871351069,0.7236444529850865,0.7344123387412432,30284,13750,paired cluster bootstrap,0.5,8496,0.0001
+polyvore_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.9158803942586154,0.912766712945467,0.9191286903527283,30284,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.9293833940209498,0.9264010834712665,0.9323008400239795,30284,13750,paired cluster bootstrap,0.5,8496,0.0001
+polyvore_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.9122225527542802,0.9088555035307845,0.9153647251357473,30284,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.6605468234050984,0.6524862803598205,0.667853930848731,15142,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.5637960639281469,0.5556878976876749,0.5714193903782593,15142,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.5651829348831066,0.557176660139401,0.5725892862807034,15142,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.6596882842425043,0.6518717204130035,0.6671319228830018,15142,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.5789195614846123,0.5711535923995513,0.5871430591960447,15142,13750,paired cluster bootstrap,0.5,8496,0.0001
+polyvore_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.673226786421873,0.6659423685147922,0.6801595524791478,15142,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.6904636111478009,0.6828431041723926,0.6976531444177316,15142,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.6631224408928807,0.6556026448825575,0.6705486473973147,15142,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.7187954035134064,0.7116447177928824,0.7255283166208453,15142,13750,paired cluster bootstrap,0.5,8496,0.0001
+polyvore_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.6637168141592921,0.6561898020246093,0.6714417226734434,15142,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.674547615902787,0.6673465320306798,0.6820415137002409,15142,13750,paired cluster bootstrap,0.5,8496,0.0001
+polyvore_v2_clean,resnet50,native,logistic,test,fitb_acc,0.4435345396909259,0.4356078463364801,0.45119270631241964,15142,13750,paired cluster bootstrap,0.5,8496,0.0001
+polyvore_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.6889446572447497,0.6816463951546063,0.6960054549310735,15142,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.7211728965790516,0.7139072433763346,0.7282368889174087,15142,13750,paired cluster bootstrap,0.5,8496,0.0001
+polyvore_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.6857086250165104,0.6778659605808056,0.6930482323359491,15142,13750,paired cluster bootstrap,0.5,8496,0.001
+polyvore_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.9074151874734353,0.9039675631175251,0.9109149315866635,30284,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.851914226212783,0.8474756939814487,0.8562367560571522,30284,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.8491372698948348,0.8446129666208411,0.8534675832660953,30284,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.90762721410126,0.9042393550203172,0.9110395693422936,30284,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,gr_lite,native,logistic,test,cp_auc,0.8466844170610416,0.8421886783148075,0.8510587009040492,30284,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.9166915677886553,0.9133366407819685,0.9198583269108631,30284,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.9182301461542919,0.9149470150113382,0.9212647467829385,30284,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.9108966377920071,0.907404456097834,0.9141635363142101,30284,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.931300033874714,0.9283537386837403,0.9341387853513928,30284,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.9159838310304071,0.9124589041620377,0.9192317105727327,30284,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.9208761447850325,0.917478712252041,0.9240691445372549,30284,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,resnet50,native,logistic,test,cp_auc,0.7438560624895576,0.7385347739571838,0.7492693086083156,30284,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.9191638226497432,0.9160503820621985,0.9223373672944062,30284,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.9330180259291859,0.9301595037853564,0.935831720542814,30284,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.9162542905368822,0.9130169831799971,0.9193341616144376,30284,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.6666226390173029,0.6590013004083314,0.6736798380116675,15142,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.5703341698586712,0.5625368063556265,0.577761801469502,15142,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.5660414740457007,0.5583056458303259,0.5736592841030703,15142,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.6601505745608242,0.6521881617972547,0.6675296774529473,15142,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.5810989301281204,0.573545129263224,0.5889258434365156,15142,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.6760005283317924,0.6686645884510762,0.6831430822378411,15142,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.6938317263241316,0.686333647978543,0.7009712980215858,15142,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.6667547219653943,0.659005197792872,0.673942102646725,15142,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.7211728965790516,0.7139841664086232,0.7278985476243075,15142,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.6721701228371417,0.6648400995132399,0.6800608319278515,15142,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.6824065513142253,0.6751225246914154,0.6898219729163533,15142,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,resnet50,native,logistic,test,fitb_acc,0.44848765024435344,0.4404337675687692,0.45649888896888124,15142,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.6937656848500858,0.6861795730722655,0.7012666491594308,15142,13750,paired cluster bootstrap,1.0,16991,0.001
+polyvore_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.7229560163782855,0.7158134989277753,0.7297673431699463,15142,13750,paired cluster bootstrap,1.0,16991,0.0001
+polyvore_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.6890106987187954,0.6813857421421,0.6963447323864564,15142,13750,paired cluster bootstrap,1.0,16991,0.001
+iqon3000_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.7307930730988847,0.7116976268653971,0.7396491906090387,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.001
+iqon3000_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.6975025375365492,0.6685386876073172,0.7100478423137285,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.69644068879428,0.6672325546573465,0.7093527725930842,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.7332379457107523,0.711227909596618,0.7437306889784071,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,gr_lite,native,logistic,test,cp_auc,0.6572852980753103,0.6376527289776226,0.6665861018053207,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.7405296910198164,0.7198625358042234,0.750133042381682,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.7385248452531048,0.718859631604804,0.7482290197544991,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.7333221195545567,0.7127222595762143,0.7430586921669297,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.7591714626742614,0.7354321271663193,0.7695982153339973,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.7534319598979969,0.730431375463679,0.7641949520747224,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.7627224100203125,0.7352638449090322,0.7749632119465333,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,resnet50,native,logistic,test,cp_auc,0.6211384134056527,0.5845468605805613,0.6368250007086359,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.7347358414768864,0.7130479678575372,0.7445755748386902,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.7636430676718817,0.7447608560038363,0.7726746447830227,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.7275784748481079,0.7078285270388148,0.737013353029869,45662,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.43620515965135126,0.4250655481536706,0.4538630941915865,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.001
+iqon3000_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.41027550260610574,0.39605906932533613,0.4217046916788616,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.40918050019710045,0.3949305133021842,0.4202649474932429,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.4505715912575008,0.43876807287987957,0.4753895599038445,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.38693005124611274,0.3761633195012168,0.4057182099428606,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.454951600893522,0.4432319537447113,0.478151759812183,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.46463142218912884,0.45332548666640876,0.4830813955653698,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.44978318952301694,0.43779925386364676,0.4698034544487727,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.4791730541807192,0.46702791966926244,0.5008068283417582,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.4616530156366344,0.4507283588693861,0.48366546430459,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.4711138364504402,0.4599977800354325,0.4919085270298998,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,resnet50,native,logistic,test,fitb_acc,0.33945074679164294,0.3273513584652829,0.3524015509292527,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.4554772020498445,0.4438538344036936,0.4765173639481382,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.4864000700801542,0.4750987067659361,0.5108209522429334,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.45587140291708644,0.44433708403417715,0.48065881758506074,22831,2385,two-way pigeonhole cluster bootstrap,0.1,8680,0.0001
+iqon3000_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.7400337596278606,0.7203650008206417,0.7488135826700179,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.708723587552455,0.6772669747533215,0.7226311130709955,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.7078558800370862,0.6761974326472173,0.7219952605372287,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.7387490428117328,0.712630980666215,0.7508751419988,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.001
+iqon3000_v2_clean,gr_lite,native,logistic,test,cp_auc,0.6664829729902353,0.6432859358138162,0.676527335548982,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.7469115948896226,0.7238977637040099,0.7573387444863345,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.7471106962649676,0.7252925225424995,0.7574860471155859,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.7387414706957355,0.7151987997492979,0.7498243789242749,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.001
+iqon3000_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.768616866836394,0.7425238017695222,0.7797576416891416,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.7649934472228053,0.7407320515967312,0.7763009172640492,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.7759988358164218,0.7474706798557101,0.7885911683742499,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,resnet50,native,logistic,test,cp_auc,0.6354785152661715,0.6000866618048061,0.6504847165936678,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.7450755725857332,0.7206703158973919,0.7560367624322537,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.7747719611800193,0.7530165939396875,0.7847435522752303,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.7374562905743092,0.7157659678698793,0.7476385760392933,45662,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.4502649905829793,0.43907779699393257,0.4726291723574603,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.41881652139634706,0.4052830583206458,0.431236395839174,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.41723971792737946,0.40322317122202944,0.4280073150861357,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.44803118566860844,0.43650735954658815,0.4674242757331526,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.001
+iqon3000_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.38990845779860717,0.37940163852269576,0.4096519544512265,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.4582804082168981,0.44718204495185276,0.4810072197211728,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.46620822565809644,0.45386819214196017,0.4827359531214166,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.4510533923174631,0.4390338511187201,0.46900203559341663,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.001
+iqon3000_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.4828960623713372,0.47116345346307903,0.5028496573077589,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.4706320353904779,0.4588258239076372,0.4881154432489165,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.4821076606368534,0.4707655484911958,0.5004760705272564,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,resnet50,native,logistic,test,fitb_acc,0.3527221759887872,0.33565250164896065,0.3621373219252245,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.45810520783145725,0.44674792388547596,0.478685288386596,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.4898602776926109,0.47903084443982324,0.5123017392888988,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.4593316105295432,0.4480602665649215,0.482767977636644,22831,2385,two-way pigeonhole cluster bootstrap,0.25,21700,0.0001
+iqon3000_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.744409047962268,0.7234986968073573,0.7536225920448741,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.7135137221370039,0.6811555228409777,0.7276398311754027,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.7120964520442824,0.6796862525971441,0.7262694827257675,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.7420508796276988,0.7169479659064035,0.7536129795857535,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,gr_lite,native,logistic,test,cp_auc,0.6697087404478366,0.6448980679628199,0.6806147792120023,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.7503170643719318,0.7263612114730884,0.7611369719295858,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.7514307131405609,0.7282606112792803,0.7622827213088303,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.7420765340794784,0.7190699110991139,0.753090817543505,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.7731991058779435,0.746016870181692,0.7847367275559325,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.7728234036497956,0.747852895231752,0.7839297338190362,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.7832853226583087,0.7541525180739431,0.7962731154426672,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,resnet50,native,logistic,test,cp_auc,0.6436470883944937,0.6085909518511925,0.658579142400211,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.001
+iqon3000_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.7498515001003512,0.726168051497342,0.7606021369822651,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.7802411181204033,0.7563844051308345,0.7911041322534974,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.7419134036124051,0.7190828024762784,0.7526483482191964,45662,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.45052779116114056,0.4392019535707647,0.4701888374555421,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.41942972274539003,0.4069246506326399,0.43249781199884196,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.4170207174455784,0.4021898106065944,0.4281952076544665,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.45411939906267795,0.4420021638294516,0.4774338468344077,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.39652227234899917,0.3855870363487896,0.4162758733838763,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.45898120975866147,0.4477214663028339,0.4822306845129934,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.46454382199640837,0.45302102097779595,0.4841936484409085,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.4562218036879681,0.44357530808754275,0.47558044308832353,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.4842538653585038,0.4724218265868205,0.5062271086125532,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.47641364811002584,0.4655639132423426,0.49466872050986177,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.4888090753799658,0.47759730231208775,0.5073615011372575,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,resnet50,native,logistic,test,fitb_acc,0.35552538215584073,0.34096696359658346,0.3664089520197258,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.001
+iqon3000_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.46406202093644605,0.45253177580951937,0.4849468336253768,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.49275108405238494,0.48179770560466,0.5163595240628505,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.4571854058078928,0.4455563009196607,0.4821971677586583,22831,2385,two-way pigeonhole cluster bootstrap,0.5,43400,0.0001
+iqon3000_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.7478859882820287,0.7254572401083949,0.7575240548656936,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.7165724100014158,0.6836565041266415,0.7309872187576021,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.7150575359665774,0.6821348175918868,0.7295886517799884,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.7441174332477447,0.7175528295838832,0.7562331436192645,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,gr_lite,native,logistic,test,cp_auc,0.6728167017420112,0.6478007654150392,0.6838102407359694,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.7529952788269223,0.7272705085752228,0.7641672665480909,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.7528849977775063,0.7278930608573764,0.7644819194126719,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.7437468513584862,0.7193089262069039,0.7553051696261239,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.7758699362248842,0.747639831897988,0.7879723622850098,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.7776444118251084,0.7512736752833084,0.7894342095721161,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.7879800422504121,0.7583963358277356,0.8012071471849638,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,resnet50,native,logistic,test,cp_auc,0.6536165848532499,0.6173145094867202,0.6692554626320429,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,100.0
+iqon3000_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.7526679848082902,0.7273085623338844,0.7639902181448307,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.7836239163382591,0.7592906981675821,0.7946419761870491,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.7439411681234191,0.7201901082580721,0.7551307511732813,45662,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.453506197713635,0.44265522103975075,0.47157730987208546,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.4228461302614866,0.40934575580556626,0.4339234486187413,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.42096272611799745,0.40620206668836,0.43258255017457314,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.4546450002190005,0.4434043887576598,0.4742986176654739,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.3954272699399939,0.3848145234380123,0.4157191972717205,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.4591564101441023,0.44804642837707676,0.48036599993859314,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.46695282729622006,0.45496513132558203,0.4835831840113216,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.45841180850597874,0.4465825130044802,0.4787406959409124,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.4856116683456704,0.47367921009539476,0.5047223754072215,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.4816258595768911,0.4691047804508256,0.49656061623256637,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.4927948841487451,0.4817745510079082,0.5101350127337854,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,resnet50,native,logistic,test,fitb_acc,0.3606061933336253,0.34204695665279766,0.36985240917277507,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,100.0
+iqon3000_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.4637116201655644,0.45226836351246663,0.48265262686767363,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.4956418904121589,0.4837545743222092,0.5143874837476171,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+iqon3000_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.4606018133239893,0.44907842858772967,0.4867602259361977,22831,2385,two-way pigeonhole cluster bootstrap,1.0,86800,0.0001
+pog_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.70487017610129,0.6837905378022323,0.713977457505536,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.667682494289311,0.6491632843421463,0.67585463778561,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.665835859969317,0.6471852590585611,0.6741565364972872,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.6917028193536561,0.6765780653346248,0.7005139209336483,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,gr_lite,native,logistic,test,cp_auc,0.6346785148191054,0.6038367164478938,0.6463923450691836,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,1e-05
+pog_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.7074443038726244,0.6883984971521755,0.7162079446588059,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.7102568673180327,0.6931153458627886,0.7187414656860444,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.695395854040148,0.676518656563168,0.704017251808275,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.74481835628221,0.7231253430200762,0.7538235138464819,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.726116419595715,0.7044437917709374,0.7350532007236942,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.7332231392293296,0.7102776900199307,0.7423250005400471,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,resnet50,native,logistic,test,cp_auc,0.5684910347908583,0.5283626422159562,0.583613215191035,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.7175321492871247,0.7011857887664913,0.7258353109251858,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.7359575830545102,0.7181409034486672,0.7440223768197426,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.7080119375952538,0.6919348305990576,0.7166755532628057,29384,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.4019194119248571,0.38926272632170394,0.4220946983200162,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.3736727470732371,0.3513493640150177,0.3853587207494134,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.3706779199564389,0.3487518925133387,0.38268515307430023,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.40573101007350937,0.3893653454661804,0.4195329597625772,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.35978763953171794,0.33492356419417163,0.3723159404909188,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,1e-05
+pog_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.40961067247481625,0.3917556530850085,0.4229932558062422,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.41696161176150287,0.3985605737561548,0.4318588115319244,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.4105635720119793,0.3963800423675189,0.42736369719660827,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.45834467737544243,0.4431365707290554,0.47605481834487695,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.4166893547508848,0.39741218237571985,0.4306467063363783,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.41927579635175605,0.39929092309895337,0.43217026233652167,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,resnet50,native,logistic,test,fitb_acc,0.3011162537435339,0.2712674110351059,0.3133402846796012,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.43084671930302204,0.4171580167359173,0.44800121910835994,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.4424857065069426,0.4280374714386317,0.4603089432001309,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.4215899809420093,0.40450101285837825,0.43553972989017514,14692,14670,two-way pigeonhole cluster bootstrap,0.1,5458,0.0001
+pog_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.7144986179231986,0.6909928181555502,0.7241745680319608,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.6792719296795646,0.6623002303896522,0.6879442597869044,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.6777790423105777,0.6604577701074934,0.6863046822870386,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.7026217254942191,0.6856383083903487,0.7111358786485806,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,gr_lite,native,logistic,test,cp_auc,0.6406407200534523,0.6083581480773096,0.6527994198083416,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,1e-05
+pog_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.7160135918920039,0.6964730269643072,0.7248126120230397,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.7186844559592598,0.6990924429821064,0.7271860503192381,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.7063740338044919,0.6862199142340968,0.7152296044079839,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.7544267499109958,0.7318804259165939,0.7637955684596962,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.7349367698288235,0.7126097577425494,0.7439722066361211,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.7450651563728488,0.7178692163828395,0.7554904270896364,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,resnet50,native,logistic,test,cp_auc,0.5818726975733102,0.536818221640193,0.5986568736039337,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.7267481727907693,0.7068657566751205,0.7351198509767571,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.7486418443644615,0.7253311297322769,0.7577249733156478,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.7163761016754295,0.6975765410289754,0.724971791717519,29384,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.4061393955894364,0.3905183561997168,0.42203709236719167,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.3795262728015246,0.35554677026856846,0.3912354758970633,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.3791178872855976,0.34958736173984745,0.39111236113674197,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.401238769398312,0.38269712971414,0.41488198457931175,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.3626463381432072,0.3349562058918982,0.37462964926568704,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,1e-05
+pog_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.41478355567655867,0.39486626612000214,0.4277746742252833,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.4206370814048462,0.39965293829063825,0.43313871739212245,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.4119248570650694,0.39054391097221586,0.4245331024344665,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.4601824121971141,0.44309738114274994,0.474606070401711,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.42288320174244487,0.40357598978288634,0.4358727757878316,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.4221344949632453,0.39800773127845107,0.43431247207646073,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,resnet50,native,logistic,test,fitb_acc,0.3087394500408385,0.2777775638062959,0.3218191928902317,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.43431799618840183,0.42115376850030184,0.4507643393121357,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.45147018785733734,0.4345792129573497,0.46768200616423633,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.4217941736999728,0.40652458625644783,0.43851918733355166,14692,14670,two-way pigeonhole cluster bootstrap,0.25,13644,0.0001
+pog_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.7183083073819453,0.694550614680452,0.727836179031516,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.6871187971006296,0.671267185717095,0.6963810115292564,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.6852019767319211,0.6681885903825491,0.694095483434062,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.7084725989774314,0.6906701506116263,0.7171620969844259,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,gr_lite,native,logistic,test,cp_auc,0.643488216693602,0.60920361684245,0.6562993141619626,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,1e-05
+pog_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.7195096099386484,0.6997178558640373,0.7286185497882306,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.7225198061786553,0.702105585649066,0.7315184833319728,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.7123275503302997,0.691037751316793,0.7214080144085878,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.7593133064631798,0.7348749774108515,0.7689762637803113,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.7399933920414228,0.715500470850843,0.7492311654052382,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.7526782556078978,0.7257889706737143,0.7631475179080089,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,resnet50,native,logistic,test,cp_auc,0.5920150240394861,0.5504533994459968,0.6074935733418964,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.7327533953555014,0.7107049307393619,0.7419465124501905,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.7550284620873774,0.7294009350044165,0.7648445473903506,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.7210834961773203,0.7002581823913415,0.7298301869772369,29384,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.4089980942009257,0.3928367256173643,0.4250126298649268,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.3825891641709774,0.3594146897391831,0.3939912938422187,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.3789817587802886,0.3540289182116639,0.39005489168879454,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.40654778110536344,0.3828216402151365,0.41876483440245105,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.36516471549142393,0.3361574368393485,0.3772710078303236,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,1e-05
+pog_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.4178464470460114,0.3988971031034309,0.4302262545374241,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.42295126599509936,0.39996261622055224,0.43547659413247375,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.41600871222433977,0.3931223937933329,0.42832758313491265,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.4618159542608222,0.4381857180449524,0.4742171545035401,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.4277838279335693,0.40369886346633327,0.44034447446400554,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.4260141573645521,0.3991048646001314,0.43799728609962674,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,resnet50,native,logistic,test,fitb_acc,0.31234685543152735,0.2800164445723788,0.3251962588087899,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.4358834739994555,0.41885114819519687,0.45037592476469235,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.4520147018785734,0.43375468780720605,0.4671086718328284,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.42050095289953715,0.4056362373960814,0.4379108844074432,14692,14670,two-way pigeonhole cluster bootstrap,0.5,27287,0.0001
+pog_v2_clean,clip_vitl14_336,native,logistic,test,cp_auc,0.7205136758002358,0.6961543331381039,0.7304101670655069,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,dinov3_vitl16,native,logistic,test,cp_auc,0.692170337194718,0.6763616951441245,0.7015872098046054,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,dinov3_vitl16_336,native,logistic,test,cp_auc,0.6901730020779148,0.6729321128857305,0.699149987797541,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,fashionclip2,native,logistic,test,cp_auc,0.7128692128985336,0.6932515750153417,0.7215629365992005,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,gr_lite,native,logistic,test,cp_auc,0.6482445167415825,0.6131399386156089,0.6617296833930519,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,1e-05
+pog_v2_clean,marqo_fashionclip,native,logistic,test,cp_auc,0.7222131487386821,0.7015115881807011,0.7315442699521142,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,marqo_fashionsiglip,native,logistic,test,cp_auc,0.7263058176905386,0.7032404144194405,0.7355846821476464,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,openclip_b32_laion2b,native,logistic,test,cp_auc,0.7163120262140583,0.6936495010599245,0.7257426292964674,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,pe_core_l14_336,native,logistic,test,cp_auc,0.7627214112719738,0.7377052264780888,0.772477125592396,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,qwen3_vl_emb_2b,native,logistic,test,cp_auc,0.7438838510491012,0.7207838403736119,0.7531132472685804,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,qwen3_vl_emb_8b,native,logistic,test,cp_auc,0.756086608268415,0.727969963067607,0.7666895164940731,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,resnet50,native,logistic,test,cp_auc,0.5974125211280854,0.5564672513891694,0.6132167080642501,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,siglip2_b16_384,native,logistic,test,cp_auc,0.7357575690302721,0.7108797899677436,0.7456775384363872,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,siglip2_so400m_384,native,logistic,test,cp_auc,0.7593240451602703,0.7314428005933857,0.7699860653490063,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,siglip_b16_224,native,logistic,test,cp_auc,0.7245681825358358,0.7028610110800653,0.7335771132280022,29384,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,clip_vitl14_336,native,logistic,test,fitb_acc,0.40790906615845357,0.39038014916631847,0.42239874612230727,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,dinov3_vitl16,native,logistic,test,fitb_acc,0.3876259188674108,0.3626732498895709,0.3991782758119288,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,dinov3_vitl16_336,native,logistic,test,fitb_acc,0.3827252926762864,0.3562756043522399,0.394300438420884,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,fashionclip2,native,logistic,test,fitb_acc,0.407568744895181,0.38546862078253613,0.41968617476640047,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,gr_lite,native,logistic,test,fitb_acc,0.3672066430710591,0.33473065594128065,0.3800790317686433,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,1e-05
+pog_v2_clean,marqo_fashionclip,native,logistic,test,fitb_acc,0.4191396678464471,0.39638977316678214,0.4308429319037303,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,marqo_fashionsiglip,native,logistic,test,fitb_acc,0.42165804519466377,0.39888767301519157,0.43410302698061337,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,openclip_b32_laion2b,native,logistic,test,fitb_acc,0.4176422542880479,0.3921166906665359,0.4303946181886422,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,pe_core_l14_336,native,logistic,test,fitb_acc,0.46208821127144023,0.43815635907593004,0.47407061525966815,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,qwen3_vl_emb_2b,native,logistic,test,fitb_acc,0.4277838279335693,0.40128352364150705,0.43922705875054086,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,qwen3_vl_emb_8b,native,logistic,test,fitb_acc,0.42608222161720666,0.3991080491094395,0.4384418081911219,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,resnet50,native,logistic,test,fitb_acc,0.31432071875850803,0.28416627416530443,0.32615649322213675,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,siglip2_b16_384,native,logistic,test,fitb_acc,0.4350667029676014,0.4178909780010816,0.4487647043368255,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,siglip2_so400m_384,native,logistic,test,fitb_acc,0.4522869588891914,0.4263861955536862,0.46424998424032593,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001
+pog_v2_clean,siglip_b16_224,native,logistic,test,fitb_acc,0.4209774026681187,0.40541442454717075,0.43524678950996215,14692,14670,two-way pigeonhole cluster bootstrap,1.0,54574,0.0001

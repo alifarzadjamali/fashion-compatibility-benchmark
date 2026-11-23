@@ -1,0 +1,63 @@
+{
+ "split": "test",
+ "setting": "native",
+ "learner": "logistic",
+ "replicates": 1000,
+ "seed": 20260912,
+ "min_cp": 200,
+ "min_fitb": 100,
+ "cp_correct_threshold": 0.5,
+ "datasets": {
+  "polyvore_v2_clean": [
+   "clip_vitl14_336",
+   "dinov3_vitl16",
+   "dinov3_vitl16_336",
+   "fashionclip2",
+   "gr_lite",
+   "marqo_fashionclip",
+   "marqo_fashionsiglip",
+   "openclip_b32_laion2b",
+   "pe_core_l14_336",
+   "qwen3_vl_emb_2b",
+   "qwen3_vl_emb_8b",
+   "resnet50",
+   "siglip2_b16_384",
+   "siglip2_so400m_384",
+   "siglip_b16_224"
+  ],
+  "iqon3000_v2_clean": [
+   "clip_vitl14_336",
+   "dinov3_vitl16",
+   "dinov3_vitl16_336",
+   "fashionclip2",
+   "gr_lite",
+   "marqo_fashionclip",
+   "marqo_fashionsiglip",
+   "openclip_b32_laion2b",
+   "pe_core_l14_336",
+   "qwen3_vl_emb_2b",
+   "qwen3_vl_emb_8b",
+   "resnet50",
+   "siglip2_b16_384",
+   "siglip2_so400m_384",
+   "siglip_b16_224"
+  ],
+  "pog_v2_clean": [
+   "clip_vitl14_336",
+   "dinov3_vitl16",
+   "dinov3_vitl16_336",
+   "fashionclip2",
+   "gr_lite",
+   "marqo_fashionclip",
+   "marqo_fashionsiglip",
+   "openclip_b32_laion2b",
+   "pe_core_l14_336",
+   "qwen3_vl_emb_2b",
+   "qwen3_vl_emb_8b",
+   "resnet50",
+   "siglip2_b16_384",
+   "siglip2_so400m_384",
+   "siglip_b16_224"
+  ]
+ }
+}

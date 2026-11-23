@@ -1,0 +1,181 @@
+dataset,setting,learner,variant,metric,method,clusters,model,rank_median,rank_low,rank_high
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,clip_vitl14_336,11.0,9.0,11.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,dinov3_vitl16,12.0,12.0,14.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,dinov3_vitl16_336,13.0,12.0,14.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,fashionclip2,10.0,10.0,11.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,gr_lite,14.0,12.0,14.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,marqo_fashionclip,7.0,4.0,8.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,marqo_fashionsiglip,5.0,3.0,7.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,openclip_b32_laion2b,9.0,9.0,10.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,pe_core_l14_336,2.0,1.0,2.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,qwen3_vl_emb_2b,7.0,4.0,8.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,qwen3_vl_emb_8b,3.0,3.0,6.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,resnet50,15.0,15.0,15.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,siglip2_b16_384,4.0,3.0,7.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,siglip2_so400m_384,1.0,1.0,2.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,paired cluster bootstrap,6482,siglip_b16_224,7.0,5.0,8.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,clip_vitl14_336,9.0,7.0,11.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,dinov3_vitl16,13.0,13.0,14.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,dinov3_vitl16_336,14.0,13.0,14.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,fashionclip2,10.5,9.0,11.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,gr_lite,12.0,12.0,12.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,marqo_fashionclip,7.0,6.0,9.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,marqo_fashionsiglip,4.0,3.0,5.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,openclip_b32_laion2b,10.0,8.0,11.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,pe_core_l14_336,2.0,1.0,2.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,qwen3_vl_emb_2b,8.0,6.0,10.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,qwen3_vl_emb_8b,6.0,5.0,8.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,resnet50,15.0,15.0,15.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,siglip2_b16_384,3.0,3.0,5.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,siglip2_so400m_384,1.0,1.0,2.0
+polyvore_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,paired cluster bootstrap,6482,siglip_b16_224,5.0,3.0,6.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,clip_vitl14_336,11.0,9.0,11.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,dinov3_vitl16,12.0,12.0,14.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,dinov3_vitl16_336,13.0,12.0,14.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,fashionclip2,10.0,10.0,11.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,gr_lite,14.0,12.0,14.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,marqo_fashionclip,7.0,4.0,9.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,marqo_fashionsiglip,5.0,3.0,8.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,openclip_b32_laion2b,9.0,8.0,10.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,pe_core_l14_336,2.0,1.0,2.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,qwen3_vl_emb_2b,7.0,4.0,8.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,qwen3_vl_emb_8b,3.0,3.0,6.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,resnet50,15.0,15.0,15.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,siglip2_b16_384,5.0,3.0,8.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,siglip2_so400m_384,1.0,1.0,2.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,cp_auc,paired cluster bootstrap,3254,siglip_b16_224,6.0,3.0,8.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,clip_vitl14_336,9.0,6.0,11.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,dinov3_vitl16,13.5,12.0,14.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,dinov3_vitl16_336,13.0,12.0,14.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,fashionclip2,10.0,8.0,11.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,gr_lite,12.0,12.0,14.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,marqo_fashionclip,8.0,6.0,10.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,marqo_fashionsiglip,3.0,3.0,5.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,openclip_b32_laion2b,10.0,8.0,11.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,pe_core_l14_336,2.0,1.0,2.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,qwen3_vl_emb_2b,8.0,6.0,11.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,qwen3_vl_emb_8b,6.0,3.0,8.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,resnet50,15.0,15.0,15.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,siglip2_b16_384,4.0,3.0,6.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,siglip2_so400m_384,1.0,1.0,2.0
+polyvore_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,paired cluster bootstrap,4081,siglip_b16_224,5.0,3.0,6.512499999999932
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,clip_vitl14_336,7.0,4.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,dinov3_vitl16,12.0,12.0,13.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,dinov3_vitl16_336,13.0,12.0,13.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,fashionclip2,10.0,7.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,gr_lite,14.0,13.0,14.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,marqo_fashionclip,7.0,5.0,10.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,marqo_fashionsiglip,7.0,5.0,10.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,openclip_b32_laion2b,10.0,6.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,pe_core_l14_336,3.0,1.0,5.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,qwen3_vl_emb_2b,4.0,2.0,6.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,qwen3_vl_emb_8b,2.0,1.0,4.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,resnet50,15.0,15.0,15.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,siglip2_b16_384,6.0,4.0,10.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,siglip2_so400m_384,1.0,1.0,3.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1118,siglip_b16_224,9.0,6.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,clip_vitl14_336,9.0,4.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,dinov3_vitl16,13.0,11.0,14.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,dinov3_vitl16_336,12.0,11.0,14.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,fashionclip2,9.5,4.0,12.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,gr_lite,14.0,12.0,14.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,marqo_fashionclip,6.0,3.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,marqo_fashionsiglip,8.0,5.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,openclip_b32_laion2b,10.0,5.0,12.012499999999932
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,pe_core_l14_336,3.0,1.0,7.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,qwen3_vl_emb_2b,4.0,2.0,10.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,qwen3_vl_emb_8b,3.0,1.0,8.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,resnet50,15.0,15.0,15.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,siglip2_b16_384,6.0,2.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,siglip2_so400m_384,1.0,1.0,3.0
+iqon3000_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,1118,siglip_b16_224,6.0,2.0,10.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,clip_vitl14_336,9.0,4.0,12.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,dinov3_vitl16,12.0,10.0,14.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,dinov3_vitl16_336,13.0,10.975000000000001,14.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,fashionclip2,9.0,5.0,12.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,gr_lite,14.0,12.0,15.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,marqo_fashionclip,8.0,4.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,marqo_fashionsiglip,7.0,4.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,openclip_b32_laion2b,10.0,6.0,12.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,pe_core_l14_336,4.0,2.0,9.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,qwen3_vl_emb_2b,3.0,1.0,7.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,qwen3_vl_emb_8b,2.0,1.0,6.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,resnet50,15.0,14.0,15.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,siglip2_b16_384,5.0,2.0,10.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,siglip2_so400m_384,1.0,1.0,3.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,693,siglip_b16_224,7.0,4.0,11.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,clip_vitl14_336,10.0,4.0,13.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,dinov3_vitl16,12.0,8.0,14.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,dinov3_vitl16_336,13.0,10.0,14.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,fashionclip2,9.0,4.0,12.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,gr_lite,14.0,10.0,14.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,marqo_fashionclip,5.0,1.0,10.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,marqo_fashionsiglip,7.0,2.0,12.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,openclip_b32_laion2b,10.0,4.0,13.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,pe_core_l14_336,2.5,1.0,9.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,qwen3_vl_emb_2b,6.0,1.9875000000000007,11.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,qwen3_vl_emb_8b,4.0,1.0,10.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,resnet50,15.0,15.0,15.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,siglip2_b16_384,6.0,2.0,12.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,siglip2_so400m_384,1.0,1.0,7.0
+iqon3000_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,751,siglip_b16_224,6.0,1.0,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,clip_vitl14_336,7.0,4.0,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,dinov3_vitl16,12.0,12.0,13.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,dinov3_vitl16_336,13.0,12.0,14.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,fashionclip2,10.0,6.0,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,gr_lite,14.0,12.0,14.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,marqo_fashionclip,8.0,4.975000000000001,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,marqo_fashionsiglip,7.0,4.0,9.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,openclip_b32_laion2b,11.0,8.0,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,pe_core_l14_336,2.0,1.0,3.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,qwen3_vl_emb_2b,5.0,2.0,8.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,qwen3_vl_emb_8b,3.0,2.0,8.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,resnet50,15.0,15.0,15.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,siglip2_b16_384,5.0,3.0,9.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,siglip2_so400m_384,1.0,1.0,3.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,cp_auc,two-way pigeonhole cluster bootstrap,4172,siglip_b16_224,8.0,4.0,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,clip_vitl14_336,10.0,4.0,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,dinov3_vitl16,13.0,11.0,14.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,dinov3_vitl16_336,13.0,12.0,14.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,fashionclip2,10.0,5.0,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,gr_lite,13.0,12.0,14.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,marqo_fashionclip,7.0,3.0,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,marqo_fashionsiglip,5.0,2.0,9.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,openclip_b32_laion2b,8.0,4.0,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,pe_core_l14_336,1.0,1.0,3.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,qwen3_vl_emb_2b,5.0,2.0,9.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,qwen3_vl_emb_8b,8.0,4.0,11.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,resnet50,15.0,15.0,15.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,siglip2_b16_384,4.0,2.0,10.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,siglip2_so400m_384,2.0,1.0,7.0
+pog_v2_clean,native,logistic,exclude_outfit:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,4172,siglip_b16_224,6.0,2.0,10.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,clip_vitl14_336,7.0,2.0,11.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,dinov3_vitl16,12.0,9.0,13.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,dinov3_vitl16_336,13.0,12.0,14.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,fashionclip2,10.0,4.0,11.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,gr_lite,14.0,13.0,14.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,marqo_fashionclip,8.0,4.0,12.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,marqo_fashionsiglip,6.0,3.0,10.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,openclip_b32_laion2b,11.0,6.0,12.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,pe_core_l14_336,2.0,1.0,6.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,qwen3_vl_emb_2b,5.0,1.0,10.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,qwen3_vl_emb_8b,3.0,1.0,9.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,resnet50,15.0,15.0,15.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,siglip2_b16_384,5.0,2.0,10.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,siglip2_so400m_384,2.0,1.0,5.0
+pog_v2_clean,native,logistic,exclude_item:any_method,cp_auc,two-way pigeonhole cluster bootstrap,1538,siglip_b16_224,8.0,3.0,11.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,clip_vitl14_336,8.0,2.0,11.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,dinov3_vitl16,13.0,10.0,14.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,dinov3_vitl16_336,12.5,10.0,14.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,fashionclip2,11.0,4.0,13.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,gr_lite,14.0,11.0,14.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,marqo_fashionclip,7.5,3.0,11.012499999999932
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,marqo_fashionsiglip,5.0,2.0,9.012499999999932
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,openclip_b32_laion2b,9.0,3.5,12.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,pe_core_l14_336,1.0,1.0,3.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,qwen3_vl_emb_2b,4.0,2.0,10.5
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,qwen3_vl_emb_8b,7.0,3.0,11.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,resnet50,15.0,15.0,15.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,siglip2_b16_384,7.0,2.5,11.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,siglip2_so400m_384,2.0,1.0,9.0
+pog_v2_clean,native,logistic,exclude_item:any_method,fitb_acc,two-way pigeonhole cluster bootstrap,2063,siglip_b16_224,5.0,1.0,10.0

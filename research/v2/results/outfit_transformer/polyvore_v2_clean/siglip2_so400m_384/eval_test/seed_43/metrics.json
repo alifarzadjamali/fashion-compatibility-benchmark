@@ -1,0 +1,9 @@
+{
+  "test_cp_auc": 0.9449764393922887,
+  "test_fitb_accuracy": 0.6768590674943865,
+  "lr": 0.0001,
+  "seed": 43,
+  "best_epoch": 12,
+  "best_valid_auc": 0.9521171945611302,
+  "early_stopping_fired": true
+}

@@ -1,0 +1,11 @@
+dataset,model,setting,learner,split,training_corpus,selection,metric,value,ci_low,ci_high,n_questions,ci_method
+a100_lat,qwen3_vl_8b_zeroshot,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_majority,0.7,0.61,0.78,100,"paired cluster bootstrap over questions, 2000 reps"
+a100_lat,qwen3_vl_8b_zeroshot,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_archive,0.75,0.66,0.83,100,"paired cluster bootstrap over questions, 2000 reps"
+a100_lat,qwen3_vl_8b_zeroshot,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),mlat,0.5641999999999999,0.500976,0.6228044999999999,100,"paired cluster bootstrap over questions, 2000 reps"
+a100_aat,qwen3_vl_8b_zeroshot,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc,0.74,0.65,0.82,100,"paired cluster bootstrap over questions, 2000 reps"
+a100_aat,qwen3_vl_8b_zeroshot,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_color,0.9,0.75,1.0,20,"paired cluster bootstrap over questions, 2000 reps"
+a100_aat,qwen3_vl_8b_zeroshot,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_style,0.75,0.59375,0.90625,32,"paired cluster bootstrap over questions, 2000 reps"
+a100_aat,qwen3_vl_8b_zeroshot,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_occasion,0.6666666666666666,0.4,0.8666666666666667,15,"paired cluster bootstrap over questions, 2000 reps"
+a100_aat,qwen3_vl_8b_zeroshot,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_season,0.75,0.5,1.0,12,"paired cluster bootstrap over questions, 2000 reps"
+a100_aat,qwen3_vl_8b_zeroshot,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_material,0.8333333333333334,0.5833333333333334,1.0,12,"paired cluster bootstrap over questions, 2000 reps"
+a100_aat,qwen3_vl_8b_zeroshot,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_balance,0.3333333333333333,0.0,0.6666666666666666,9,"paired cluster bootstrap over questions, 2000 reps"

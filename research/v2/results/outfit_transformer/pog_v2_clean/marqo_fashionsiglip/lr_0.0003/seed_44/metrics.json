@@ -1,0 +1,26 @@
+{
+  "valid_cp_auc": 0.8071886417523769,
+  "valid_fitb_accuracy": 0.4755075961948034,
+  "config": {
+    "lr": 0.0003,
+    "seed": 44,
+    "max_epochs": 100,
+    "patience": 10,
+    "batch_size": 50,
+    "weight_decay": 0.0001,
+    "model_dim": 64,
+    "min_delta": 1e-07,
+    "loss": "focal BCE gamma=2 alpha=0.25 (v1)",
+    "optimizer": "AdamW",
+    "precision": "float32"
+  },
+  "encoder": "marqo_fashionsiglip",
+  "best_epoch": 12,
+  "best_valid_auc": 0.8071886417523769,
+  "epochs_run": 22,
+  "early_stopping_fired": true,
+  "training_seconds": 1802.8186343919951,
+  "device": "cuda",
+  "best_state_sha256": "a67146ffe4f7a5ba4a084dfea4487ea167e334ce039029d7c86e76a69f304341",
+  "finished_utc": "2026-11-23T15:39:59.978348+00:00"
+}

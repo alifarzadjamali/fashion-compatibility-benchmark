@@ -1,0 +1,203 @@
+{
+  "model_key": "gr_lite",
+  "utc": "2026-11-23T19:25:05.687642+00:00",
+  "host": "spark-salp14603",
+  "machine": "aarch64",
+  "torch": "2.11.0+cu130",
+  "device": "NVIDIA GB10",
+  "dtype": "torch.bfloat16",
+  "attention_method": "sdpa; algebraic replacement of pinned GR-Lite eager attention",
+  "images_sampled": [
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/101355380.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/102506869.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/106567231.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/115362421.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/117132344.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/117799666.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/123396795.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/128151294.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/130445083.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/137315239.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/138901561.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/140972209.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/143411567.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/146639677.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/147335497.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/147354525.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/148270845.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/148486788.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/148691531.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/149772353.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/150426230.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/150855012.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/154291845.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/156967729.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/162391248.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/165909665.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/167584127.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/169333199.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/170039254.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/170644865.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/171808729.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/173057613.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/175931920.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/176595059.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/180758693.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/183623127.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/183685833.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/185927860.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/188364800.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/189916094.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/190815861.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/191776383.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/194764547.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/197668357.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/200256893.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/202061303.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/202169688.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/204945596.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/205597322.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/207063874.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/210091176.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/210793535.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/211331829.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/212727361.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/213085502.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/213965487.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/41463542.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/44097338.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/5983912.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/63464958.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/74333410.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/80573814.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/91611996.jpg",
+    "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/97922935.jpg"
+  ],
+  "image_tower_parameters": 303129600,
+  "image_tower_parameters_m": 303.1296,
+  "preprocessing": {
+    "per_image_seconds": {
+      "median": 0.0025204369449056685,
+      "q25": 0.0014747549721505493,
+      "q75": 0.0033717820479068905,
+      "iqr": 0.0018970270757563412,
+      "n": 64
+    },
+    "batched_seconds_per_image": 0.0021745536250818986,
+    "images": 64,
+    "includes": "file decode + RGB convert + resize + normalize on CPU; no device transfer",
+    "processor": "_GRLiteProcessor",
+    "fast_processor": false,
+    "torch_cpu_threads": 8
+  },
+  "flops": {
+    "gflops_per_image": 289.622851584,
+    "flops_per_image": 289622851584,
+    "input_shapes": {
+      "pixel_values": [
+        1,
+        3,
+        336,
+        336
+      ]
+    },
+    "method": "torch.utils.flop_counter.FlopCounterMode, batch 1, native preprocessing resolution; 1 MAC = 2 FLOPs; counts matmul/conv/attention ops only"
+  },
+  "storage": {
+    "native_dim": 1024,
+    "native_float32_mb_per_100k": 409.6,
+    "native_float16_mb_per_100k": 204.8,
+    "pca256_float32_mb_per_100k": 102.4,
+    "unit": "MB = 10^6 bytes; vectors only, no ids/index"
+  },
+  "cuda": {
+    "capability": [
+      12,
+      1
+    ],
+    "cuda_runtime": "13.0",
+    "sdpa_flash": true,
+    "sdpa_mem_efficient": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": true
+  },
+  "latency": {
+    "1": {
+      "batch_size": 1,
+      "warmup": 10,
+      "timed": 50,
+      "latency_ms": {
+        "median": 10.541183948516846,
+        "q25": 10.533943891525269,
+        "q75": 10.563480138778687,
+        "iqr": 0.02953624725341797,
+        "n": 50
+      },
+      "latency_ms_per_image_median": 10.541183948516846,
+      "throughput_images_per_second": 94.86600413046591,
+      "allocator_peak_bytes": 652115456,
+      "allocator_peak_label": "torch.cuda.max_memory_allocated (allocator peak; not device total; includes weights and inputs already resident)",
+      "input_shapes": {
+        "pixel_values": [
+          1,
+          3,
+          336,
+          336
+        ]
+      }
+    },
+    "64": {
+      "batch_size": 64,
+      "warmup": 10,
+      "timed": 50,
+      "latency_ms": {
+        "median": 398.9398651123047,
+        "q25": 396.68177795410156,
+        "q75": 399.9576187133789,
+        "iqr": 3.2758407592773438,
+        "n": 50
+      },
+      "latency_ms_per_image_median": 6.233435392379761,
+      "throughput_images_per_second": 160.42518082765056,
+      "allocator_peak_bytes": 1331353600,
+      "allocator_peak_label": "torch.cuda.max_memory_allocated (allocator peak; not device total; includes weights and inputs already resident)",
+      "input_shapes": {
+        "pixel_values": [
+          64,
+          3,
+          336,
+          336
+        ]
+      }
+    }
+  },
+  "throughput_images_per_second": 160.42518082765056,
+  "allocator_peak_bytes": 1331353600,
+  "energy": {
+    "method": "NVML nvmlDeviceGetTotalEnergyConsumption counter",
+    "joules": 2144.490999999456,
+    "seconds": 30.35113517206628,
+    "images": 4864,
+    "idle_watts": 14.341799999959767,
+    "scope": "GPU/SoC as reported by the driver; excludes host CPU, memory and PSU loss",
+    "wh_per_1k_images": 0.12246956094660638,
+    "net_of_idle_wh_per_1k_images": 0.0976106250907996,
+    "grid_intensity_kg_per_kwh": null,
+    "kgco2e_per_1k_images": null,
+    "workload": "repeated batch-64 forward on device-resident inputs"
+  },
+  "load_seconds": 1.7763713769381866,
+  "spec": {
+    "model_key": "gr_lite",
+    "checkpoint": "srpone/gr-lite",
+    "revision": "a8057f8aadaaab91670ad37949f6e1b5aa187e29",
+    "family": "fashion_retrieval",
+    "input_resolution": 336,
+    "embedding_dim": 1024,
+    "trust_remote_code": true,
+    "use_safetensors": true,
+    "backend": "huggingface",
+    "cuda_dtype": "bfloat16"
+  },
+  "seed": 20261118
+}

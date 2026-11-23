@@ -1,0 +1,11 @@
+dataset,setting,learner,split,training_corpus,selection,metric,method,clusters,model,rank_median,rank_low,rank_high
+a100_lat,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_majority,paired cluster bootstrap,100,qwen3_vl_8b_zeroshot,1.0,1.0,1.0
+a100_lat,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_archive,paired cluster bootstrap,100,qwen3_vl_8b_zeroshot,1.0,1.0,1.0
+a100_lat,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),mlat,paired cluster bootstrap,100,qwen3_vl_8b_zeroshot,1.0,1.0,1.0
+a100_aat,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc,paired cluster bootstrap,100,qwen3_vl_8b_zeroshot,1.0,1.0,1.0
+a100_aat,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_color,paired cluster bootstrap,20,qwen3_vl_8b_zeroshot,1.0,1.0,1.0
+a100_aat,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_style,paired cluster bootstrap,32,qwen3_vl_8b_zeroshot,1.0,1.0,1.0
+a100_aat,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_occasion,paired cluster bootstrap,15,qwen3_vl_8b_zeroshot,1.0,1.0,1.0
+a100_aat,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_season,paired cluster bootstrap,12,qwen3_vl_8b_zeroshot,1.0,1.0,1.0
+a100_aat,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_material,paired cluster bootstrap,12,qwen3_vl_8b_zeroshot,1.0,1.0,1.0
+a100_aat,zero_shot,letter_logprob,trained_on_zero_shot,zero_shot,none (zero-shot),acc_balance,paired cluster bootstrap,9,qwen3_vl_8b_zeroshot,1.0,1.0,1.0

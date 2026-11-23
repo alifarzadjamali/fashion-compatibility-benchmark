@@ -185,3 +185,9 @@ Not yet done (Phase 2 / manuscript): full-run numbers, deviation table, qualitat
   0.829; IQON 0.894 / Marqo-FashionSigLIP 0.882 / 0.787; POG 0.829 / 0.810 / 0.697. Profiling
   running (11/15 models at 19:29, CPU lane idle). All OT + profile outputs copied to laptop and
   SHA-256 verified (767 files).
+- **20:00 Mon 23 Nov — PHASE 2 COMPLETE.** Profiling 15/15 (19:39). Final copy of all DGX
+  outputs to `~/repbench-results/dgx37/final/` (2,232 files, SHA-256 verified); DGX embeddings
+  re-verified identical to the laptop (297/297). Final tables/figures generated (1,170 numbers,
+  0 violations). Compact evidence committed under `research/v2/results/`. Paper guide complete.
+  Deviation D3 (20k replicates) recorded with a correction. Booking job 37 left running for the
+  owner to cancel (owner instruction 2026-11-23 18:33).

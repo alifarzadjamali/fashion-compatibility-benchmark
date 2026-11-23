@@ -1,0 +1,142 @@
+{
+  "kind": "cross_split_near_duplicate_audit",
+  "dataset_name": "polyvore_v2_clean",
+  "protocol_root": "/data/a_jamali2/repbench/data/v2/polyvore_v2_clean/build_a",
+  "protocol_sha256": {
+    "compatibility_test.txt": "1ce1c9e476b8c58b0bfc65594ea1b58c49d2413a539fe57ec1bd449de196c8c1",
+    "compatibility_train.txt": "10465f134024dfda556e177ac744d026472a58608dc2be24010ada98b03d1ea8",
+    "compatibility_valid.txt": "8c81dca918cc10188dde03e0e579dd8c0e817ab94b8d1d3e130b2b1c4ae63229",
+    "duplicates_removed.json": "2b94bda65e33b9e9cdb4e4596f660c7f16cbb7f5ac044be3114e8210c079ee35",
+    "fill_in_blank_test.json": "4335986db671360686f756ff70b941773d843bdeca5f2621d8b9d3b40adf252f",
+    "fill_in_blank_train.json": "d59686caf925a354d9a83f4a2589c34d512caec363bd5b53557e22090c68d360",
+    "fill_in_blank_valid.json": "cf07b4ec8ad8a498c01a3de8e12700284c5f4bdfa5ee8b9a1ea517c63a952b58",
+    "manifest.json": "e48e4a4288b928e7a081d9dad3d01cb7cf5a014b71da10425f8d2a74c90f1991",
+    "test.json": "0aeb419c0ffc2742ca500737d8d3b9b950a8bf4eeb245f44d2189ce8f7daee38",
+    "train.json": "69e640fd1ca99192b0d91502f74deacfdf4daf1c1c4cd3b100aafdce9a422ac1",
+    "valid.json": "5b385b40eeb3e9250cd1ed3c9808f3d8378e994118845b8d7bed248dbc321b03"
+  },
+  "images_root": "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images",
+  "items_per_split": {
+    "train": 68072,
+    "valid": 13932,
+    "test": 70781
+  },
+  "outfits_per_split": {
+    "train": 16991,
+    "valid": 2999,
+    "test": 15142
+  },
+  "shared_item_ids": {
+    "train-test": 0,
+    "valid-test": 0,
+    "train-valid": 0
+  },
+  "unreadable_images": [],
+  "phash": {
+    "algorithm": "64-bit DCT pHash (imagehash.phash algorithm), PIL Lanczos 32x32",
+    "threshold": "hamming <= 4",
+    "multi_index_bands": [
+      [
+        51,
+        13
+      ],
+      [
+        38,
+        13
+      ],
+      [
+        25,
+        13
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        0,
+        12
+      ]
+    ],
+    "multi_index_stats": {
+      "largest_bucket": 1594,
+      "verified_comparisons": 48510302
+    },
+    "unique_hashes": 151990,
+    "near_unique_hash_pairs": 9630,
+    "identical_hash_groups_cross_split": 93,
+    "pair_counts": {
+      "train-test": 4042,
+      "valid-test": 922,
+      "train-valid": 934
+    },
+    "flagged_valid_items_from_train": 467,
+    "listing_truncated": false
+  },
+  "embedding": {
+    "store": {
+      "parts": {
+        "test": {
+          "path": "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/dinov3_vitl16/test",
+          "sha256": {
+            "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/dinov3_vitl16/test/items.npy": "a79bc494ace33b4f5364b81aa5e6cd33ee50d7ea4fe05049419f00d120408aaa",
+            "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/dinov3_vitl16/test/item_ids.json": "4c3978f92e76e7491bffac4185d84ea98b6f0f2182fc02d7f22fe3b7d332005c"
+          }
+        },
+        "trainvalid": {
+          "path": "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/dinov3_vitl16/trainvalid",
+          "sha256": {
+            "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/dinov3_vitl16/trainvalid/items.npy": "34221607a4b465ac22f8fb03cd44e9f748194d5f77b7af100de3019096f8e506",
+            "/data/a_jamali2/repbench/data/v2/full/emb/polyvore_v2_clean/dinov3_vitl16/trainvalid/item_ids.json": "f70017f7a498c72cfdc2da517bff34d7793d61cf2f6b8acc4360a8d9a41323e1"
+          }
+        }
+      }
+    },
+    "threshold": "cosine > 0.95",
+    "pair_counts": {
+      "train-test": 100083,
+      "valid-test": 24476,
+      "train-valid": 23845
+    },
+    "items_without_embedding": {
+      "train": 0,
+      "valid": 0,
+      "test": 0
+    },
+    "listing_truncated": false
+  },
+  "affected_test_items": {
+    "phash_train": 2297,
+    "embedding_train": 9668,
+    "phash_valid": 723,
+    "embedding_valid": 4982
+  },
+  "affected_test_outfits": {
+    "phash_train": 2177,
+    "embedding_train": 7215,
+    "phash_valid": 725,
+    "embedding_valid": 4248,
+    "phash_any": 2471,
+    "embedding_any": 7605,
+    "any_method": 8365
+  },
+  "affected_test_outfit_fraction": {
+    "phash_train": 0.14377228899749042,
+    "embedding_train": 0.4764892352397305,
+    "phash_valid": 0.047880068683133006,
+    "embedding_valid": 0.2805441817461366,
+    "phash_any": 0.16318848236692643,
+    "embedding_any": 0.5022454101175539,
+    "any_method": 0.5524369303922864
+  },
+  "pairs_csv_sha256": "ea9694e6f27f17ccd9049eb79b325b6568072f68db0a977167b8943cf14fcd3a",
+  "workers": 8,
+  "runtime": {
+    "read_protocol_seconds": 1.0443451890023425,
+    "phash_seconds": 26.49949358392041,
+    "phash_match_seconds": 0.49968711799010634,
+    "embedding_seconds": 73.73483983904589,
+    "total_seconds": 102.27727443305776
+  },
+  "finished_utc": "2026-11-23T09:49:07.234010+00:00",
+  "notes": "Pair counts are image-pair counts (exact); listing capped at 200000 per method. Affected test outfits contain >= 1 test item with a near duplicate in train or valid."
+}

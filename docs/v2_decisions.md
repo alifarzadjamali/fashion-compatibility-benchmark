@@ -473,3 +473,16 @@ embedding size): GR-Lite 65.71, Marqo-FashionCLIP 63.24, Marqo-FashionSigLIP 62.
 reason they are excluded. Result: Spearman ρ between −0.14 and +0.14 on all datasets/metrics (wide
 CIs, n = 6) — no evidence that retrieval rank predicts compatibility rank. The run with the empty
 template is kept as `sensitivities/lookbench_empty_config_20261123/`. DGX and laptop runs are identical.
+
+### 2026-11-23 — CORRECTION to the 20,000-replicate entry: this is deviation D3
+
+The entry above said the change is within a pre-registered "2,000+ replicates". That wording is in
+HANDOFF_V2.md, not in the frozen protocol: `configs/v2_protocol.yaml` → `statistics.
+paired_cluster_bootstrap.replicates: 2000`, with `p_value_reporting: with floor, e.g. < 5e-4 at
+2,000 replicates`. The 20,000-replicate run is therefore **deviation D3** (post-freeze change to a
+statistics setting, owner-approved 2026-11-23). It is a resolution change only: same code, seed,
+inputs, clusters and Holm family; point estimates and selection are byte-identical; it was decided
+because the frozen setting makes Holm significance unattainable (floor ≈0.0525 > 0.05), not because
+of which models won. Reporting: the protocol-specified 2,000-replicate results (`results/`) remain
+the pre-registered analysis and are reported (CIs, ranks, effect sizes are essentially unchanged);
+Holm-adjusted bootstrap p-values are quoted from `results_r20k/` and labelled as D3 in the paper.
