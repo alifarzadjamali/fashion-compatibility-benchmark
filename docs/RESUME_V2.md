@@ -169,3 +169,9 @@ Not yet done (Phase 2 / manuscript): full-run numbers, deviation table, qualitat
   (1,170 metric rows, 8,190 pairwise rows). OT moved to 9 parallel streams (GPU 13% → 83%).
   Sensitivities: provenance, subgroups, LookBench done; label-fractions, construction-seeds running.
   800 result files copied to laptop and SHA-256 verified.
+- **14:20 Mon 23 Nov — Polyvore OT done; 20k-replicate stats done; all sensitivities done.**
+  `results_r20k/` (14:07): point estimates identical to the 2,000-replicate run, selection identical;
+  Holm-significant pairs 4,929/8,190 (primary block 230/315; was 0 with 2,000 replicates).
+  OutfitTransformer: Polyvore 3/3 streams (train+select+test) done; POG 13/30 and IQON 6/30 runs.
+  Construction-seeds, label-fractions, provenance, subgroups, near-duplicates, LookBench all done.
+  1,002 more files copied to laptop `~/repbench-results/dgx37` and SHA-256 verified.
