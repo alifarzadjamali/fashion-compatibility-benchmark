@@ -463,3 +463,13 @@ with `--replicates 20000` (`scripts/v2/run_phase2b_stats20k.sh`, output `results
 seed and inputs; protocol hash unchanged). The 2,000-replicate output is kept for comparison.
 Selection (validation AUC) does not depend on the bootstrap. Sensitivities keep 2,000 replicates
 and are reported through deltas, CIs and rank intervals, not Holm significance.
+
+### 2026-11-23 — LookBench v3 scores transcribed (planned Phase 3 input, not in protocol hash)
+
+`configs/lookbench_v3_scores.json` filled by the owner from LookBench (arXiv:2601.14706, Table 3,
+Fine-Recall@1 "Overall"; accessed 2026-11-23 13:00 GMT). Exact matches (same checkpoint, resolution,
+embedding size): GR-Lite 65.71, Marqo-FashionCLIP 63.24, Marqo-FashionSigLIP 62.77, SigLIP2-B/16-384
+59.44, DINOv3-L/16@224 43.97, CLIP-L/14-336 39.79 (n = 6); the other 9 models are listed with the
+reason they are excluded. Result: Spearman ρ between −0.14 and +0.14 on all datasets/metrics (wide
+CIs, n = 6) — no evidence that retrieval rank predicts compatibility rank. The run with the empty
+template is kept as `sensitivities/lookbench_empty_config_20261123/`. DGX and laptop runs are identical.

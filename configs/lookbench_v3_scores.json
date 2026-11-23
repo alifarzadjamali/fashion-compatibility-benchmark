@@ -1,7 +1,7 @@
 {
   "benchmark": "LookBench v3 (13 Apr 2026); live benchmark - record the access date",
-  "source": "TO FILL: LookBench v3 paper citation/URL, table number and access date. Do not fill from memory.",
-  "metric": "TO FILL: LookBench metric used (v1 used fine-grained Recall@1 from LookBench Table 3)",
+  "source": "Gao et al., LookBench, arXiv:2601.14706, https://arxiv.org/pdf/2601.14706 (latest version at access), Table 3 (Fine-Recall@1). Accessed 2026-11-23 13:00 GMT; transcribed by the owner from the PDF.",
+  "metric": "Fine-grained Recall@1, 'Overall' column (query-count-weighted over the four LookBench subsets), LookBench v3 Table 3",
   "instructions": "Fill 'score' only from the LookBench v3 paper/leaderboard, set 'exact_match' true only when LookBench evaluated the identical checkpoint/resolution/embedding (state why in 'match_basis'), else false. Models with score null or exact_match not true are listed but excluded from the correlation (repbench.v2.sensitivities.run_lookbench).",
   "notes": [
     "HANDOFF_V2 6.9 states Marqo-FashionCLIP = 63.24 in LookBench v3; verify against the paper before entering it.",
@@ -11,92 +11,92 @@
     "resnet50": {
       "lookbench_label": null,
       "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "exact_match": false,
+      "match_basis": "not in Table 3"
     },
     "dinov3_vitl16": {
-      "lookbench_label": null,
-      "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "lookbench_label": "DINOV3-VIT-L",
+      "score": 43.97,
+      "exact_match": true,
+      "match_basis": "Table 3 row DINOV3-VIT-L at 224 / 1024 = our facebook/dinov3-vitl16-pretrain-lvd1689m at 224 px, 1024-d"
     },
     "clip_vitl14_336": {
-      "lookbench_label": null,
-      "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "lookbench_label": "CLIP-L/14",
+      "score": 39.79,
+      "exact_match": true,
+      "match_basis": "Table 3 row CLIP-L/14 at 336 / 768 = our openai/clip-vit-large-patch14-336, 768-d"
     },
     "siglip2_b16_384": {
-      "lookbench_label": null,
-      "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "lookbench_label": "SIGLIP2-B/16",
+      "score": 59.44,
+      "exact_match": true,
+      "match_basis": "Table 3 row SIGLIP2-B/16 at 384 / 768 = our google/siglip2-base-patch16-384, 768-d"
     },
     "fashionclip2": {
       "lookbench_label": null,
       "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "exact_match": false,
+      "match_basis": "not in Table 3"
     },
     "marqo_fashionsiglip": {
-      "lookbench_label": null,
-      "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "lookbench_label": "MARQO-FASHIONSIGLIP",
+      "score": 62.77,
+      "exact_match": true,
+      "match_basis": "Table 3 row MARQO-FASHIONSIGLIP at 224 / 768 = our Marqo/marqo-fashionSigLIP at 224 px, 768-d"
     },
     "gr_lite": {
-      "lookbench_label": null,
-      "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "lookbench_label": "GR-LITE",
+      "score": 65.71,
+      "exact_match": true,
+      "match_basis": "Table 3 row GR-LITE at 336 / 1024 = our srpone/gr-lite at 336 px, 1024-d"
     },
     "dinov3_vitl16_336": {
       "lookbench_label": null,
       "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "exact_match": false,
+      "match_basis": "Table 3 reports DINOv3-ViT-L only at 224; we also run it at 336 (different resolution)"
     },
     "pe_core_l14_336": {
       "lookbench_label": null,
       "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "exact_match": false,
+      "match_basis": "not in Table 3"
     },
     "siglip2_so400m_384": {
       "lookbench_label": null,
       "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "exact_match": false,
+      "match_basis": "Table 3 has SigLIP2-L/16 (1024-d), not So400m (1152-d)"
     },
     "siglip_b16_224": {
       "lookbench_label": null,
       "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "exact_match": false,
+      "match_basis": "no SigLIP (v1) B/16 row in Table 3"
     },
     "openclip_b32_laion2b": {
       "lookbench_label": null,
       "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "exact_match": false,
+      "match_basis": "Table 3 has CLIP-B/16 only; no ViT-B/32 LAION-2B row"
     },
     "marqo_fashionclip": {
-      "lookbench_label": null,
-      "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "lookbench_label": "MARQO-FASHIONCLIP",
+      "score": 63.24,
+      "exact_match": true,
+      "match_basis": "Table 3 row MARQO-FASHIONCLIP at 224 / 512 = our Marqo/marqo-fashionCLIP at 224 px, 512-d"
     },
     "qwen3_vl_emb_2b": {
       "lookbench_label": null,
       "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "exact_match": false,
+      "match_basis": "not in Table 3"
     },
     "qwen3_vl_emb_8b": {
       "lookbench_label": null,
       "score": null,
-      "exact_match": null,
-      "match_basis": null
+      "exact_match": false,
+      "match_basis": "not in Table 3"
     }
   }
 }
