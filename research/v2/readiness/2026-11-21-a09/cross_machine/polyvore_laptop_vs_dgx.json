@@ -1,0 +1,2049 @@
+{
+ "summary": {
+  "n_files": 196,
+  "max_cp_score_diff": 0.9999572626766167,
+  "max_fitb_score_diff": 0.9999905330511183,
+  "max_auc_diff": 0.003376349643574028,
+  "min_fitb_choice_agreement": 0.6777176066569806,
+  "selection_mismatches": [
+   "polyvore_v2_clean__clip_vitl14_336__pca512__mlp.json",
+   "polyvore_v2_clean__dinov3_vitl16_336__pca128__mlp.json",
+   "polyvore_v2_clean__dinov3_vitl16_336__pca512__mlp.json",
+   "polyvore_v2_clean__dinov3_vitl16__pca512__logistic.json",
+   "polyvore_v2_clean__fashionclip2__native__mlp.json",
+   "polyvore_v2_clean__fashionclip2__pca256__mlp.json",
+   "polyvore_v2_clean__marqo_fashionclip__native__mlp.json",
+   "polyvore_v2_clean__marqo_fashionsiglip__native__mlp.json",
+   "polyvore_v2_clean__marqo_fashionsiglip__pca256__mlp.json",
+   "polyvore_v2_clean__marqo_fashionsiglip__pca512__mlp.json",
+   "polyvore_v2_clean__openclip_b32_laion2b__pca128__logistic.json",
+   "polyvore_v2_clean__openclip_b32_laion2b__pca256__logistic.json",
+   "polyvore_v2_clean__pe_core_l14_336__pca256__logistic.json",
+   "polyvore_v2_clean__qwen3_vl_emb_2b__native__mlp.json",
+   "polyvore_v2_clean__qwen3_vl_emb_8b__pca128__logistic.json",
+   "polyvore_v2_clean__qwen3_vl_emb_8b__pca256__mlp.json",
+   "polyvore_v2_clean__siglip2_b16_384__native__mlp.json",
+   "polyvore_v2_clean__siglip2_b16_384__pca128__logistic.json",
+   "polyvore_v2_clean__siglip2_b16_384__pca128__mlp.json",
+   "polyvore_v2_clean__siglip2_b16_384__pca256__logistic.json",
+   "polyvore_v2_clean__siglip2_b16_384__pca512__mlp.json",
+   "polyvore_v2_clean__siglip2_so400m_384__pca512__mlp.json",
+   "polyvore_v2_clean__siglip_b16_224__pca256__logistic.json",
+   "polyvore_v2_clean__siglip_b16_224__pca512__mlp.json"
+  ],
+  "worst": [
+   {
+    "file": "polyvore_v2_clean__qwen3_vl_emb_2b__native__mlp.json",
+    "fitb_choice_agreement": 0.7234843481706512,
+    "cp_max_abs": 0.9999572626766167,
+    "fitb_max_abs": 0.9999905330511183,
+    "auc_laptop": 0.9183357178687294,
+    "auc_dgx": 0.9149593682251553,
+    "auc_diff": 0.003376349643574028,
+    "selection_same": false
+   },
+   {
+    "file": "polyvore_v2_clean__qwen3_vl_emb_8b__native__mlp.json",
+    "fitb_choice_agreement": 0.8398494254391758,
+    "cp_max_abs": 0.999739460843557,
+    "fitb_max_abs": 0.999739460843557,
+    "auc_laptop": 0.9199427103515156,
+    "auc_dgx": 0.9224245604604505,
+    "auc_diff": 0.002481850108934869,
+    "selection_same": true
+   },
+   {
+    "file": "polyvore_v2_clean__dinov3_vitl16_336__pca128__mlp.json",
+    "fitb_choice_agreement": 0.6777176066569806,
+    "cp_max_abs": 0.9750159638933837,
+    "fitb_max_abs": 0.9333920255303383,
+    "auc_laptop": 0.765226162346953,
+    "auc_dgx": 0.7662553660769363,
+    "auc_diff": 0.0010292037299833856,
+    "selection_same": false
+   },
+   {
+    "file": "polyvore_v2_clean__marqo_fashionsiglip__pca512__mlp.json",
+    "fitb_choice_agreement": 0.9432703737947431,
+    "cp_max_abs": 0.8600051593966782,
+    "fitb_max_abs": 0.8092965744435787,
+    "auc_laptop": 0.8730290423204686,
+    "auc_dgx": 0.8739529403860684,
+    "auc_diff": 0.0009238980655997819,
+    "selection_same": false
+   },
+   {
+    "file": "polyvore_v2_clean__dinov3_vitl16__native__mlp.json",
+    "fitb_choice_agreement": 0.8996830009245806,
+    "cp_max_abs": 0.8587798895314336,
+    "fitb_max_abs": 0.9335561655461788,
+    "auc_laptop": 0.8606776380358835,
+    "auc_dgx": 0.859864113670121,
+    "auc_diff": 0.0008135243657624303,
+    "selection_same": true
+   }
+  ]
+ },
+ "rows": [
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.950429916381836e-06,
+   "fitb_max_abs": 3.2782554626464844e-06,
+   "auc_laptop": 0.9097521471591411,
+   "auc_dgx": 0.9097521209902834,
+   "auc_diff": 2.6168857747421725e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.2782554626464844e-06,
+   "fitb_max_abs": 3.129243850708008e-06,
+   "auc_laptop": 0.907415183111959,
+   "auc_dgx": 0.9074151874734353,
+   "auc_diff": 4.361476291236954e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.5033950805664062e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9253022097729364,
+   "auc_dgx": 0.9253019874024919,
+   "auc_diff": 2.2237044450257315e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__native__mlp.json",
+   "fitb_choice_agreement": 0.9167217012283714,
+   "cp_max_abs": 0.8886095695197582,
+   "fitb_max_abs": 0.8498195949941874,
+   "auc_laptop": 0.9083186411189064,
+   "auc_dgx": 0.9084549743256464,
+   "auc_diff": 0.0001363332067400025,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9042541399263828,
+   "auc_dgx": 0.9042541399263828,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.4603137969970703e-06,
+   "fitb_max_abs": 1.6689300537109375e-06,
+   "auc_laptop": 0.8889916464818998,
+   "auc_dgx": 0.8889916879159245,
+   "auc_diff": 4.1434024766751065e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__pca128__mlp.json",
+   "fitb_choice_agreement": 0.9996037511557258,
+   "cp_max_abs": 0.0029349923133850098,
+   "fitb_max_abs": 0.0033090710639953613,
+   "auc_laptop": 0.8799006201862277,
+   "auc_dgx": 0.8799009756465457,
+   "auc_diff": 3.554603179578564e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8884601482577447,
+   "auc_dgx": 0.8884601482577447,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.993511199951172e-06,
+   "fitb_max_abs": 5.0067901611328125e-06,
+   "auc_laptop": 0.8885290225106434,
+   "auc_dgx": 0.8885290530409774,
+   "auc_diff": 3.053033403865868e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__pca256__mlp.json",
+   "fitb_choice_agreement": 0.976819442609959,
+   "cp_max_abs": 0.15056246519088745,
+   "fitb_max_abs": 0.14303570985794067,
+   "auc_laptop": 0.878606382626279,
+   "auc_dgx": 0.8786578545887641,
+   "auc_diff": 5.147196248511676e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.885847975056403,
+   "auc_dgx": 0.885847975056403,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.725290298461914e-06,
+   "fitb_max_abs": 4.172325134277344e-06,
+   "auc_laptop": 0.8845479847092224,
+   "auc_dgx": 0.8845479803477461,
+   "auc_diff": 4.361476291236954e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9743098665962224,
+   "cp_max_abs": 0.5355547070503235,
+   "fitb_max_abs": 0.5355545282363892,
+   "auc_laptop": 0.8733960714543104,
+   "auc_dgx": 0.8734943289730026,
+   "auc_diff": 9.825751869219079e-05,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__clip_vitl14_336__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8852927285938264,
+   "auc_dgx": 0.8852927285938264,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 0.9999339585259543,
+   "cp_max_abs": 0.0005618929862976074,
+   "fitb_max_abs": 0.00043511390686035156,
+   "auc_laptop": 0.8507990207124939,
+   "auc_dgx": 0.8507972412301659,
+   "auc_diff": 1.7794823280459227e-06,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.0265579223632812e-06,
+   "fitb_max_abs": 2.0265579223632812e-06,
+   "auc_laptop": 0.8491372677140967,
+   "auc_dgx": 0.8491372698948348,
+   "auc_diff": 2.180738145618477e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.2814998626708984e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8640402641716406,
+   "auc_dgx": 0.8640400973938073,
+   "auc_diff": 1.667778333214187e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__native__mlp.json",
+   "fitb_choice_agreement": 0.9584599128252542,
+   "cp_max_abs": 0.5635646879673004,
+   "fitb_max_abs": 0.6715935319662094,
+   "auc_laptop": 0.8584058279023213,
+   "auc_dgx": 0.8580556929469049,
+   "auc_diff": 0.0003501349554164701,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8492028141605831,
+   "auc_dgx": 0.8492028141605831,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.0265579223632812e-06,
+   "fitb_max_abs": 2.7418136596679688e-06,
+   "auc_laptop": 0.7707040413666139,
+   "auc_dgx": 0.7707040544510427,
+   "auc_diff": 1.3084428873710863e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__pca128__mlp.json",
+   "fitb_choice_agreement": 0.6777176066569806,
+   "cp_max_abs": 0.9750159638933837,
+   "fitb_max_abs": 0.9333920255303383,
+   "auc_laptop": 0.765226162346953,
+   "auc_dgx": 0.7662553660769363,
+   "auc_diff": 0.0010292037299833856,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.7669622261784496,
+   "auc_dgx": 0.7669622261784496,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__pca256__logistic.json",
+   "fitb_choice_agreement": 0.9999339585259543,
+   "cp_max_abs": 6.198883056640625e-05,
+   "fitb_max_abs": 8.866190910339355e-05,
+   "auc_laptop": 0.778720613615751,
+   "auc_dgx": 0.7787206070735364,
+   "auc_diff": 6.542214547877734e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__pca256__mlp.json",
+   "fitb_choice_agreement": 0.9370624752344472,
+   "cp_max_abs": 0.27947360277175903,
+   "fitb_max_abs": 0.2794736921787262,
+   "auc_laptop": 0.771905874509057,
+   "auc_dgx": 0.7719850658341295,
+   "auc_diff": 7.919132507250293e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.7680713823111187,
+   "auc_dgx": 0.7680713823111187,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 6.258487701416016e-06,
+   "fitb_max_abs": 1.0013580322265625e-05,
+   "auc_laptop": 0.7767009164386327,
+   "auc_dgx": 0.7767007746906531,
+   "auc_diff": 1.4174797957622332e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9341566503764364,
+   "cp_max_abs": 0.7553296536207199,
+   "fitb_max_abs": 0.7560556828975677,
+   "auc_laptop": 0.7640949480479262,
+   "auc_dgx": 0.7645622453410318,
+   "auc_diff": 0.000467297293105573,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16_336__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.7648322577961868,
+   "auc_dgx": 0.7648322577961868,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0002945065498352051,
+   "fitb_max_abs": 0.0002945065498352051,
+   "auc_laptop": 0.8538824666925832,
+   "auc_dgx": 0.8538826804049215,
+   "auc_diff": 2.1371233838163306e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.817941665649414e-05,
+   "fitb_max_abs": 1.7940998077392578e-05,
+   "auc_laptop": 0.8519142174898304,
+   "auc_dgx": 0.851914226212783,
+   "auc_diff": 8.722952582473908e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.3530254364013672e-05,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8709367499514399,
+   "auc_dgx": 0.8709366387662176,
+   "auc_diff": 1.1118522225128658e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__native__mlp.json",
+   "fitb_choice_agreement": 0.8996830009245806,
+   "cp_max_abs": 0.8587798895314336,
+   "fitb_max_abs": 0.9335561655461788,
+   "auc_laptop": 0.8606776380358835,
+   "auc_dgx": 0.859864113670121,
+   "auc_diff": 0.0008135243657624303,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8507071331299292,
+   "auc_dgx": 0.8507071331299292,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 6.377696990966797e-06,
+   "fitb_max_abs": 6.9141387939453125e-06,
+   "auc_laptop": 0.7752271735988465,
+   "auc_dgx": 0.7752272521054198,
+   "auc_diff": 7.850657324226518e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__pca128__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 6.556510925292969e-07,
+   "fitb_max_abs": 6.556510925292969e-07,
+   "auc_laptop": 0.7712121315474983,
+   "auc_dgx": 0.7712121271860221,
+   "auc_diff": 4.361476291236954e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.7746391179308473,
+   "auc_dgx": 0.7746391179308473,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 9.298324584960938e-06,
+   "fitb_max_abs": 9.357929229736328e-06,
+   "auc_laptop": 0.782357677047021,
+   "auc_dgx": 0.7823576334322581,
+   "auc_diff": 4.361476291236954e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__pca256__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 7.152557373046875e-07,
+   "fitb_max_abs": 6.556510925292969e-07,
+   "auc_laptop": 0.7676990518028415,
+   "auc_dgx": 0.7676990365376745,
+   "auc_diff": 1.526516701932934e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.7749755076937227,
+   "auc_dgx": 0.7749755076937227,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__pca512__logistic.json",
+   "fitb_choice_agreement": 0.9987452119931317,
+   "cp_max_abs": 0.005881845951080322,
+   "fitb_max_abs": 0.006120651960372925,
+   "auc_laptop": 0.779905334505954,
+   "auc_dgx": 0.7799072688206905,
+   "auc_diff": 1.934314736495857e-06,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9442609959054286,
+   "cp_max_abs": 0.7692033909261227,
+   "fitb_max_abs": 0.7692033909261227,
+   "auc_laptop": 0.7639676910733543,
+   "auc_dgx": 0.7638765253151162,
+   "auc_diff": 9.116575823808759e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__dinov3_vitl16__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.7698596660982849,
+   "auc_dgx": 0.7698596660982849,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.1622905731201172e-05,
+   "fitb_max_abs": 1.1622905731201172e-05,
+   "auc_laptop": 0.9102992616491673,
+   "auc_dgx": 0.910299242022524,
+   "auc_diff": 1.9626643310566294e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.4603137969970703e-06,
+   "fitb_max_abs": 1.5497207641601562e-06,
+   "auc_laptop": 0.9076271813901877,
+   "auc_dgx": 0.90762721410126,
+   "auc_diff": 3.271107229529946e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.6689300537109375e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9212238246359991,
+   "auc_dgx": 0.9212238246359991,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__native__mlp.json",
+   "fitb_choice_agreement": 0.9334301941619337,
+   "cp_max_abs": 0.6147364601492882,
+   "fitb_max_abs": 0.5803788751363754,
+   "auc_laptop": 0.9063817923647333,
+   "auc_dgx": 0.9061027494729113,
+   "auc_diff": 0.00027904289182201225,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9083141509790615,
+   "auc_dgx": 0.9083141509790615,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.2516975402832031e-06,
+   "fitb_max_abs": 1.2516975402832031e-06,
+   "auc_laptop": 0.8663998164272074,
+   "auc_dgx": 0.8663998142464692,
+   "auc_diff": 2.1807382566407796e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__pca128__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 4.470348358154297e-07,
+   "fitb_max_abs": 4.76837158203125e-07,
+   "auc_laptop": 0.8573399092648939,
+   "auc_dgx": 0.8573399158071083,
+   "auc_diff": 6.542214436855431e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8593901302338566,
+   "auc_dgx": 0.8593901302338566,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.8312206268310547e-06,
+   "fitb_max_abs": 3.993511199951172e-06,
+   "auc_laptop": 0.8681274037295263,
+   "auc_dgx": 0.8681273797414066,
+   "auc_diff": 2.398811971282555e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__pca256__mlp.json",
+   "fitb_choice_agreement": 0.996037511557258,
+   "cp_max_abs": 0.029048651456832886,
+   "fitb_max_abs": 0.03526395559310913,
+   "auc_laptop": 0.8540374735600765,
+   "auc_dgx": 0.8540237959704181,
+   "auc_diff": 1.3677589658422917e-05,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8592738380106881,
+   "auc_dgx": 0.8592738380106881,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__pca512__logistic.json",
+   "fitb_choice_agreement": 0.9999339585259543,
+   "cp_max_abs": 2.372264862060547e-05,
+   "fitb_max_abs": 2.771615982055664e-05,
+   "auc_laptop": 0.8659777607277008,
+   "auc_dgx": 0.8659777978002493,
+   "auc_diff": 3.707254847551411e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9652621846519615,
+   "cp_max_abs": 0.2085331380367279,
+   "fitb_max_abs": 0.19878512620925903,
+   "auc_laptop": 0.8521107805034542,
+   "auc_dgx": 0.8518463202076216,
+   "auc_diff": 0.00026446029583260255,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__fashionclip2__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8552491156627051,
+   "auc_dgx": 0.8552491156627051,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.9073486328125e-06,
+   "fitb_max_abs": 1.6093254089355469e-06,
+   "auc_laptop": 0.8491289852706142,
+   "auc_dgx": 0.8491289983550431,
+   "auc_diff": 1.3084428873710863e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.8477439880371094e-06,
+   "fitb_max_abs": 1.9669532775878906e-06,
+   "auc_laptop": 0.8466843865307074,
+   "auc_dgx": 0.8466844170610416,
+   "auc_diff": 3.053033414968098e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.1324882507324219e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8604706070190564,
+   "auc_dgx": 0.8604703290560007,
+   "auc_diff": 2.779630556837276e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__native__mlp.json",
+   "fitb_choice_agreement": 0.9548936732267864,
+   "cp_max_abs": 0.22530609369277954,
+   "fitb_max_abs": 0.22530603408813477,
+   "auc_laptop": 0.841272426863756,
+   "auc_dgx": 0.8412383113961834,
+   "auc_diff": 3.4115467572592983e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8420327739298024,
+   "auc_dgx": 0.8420327739298024,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.0728836059570312e-06,
+   "fitb_max_abs": 1.0728836059570312e-06,
+   "auc_laptop": 0.8294279569688375,
+   "auc_dgx": 0.8294279547880994,
+   "auc_diff": 2.180738145618477e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__pca128__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.8743019104003906e-07,
+   "fitb_max_abs": 4.76837158203125e-07,
+   "auc_laptop": 0.8198030205526197,
+   "auc_dgx": 0.8198030270948341,
+   "auc_diff": 6.542214436855431e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8255787317039777,
+   "auc_dgx": 0.8255787317039777,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 5.4836273193359375e-06,
+   "fitb_max_abs": 5.0067901611328125e-06,
+   "auc_laptop": 0.8289335792694217,
+   "auc_dgx": 0.8289335116665391,
+   "auc_diff": 6.760288262519509e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__pca256__mlp.json",
+   "fitb_choice_agreement": 0.995575221238938,
+   "cp_max_abs": 0.021618366241455078,
+   "fitb_max_abs": 0.022293299436569214,
+   "auc_laptop": 0.8190048071493877,
+   "auc_dgx": 0.8189456982419115,
+   "auc_diff": 5.9108907476179695e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8254680287126801,
+   "auc_dgx": 0.8254680287126801,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 4.5299530029296875e-06,
+   "fitb_max_abs": 5.036592483520508e-06,
+   "auc_laptop": 0.8263172146893615,
+   "auc_dgx": 0.8263171667131222,
+   "auc_diff": 4.79762393146288e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9754986131290451,
+   "cp_max_abs": 0.3968011438846588,
+   "fitb_max_abs": 0.3625582158565521,
+   "auc_laptop": 0.805574713824786,
+   "auc_dgx": 0.8055819756828158,
+   "auc_diff": 7.26185802979451e-06,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__gr_lite__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8240002262036065,
+   "auc_dgx": 0.8240002262036065,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.814697265625e-06,
+   "fitb_max_abs": 3.814697265625e-06,
+   "auc_laptop": 0.9197964700513734,
+   "auc_dgx": 0.9197964395210394,
+   "auc_diff": 3.053033403865868e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 4.5299530029296875e-06,
+   "fitb_max_abs": 4.976987838745117e-06,
+   "auc_laptop": 0.916691563427179,
+   "auc_dgx": 0.9166915677886552,
+   "auc_diff": 4.361476291236954e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.5033950805664062e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.932447639265328,
+   "auc_dgx": 0.932447639265328,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__native__mlp.json",
+   "fitb_choice_agreement": 0.9839519218068947,
+   "cp_max_abs": 0.2667212188243866,
+   "fitb_max_abs": 0.32329061627388,
+   "auc_laptop": 0.9145997274321559,
+   "auc_dgx": 0.914511826238924,
+   "auc_diff": 8.790119323187628e-05,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9192903425348213,
+   "auc_dgx": 0.9192903425348213,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.115964889526367e-06,
+   "fitb_max_abs": 2.205371856689453e-06,
+   "auc_laptop": 0.8768146728994838,
+   "auc_dgx": 0.8768146576343168,
+   "auc_diff": 1.526516701932934e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__pca128__mlp.json",
+   "fitb_choice_agreement": 0.9999339585259543,
+   "cp_max_abs": 0.0005756020545959473,
+   "fitb_max_abs": 0.0005756616592407227,
+   "auc_laptop": 0.869336348259067,
+   "auc_dgx": 0.8693361650770627,
+   "auc_diff": 1.8318200434297438e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8699842412010835,
+   "auc_dgx": 0.8699842412010835,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 6.139278411865234e-06,
+   "fitb_max_abs": 7.12275505065918e-06,
+   "auc_laptop": 0.8775669643188148,
+   "auc_dgx": 0.8775669795839818,
+   "auc_diff": 1.526516701932934e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__pca256__mlp.json",
+   "fitb_choice_agreement": 0.9996037511557258,
+   "cp_max_abs": 0.0020447969436645508,
+   "fitb_max_abs": 0.002289801836013794,
+   "auc_laptop": 0.8680350276616167,
+   "auc_dgx": 0.8680363273815523,
+   "auc_diff": 1.2997199356767908e-06,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8702944642869324,
+   "auc_dgx": 0.8702944642869324,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 5.224347114562988e-05,
+   "fitb_max_abs": 3.534555435180664e-05,
+   "auc_laptop": 0.8753934160654212,
+   "auc_dgx": 0.8753931674612724,
+   "auc_diff": 2.48604148822551e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9271562541275922,
+   "cp_max_abs": 0.6165595203638077,
+   "fitb_max_abs": 0.7454782575368881,
+   "auc_laptop": 0.8650881242391295,
+   "auc_dgx": 0.865127931433266,
+   "auc_diff": 3.980719413654299e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionclip__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8657256368675661,
+   "auc_dgx": 0.8657256368675661,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 4.0531158447265625e-06,
+   "fitb_max_abs": 4.1425228118896484e-06,
+   "auc_laptop": 0.9223293298063063,
+   "auc_dgx": 0.9223293646981167,
+   "auc_diff": 3.4891810329895634e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.7285346984863281e-06,
+   "fitb_max_abs": 1.996755599975586e-06,
+   "auc_laptop": 0.9182301134432196,
+   "auc_dgx": 0.9182301461542919,
+   "auc_diff": 3.271107229529946e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.5497207641601562e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9298440149161646,
+   "auc_dgx": 0.9298440149161646,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__native__mlp.json",
+   "fitb_choice_agreement": 0.9634130233786818,
+   "cp_max_abs": 0.5427200645208359,
+   "fitb_max_abs": 0.5427203625440598,
+   "auc_laptop": 0.9155173885866551,
+   "auc_dgx": 0.9154890455329576,
+   "auc_diff": 2.834305369747714e-05,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9171756872958273,
+   "auc_dgx": 0.9171756872958273,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.9206275939941406e-06,
+   "fitb_max_abs": 2.9206275939941406e-06,
+   "auc_laptop": 0.8853373181467195,
+   "auc_dgx": 0.8853373050622905,
+   "auc_diff": 1.3084428984733165e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__pca128__mlp.json",
+   "fitb_choice_agreement": 0.9928014793290186,
+   "cp_max_abs": 0.05157080292701721,
+   "fitb_max_abs": 0.06748977303504944,
+   "auc_laptop": 0.8784219488782292,
+   "auc_dgx": 0.8784350878255652,
+   "auc_diff": 1.3138947336011064e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8797910599017192,
+   "auc_dgx": 0.8797910599017192,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 4.5299530029296875e-06,
+   "fitb_max_abs": 4.559755325317383e-06,
+   "auc_laptop": 0.8863421630316001,
+   "auc_dgx": 0.8863421673930764,
+   "auc_diff": 4.361476291236954e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__pca256__mlp.json",
+   "fitb_choice_agreement": 0.964931977281733,
+   "cp_max_abs": 0.17316046357154846,
+   "fitb_max_abs": 0.21661284565925598,
+   "auc_laptop": 0.8748519322412907,
+   "auc_dgx": 0.8749469055683334,
+   "auc_diff": 9.497332704277994e-05,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8806151521245422,
+   "auc_dgx": 0.8806151521245422,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 6.496906280517578e-06,
+   "fitb_max_abs": 7.271766662597656e-06,
+   "auc_laptop": 0.8843934706885502,
+   "auc_dgx": 0.8843934794115028,
+   "auc_diff": 8.722952582473908e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9432703737947431,
+   "cp_max_abs": 0.8600051593966782,
+   "fitb_max_abs": 0.8092965744435787,
+   "auc_laptop": 0.8730290423204686,
+   "auc_dgx": 0.8739529403860684,
+   "auc_diff": 0.0009238980655997819,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__marqo_fashionsiglip__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8778664603537182,
+   "auc_dgx": 0.8778664603537182,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.7881393432617188e-06,
+   "fitb_max_abs": 2.175569534301758e-06,
+   "auc_laptop": 0.9138656124652806,
+   "auc_dgx": 0.9138656015615899,
+   "auc_diff": 1.0903690728092386e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.6689300537109375e-06,
+   "fitb_max_abs": 1.9669532775878906e-06,
+   "auc_laptop": 0.9108966770452938,
+   "auc_dgx": 0.9108966377920071,
+   "auc_diff": 3.925328662113259e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.3709068298339844e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9228432373979055,
+   "auc_dgx": 0.9228431818052945,
+   "auc_diff": 5.5592611070132136e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__native__mlp.json",
+   "fitb_choice_agreement": 0.9896975300488707,
+   "cp_max_abs": 0.0862053632736206,
+   "fitb_max_abs": 0.07658010721206665,
+   "auc_laptop": 0.9080945092136274,
+   "auc_dgx": 0.907922078248339,
+   "auc_diff": 0.00017243096528840596,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9111261299516517,
+   "auc_dgx": 0.9111261299516517,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__pca128__logistic.json",
+   "fitb_choice_agreement": 0.9998679170519086,
+   "cp_max_abs": 0.00020444393157958984,
+   "fitb_max_abs": 0.00020444393157958984,
+   "auc_laptop": 0.8714819983293453,
+   "auc_dgx": 0.8714818434969368,
+   "auc_diff": 1.5483240844993418e-07,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__pca128__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.980232238769531e-07,
+   "fitb_max_abs": 4.172325134277344e-07,
+   "auc_laptop": 0.865744112081148,
+   "auc_dgx": 0.8657441251655769,
+   "auc_diff": 1.3084428873710863e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8645406150354986,
+   "auc_dgx": 0.8645406150354986,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__pca256__logistic.json",
+   "fitb_choice_agreement": 0.9988112534671774,
+   "cp_max_abs": 0.010271608829498291,
+   "fitb_max_abs": 0.012248903512954712,
+   "auc_laptop": 0.8720675832210238,
+   "auc_dgx": 0.872072315422803,
+   "auc_diff": 4.73220177910072e-06,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__pca256__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 5.364418029785156e-07,
+   "fitb_max_abs": 5.066394805908203e-07,
+   "auc_laptop": 0.8605150247537332,
+   "auc_dgx": 0.8605150116693043,
+   "auc_diff": 1.3084428873710863e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8595694087169268,
+   "auc_dgx": 0.8595694087169268,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.00042335689067840576,
+   "fitb_max_abs": 0.00042335689067840576,
+   "auc_laptop": 0.8686763020633569,
+   "auc_dgx": 0.868676541944553,
+   "auc_diff": 2.398811961290548e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9840179632809404,
+   "cp_max_abs": 0.12763604521751404,
+   "fitb_max_abs": 0.12763625383377075,
+   "auc_laptop": 0.8563327724242207,
+   "auc_dgx": 0.85633338521164,
+   "auc_diff": 6.127874193628813e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__openclip_b32_laion2b__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8608594309100372,
+   "auc_dgx": 0.8608594309100372,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.7285346984863281e-06,
+   "fitb_max_abs": 1.7285346984863281e-06,
+   "auc_laptop": 0.9343857325573093,
+   "auc_dgx": 0.9343857238343567,
+   "auc_diff": 8.722952582473908e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.086162567138672e-06,
+   "fitb_max_abs": 1.8477439880371094e-06,
+   "auc_laptop": 0.9313000382361903,
+   "auc_dgx": 0.931300033874714,
+   "auc_diff": 4.361476291236954e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.4901161193847656e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9431121366341854,
+   "auc_dgx": 0.9431120254489631,
+   "auc_diff": 1.1118522225128658e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__native__mlp.json",
+   "fitb_choice_agreement": 0.9790648527275129,
+   "cp_max_abs": 0.17521411180496216,
+   "fitb_max_abs": 0.18076619505882263,
+   "auc_laptop": 0.93348844385858,
+   "auc_dgx": 0.9334165252952279,
+   "auc_diff": 7.191856335209135e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9293413079554497,
+   "auc_dgx": 0.9293413079554497,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.1324882507324219e-06,
+   "fitb_max_abs": 1.5497207641601562e-06,
+   "auc_laptop": 0.9180202348424699,
+   "auc_dgx": 0.9180202195773028,
+   "auc_diff": 1.526516701932934e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__pca128__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 5.364418029785156e-07,
+   "fitb_max_abs": 6.556510925292969e-07,
+   "auc_laptop": 0.9121733225906101,
+   "auc_dgx": 0.9121733138676575,
+   "auc_diff": 8.722952582473908e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.916455435281353,
+   "auc_dgx": 0.916455435281353,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 6.496906280517578e-06,
+   "fitb_max_abs": 8.881092071533203e-06,
+   "auc_laptop": 0.9191627998835521,
+   "auc_dgx": 0.9191627955220758,
+   "auc_diff": 4.361476291236954e-09,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__pca256__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 7.152557373046875e-07,
+   "fitb_max_abs": 5.066394805908203e-07,
+   "auc_laptop": 0.9101572694269356,
+   "auc_dgx": 0.9101572716076738,
+   "auc_diff": 2.180738145618477e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9171184014854421,
+   "auc_dgx": 0.9171184014854421,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.7418136596679688e-06,
+   "fitb_max_abs": 3.635883331298828e-06,
+   "auc_laptop": 0.9170388089045505,
+   "auc_dgx": 0.9170388045430742,
+   "auc_diff": 4.361476291236954e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9887729494122309,
+   "cp_max_abs": 0.20780211687088013,
+   "fitb_max_abs": 0.4393710196018219,
+   "auc_laptop": 0.9096479144179258,
+   "auc_dgx": 0.909568598790779,
+   "auc_diff": 7.931562714680318e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__pe_core_l14_336__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9152562539164967,
+   "auc_dgx": 0.9152562539164967,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 7.867813110351562e-06,
+   "fitb_max_abs": 7.867813110351562e-06,
+   "auc_laptop": 0.917193950977809,
+   "auc_dgx": 0.9171939793274049,
+   "auc_diff": 2.8349595893040203e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.1026859283447266e-06,
+   "fitb_max_abs": 1.6391277313232422e-06,
+   "auc_laptop": 0.9159838484763122,
+   "auc_dgx": 0.9159838310304069,
+   "auc_diff": 1.744590527597012e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.0132789611816406e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9312706325027094,
+   "auc_dgx": 0.9312705213174871,
+   "auc_diff": 1.1118522225128658e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__native__mlp.json",
+   "fitb_choice_agreement": 0.7234843481706512,
+   "cp_max_abs": 0.9999572626766167,
+   "fitb_max_abs": 0.9999905330511183,
+   "auc_laptop": 0.9183357178687294,
+   "auc_dgx": 0.9149593682251553,
+   "auc_diff": 0.003376349643574028,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.912483292710834,
+   "auc_dgx": 0.912483292710834,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 7.927417755126953e-06,
+   "fitb_max_abs": 7.927417755126953e-06,
+   "auc_laptop": 0.8843021849897141,
+   "auc_dgx": 0.8843021479171657,
+   "auc_diff": 3.707254847551411e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__pca128__mlp.json",
+   "fitb_choice_agreement": 0.9999339585259543,
+   "cp_max_abs": 0.0011346638202667236,
+   "fitb_max_abs": 0.0013045668601989746,
+   "auc_laptop": 0.8795235749220766,
+   "auc_dgx": 0.8795243774337147,
+   "auc_diff": 8.025116381427111e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8836035833435639,
+   "auc_dgx": 0.8836035833435639,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.4437904357910156e-06,
+   "fitb_max_abs": 2.7120113372802734e-06,
+   "auc_laptop": 0.8848536544138201,
+   "auc_dgx": 0.8848536478716057,
+   "auc_diff": 6.542214436855431e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__pca256__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.516674041748047e-06,
+   "fitb_max_abs": 3.7848949432373047e-06,
+   "auc_laptop": 0.8757442946525457,
+   "auc_dgx": 0.8757442728451642,
+   "auc_diff": 2.180738145618477e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8817188716770108,
+   "auc_dgx": 0.8817188716770108,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.159046173095703e-06,
+   "fitb_max_abs": 3.337860107421875e-06,
+   "auc_laptop": 0.8834208222216728,
+   "auc_dgx": 0.8834208811016029,
+   "auc_diff": 5.8879930042721185e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9853387927618544,
+   "cp_max_abs": 0.09577953815460205,
+   "fitb_max_abs": 0.11150676012039185,
+   "auc_laptop": 0.8714305874275282,
+   "auc_dgx": 0.8714060235930396,
+   "auc_diff": 2.4563834488566805e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_2b__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8804673307892436,
+   "auc_dgx": 0.8804673307892436,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 4.819035530090332e-05,
+   "fitb_max_abs": 4.819035530090332e-05,
+   "auc_laptop": 0.9215425194828455,
+   "auc_dgx": 0.9215429927030233,
+   "auc_diff": 4.7322017782125414e-07,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.652406692504883e-06,
+   "fitb_max_abs": 2.652406692504883e-06,
+   "auc_laptop": 0.9208761273391274,
+   "auc_dgx": 0.9208761447850325,
+   "auc_diff": 1.7445905164947817e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.7583370208740234e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9372930912504902,
+   "auc_dgx": 0.9372930912504902,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__native__mlp.json",
+   "fitb_choice_agreement": 0.8398494254391758,
+   "cp_max_abs": 0.999739460843557,
+   "fitb_max_abs": 0.999739460843557,
+   "auc_laptop": 0.9199427103515156,
+   "auc_dgx": 0.9224245604604505,
+   "auc_diff": 0.002481850108934869,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9123314609980827,
+   "auc_dgx": 0.9123314609980827,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.2725591659545898e-05,
+   "fitb_max_abs": 2.1159648895263672e-05,
+   "auc_laptop": 0.8808753643424645,
+   "auc_dgx": 0.8808752487633427,
+   "auc_diff": 1.1557912182880159e-07,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__pca128__mlp.json",
+   "fitb_choice_agreement": 0.9665830141328754,
+   "cp_max_abs": 0.20762509107589722,
+   "fitb_max_abs": 0.19959020614624023,
+   "auc_laptop": 0.8764593194376815,
+   "auc_dgx": 0.8764005703519996,
+   "auc_diff": 5.87490856819306e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8813399291706717,
+   "auc_dgx": 0.8813399291706717,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 4.4405460357666016e-06,
+   "fitb_max_abs": 6.318092346191406e-06,
+   "auc_laptop": 0.8813643468957044,
+   "auc_dgx": 0.8813643796067766,
+   "auc_diff": 3.271107218427716e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__pca256__mlp.json",
+   "fitb_choice_agreement": 0.950799101835953,
+   "cp_max_abs": 0.2626721262931824,
+   "fitb_max_abs": 0.3271024823188782,
+   "auc_laptop": 0.8728355410632034,
+   "auc_dgx": 0.8726186601122633,
+   "auc_diff": 0.0002168809509400793,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8791855299789475,
+   "auc_dgx": 0.8791855299789475,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.682209014892578e-06,
+   "fitb_max_abs": 3.516674041748047e-06,
+   "auc_laptop": 0.8798567895302098,
+   "auc_dgx": 0.8798567699035665,
+   "auc_diff": 1.9626643310566294e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9842821291771232,
+   "cp_max_abs": 0.25134900212287903,
+   "fitb_max_abs": 0.44679728150367737,
+   "auc_laptop": 0.8726926590998076,
+   "auc_dgx": 0.8727053466343473,
+   "auc_diff": 1.2687534539645995e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__qwen3_vl_emb_8b__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8769384864885216,
+   "auc_dgx": 0.8769384864885216,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.248453140258789e-06,
+   "fitb_max_abs": 3.874301910400391e-06,
+   "auc_laptop": 0.9234911202348931,
+   "auc_dgx": 0.923491148584489,
+   "auc_diff": 2.8349595893040203e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.7418136596679688e-06,
+   "fitb_max_abs": 2.7418136596679688e-06,
+   "auc_laptop": 0.9191637943001472,
+   "auc_dgx": 0.9191638226497431,
+   "auc_diff": 2.8349595893040203e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.384185791015625e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.931078615623903,
+   "auc_dgx": 0.931078615623903,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__native__mlp.json",
+   "fitb_choice_agreement": 0.9614978206313565,
+   "cp_max_abs": 0.762447364628315,
+   "fitb_max_abs": 0.8328252285718918,
+   "auc_laptop": 0.9165396684730215,
+   "auc_dgx": 0.9163401767280662,
+   "auc_diff": 0.00019949174495526023,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9198066431948295,
+   "auc_dgx": 0.9198066431948295,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.039836883544922e-06,
+   "fitb_max_abs": 3.933906555175781e-06,
+   "auc_laptop": 0.8828509888016305,
+   "auc_dgx": 0.8828509888016305,
+   "auc_diff": 0.0,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__pca128__mlp.json",
+   "fitb_choice_agreement": 0.9974243825122177,
+   "cp_max_abs": 0.011090755462646484,
+   "fitb_max_abs": 0.015409737825393677,
+   "auc_laptop": 0.8758947808498602,
+   "auc_dgx": 0.8758987018170485,
+   "auc_diff": 3.920967188375535e-06,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8797403621012763,
+   "auc_dgx": 0.8797403621012763,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.00020617246627807617,
+   "fitb_max_abs": 0.0002663135528564453,
+   "auc_laptop": 0.886574522861908,
+   "auc_dgx": 0.8865745555729801,
+   "auc_diff": 3.271107218427716e-08,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__pca256__mlp.json",
+   "fitb_choice_agreement": 0.9797252674679698,
+   "cp_max_abs": 0.10905420780181885,
+   "fitb_max_abs": 0.10886698961257935,
+   "auc_laptop": 0.8771097158670909,
+   "auc_dgx": 0.8773458352899642,
+   "auc_diff": 0.00023611942287338206,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8793184634149163,
+   "auc_dgx": 0.8793184634149163,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.519918441772461e-06,
+   "fitb_max_abs": 2.0265579223632812e-06,
+   "auc_laptop": 0.8840522287832976,
+   "auc_dgx": 0.8840522135181306,
+   "auc_diff": 1.526516701932934e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9647998943336416,
+   "cp_max_abs": 0.5438872128725052,
+   "fitb_max_abs": 0.6218194961547852,
+   "auc_laptop": 0.8738670258452885,
+   "auc_dgx": 0.873798435088349,
+   "auc_diff": 6.859075693954608e-05,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_b16_384__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8764219546702697,
+   "auc_dgx": 0.8764219546702697,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.7285346984863281e-06,
+   "fitb_max_abs": 1.8477439880371094e-06,
+   "auc_laptop": 0.936965493447571,
+   "auc_dgx": 0.9369654912668328,
+   "auc_diff": 2.180738145618477e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.384185791015625e-06,
+   "fitb_max_abs": 2.1457672119140625e-06,
+   "auc_laptop": 0.9330179932181137,
+   "auc_dgx": 0.9330180259291859,
+   "auc_diff": 3.271107218427716e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.3113021850585938e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9450249116049687,
+   "auc_dgx": 0.9450249116049687,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__native__mlp.json",
+   "fitb_choice_agreement": 0.9908202351076476,
+   "cp_max_abs": 0.2081996500492096,
+   "fitb_max_abs": 0.2081996500492096,
+   "auc_laptop": 0.9288581937685634,
+   "auc_dgx": 0.9288167226712207,
+   "auc_diff": 4.147109734264909e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9349932033370318,
+   "auc_dgx": 0.9349932033370318,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.1324882507324219e-06,
+   "fitb_max_abs": 1.341104507446289e-06,
+   "auc_laptop": 0.8900151257742471,
+   "auc_dgx": 0.8900151323164616,
+   "auc_diff": 6.542214436855431e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__pca128__mlp.json",
+   "fitb_choice_agreement": 0.9891031567824594,
+   "cp_max_abs": 0.05694931745529175,
+   "fitb_max_abs": 0.08485019207000732,
+   "auc_laptop": 0.8835806158093991,
+   "auc_dgx": 0.8835111222268666,
+   "auc_diff": 6.949358253249827e-05,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8852032965224153,
+   "auc_dgx": 0.8852032965224153,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 4.5299530029296875e-06,
+   "fitb_max_abs": 4.500150680541992e-06,
+   "auc_laptop": 0.8933112220732711,
+   "auc_dgx": 0.893311265688034,
+   "auc_diff": 4.361476291236954e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__pca256__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 4.76837158203125e-07,
+   "fitb_max_abs": 4.76837158203125e-07,
+   "auc_laptop": 0.8827220417549946,
+   "auc_dgx": 0.8827220395742564,
+   "auc_diff": 2.180738145618477e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8875438631490162,
+   "auc_dgx": 0.8875438631490162,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__pca512__logistic.json",
+   "fitb_choice_agreement": 0.9999339585259543,
+   "cp_max_abs": 4.0531158447265625e-06,
+   "fitb_max_abs": 4.9173831939697266e-06,
+   "auc_laptop": 0.8922588480004751,
+   "auc_dgx": 0.8922588458197369,
+   "auc_diff": 2.180738145618477e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__pca512__mlp.json",
+   "fitb_choice_agreement": 0.9764892352397305,
+   "cp_max_abs": 0.5632097721099854,
+   "fitb_max_abs": 0.5632097721099854,
+   "auc_laptop": 0.8809547039577309,
+   "auc_dgx": 0.8809607489638747,
+   "auc_diff": 6.045006143762244e-06,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__siglip2_so400m_384__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8849141742588774,
+   "auc_dgx": 0.8849141742588774,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__native+abs_product_sum__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.2649765014648438e-06,
+   "fitb_max_abs": 2.5331974029541016e-06,
+   "auc_laptop": 0.9206841002608495,
+   "auc_dgx": 0.9206840893571587,
+   "auc_diff": 1.0903690728092386e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__native__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.7120113372802734e-06,
+   "fitb_max_abs": 2.9206275939941406e-06,
+   "auc_laptop": 0.9162542752717152,
+   "auc_dgx": 0.9162542905368822,
+   "auc_diff": 1.526516701932934e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__native__logistic__fitvalid.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 2.8312206268310547e-06,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9264569238984963,
+   "auc_dgx": 0.9264569794911075,
+   "auc_diff": 5.559261118115444e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__native__mlp.json",
+   "fitb_choice_agreement": 0.9990093778893145,
+   "cp_max_abs": 0.007943272590637207,
+   "fitb_max_abs": 0.009888291358947754,
+   "auc_laptop": 0.9111170668039125,
+   "auc_dgx": 0.9111254146695394,
+   "auc_diff": 8.347865626978646e-06,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__native__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.9160573916895838,
+   "auc_dgx": 0.9160573916895838,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__pca128__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.6689300537109375e-06,
+   "fitb_max_abs": 1.6689300537109375e-06,
+   "auc_laptop": 0.8760909164388071,
+   "auc_dgx": 0.8760909055351164,
+   "auc_diff": 1.0903690728092386e-08,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__pca128__mlp.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.5762786865234375e-07,
+   "fitb_max_abs": 4.470348358154297e-07,
+   "auc_laptop": 0.8711495775098974,
+   "auc_dgx": 0.8711495731484211,
+   "auc_diff": 4.361476291236954e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__pca128__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8683775474794234,
+   "auc_dgx": 0.8683775474794234,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__pca256__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 3.5762786865234375e-06,
+   "fitb_max_abs": 3.546476364135742e-06,
+   "auc_laptop": 0.8804554610315091,
+   "auc_dgx": 0.8804554283204368,
+   "auc_diff": 3.271107229529946e-08,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__pca256__mlp.json",
+   "fitb_choice_agreement": 0.9647338528595958,
+   "cp_max_abs": 0.19563284516334534,
+   "fitb_max_abs": 0.20472398400306702,
+   "auc_laptop": 0.8687388041993899,
+   "auc_dgx": 0.8686107796049901,
+   "auc_diff": 0.000128024594399756,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__pca256__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.8697928508983446,
+   "auc_dgx": 0.8697928508983446,
+   "auc_diff": 0.0,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__pca512__logistic.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 1.8477439880371094e-06,
+   "fitb_max_abs": 1.996755599975586e-06,
+   "auc_laptop": 0.8787374733385135,
+   "auc_dgx": 0.8787374689770372,
+   "auc_diff": 4.361476291236954e-09,
+   "selection_same": true
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__pca512__mlp.json",
+   "fitb_choice_agreement": 0.964931977281733,
+   "cp_max_abs": 0.5435627847909927,
+   "fitb_max_abs": 0.5754513815045357,
+   "auc_laptop": 0.8674512745899815,
+   "auc_dgx": 0.8670755573953619,
+   "auc_diff": 0.00037571719461959585,
+   "selection_same": false
+  },
+  {
+   "file": "polyvore_v2_clean__siglip_b16_224__pca512__xgboost.json",
+   "fitb_choice_agreement": 1.0,
+   "cp_max_abs": 0.0,
+   "fitb_max_abs": 0.0,
+   "auc_laptop": 0.86509996346653,
+   "auc_dgx": 0.86509996346653,
+   "auc_diff": 0.0,
+   "selection_same": true
+  }
+ ]
+}

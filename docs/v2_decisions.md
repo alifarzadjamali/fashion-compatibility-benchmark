@@ -423,3 +423,14 @@ cases handled. Calibration ECE CIs use primary clusters only (documented).
   construction scripts (`scripts/v2/run_phase2b_iqoncat.sh`); count fields are compared with the
   committed audits in `research/v2/readiness/2026-11-18-g3/g3/`.
 - 649 DGX outputs (results, done markers, logs) copied to the laptop and SHA-256 verified.
+
+### 2026-11-23 — Cross-machine check (laptop x86 vs DGX GB10/ARM), Polyvore probes
+
+All 196 Polyvore prediction files fitted independently on the laptop backup (2026-11-20) and
+on the DGX (job 37) were compared (`research/v2/readiness/2026-11-21-a09/cross_machine/`).
+Test CP-AUC difference: median 1.5e-8, maximum 0.0034; only 3/196 files differ by more than 0.001
+(all MLP heads). Logistic heads with the same selected C agree to 1.8e-6 (76 files). The validation-
+selected hyperparameter differs in 24/196 files (near-tied validation AUCs; MLP or PCA settings),
+which accounts for the larger per-item score differences. The DGX outputs are the canonical results;
+the laptop copy is a reproducibility check only. Conclusion: results are machine-stable to
+floating-point tolerance; no conclusion depends on the machine.
