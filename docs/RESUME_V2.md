@@ -180,3 +180,8 @@ Not yet done (Phase 2 / manuscript): full-run numbers, deviation table, qualitat
   POG SigLIP2-So400m 0.829, Marqo-FashionSigLIP 0.810, ResNet-50 0.697 (all above the
   corresponding linear probes). IQON 17/30 runs, ETA ~23:00–00:30; profiling follows. 606 OT files
   copied to laptop and SHA-256 verified.
+- **19:30 Mon 23 Nov — OutfitTransformer COMPLETE (9/9 streams, 90 training runs + test evals).**
+  Mean test CP-AUC (5 seeds): Polyvore SigLIP2-So400m 0.942 / Marqo-FashionCLIP 0.934 / ResNet-50
+  0.829; IQON 0.894 / Marqo-FashionSigLIP 0.882 / 0.787; POG 0.829 / 0.810 / 0.697. Profiling
+  running (11/15 models at 19:29, CPU lane idle). All OT + profile outputs copied to laptop and
+  SHA-256 verified (767 files).
