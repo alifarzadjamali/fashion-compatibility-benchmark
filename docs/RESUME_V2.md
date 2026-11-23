@@ -161,3 +161,7 @@ Not yet done (Phase 2 / manuscript): full-run numbers, deviation table, qualitat
   see v2_decisions D2 addendum); restarted with 1 worker. 44/45 probe units done, 619 prediction
   files; 649 outputs copied to laptop `~/repbench-results/dgx37` and SHA-256 verified. IQON catalog
   rebuild running (tmux fcb-iqoncat). Next: stats → selection → OutfitTransformer (GPU).
+- **10:35 Mon 23 Nov — probes 45/45.** IQON Qwen-8B finished with 1 worker (10:27); all 630
+  prediction files present and copied to laptop (`~/repbench-results/dgx37`, SHA-256 verified).
+  Paired statistics started 10:29. IQON catalog rebuilt (counts match committed G3 audits 21/21);
+  near-duplicate audits for all 3 datasets done and copied. DGX watchdog (`watchdog_phase2b.sh`) live.
