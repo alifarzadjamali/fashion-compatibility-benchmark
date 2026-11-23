@@ -452,3 +452,14 @@ floating-point tolerance; no conclusion depends on the machine.
   for all 9 streams, then pauses the CPU lane as before.
 - Selection (validation only, `results/selection.json`): generic = SigLIP2-So400m@384 on all three
   datasets; fashion = Marqo-FashionCLIP (Polyvore), Marqo-FashionSigLIP (IQON, POG).
+
+### 2026-11-23 — Main pairwise inference at 20,000 bootstrap replicates (owner decision)
+
+With 2,000 paired-cluster-bootstrap replicates the smallest attainable p is 1/2001 ≈ 0.0005; Holm
+over 105 model pairs per block then has a floor of ≈0.0525 > α = 0.05, so 0/8,190 comparisons could
+be declared significant regardless of effect size (262/315 primary-block CIs exclude 0; DeLong
+agrees on 264). The protocol pre-registers "2,000+ replicates", so the main stats stage is re-run
+with `--replicates 20000` (`scripts/v2/run_phase2b_stats20k.sh`, output `results_r20k/`, same code,
+seed and inputs; protocol hash unchanged). The 2,000-replicate output is kept for comparison.
+Selection (validation AUC) does not depend on the bootstrap. Sensitivities keep 2,000 replicates
+and are reported through deltas, CIs and rank intervals, not Holm significance.
