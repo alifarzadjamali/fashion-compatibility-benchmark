@@ -1,0 +1,24 @@
+{
+  "check": "precision",
+  "dataset": "polyvore_v2_clean",
+  "model": "siglip2_so400m_384",
+  "revision": "dd658faac399427308559e2c3ac1e99cbe43845d",
+  "n_items": 512,
+  "seed": 20260912,
+  "sample": "seeded subsample of TRAIN/VALID items (no test data)",
+  "bf16_vs_fp32": {
+    "cosine_mean": 0.9997347781033856,
+    "cosine_min": 0.9972255238394104,
+    "cosine_p01": 0.9988691092106642,
+    "pairwise_similarity_spearman": 0.9993287586881036,
+    "top10_neighbour_overlap": 0.9734375000000001
+  },
+  "bf16_rerun_vs_stored": {
+    "cosine_mean": 0.9999799097041582,
+    "cosine_min": 0.9999588232501379,
+    "cosine_p01": 0.9999687633857787,
+    "pairwise_similarity_spearman": 0.9999320065622589,
+    "top10_neighbour_overlap": 0.993359375
+  },
+  "seconds": 62.0
+}

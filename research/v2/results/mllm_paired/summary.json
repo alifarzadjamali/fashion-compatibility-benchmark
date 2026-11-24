@@ -1,0 +1,97 @@
+{
+  "analysis": "paired MLLM zero-shot vs primary probe FITB on the frozen MLLM question subset",
+  "holm_family": "per dataset, the 15 MLLM-vs-probe comparisons",
+  "mcnemar_cluster_note": "cluster sign-flip McNemar uses the first grouping dimension only (Polyvore item component; IQON/POG user); the bootstrap CI and p use the full two-way grouping",
+  "margins_tost": [
+    0.005,
+    0.01,
+    0.02
+  ],
+  "seed": 20260912,
+  "replicates": 20000,
+  "summary": {
+    "polyvore_v2_clean": {
+      "mllm_acc": 0.57,
+      "probes_above_mllm_holm": 11,
+      "probes_below_mllm_holm": 1,
+      "best_probe_on_subset": "siglip2_so400m_384"
+    },
+    "iqon3000_v2_clean": {
+      "mllm_acc": 0.379,
+      "probes_above_mllm_holm": 4,
+      "probes_below_mllm_holm": 0,
+      "best_probe_on_subset": "siglip2_so400m_384"
+    },
+    "pog_v2_clean": {
+      "mllm_acc": 0.379,
+      "probes_above_mllm_holm": 0,
+      "probes_below_mllm_holm": 0,
+      "best_probe_on_subset": "pe_core_l14_336"
+    }
+  },
+  "inputs": {
+    "polyvore_v2_clean": {
+      "mllm_results_sha256": "c87bc945359d4e5e614fa75857fa036c1314d1d9064456a38b40a3420d1bb16d",
+      "n_questions": 2000,
+      "grouping": "component",
+      "equivalence_sha256": "e2e80ed332fe99986cd2a44084f9b222da0b15092d27ffd43dc37c119058ee9b",
+      "resnet50": "aa31ba5b4fbdc990d03633f8ee0677cff2e46c26cd03e60c6c9720d3e600b0bb",
+      "fashionclip2": "e4b74302c5b95b91c42c88d97cc3a5083669c0f349a2196ec7db0b02965b86b7",
+      "openclip_b32_laion2b": "c0adfa6f95898f6ea9ee6e87bac4ee9b0aaab3249e0ee96512e3cb9a6307c3b5",
+      "marqo_fashionclip": "a166f64585fec2623efd62d3126711691d9d342ea134fbe5c2d2a757f78d2aea",
+      "marqo_fashionsiglip": "aae2e1bbd7d845a181d704c3b5ec099644ba99c6daa2565dd5575b0b02c0a3e0",
+      "siglip_b16_224": "8b84668225f0334b3005779410ff3f4a2e269ad5d156782a3c97a6b55aa942d0",
+      "siglip2_b16_384": "da785d6a5f7ffea752ed34358ff81f94dfccaefc2cdccdaa4cdd5d52594e949b",
+      "dinov3_vitl16": "616bd22d36298978ab2f0dd08c0682b259ddcefcc5ea9ca8e1b84b0a6da2cb0e",
+      "gr_lite": "96acfc22a44ab1bd7b94ea00cc411abe3d5fb76e6c0f44c8e5d69f623dad5a55",
+      "dinov3_vitl16_336": "ae1bf0ed140b0271e1ee0d9eff9bcc528ccd439fa8186399ec439d174e4fbb8b",
+      "clip_vitl14_336": "2783696a7c5c506228d96699222bb0d859964202ebca9bf5541ff49a68f38e5e",
+      "pe_core_l14_336": "497420f9e742dbf3cf55bc047c5169ab071377da40cd3ea7f6399de2fc877aa3",
+      "siglip2_so400m_384": "81f30c81245def9371d570e1f55ebd50d80c903ff3e4223edee614fcf8d84398",
+      "qwen3_vl_emb_2b": "72e0a8e96c8dbd7bd664968594eed7978a19e16f343abc041a29eb9445f7edbb",
+      "qwen3_vl_emb_8b": "1d6b059b59cbbaf2c9efbb3feca595e6348f92896342a8bff536a113e60315cb"
+    },
+    "iqon3000_v2_clean": {
+      "mllm_results_sha256": "82893cead7377ffa16ada1a34336bf7dbdc5bad740513e9984de0158d67240b0",
+      "n_questions": 2000,
+      "grouping": "two_way",
+      "equivalence_sha256": "6d4e358b8eec15607a45c852cc35fab6a77f05479358f1965cd26f2272a7997e",
+      "resnet50": "c2b3162b5549bf010c061da44a592ed479d025eaa254480ddc81257327c7cf21",
+      "fashionclip2": "91e38d37f082647934bddabf6217357af18767a4daafe782f8883de99c1912c7",
+      "openclip_b32_laion2b": "3844a7ded5066fb5788494110c19944d645d581b2c6f62badb85ca38b1b3ac1f",
+      "marqo_fashionclip": "9eedc21a07952bc5cb209b8d1c5562a4b9a3ef51029911d41cd8e251e44d818a",
+      "marqo_fashionsiglip": "c347815bc9653e39d3932ec8e6a0d913a67c571ff474f40e4ac59f72ac5f2e7b",
+      "siglip_b16_224": "23524accbcd0c14aff3286eda56e853f7a38db71eb399684b93bd1fe661df5ce",
+      "siglip2_b16_384": "dd275c86596007c1e5636ca81bfe84bdfcab6ed2cd2ed02a5d9154c2a29cf57c",
+      "dinov3_vitl16": "0b9a69971a78e09a283eb0aa1863218ace8cd33616598776b3e511e160c9f14d",
+      "gr_lite": "45919bad46992fea7fc9fdf6d3317c35a3fe0740164fc02c25b3b60200cc01bd",
+      "dinov3_vitl16_336": "29e1d6b39e96298f8fda31d97a713e071084956b14e0d422cbbc9c8b9d2f14b6",
+      "clip_vitl14_336": "54cd97cdd7d60c007cc90047cc5e0fcaa44687c46a07c2f99a4c8c02a1cc8151",
+      "pe_core_l14_336": "82d44673d156ea2ece70332bd3e87c1f03a5c8a1476b7af1da1b90384eb1f329",
+      "siglip2_so400m_384": "03c8473027d2e9a18c95e44eccc47efbee05794c6b6784c51c74a86d262b948b",
+      "qwen3_vl_emb_2b": "b901ea9a8a0d8c18af83e0cd4b5441204bdad59c2b92b32bedbbca7e87df626d",
+      "qwen3_vl_emb_8b": "cd5a79d6f6ef4b4ee47c03b53353bb80195aa90967aff39b06a81abdee43efcd"
+    },
+    "pog_v2_clean": {
+      "mllm_results_sha256": "6ec10f010b1e5dd5b51773874e7029f3e32fe78365b7c5606f03bf8872c49acc",
+      "n_questions": 2000,
+      "grouping": "two_way",
+      "equivalence_sha256": "c43ead3519a81c14a437d5217c3420db74232cc478a49e78118d551762e88670",
+      "resnet50": "7d8201d04ab3cccbd522886912b30f4cb874c1480d7d4a0660e2f76fdfad37b9",
+      "fashionclip2": "c434f729838e392a32eb7a74a6caf78c3ed04b01e94528693fca0daa1629e570",
+      "openclip_b32_laion2b": "f8c1240d6d1550abcf2207b3ccb56bf48643c8852036876efef857ce7d2c1e33",
+      "marqo_fashionclip": "16c095ed5a3b2de5248c26edbd92df240e79f83398f6efd1589c21b7d98cd9c1",
+      "marqo_fashionsiglip": "18eac0b539a0dd369e448f67592ac51e87a809e02d4c43f82cdefb45dad1be02",
+      "siglip_b16_224": "2eaec127f7de5a450d3542c3a7b54c96a1dc820b35709f8a441c37069a8f09b4",
+      "siglip2_b16_384": "4a800bab828e48a0c0402a005c0cb4a8c6bce0e23a646dd6f1a63a37d3e56f76",
+      "dinov3_vitl16": "3e50c130e108cf97a3830eef70c0e114a131e13c6e7b517576640b50672be8a1",
+      "gr_lite": "7aa504de9159049c65c6f519bf39242149a6984d7d71367123b2533fdd91e967",
+      "dinov3_vitl16_336": "30fd96898d05b6dfb1d17bbcda5e90652073674396c21098c0967a171ce04041",
+      "clip_vitl14_336": "9b465bd53381315ff713919a14c2955dfe24ed95f7c2b402c981a6f235098f45",
+      "pe_core_l14_336": "eee1eac0923f950187d6182501c2155641dd5023edaff1ce18b71ea2df9bbf84",
+      "siglip2_so400m_384": "a2038de98f063c206b46acba1d7e29c7158231b81ffbaba9ab7a4ed8099e79b7",
+      "qwen3_vl_emb_2b": "a8d88b3181f674c7dc17f4de7d9eebd800dac84d39efec4fa59c187b0512b060",
+      "qwen3_vl_emb_8b": "7fbc69116b3601d11756b5502dd365787480ca9375aa40dd06a3a6301045db95"
+    }
+  }
+}

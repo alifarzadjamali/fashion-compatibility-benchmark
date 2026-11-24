@@ -219,7 +219,7 @@ def summarize(args):
         models = sorted(by_model)
         context = {"setting": setting, "learner": learner, "split": f"trained_on_{corpus}",
                    "training_corpus": corpus,
-                   "selection": "probe: corpus TRAIN fit, fit-valid carve-out selection"
+                   "selection": "probe: corpus TRAIN fit, selection as recorded in the score files (Phase 2: VALID)"
                    if corpus != "zero_shot" else "none (zero-shot)"}
         blocks = summarize_block(by_model, models, context, replicates=args.replicates,
                                  seed=args.seed)

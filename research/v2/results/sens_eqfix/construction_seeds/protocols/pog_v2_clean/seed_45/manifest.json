@@ -1,0 +1,208 @@
+{
+  "kind": "v2_construction_seed_protocol",
+  "construction_seed": 45,
+  "question_seeds": {
+    "train": 10045,
+    "valid": 20045,
+    "test": 30045
+  },
+  "base_protocol": "/data/a_jamali2/repbench/data/v2/pog_v2_clean/build_a",
+  "base_manifest_sha256": "c30dbd531a1319cf6ecaf6888dd6652807c920c521cfc40abb6c8f7b2ad84286",
+  "identity_source": "metadata",
+  "identity_partition_sha256": "171a700e95f70ad5994a25287eeca486d8fcea4d58518e5fb75dc487125b476d",
+  "base_verification": {
+    "train": {
+      "base_question_seed": 20270912,
+      "reproduced": true
+    },
+    "valid": {
+      "base_question_seed": 20280912,
+      "reproduced": true
+    },
+    "test": {
+      "base_question_seed": 20290912,
+      "reproduced": true
+    }
+  },
+  "rules": "repbench.data.clean_protocol.generate_questions on unchanged partitions: category/length-matched full-corruption CP negatives, one four-way same-category FITB per outfit, identity-aware candidate exclusion, within-split candidates only",
+  "splits": {
+    "train": {
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 54574,
+        "cp_negative_count": 54574,
+        "cp_unique_negative_count": 54574,
+        "cp_negative_item_usage_max": 5,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 54574,
+        "fitb_answer_index_counts": {
+          "0": 13644,
+          "1": 13644,
+          "2": 13643,
+          "3": 13643
+        },
+        "fitb_distractor_item_usage_max": 4
+      },
+      "collision_audit": {
+        "positive_outfits": 54574,
+        "cp_positive_lines": 54574,
+        "cp_negatives": 54574,
+        "cp_unique_negative_item_sets": 54574,
+        "cp_negative_item_sets_matching_positive": 0,
+        "cp_negative_identity_sets_matching_positive": 0,
+        "questions_referencing_other_splits": 0,
+        "fitb_questions": 54574,
+        "fitb_questions_with_one_known_completion": 54574,
+        "fitb_questions_with_duplicate_candidate_ids": 0,
+        "fitb_questions_with_duplicate_image_identities": 0,
+        "fitb_distractor_completions_matching_known_positive": 0,
+        "fitb_max_distractor_reuse": 4,
+        "items_in_split": 95628,
+        "passes": true
+      },
+      "sha256": {
+        "train.json": "c6549d75eee4ac0719d927646c4515e69553e0c6a1dcc3377231cc88a88f26ba",
+        "compatibility_train.txt": "58288a9247bf3ddd91a358f2abbf704bf7cbd35491f52b2ce35d54cba61dc1f0",
+        "fill_in_blank_train.json": "3800bdaeafda704e14c7c2c2071933b3fb07a3850dee53072f9fc3e3af3dd8f5"
+      }
+    },
+    "valid": {
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 7043,
+        "cp_negative_count": 7043,
+        "cp_unique_negative_count": 7043,
+        "cp_negative_item_usage_max": 3,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 7043,
+        "fitb_answer_index_counts": {
+          "0": 1761,
+          "1": 1761,
+          "2": 1761,
+          "3": 1760
+        },
+        "fitb_distractor_item_usage_max": 2
+      },
+      "collision_audit": {
+        "positive_outfits": 7043,
+        "cp_positive_lines": 7043,
+        "cp_negatives": 7043,
+        "cp_unique_negative_item_sets": 7043,
+        "cp_negative_item_sets_matching_positive": 0,
+        "cp_negative_identity_sets_matching_positive": 0,
+        "questions_referencing_other_splits": 0,
+        "fitb_questions": 7043,
+        "fitb_questions_with_one_known_completion": 7043,
+        "fitb_questions_with_duplicate_candidate_ids": 0,
+        "fitb_questions_with_duplicate_image_identities": 0,
+        "fitb_distractor_completions_matching_known_positive": 0,
+        "fitb_max_distractor_reuse": 2,
+        "items_in_split": 19824,
+        "passes": true
+      },
+      "sha256": {
+        "valid.json": "eca4747bc6ada4af56f3d7a01b3dfc887715bf724b6725bdd8d64f342f647bd2",
+        "compatibility_valid.txt": "aeeb5c5ad305f04ba2e23f92192cf98f5cf1e5e55f07311cae980719aa71d576",
+        "fill_in_blank_valid.json": "6621bf4b26ace477a4f8034ae912c678d1171c2284023a698ebc733db7b69b83"
+      }
+    },
+    "test": {
+      "question_generation": {
+        "cp_negative_strategy": "full semantic-category-matched corruption",
+        "cp_positive_count": 14692,
+        "cp_negative_count": 14692,
+        "cp_unique_negative_count": 14692,
+        "cp_negative_item_usage_max": 3,
+        "fitb_strategy": "one deterministic blank; three same-category within-split distractors",
+        "fitb_questions": 14692,
+        "fitb_answer_index_counts": {
+          "0": 3673,
+          "1": 3673,
+          "2": 3673,
+          "3": 3673
+        },
+        "fitb_distractor_item_usage_max": 3
+      },
+      "collision_audit": {
+        "positive_outfits": 14692,
+        "cp_positive_lines": 14692,
+        "cp_negatives": 14692,
+        "cp_unique_negative_item_sets": 14692,
+        "cp_negative_item_sets_matching_positive": 0,
+        "cp_negative_identity_sets_matching_positive": 0,
+        "questions_referencing_other_splits": 0,
+        "fitb_questions": 14692,
+        "fitb_questions_with_one_known_completion": 14692,
+        "fitb_questions_with_duplicate_candidate_ids": 0,
+        "fitb_questions_with_duplicate_image_identities": 0,
+        "fitb_distractor_completions_matching_known_positive": 0,
+        "fitb_max_distractor_reuse": 3,
+        "items_in_split": 39286,
+        "passes": true
+      },
+      "sha256": {
+        "test.json": "2ae7c8f343edbc27658937632ac68544f013f29553f72e10acd8902df1f0e4bd",
+        "compatibility_test.txt": "ded11a93aee8c6610c231f5a94cf33df01b065cba1a8083e2d686e778e706fd6",
+        "fill_in_blank_test.json": "a1bcb832dc6f956b017e7b0a5c205a1aefbe5e410288dd1c38a81044a08d2435"
+      }
+    }
+  },
+  "image_equivalence": {
+    "file": "equivalence_groups.json",
+    "sha256": "c43ead3519a81c14a437d5217c3420db74232cc478a49e78118d551762e88670",
+    "report_file": "equivalence_report.json",
+    "report_sha256": "71f7ab8d33c3e1fb2ba68e379c17ef4df7877ef529b0f9c2908ddf52c5260ece",
+    "rule": "pHash Hamming <= h AND foreground-mean Delta a*b* <= c AND p95 of 16x16 per-cell Delta E over the union foreground <= s",
+    "thresholds": {
+      "phash_hamming_max": 2,
+      "colour_delta_ab_max": 2.0,
+      "structure_delta_e_p95_max": 15.0,
+      "foreground_min_channel_below": 245,
+      "aspect_tolerance": null
+    },
+    "signature_version": "phash64-dct+thumb32-rgb-box-white-v1",
+    "input_sha256": "4579eecd0bf69aa7ffb680c8a25bc22c3734ecc206f8b7b3fe7cbc1aaa3f3656",
+    "input_items_hashed": 183054,
+    "unreadable_images": 0,
+    "pairs": {
+      "candidates": 28463,
+      "confirmed": 26234,
+      "rejected": 2229,
+      "by_hamming": {
+        "0": {
+          "candidates": 24807,
+          "confirmed": 24658
+        },
+        "2": {
+          "candidates": 3656,
+          "confirmed": 1576
+        }
+      }
+    },
+    "groups": {
+      "items_in_groups": 6388,
+      "groups": 2812,
+      "largest_group": 209,
+      "size_distribution": {
+        "2": 2474,
+        "3": 243,
+        "4": 52,
+        "5": 17,
+        "6": 10,
+        "7": 5,
+        "8": 1,
+        "9": 3,
+        "10": 3,
+        "11": 1,
+        "16": 1,
+        "22": 1,
+        "209": 1
+      }
+    },
+    "mapping_sha256": "08a02703245d01a2207c897c16811992458eb571e559a18712b18b37d6e3f68f",
+    "mapping_items": 6388,
+    "pool_items_in_groups": 6388,
+    "pool_groups": 2812,
+    "largest_pool_group": 209
+  }
+}

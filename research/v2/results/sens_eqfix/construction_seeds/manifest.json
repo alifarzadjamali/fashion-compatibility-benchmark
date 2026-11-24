@@ -1,0 +1,285 @@
+{
+ "split": "test",
+ "construction_seeds": [
+  42,
+  43,
+  44,
+  45,
+  46
+ ],
+ "probe_seed": 20260912,
+ "selection_split": "valid",
+ "protocols": {
+  "polyvore_v2_clean/seed_42": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/polyvore_v2_clean/seed_42",
+   "manifest_sha256": "7247bc9220a043979fca61e9b71726bbda8df2607d2174e26d103ec766c9f227",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "polyvore_v2_clean/seed_43": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/polyvore_v2_clean/seed_43",
+   "manifest_sha256": "d06387f6fcdc5171cfaf6a6c2024dd41a22d3a4723514159ccba884a73d40b2f",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "polyvore_v2_clean/seed_44": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/polyvore_v2_clean/seed_44",
+   "manifest_sha256": "6e4057c406af0d39dd531978450933a0ba41ae91c7bcf479da7154c71b5476ac",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "polyvore_v2_clean/seed_45": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/polyvore_v2_clean/seed_45",
+   "manifest_sha256": "b1b819b8704e48fd9694bd99126243b5ff9ba8c76820bcb18c5ed2ec3f0e1ac6",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "polyvore_v2_clean/seed_46": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/polyvore_v2_clean/seed_46",
+   "manifest_sha256": "78ad05de8332410e68cd4e065d29df63a4e0cac01a82bb38d4e58e2300ac50f8",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "iqon3000_v2_clean/seed_42": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/iqon3000_v2_clean/seed_42",
+   "manifest_sha256": "91a932bed2fb777b0fbb4dfc2ffe1b55fa8dfeb20abd547373b9ce2a8c2762a7",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "iqon3000_v2_clean/seed_43": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/iqon3000_v2_clean/seed_43",
+   "manifest_sha256": "825170ef6a5c3b26eb903037e0b8c0c2dc27e7f5cb13b1c0aa76088e04ada2c6",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "iqon3000_v2_clean/seed_44": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/iqon3000_v2_clean/seed_44",
+   "manifest_sha256": "fc7788ac0c39a17cf17a1552350edfe9caf52432390211f0fa1a7d093132ec1e",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "iqon3000_v2_clean/seed_45": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/iqon3000_v2_clean/seed_45",
+   "manifest_sha256": "f76354c9bfa42154784d92732261d40f2682db2161a2049f4faa1cd9ce7029ac",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "iqon3000_v2_clean/seed_46": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/iqon3000_v2_clean/seed_46",
+   "manifest_sha256": "dfb873f658735b866d13452d64355211f5f45258e99f884eec2115fb7b06bf91",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "pog_v2_clean/seed_42": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/pog_v2_clean/seed_42",
+   "manifest_sha256": "1e8506fa5a566eb828ef3086d194432820e32775ae6b5922deecc50f9972bbe1",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "pog_v2_clean/seed_43": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/pog_v2_clean/seed_43",
+   "manifest_sha256": "3d272940f5cd6fbf63822c85b9bd1e5e77dc8a8140cc614aae80848508b7ce1d",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "pog_v2_clean/seed_44": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/pog_v2_clean/seed_44",
+   "manifest_sha256": "b5517628cace5d4e205bed5106544c04596a4db4124ac73f9675b3867ce4af49",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "pog_v2_clean/seed_45": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/pog_v2_clean/seed_45",
+   "manifest_sha256": "54f3a1654510b249fc954c02d2def278fa9310b98e09ef25c6b1db95549bf816",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  },
+  "pog_v2_clean/seed_46": {
+   "path": "/data/a_jamali2/repbench/data/v2/full/sens_eqfix/construction_seeds/protocols/pog_v2_clean/seed_46",
+   "manifest_sha256": "ae4674dcc1fb26cd34198626eba7b0b3a7405e50123ca4644710fecd142a5db3",
+   "base_verification": {
+    "train": {
+     "base_question_seed": 20270912,
+     "reproduced": true
+    },
+    "valid": {
+     "base_question_seed": 20280912,
+     "reproduced": true
+    },
+    "test": {
+     "base_question_seed": 20290912,
+     "reproduced": true
+    }
+   }
+  }
+ },
+ "inputs": {}
+}

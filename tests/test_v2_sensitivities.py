@@ -240,9 +240,12 @@ def test_near_duplicate_exclusion(env, tmp_path):
 
 
 def test_lookbench_correlation(env, tmp_path):
-    placeholder = ROOT / "configs" / "lookbench_v3_scores.json"
-    values = json.loads(placeholder.read_text())
-    assert all(v["score"] is None for v in values["models"].values())  # never invented
+    shipped = json.loads((ROOT / "configs" / "lookbench_v3_scores.json").read_text())
+    for value in shipped["models"].values():  # owner-transcribed (P3): exact matches only scored
+        assert value["score"] is None or value.get("exact_match") is True
+    placeholder = tmp_path / "placeholder.json"  # unfilled config -> no correlation invented
+    placeholder.write_text(json.dumps({"metric": "unfilled", "models": {
+        m: {"score": None, "exact_match": False} for m in MODELS}}))
     out = S.run_lookbench(env["results"] / "metrics.csv", placeholder, tmp_path / "lb0")
     assert out.status.str.startswith("insufficient").all()
     synthetic = {"metric": "synthetic", "models": {  # test-only numbers, monotone in quality
@@ -283,3 +286,22 @@ def test_cli_all(env):
                                      "--out", str(env["root"] / "cli_t"), "--eval-split", "test"],
                              cwd=ROOT, capture_output=True, check=False)
     assert refused.returncode != 0 and b"frozen" in refused.stderr
+
+
+def test_regenerated_protocol_keeps_near_duplicate_groups(env, tmp_path):
+    """D4: seed protocols must carry the base protocol's image_equivalence record, otherwise
+    pipeline.equivalence_map() silently drops the near-duplicate merge from the bootstrap."""
+    import shutil
+
+    base = tmp_path / "base"
+    shutil.copytree(env["protocol"], base)
+    info = {"sha256": "ab" * 32, "groups": 3}
+    manifest = json.loads((base / "manifest.json").read_text())
+    (base / "manifest.json").write_text(json.dumps({**manifest, "image_equivalence": info}))
+    config = env["config"][DATASET]
+    with_groups = S.regenerate_protocol(base, tmp_path / "seed42", 42, config=config)
+    assert with_groups["image_equivalence"] == info
+    saved = json.loads((tmp_path / "seed42" / "manifest.json").read_text())
+    assert saved["image_equivalence"] == info
+    without = S.regenerate_protocol(env["protocol"], tmp_path / "seed42_plain", 42, config=config)
+    assert "image_equivalence" not in without

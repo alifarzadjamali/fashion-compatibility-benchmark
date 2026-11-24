@@ -1,0 +1,29 @@
+{
+  "check": "qwen_pixels",
+  "dataset": "polyvore_v2_clean",
+  "model": "qwen3_vl_emb_8b",
+  "revision": "2c4565515e0f265c6511776e7193b22c0968ddc7",
+  "n_items": 256,
+  "seed": 20260912,
+  "sample": "seeded subsample of TRAIN/VALID items (no test data)",
+  "capped_vs_provider_default": {
+    "cosine_mean": 1.0000000186710476,
+    "cosine_min": 0.9999998210060947,
+    "cosine_p01": 0.9999998746164398,
+    "pairwise_similarity_spearman": 0.9999999999951686,
+    "top10_neighbour_overlap": 1.0
+  },
+  "capped_rerun_vs_stored": {
+    "cosine_mean": 1.0000000215580807,
+    "cosine_min": 0.9999998210060947,
+    "cosine_p01": 0.9999998707766756,
+    "pairwise_similarity_spearman": 1.0,
+    "top10_neighbour_overlap": 1.0
+  },
+  "visual_tokens": {
+    "capped_mean": 81.0,
+    "default_mean": 81.0,
+    "share_items_changed_by_cap": 0.0
+  },
+  "seconds": 110.9
+}

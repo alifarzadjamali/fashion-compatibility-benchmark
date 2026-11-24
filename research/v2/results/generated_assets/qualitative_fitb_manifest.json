@@ -1,0 +1,456 @@
+{
+ "seed": 20260912,
+ "selection": "/home/aaa79306/repbench-results/dgx37/final/v2/full/results_r20k/selection.json",
+ "rule": "per dataset: 2 test FITB questions answered correctly by the selected generic encoder (native, logistic) + 1 unanimous failure, each drawn with random.Random(20260912) in dataset order ['polyvore_v2_clean', 'iqon3000_v2_clean', 'pog_v2_clean']; questions restricted to <= 4 given items for layout. Chosen = selected generic probe's choice.",
+ "archives": {
+  "polyvore": "/home/aaa79306/repbench-mirror/raw/polyvore_outfits.zip",
+  "iqon": "/home/aaa79306/repbench-mirror/iqon_audit/IQON3000.zip",
+  "iqon_catalog": "/home/aaa79306/repbench-results/dgx37/final/v2/iqon_preparation/catalog/image_audit_resolved.parquet",
+  "pog": "/home/aaa79306/repbench-mirror/raw/pog/pog_images.tar"
+ },
+ "datasets": {
+  "polyvore_v2_clean": {
+   "generic_model": "siglip2_so400m_384",
+   "cases": [
+    {
+     "kind": "generic_correct",
+     "question_index": 1038,
+     "set_id": "157446810",
+     "chosen_index": 2,
+     "question_item_ids": [
+      "132363721",
+      "129888641"
+     ],
+     "candidate_item_ids": [
+      "214637908",
+      "187873532",
+      "136015442",
+      "23654542"
+     ],
+     "correct_index": 2,
+     "blank_position": 3,
+     "images": {
+      "132363721": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/132363721.jpg",
+       "sha256": "8163344546dde4fee1d338731c36584aa3160d6ae3d6fad44897a00ba9136957"
+      },
+      "129888641": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/129888641.jpg",
+       "sha256": "8f1e42a78c77890deaa1d13426f71bb906734b98012e4153315be322899b1063"
+      },
+      "214637908": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/214637908.jpg",
+       "sha256": "bbd8766c93c511e5658d25f863ccd33ae1986ac33aeb88196490742e268a431d"
+      },
+      "187873532": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/187873532.jpg",
+       "sha256": "855708aa86d593f7409553c50e2c6d62c3e5a71881349d791a7ddf22e21e8390"
+      },
+      "136015442": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/136015442.jpg",
+       "sha256": "c8c9a3c223b78c4c441dfed9a0843d6f144d6e35a38df73356e7cea869a52c4d"
+      },
+      "23654542": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/23654542.jpg",
+       "sha256": "9a5f06af1dfb1c2ce26b9daf614b00fcf1f15239ebeab6f34f595d2f94b08830"
+      }
+     }
+    },
+    {
+     "kind": "generic_correct",
+     "question_index": 10762,
+     "set_id": "225330273",
+     "chosen_index": 2,
+     "question_item_ids": [
+      "213639953",
+      "213789646",
+      "213639576"
+     ],
+     "candidate_item_ids": [
+      "192970032",
+      "189103319",
+      "214119900",
+      "108721527"
+     ],
+     "correct_index": 2,
+     "blank_position": 4,
+     "images": {
+      "213639953": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/213639953.jpg",
+       "sha256": "8eb47275ebb1dd8bdecc1c8e553f1c721245380233cb6ca6f72c5109a55a0c98"
+      },
+      "213789646": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/213789646.jpg",
+       "sha256": "afe3efd830dec46c9e7352e7bd678ca628241fa5a4085983f9d11671cecc22c9"
+      },
+      "213639576": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/213639576.jpg",
+       "sha256": "debd4022b9eb07759dc22c4f37fcedb00622cd68d4175c22247f2cc1d0601bb6"
+      },
+      "192970032": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/192970032.jpg",
+       "sha256": "2089a6000e9f1af825f5fcd1995c043a6f2ea9a5bd5406ae62a5cdb92a86c0b1"
+      },
+      "189103319": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/189103319.jpg",
+       "sha256": "d86d69f0a3ad4b44ec1338e9051fa7b55465424d8dc2b185aae4bba6d3735091"
+      },
+      "214119900": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/214119900.jpg",
+       "sha256": "107780b5763640fcb469daba1d4360f7b52676abea2f6b4afc1e84c51189a873"
+      },
+      "108721527": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/108721527.jpg",
+       "sha256": "b74ac6f136c0de40a53c2c06c75373666e98d28287a2fe50b07d4ed8e4a456fa"
+      }
+     }
+    },
+    {
+     "kind": "unanimous_failure",
+     "question_index": 8240,
+     "set_id": "188548219",
+     "chosen_index": 3,
+     "models_wrong": 15,
+     "same_wrong_choice": true,
+     "question_item_ids": [
+      "157989085",
+      "137401208"
+     ],
+     "candidate_item_ids": [
+      "136007203",
+      "187572965",
+      "198367657",
+      "82822911"
+     ],
+     "correct_index": 0,
+     "blank_position": 1,
+     "images": {
+      "157989085": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/157989085.jpg",
+       "sha256": "f5e344925a614e383b78fbec23932494f28c80e6600d515f865a53d3b0580ace"
+      },
+      "137401208": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/137401208.jpg",
+       "sha256": "8d18a729c291609aff85aa29d233dbe5583ee8935423289286cf16b54e1ea7c4"
+      },
+      "136007203": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/136007203.jpg",
+       "sha256": "11e5fdb60e4714f0fa329a6c8e075ee49f780b5c4ded0ea60d6fc9e927126808"
+      },
+      "187572965": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/187572965.jpg",
+       "sha256": "b1a0a89537ad0c16c92a0156d3deb8d50125250f83039eb19fbfb704f941e991"
+      },
+      "198367657": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/198367657.jpg",
+       "sha256": "615ad7e6db1bf5f0e7241c290ca67041d70dcc487db2164d99cf9ef6d0789a51"
+      },
+      "82822911": {
+       "member": "polyvore-outfit-dataset/polyvore_outfits/images/82822911.jpg",
+       "sha256": "9e5ca9bca6a31f609b0aa181dd22fb7ef973c8dd2c918b289eaaad1086927487"
+      }
+     }
+    }
+   ]
+  },
+  "iqon3000_v2_clean": {
+   "generic_model": "siglip2_so400m_384",
+   "cases": [
+    {
+     "kind": "generic_correct",
+     "question_index": 5153,
+     "set_id": "3821409",
+     "chosen_index": 1,
+     "question_item_ids": [
+      "20325566",
+      "23220214",
+      "20473405"
+     ],
+     "candidate_item_ids": [
+      "20603215",
+      "22560801",
+      "5719100",
+      "5282364"
+     ],
+     "correct_index": 1,
+     "blank_position": 1,
+     "images": {
+      "20325566": {
+       "member": "IQON3000/2417421/3821409/20325566_m.jpg",
+       "sha256": "92941ad318f491e11626d0d8c4a0368138f35ea1649787631538137186f1a008"
+      },
+      "23220214": {
+       "member": "IQON3000/2417421/3821409/23220214_m.jpg",
+       "sha256": "c778b312ee2bd35eb55aec6ea9d28b23c5f645c48173910fc910a3f4f1ad0eba"
+      },
+      "20473405": {
+       "member": "IQON3000/1016838/3832094/20473405_m.jpg",
+       "sha256": "d6c153e41e6e433d428ef234e5f39c9aa8d85ffab3759d3017249ee68994626f"
+      },
+      "20603215": {
+       "member": "IQON3000/1943194/4018142/20603215_m.jpg",
+       "sha256": "1b998393e5d821290a9f189b46067ca7ff0abed548ce7e3856686287cb492837"
+      },
+      "22560801": {
+       "member": "IQON3000/2417421/3821409/22560801_m.jpg",
+       "sha256": "5c7fcda46b9a01b614677e9791068500eba56e7a5dfc014de8405c8c1bcc2bdc"
+      },
+      "5719100": {
+       "member": "IQON3000/2049639/2815685/5719100_m.jpg",
+       "sha256": "3b0cfbca079256447a521faa84719bdd75fda9e4caf86b5d986c9fa86132762f"
+      },
+      "5282364": {
+       "member": "IQON3000/1251410/2346290/5282364_m.jpg",
+       "sha256": "c593644a1600e8f14be6479f2f458eb73ff0085ac418f419d55947132943d081"
+      }
+     }
+    },
+    {
+     "kind": "generic_correct",
+     "question_index": 9317,
+     "set_id": "3560197",
+     "chosen_index": 1,
+     "question_item_ids": [
+      "10629121",
+      "11265616"
+     ],
+     "candidate_item_ids": [
+      "9861779",
+      "10619898",
+      "6126822",
+      "4693955"
+     ],
+     "correct_index": 1,
+     "blank_position": 3,
+     "images": {
+      "10629121": {
+       "member": "IQON3000/168658/3492820/10629121_m.jpg",
+       "sha256": "96e67ebf905f63ae45dac4fd8e496070ce4e687f504e89f7c38c9e70d02f968f"
+      },
+      "11265616": {
+       "member": "IQON3000/307739/3560197/11265616_m.jpg",
+       "sha256": "580468a7d7a4de2ab5f22c36a3b98699e4e8ca00bbf480a96ebba86c2158f718"
+      },
+      "9861779": {
+       "member": "IQON3000/1305452/3502902/9861779_m.jpg",
+       "sha256": "cd735ec41b52946cc474aea84586768976250da8462e0324bbdc46ff0a058c7e"
+      },
+      "10619898": {
+       "member": "IQON3000/1215893/3511333/10619898_m.jpg",
+       "sha256": "b565926fb88e9dac3c09ec01ca59e635fc571d40f4ce653cc8d6270c7cef00ed"
+      },
+      "6126822": {
+       "member": "IQON3000/200784/2894340/6126822_m.jpg",
+       "sha256": "556f3ac107bb32cc33ec504639620d96a5c7d89695fdfc44dfc40c38a03f8e09"
+      },
+      "4693955": {
+       "member": "IQON3000/1106765/2038232/4693955_m.jpg",
+       "sha256": "ce9d355037cba098a71c9ea8abad1d6d8e23497361281dc52d7b4ed606758753"
+      }
+     }
+    },
+    {
+     "kind": "unanimous_failure",
+     "question_index": 778,
+     "set_id": "2485663",
+     "chosen_index": 3,
+     "models_wrong": 15,
+     "same_wrong_choice": false,
+     "question_item_ids": [
+      "5622388",
+      "4524716",
+      "5626070"
+     ],
+     "candidate_item_ids": [
+      "6769872",
+      "42584949",
+      "4003410",
+      "9095622"
+     ],
+     "correct_index": 2,
+     "blank_position": 3,
+     "images": {
+      "5622388": {
+       "member": "IQON3000/1987116/2485663/5622388_m.jpg",
+       "sha256": "2ed97c6450a3a7c2a78eb2007754cdfb1e599996df63f90e0cacb0f04c989289"
+      },
+      "4524716": {
+       "member": "IQON3000/1987116/2485663/4524716_m.jpg",
+       "sha256": "7a7c1f05e8cf25b7b7c8f2db803150581d09dee20d5164d40057310c739f6eaf"
+      },
+      "5626070": {
+       "member": "IQON3000/1639650/2503977/5626070_m.jpg",
+       "sha256": "0cb90ab473ef239673b2a3f39004fd0a2298d0b72e1861d5103cf8a1ca2b36d3"
+      },
+      "6769872": {
+       "member": "IQON3000/638381/2878800/6769872_m.jpg",
+       "sha256": "0e47427f29e1ab0516a4cab86948382ff6ef293379c364dc6ef4ccc21ff9a042"
+      },
+      "42584949": {
+       "member": "IQON3000/120163/4074671/42584949_m.jpg",
+       "sha256": "00f71e1dbcdbf06e5dd204d68ca1e103d10a586a68a9c98a6a3039b9e42d46f1"
+      },
+      "4003410": {
+       "member": "IQON3000/1987116/2485663/4003410_m.jpg",
+       "sha256": "16f28539ca8ea96a7cc6fbb172ac6d207c92fa0aaafcb1a0e207c418c80c4b0f"
+      },
+      "9095622": {
+       "member": "IQON3000/2176293/3148915/9095622_m.jpg",
+       "sha256": "f26f8082df779a32301ccb5d44cc687de2f355fdeb45a58a7dad8741d817862c"
+      }
+     }
+    }
+   ]
+  },
+  "pog_v2_clean": {
+   "generic_model": "siglip2_so400m_384",
+   "cases": [
+    {
+     "kind": "generic_correct",
+     "question_index": 11326,
+     "set_id": "b100dbcb2214f8698c18d4b0d15826b5",
+     "chosen_index": 2,
+     "question_item_ids": [
+      "36c3ef9fb86876a0e0694d14d41aa94c",
+      "e313087b6a56e9f06511ff3d82dd2901"
+     ],
+     "candidate_item_ids": [
+      "8a884c206f60618715c4ca234dab028a",
+      "ead90a573b7699d6f3f1a54bfdc66cdc",
+      "9f7340cd29294b3cac3904a7f2534874",
+      "0cc693d845a3c6a4a42b33d3674494cb"
+     ],
+     "correct_index": 2,
+     "blank_position": 2,
+     "images": {
+      "36c3ef9fb86876a0e0694d14d41aa94c": {
+       "member": "mirror/images/36/36c3ef9fb86876a0e0694d14d41aa94c.png",
+       "sha256": "504652cf1441003ae90fde7728db51cdd4e4ded2cfb1b0f87bfb551118abcb0b"
+      },
+      "e313087b6a56e9f06511ff3d82dd2901": {
+       "member": "mirror/images/e3/e313087b6a56e9f06511ff3d82dd2901.png",
+       "sha256": "1c17cca25184e2a1436d0be0acc257672e702ff9cf9dcd58c7dc059f16c772b7"
+      },
+      "8a884c206f60618715c4ca234dab028a": {
+       "member": "mirror/images/8a/8a884c206f60618715c4ca234dab028a.png",
+       "sha256": "8a063c84ecd8de00efac021cf22724870ace0830ec2f01a4fbfd3dfecb6f5f45"
+      },
+      "ead90a573b7699d6f3f1a54bfdc66cdc": {
+       "member": "mirror/images/ea/ead90a573b7699d6f3f1a54bfdc66cdc.png",
+       "sha256": "cd5c1f19d4f5ec132376facde18946f00bc585293687fcbd9016390e364c670e"
+      },
+      "9f7340cd29294b3cac3904a7f2534874": {
+       "member": "mirror/images/9f/9f7340cd29294b3cac3904a7f2534874.png",
+       "sha256": "391ab456310818a1ba7f8fc90314447af6cd51f860e7cf47a54d7b041df83f5c"
+      },
+      "0cc693d845a3c6a4a42b33d3674494cb": {
+       "member": "mirror/images/0c/0cc693d845a3c6a4a42b33d3674494cb.png",
+       "sha256": "b1a2af1ca20fd444c8d0c734a3cf4b067d79422b449edee4b9043cd9b0cf47bc"
+      }
+     }
+    },
+    {
+     "kind": "generic_correct",
+     "question_index": 12777,
+     "set_id": "75ae1ec4bba45dc586588f7442b6c8af",
+     "chosen_index": 1,
+     "question_item_ids": [
+      "663151e87620e2009f8dcdf9d14fabc3",
+      "8f93aeb88f6234161c2fe7b8f253c085",
+      "9456e0a2805c2330c05607368a0e572a"
+     ],
+     "candidate_item_ids": [
+      "6a7ee361ee95a78eb5e3d2a535214bec",
+      "d3e06748c52f94618a7ee86fcb7dd28f",
+      "1626acab4a3f734912f7201b1772cc0c",
+      "83b3c911ee3130669ad3e0a06922864b"
+     ],
+     "correct_index": 1,
+     "blank_position": 4,
+     "images": {
+      "663151e87620e2009f8dcdf9d14fabc3": {
+       "member": "mirror/images/66/663151e87620e2009f8dcdf9d14fabc3.png",
+       "sha256": "91e0e1db62669d9ba13a3f0dad5eaa7542a5b9d487f3c25cbb011a27d4cb94e8"
+      },
+      "8f93aeb88f6234161c2fe7b8f253c085": {
+       "member": "mirror/images/8f/8f93aeb88f6234161c2fe7b8f253c085.png",
+       "sha256": "77b1da935b637149cd36b502969484b09a64d8228805fce4736ab4a21c58e6b6"
+      },
+      "9456e0a2805c2330c05607368a0e572a": {
+       "member": "mirror/images/94/9456e0a2805c2330c05607368a0e572a.png",
+       "sha256": "41e2a36ca439488dd2449c9423319b693cc7d63403b1e18149adb030119df5b7"
+      },
+      "6a7ee361ee95a78eb5e3d2a535214bec": {
+       "member": "mirror/images/6a/6a7ee361ee95a78eb5e3d2a535214bec.png",
+       "sha256": "b78dbbf1524cd5563899808b43612f0c6112fbe621f3bd4138e6eef0bab56318"
+      },
+      "d3e06748c52f94618a7ee86fcb7dd28f": {
+       "member": "mirror/images/d3/d3e06748c52f94618a7ee86fcb7dd28f.png",
+       "sha256": "a7a1e6fe437a8febfdd9ef2164425a8157d0284b12dfea4642855bb2efc92182"
+      },
+      "1626acab4a3f734912f7201b1772cc0c": {
+       "member": "mirror/images/16/1626acab4a3f734912f7201b1772cc0c.png",
+       "sha256": "f3d62b91b80cb84b2d68c5838267c0cdbe2bfadc72d90793fb49189df1d25c57"
+      },
+      "83b3c911ee3130669ad3e0a06922864b": {
+       "member": "mirror/images/83/83b3c911ee3130669ad3e0a06922864b.png",
+       "sha256": "b1648eece80567f1734a8b4bef3b00cfc6de4029dfc7e5e5e428b4e4685cbddd"
+      }
+     }
+    },
+    {
+     "kind": "unanimous_failure",
+     "question_index": 14327,
+     "set_id": "d880c219e585df4fcb9baa60cfb488b5",
+     "chosen_index": 2,
+     "models_wrong": 15,
+     "same_wrong_choice": false,
+     "question_item_ids": [
+      "01fa800cddf8aca8b4aeeda54145ffef",
+      "611b4b9a81672b0813a22c499c8d3fba",
+      "aa9093ff60d93a4e9862c8c1e949e8f5"
+     ],
+     "candidate_item_ids": [
+      "d30b238653efc244faa01a8803480f91",
+      "5ff6a2f933ea2734cc45b76939dc0b54",
+      "c0823c365a3595767e0284fb2747da96",
+      "7c794532cf7dbc46ee37287ead1902ad"
+     ],
+     "correct_index": 3,
+     "blank_position": 3,
+     "images": {
+      "01fa800cddf8aca8b4aeeda54145ffef": {
+       "member": "mirror/images/01/01fa800cddf8aca8b4aeeda54145ffef.png",
+       "sha256": "b1f212b30315f94ef794de1694dabdad5c9cb360ec6aa161b5044220ba6bdd0b"
+      },
+      "611b4b9a81672b0813a22c499c8d3fba": {
+       "member": "mirror/images/61/611b4b9a81672b0813a22c499c8d3fba.png",
+       "sha256": "ffa11e2254c576a3900d49184cf84da71361bff47b7ce67c47293478c8143812"
+      },
+      "aa9093ff60d93a4e9862c8c1e949e8f5": {
+       "member": "mirror/images/aa/aa9093ff60d93a4e9862c8c1e949e8f5.png",
+       "sha256": "dab441571abe63a445075375804f79d9898a02ec657f4f4d6ab6f45837d30c94"
+      },
+      "d30b238653efc244faa01a8803480f91": {
+       "member": "mirror/images/d3/d30b238653efc244faa01a8803480f91.png",
+       "sha256": "76e71d2bbcbfe6f32240ec9d14341e52b3507a38923ebdffce57542032a98179"
+      },
+      "5ff6a2f933ea2734cc45b76939dc0b54": {
+       "member": "mirror/images/5f/5ff6a2f933ea2734cc45b76939dc0b54.png",
+       "sha256": "63296f215ee7fddf8d7cc43c684269baadccc5b423d0d3cb7ef687f969890f60"
+      },
+      "c0823c365a3595767e0284fb2747da96": {
+       "member": "mirror/images/c0/c0823c365a3595767e0284fb2747da96.png",
+       "sha256": "b8e2c2337ffd75569d72c8d175e2ca1115088d4be908066a66a25c4e5986cdb3"
+      },
+      "7c794532cf7dbc46ee37287ead1902ad": {
+       "member": "mirror/images/7c/7c794532cf7dbc46ee37287ead1902ad.png",
+       "sha256": "07313668fcdcac44e3723b008ed2634a5b2c5e3600976be6bd9fa5a7587155c7"
+      }
+     }
+    }
+   ]
+  }
+ },
+ "problems": []
+}

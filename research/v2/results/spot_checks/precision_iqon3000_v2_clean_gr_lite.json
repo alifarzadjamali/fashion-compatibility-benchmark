@@ -1,0 +1,24 @@
+{
+  "check": "precision",
+  "dataset": "iqon3000_v2_clean",
+  "model": "gr_lite",
+  "revision": "a8057f8aadaaab91670ad37949f6e1b5aa187e29",
+  "n_items": 512,
+  "seed": 20260912,
+  "sample": "seeded subsample of TRAIN/VALID items (no test data)",
+  "bf16_vs_fp32": {
+    "cosine_mean": 0.9989232173027449,
+    "cosine_min": 0.9594265656496875,
+    "cosine_p01": 0.9894651469577083,
+    "pairwise_similarity_spearman": 0.998894742168644,
+    "top10_neighbour_overlap": 0.9632812500000001
+  },
+  "bf16_rerun_vs_stored": {
+    "cosine_mean": 1.000000015013925,
+    "cosine_min": 0.9999998116004939,
+    "cosine_p01": 0.9999998517318933,
+    "pairwise_similarity_spearman": 1.0,
+    "top10_neighbour_overlap": 1.0
+  },
+  "seconds": 34.8
+}
