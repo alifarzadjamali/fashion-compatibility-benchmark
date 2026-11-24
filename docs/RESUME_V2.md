@@ -25,20 +25,20 @@ with SHA-256; tmux sessions `fcb-spot`, `fcb-fix-*`; runner `scripts/v2/run_swee
       groups from `~/repbench-results/protocols/`; output `.../full/results_useronly_r20k/`
 - [x] B4 A100 summary at 20k (`$F/a100_summary_r20k`)
 - [x] B5 construction seeds with near-duplicate groups, bug fix D4 (`$F/sens_eqfix`)
-- [ ] B6 MLLM vs probes paired on the same 2,000 FITB ids
+- [x] B6 MLLM vs probes paired on the same 2,000 FITB ids
 - [ ] B7 v1-Clean leakage-inflation comparison; lee-research overlap cross-check (or deviation)
-- [ ] B8 Holm family disclosure + stricter dataset×metric family variant
-- [ ] C9 PAPER_GUIDE fixes (POG two-way; near-dup top-model changes; OT > probe on CP-AUC
+- [x] B8 Holm family disclosure + stricter dataset×metric family variant
+- [x] C9 PAPER_GUIDE fixes (POG two-way; near-dup top-model changes; OT > probe on CP-AUC
       only; Qwen = MLLM embedding, not generic; D3 "CIs essentially unchanged"; cross-machine
       max 0.0034 on MLP; emb checksum path; 1,170-number claim scope)
-- [ ] C10 README.md (v2 status, DGX pipeline), this file, v2_decisions (D4+ rows, owner
+- [~] C10 README.md (v2 status, DGX pipeline), this file, v2_decisions (D4+ rows, owner
       writing-directive amendment, a08 evidence gap, make_figures_v2.py post-freeze, ECE CI
       grouping, Qwen spot result)
-- [ ] C11 tests: pytest pythonpath; lookbench test; A100 provenance label; D4 unit test
+- [x] C11 tests: pytest pythonpath; lookbench test; A100 provenance label; D4 unit test
 - [x] A4 GPU: Qwen GFLOPs (profile null, SDPA flop-rule assertion) counted with eager attention
       → `dgx37/final/v2/full/profile_qwen_flops/` (2B 516.1, 8B 1743.7 GFLOPs/image); use in the
       efficiency table. kgCO2e = energy × a cited grid intensity (CPU arithmetic).
-- [ ] D12–15 paper assets (generated only; the owner writes all text): efficiency table
+- [x] D12–15 paper assets (generated only; the owner writes all text): efficiency table
       generator, qualitative FITB figure, feature-width table, macros for all headline numbers
 - [ ] R independent review of ONLY the new work (git diff 7e5995f..HEAD + new outputs):
       one fresh reviewer agent for code, one for new numbers/docs; fix and disclose findings

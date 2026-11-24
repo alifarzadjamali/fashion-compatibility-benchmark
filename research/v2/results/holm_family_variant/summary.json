@@ -1,0 +1,18 @@
+{
+  "rows": 8190,
+  "blocks_as_run": 78,
+  "families_dataset_metric": 6,
+  "significant_as_run_block_holm": 4929,
+  "significant_dataset_metric_holm": 0,
+  "primary_block_as_run": 402,
+  "primary_block_dataset_metric_holm": 0,
+  "primary_rows": 630,
+  "bootstrap_p_floor": 4.999750012499375e-05,
+  "pooled_family_size_max": 1365,
+  "significant_dataset_metric_holm_analytic": 6228,
+  "primary_block_dataset_metric_holm_analytic": 489,
+  "primary_block_as_run_by_metric": {
+    "cp_auc": 230,
+    "fitb_acc": 172
+  }
+}

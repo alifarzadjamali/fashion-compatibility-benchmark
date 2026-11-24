@@ -1,9 +1,40 @@
 # Fashion Compatibility Benchmark
 
-**v2 preparation:** see [DGX readiness operations](docs/dgx_v2_readiness.md) and
-[the decision log](docs/v2_decisions.md). The v2 protocol is not frozen and the
-full experiment is not authorized. The remainder of this README documents v1;
-its evaluation commands must not be used for new pre-freeze test evaluations.
+## RepBench-Fashion v2 (current)
+
+v2 is complete. The protocol was frozen before any test evaluation
+(`configs/v2_protocol.yaml`, SHA-256 in `configs/v2_protocol_hash.json`, git tag `v2-freeze`),
+and the full Phase 2 run finished on a DGX GB10 in November 2026. It covers 15 frozen image
+encoders × 3 near-duplicate-separated datasets (Polyvore-D, IQON3000, POG) plus A100, with
+linear probes, OutfitTransformer, zero-shot MLLM, cluster-bootstrap statistics, calibration,
+sensitivities and efficiency profiling. v1 is preserved at tag `v1-final`.
+
+- **Start here:** [`docs/PAPER_GUIDE_V2.md`](docs/PAPER_GUIDE_V2.md) (where every result lives,
+  section-to-evidence map, protocol record), [`docs/v2_decisions.md`](docs/v2_decisions.md)
+  (decisions and deviations), [`docs/RESUME_V2.md`](docs/RESUME_V2.md) (run log),
+  [`HANDOFF_V2.md`](HANDOFF_V2.md) (goals and rules).
+- **Committed evidence:** `research/v2/freeze/` (split build and near-duplicate reports, MLLM
+  question ids), `research/v2/readiness/` (gates G1–G7), `research/v2/results/` (all small result
+  files, generated tables, macros and figures; no weights, embeddings or images).
+- **Linux/DGX pipeline (Phase 2):** `scripts/v2/bootstrap.sh` (environment), then
+  `scripts/v2/run_full_gpu.sh <G2 gate.json>` (test-split extraction, MLLM, OutfitTransformer,
+  profiling) and `scripts/v2/run_full_cpu.sh` (probes, statistics, sensitivities). The
+  `run_phase2b_*.sh` scripts are the restart versions used after the booking loss (deviation D2),
+  and `run_sweep_fixes.sh`, `run_spot_checks.sh` and `run_v1clean_iqon_gpu.sh` are the post-run
+  sweep (D4–D11). Each long job runs in its own tmux session and writes under
+  `$REPBENCH_DATA_ROOT/v2/full`.
+- **Regenerate tables, figures and macros from the outputs (CPU only):** see PAPER_GUIDE §7
+  (`make_tables_v2.py`, `make_figures_v2.py`, `make_assets_v2.py`, `check_paper_numbers.py`).
+- **Tests:** `uv run pytest` (data-dependent tests skip without the datasets).
+
+Datasets, weights, embeddings and predictions are never committed.
+
+---
+
+## v1 documentation (historical)
+
+The rest of this README documents v1. Its evaluation commands are kept for reproducing v1 and
+are not part of the v2 protocol.
 
 RepBench-Fashion compares seven frozen image representations for outfit compatibility
 prediction (CP) and fill-in-the-blank completion (FITB). Each representation uses the same

@@ -35,6 +35,7 @@ packages = ["src/repbench"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 addopts = "-q --basetemp=.pytest_tmp"
 
 [tool.ruff]
