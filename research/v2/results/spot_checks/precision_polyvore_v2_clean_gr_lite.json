@@ -1,0 +1,24 @@
+{
+  "check": "precision",
+  "dataset": "polyvore_v2_clean",
+  "model": "gr_lite",
+  "revision": "a8057f8aadaaab91670ad37949f6e1b5aa187e29",
+  "n_items": 512,
+  "seed": 20260912,
+  "sample": "seeded subsample of TRAIN/VALID items (no test data)",
+  "bf16_vs_fp32": {
+    "cosine_mean": 0.9991276708144723,
+    "cosine_min": 0.956588161004083,
+    "cosine_p01": 0.9902174224452316,
+    "pairwise_similarity_spearman": 0.9989561247105577,
+    "top10_neighbour_overlap": 0.96484375
+  },
+  "bf16_rerun_vs_stored": {
+    "cosine_mean": 1.0000000168659455,
+    "cosine_min": 0.9999998065482356,
+    "cosine_p01": 0.9999998669591877,
+    "pairwise_similarity_spearman": 1.0,
+    "top10_neighbour_overlap": 1.0
+  },
+  "seconds": 36.5
+}

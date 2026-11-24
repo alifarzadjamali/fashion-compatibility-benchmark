@@ -1,0 +1,29 @@
+{
+  "check": "qwen_pixels",
+  "dataset": "iqon3000_v2_clean",
+  "model": "qwen3_vl_emb_8b",
+  "revision": "2c4565515e0f265c6511776e7193b22c0968ddc7",
+  "n_items": 256,
+  "seed": 20260912,
+  "sample": "seeded subsample of TRAIN/VALID items (no test data)",
+  "capped_vs_provider_default": {
+    "cosine_mean": 0.9993291335691047,
+    "cosine_min": 0.9960075083259288,
+    "cosine_p01": 0.9974259235192158,
+    "pairwise_similarity_spearman": 0.9995796038470567,
+    "top10_neighbour_overlap": 0.9839843750000001
+  },
+  "capped_rerun_vs_stored": {
+    "cosine_mean": 1.0000000247632368,
+    "cosine_min": 0.9999998452495278,
+    "cosine_p01": 0.9999998616398306,
+    "pairwise_similarity_spearman": 1.0,
+    "top10_neighbour_overlap": 1.0
+  },
+  "visual_tokens": {
+    "capped_mean": 25.0,
+    "default_mean": 25.0,
+    "share_items_changed_by_cap": 0.0
+  },
+  "seconds": 98.0
+}

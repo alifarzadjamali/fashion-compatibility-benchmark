@@ -667,6 +667,12 @@ def regenerate_protocol(base, output, seed, *, config=None, verify_base=True, pr
                  "within-split candidates only",
         "splits": {},
     }
+    # D4 fix: partitions are unchanged, so the base protocol's near-duplicate groups still
+    # apply; without this key pipeline.equivalence_map() silently returned no groups and the
+    # construction-seed bootstrap ignored the v2-Clean merge (CIs too narrow).
+    base_info = json.loads((base / "manifest.json").read_text()) if (base / "manifest.json").exists() else {}
+    if base_info.get("image_equivalence"):
+        manifest["image_equivalence"] = base_info["image_equivalence"]
     for i, split in enumerate(SPLITS):
         shutil.copy2(base / f"{split}.json", output / f"{split}.json")
         for name in (n.format(split=split) for n in AUXILIARY):

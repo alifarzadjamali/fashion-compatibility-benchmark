@@ -1,0 +1,24 @@
+{
+  "check": "precision",
+  "dataset": "polyvore_v2_clean",
+  "model": "marqo_fashionsiglip",
+  "revision": "c56244cc94f92419e8369fa71efdaf403b124ce8",
+  "n_items": 512,
+  "seed": 20260912,
+  "sample": "seeded subsample of TRAIN/VALID items (no test data)",
+  "bf16_vs_fp32": {
+    "cosine_mean": 0.9997709548128177,
+    "cosine_min": 0.9954103823220042,
+    "cosine_p01": 0.9989596290672018,
+    "pairwise_similarity_spearman": 0.999231575989807,
+    "top10_neighbour_overlap": 0.9791015625000001
+  },
+  "bf16_rerun_vs_stored": {
+    "cosine_mean": 0.9999981567277838,
+    "cosine_min": 0.9999942784619739,
+    "cosine_p01": 0.9999960205670447,
+    "pairwise_similarity_spearman": 0.999994970291704,
+    "top10_neighbour_overlap": 0.9984375
+  },
+  "seconds": 14.5
+}

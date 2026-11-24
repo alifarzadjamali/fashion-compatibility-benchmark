@@ -1,0 +1,26 @@
+{
+  "gflops_per_image": 1743.656548992,
+  "flops_per_image": 1743656548992,
+  "input_shapes": {
+    "input_ids": [
+      1,
+      103
+    ],
+    "attention_mask": [
+      1,
+      103
+    ],
+    "pixel_values": [
+      324,
+      1536
+    ],
+    "image_grid_thw": [
+      1,
+      3
+    ]
+  },
+  "method": "torch.utils.flop_counter.FlopCounterMode, batch 1, native preprocessing resolution; 1 MAC = 2 FLOPs; counts matmul/conv/attention ops only",
+  "model_key": "qwen3_vl_emb_8b",
+  "image": "/data/a_jamali2/repbench/data/raw/polyvore_outfits/images/101355380.jpg",
+  "attention_for_counting": "eager (counting only)"
+}
