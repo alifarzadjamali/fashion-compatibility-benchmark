@@ -42,7 +42,7 @@ with SHA-256; tmux sessions `fcb-spot`, `fcb-fix-*`; runner `scripts/v2/run_swee
       generator, qualitative FITB figure, feature-width table, macros for all headline numbers
 - [x] R independent review of ONLY the new work (git diff 7e5995f..HEAD + new outputs):
       one fresh reviewer agent for code, one for new numbers/docs; fix and disclose findings
-- [ ] E regenerate tables+figures, check numbers, final SHA-256 copy, commit, PR to main,
+- [x] E regenerate tables+figures, check numbers, final SHA-256 copy, commit, PR to main,
       fresh-clone verify, DONE report on issue #2
 
 ## 1. Gate status
