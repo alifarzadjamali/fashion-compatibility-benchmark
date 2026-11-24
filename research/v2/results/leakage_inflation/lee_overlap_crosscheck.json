@@ -1,0 +1,21 @@
+{
+ "archive": "/home/aaa79306/repbench-mirror/raw/polyvore_outfits.zip",
+ "archive_sha256": "03f00b1253dff35c2e9431e84aad9d9a02969f57e57d05975dee38906141f74e",
+ "unique_items": {
+  "train": 71967,
+  "valid": 14657,
+  "test": 70035
+ },
+ "local_overlap": {
+  "train&valid": 3781,
+  "train&test": 84,
+  "valid&test": 34
+ },
+ "lee_research_reference_quoted_in_handoff": {
+  "train&valid": 3781,
+  "train&test": 84,
+  "valid&test": 34
+ },
+ "match": true,
+ "note": "lee-research item lists not available locally; count-level check only"
+}

@@ -43,6 +43,7 @@ GRID_INTENSITY_SOURCE = ("UK Government GHG Conversion Factors for Company Repor
                          "electricity generation, 'UK electricity'")
 GRID_INTENSITY_YEAR = 2024
 EAGER_FLOPS_MARK = r"$^\dagger$"
+VISION_ONLY_MARK = r"$^\ddagger$"  # Qwen: params = vision tower; other columns = full forward
 HOLM_ALPHA = 0.05
 DATASETS = ["polyvore_v2_clean", "iqon3000_v2_clean", "pog_v2_clean"]
 DATASET_LABEL = {"polyvore_v2_clean": "Polyvore", "iqon3000_v2_clean": "IQON3000",
@@ -120,6 +121,7 @@ def efficiency(ff, out):
         rows.append({
             "model": key,
             "params_m": d["image_tower_parameters_m"],
+            "params_scope": "vision tower only (full model runs per image)" if key.startswith("qwen") else "image encoder",
             "gflops_per_image": gflops,
             "gflops_eager_attention": eager,
             "latency_ms_per_image_b1": d["latency"]["1"]["latency_ms_per_image_median"],
@@ -140,18 +142,20 @@ def efficiency(ff, out):
     body = []
     for m, r in frame.iterrows():
         g = "--" if pd.isna(r.gflops_per_image) else f"{r.gflops_per_image:.1f}"
-        body.append([tex(m), f"{r.params_m:.1f}", g + (EAGER_FLOPS_MARK if r.gflops_eager_attention else ""),
+        body.append([tex(m), f"{r.params_m:.1f}" + (VISION_ONLY_MARK if m.startswith("qwen") else ""), g + (EAGER_FLOPS_MARK if r.gflops_eager_attention else ""),
                      f"{r.latency_ms_per_image_b1:.2f}", f"{r.latency_ms_per_image_b64:.2f}",
                      f"{r.throughput_images_per_s_b64:.0f}", f"{r.allocator_peak_gb:.2f}",
                      f"{r.cpu_preprocess_ms_per_image:.2f}", f"{r.energy_wh_per_1k_images:.3f}",
                      f"{1e6 * r.kgco2e_per_1k_images:.2f}"])
     device = sorted(set(frame.device))
-    header = ["model", "Params (M)", "GFLOPs/img", "Lat.\\ b1 (ms)", "Lat.\\ b64 (ms/img)",
+    header = ["model", "Image-tower params (M)", "GFLOPs/img", "Lat.\\ b1 (ms)", "Lat.\\ b64 (ms/img)",
               "Thr.\\ (img/s)", "Peak (GB)", "CPU prep (ms/img)", "Energy (Wh/1k)",
               "CO$_2$e ($10^{-6}$\\,kg/1k)"]
     notes = [
         (f"{EAGER_FLOPS_MARK} FLOPs counted with eager attention (the SDPA counter does not support "
         "this model); timing uses SDPA."),
+        (f"{VISION_ONLY_MARK} Vision-tower parameters only; the embedding is read from the "
+        "language model, so GFLOPs, latency, memory and energy cover the full model forward."),
         ("Latency: GPU-only median per image at batch 1 and batch 64; throughput at batch 64; "
         "peak = allocator peak at batch 64 ($10^9$ bytes); CPU prep = median per-image "
         "preprocessing; energy = GPU/SoC NVML counter (gross) per 1k images."),
@@ -303,8 +307,6 @@ def macros(ff, out):
                 r = g[g.model == enc]
                 if len(r) == 1:
                     put(fmt("acc", r.value.iloc[0]), str(a_path), split, ds, role, metric)
-            if len(g):
-                put(fmt("acc", g.value.max()), str(a_path), split, ds, "best probe", metric)
 
     # Guard against collisions with the main numbers.tex.
     main_json = ff / "generated_final/numbers.json"

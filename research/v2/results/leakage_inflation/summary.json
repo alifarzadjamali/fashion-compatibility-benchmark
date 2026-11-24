@@ -1,0 +1,160 @@
+{
+ "analysis": "v1-Clean vs v2-Clean leakage inflation (descriptive; different test sets)",
+ "probe": {
+  "setting": "native",
+  "operator": "abs_product",
+  "learner": "logistic",
+  "scaler": "train-item/outfit StandardScaler fit on train only",
+  "selection_split": "valid",
+  "eval_split": "test",
+  "seed": 20260912
+ },
+ "aggregates": [
+  {
+   "dataset": "iqon3000_clean",
+   "metric": "cp_auc",
+   "n_encoders": 2,
+   "mean_inflation": 0.007469522683272389,
+   "median_inflation": 0.007469522683272389,
+   "min_inflation": 0.007259043306642066,
+   "max_inflation": 0.007680002059902713,
+   "n_positive": 2,
+   "rank_statistics": "not reported: 2 encoders (< 10); per-encoder differences only"
+  },
+  {
+   "dataset": "iqon3000_clean",
+   "metric": "fitb_acc",
+   "n_encoders": 2,
+   "mean_inflation": 0.0072510282425847505,
+   "median_inflation": 0.0072510282425847505,
+   "min_inflation": 0.0067774644265508055,
+   "max_inflation": 0.007724592058618696,
+   "n_positive": 2,
+   "rank_statistics": "not reported: 2 encoders (< 10); per-encoder differences only"
+  },
+  {
+   "dataset": "polyvore_d_clean",
+   "metric": "cp_auc",
+   "n_encoders": 15,
+   "mean_inflation": 0.0023006656607241177,
+   "median_inflation": 0.0018106494376025628,
+   "min_inflation": 8.277427784808555e-05,
+   "max_inflation": 0.004380256811051364,
+   "n_positive": 15,
+   "spearman_rho": 0.9714285714285713,
+   "spearman_p": 1.687076488609131e-09,
+   "kendall_tau": 0.9047619047619049,
+   "kendall_p": 1.6537756286433536e-08,
+   "top_model_v1clean": "pe_core_l14_336",
+   "top_model_v2clean": "siglip2_so400m_384"
+  },
+  {
+   "dataset": "polyvore_d_clean",
+   "metric": "fitb_acc",
+   "n_encoders": 15,
+   "mean_inflation": 0.0007792893937392575,
+   "median_inflation": -0.00013208294809141652,
+   "min_inflation": -0.0038964469686963987,
+   "max_inflation": 0.0113591335358606,
+   "n_positive": 7,
+   "spearman_rho": 0.9964285714285712,
+   "spearman_p": 2.4159793199703526e-15,
+   "kendall_tau": 0.980952380952381,
+   "kendall_p": 2.294149119545945e-11,
+   "top_model_v1clean": "pe_core_l14_336",
+   "top_model_v2clean": "siglip2_so400m_384"
+  }
+ ],
+ "command": ".venv/bin/python scripts/v2/leakage_inflation_v1clean.py --spec polyvore_d_clean=/home/aaa79306/repbench-results/dgx37/final/v2/v1clean/polyvore=/home/aaa79306/repbench-results/emb=polyvore_v2_clean=polyvore_v2_clean --spec iqon3000_clean=/home/aaa79306/repbench-results/dgx37/final/v2/v1clean/iqon=/home/aaa79306/repbench-results/dgx37/final/v2/v1clean/emb=iqon3000_clean=iqon3000_v2_clean=siglip2_so400m_384,marqo_fashionsiglip --models resnet50,fashionclip2,openclip_b32_laion2b,marqo_fashionclip,marqo_fashionsiglip,siglip_b16_224,siglip2_b16_384,dinov3_vitl16,gr_lite,dinov3_vitl16_336,clip_vitl14_336,pe_core_l14_336,siglip2_so400m_384,qwen3_vl_emb_2b,qwen3_vl_emb_8b --v2-metrics /home/aaa79306/repbench-results/dgx37/final/v2/full/results_r20k/metrics.csv --results /home/aaa79306/repbench-results/dgx37/final/v2/full/leakage_inflation --workers 1",
+ "git_commit": "2603d44a33eb574d9be5031036842287ea15c85b",
+ "script_sha256": "d09a5bbef5380371174f32e9c039c0753fd4f9e350a05dcf262748034e3a27b3",
+ "pipeline_sha256": "dc7398f80660b5598cbdee5ac320b790f9eb7d1616ea5095ebf3dbe29f470a70",
+ "probe_sha256": "c782b71f8879871ef7a4d009af5aa41b7fb12a23711055d429767fd4ced878fe",
+ "v2_metrics": {
+  "path": "/home/aaa79306/repbench-results/dgx37/final/v2/full/results_r20k/metrics.csv",
+  "sha256": "58ab8ea594820cfe2655d2ef415ce1f944b45d558e522332e78aec649441a596"
+ },
+ "provenance": {
+  "protocol_files": {
+   "polyvore_d_clean": {
+    "compatibility_test.txt": "8ef5cdd082f6096a1e61d86dfb686bb720b76211ae6c816ce17238bf6a8346c8",
+    "compatibility_train.txt": "a9a912039503c3d212784d2445f1f01e6d8cb8017a733ad42aba1c8317c80e15",
+    "compatibility_valid.txt": "34e2aa6131d06e280b7d5c34df4005d2fd1fbdcce0bc4494997448596f751ea8",
+    "duplicates_removed.json": "2b94bda65e33b9e9cdb4e4596f660c7f16cbb7f5ac044be3114e8210c079ee35",
+    "fill_in_blank_test.json": "4b899196a045bae04f93e0b2ec695668eb3b7e0edce94577b97e128079fa3603",
+    "fill_in_blank_train.json": "06ebe6145d126e1b34f6a70dadfd6c2bc4c50fbeaf104613fe85e9b8420269c2",
+    "fill_in_blank_valid.json": "92380cd5553b6b1895dd7f614e0d289552c1fe81001cfcf7bdeabedc84462371",
+    "manifest.json": "cdd485f7b837c13278569b2a103dcd964effd5b9ea7a0e12a6abd362c9e775d7",
+    "test.json": "850a0b643c5098f956958fab2892716299156acb81d7608003db331e95eb5c16",
+    "train.json": "0493ef92332ae7a9b2d68e5a2bbfe27d674a0e4dbdefe88790e9c19df075104b",
+    "valid.json": "2d9ebea117105ff4919b17497d443f169d8f1a6c8e1fb7f6a55900a884d0800a"
+   },
+   "iqon3000_clean": {
+    "compatibility_test.txt": "ef81bfefe659c1020eaa3d8dd2b8dc5e3c6b75c17ecc33c08d67cbd1a96180c9",
+    "compatibility_train.txt": "c5325a611e4f9dba6eb89ab9194d7bec027c99762d1063d4aa2f85488cbc2dea",
+    "compatibility_valid.txt": "6301ca45af3fe0e1cfbb8a1cad8b82eb8941cee0e405ca6795204e92add5e907",
+    "fill_in_blank_test.json": "3e210abbf9dd17a3b48f620e98771be4ed6b20a504d32dd1cfc745b5f3af0091",
+    "fill_in_blank_train.json": "12d7beab86c6d24d1f4f5032325e8df7208d0d0e1f2cae353d679d6f869d09aa",
+    "fill_in_blank_valid.json": "8c77d27f5eb528e40a862be3246d38b39a58f830860f0adcaf6c701a3a69b2e7",
+    "group_ids_test.json": "d338f99b30a43b12b31a388edec32ffe7e61ab3ba08f2cc6cc129148205f0d0d",
+    "group_ids_train.json": "414f791f880ac8a078d5485b49df5e8e23d9a2ffd485823f3624a12a12a72e63",
+    "group_ids_valid.json": "d405b9f1b2cb74e02b0e6336a338c7998e3a3a8dff8c571e24aecf7a51239b73",
+    "manifest.json": "2183f36ec96d1d8205b70dd27e09b5b76add365d4bb783604d51abfa8dcdbb23",
+    "test.json": "34af102984971bf9b1fd0aee5933e90b5c025fd6108ee69db07a8be30b6f865f",
+    "train.json": "a872d2c2c4af2b722b67f6715314aca9441c84fca6ed730e72d7b69b98e5a8a1",
+    "valid.json": "e83c880d48287caa9e34786900afd17c9c8583a612c13bf7222069b1ed4ba3ec"
+   }
+  },
+  "embedding_stores": {
+   "polyvore_d_clean/resnet50": "c6a3f3fe32f399925de09c620c22beb0bd4f5abae994f10cb3996f0d474d924d",
+   "polyvore_d_clean/fashionclip2": "8b74a5a593f9f511cd1ac3cdc2927a5e9b3b06c3286b9a2c96f94449288dcadc",
+   "polyvore_d_clean/openclip_b32_laion2b": "572b055b8f573ed87a25fa527cda045fe20f57f45c5f7e87f07ad91d0b924b54",
+   "polyvore_d_clean/marqo_fashionclip": "a757b11d960d68420c133ba30c7f2d361beb557e84b34c7316fa7bf40d21c4c6",
+   "polyvore_d_clean/marqo_fashionsiglip": "e865fbb7505fce7b3153a6b660c02e017dc4114f105cc0c2ad6ce186cf7a0c84",
+   "polyvore_d_clean/siglip_b16_224": "3d27d304e4139cc3451b08d7c3ebc46ee7f749e927a6d7d379d99ca8ae9f841d",
+   "polyvore_d_clean/siglip2_b16_384": "19df4fa1b360df3b284a767059931ffeb7b7a5b1a692580c635327072ff1ec33",
+   "polyvore_d_clean/dinov3_vitl16": "622761f80411e542fa9f0bb86cd36edf8ef947b6d9568f40f59074eb01d14b1e",
+   "polyvore_d_clean/gr_lite": "318c329f719975196f5216b89fa48ef49948753016b54d0a5b38b2669807c865",
+   "polyvore_d_clean/dinov3_vitl16_336": "88fc64a3155cf478b1c4db62ad5929365977efef2aeb09a88446a527ada4a416",
+   "polyvore_d_clean/clip_vitl14_336": "166be169ee44247734ee44dbfcb9ed05aa6f89dfdbe1331446e61013f4a00381",
+   "polyvore_d_clean/pe_core_l14_336": "b5d00224867069627f1bc1d0dfb35fd06dcdeff3d9197f2a41a6a9f1c84fa60e",
+   "polyvore_d_clean/siglip2_so400m_384": "b98e42649cd718ef66a5587b7b245a5d72d77bd2ff06b8b2eabe5745afbe1317",
+   "polyvore_d_clean/qwen3_vl_emb_2b": "877debe534c323d5403bdfc67057a8faa5ddb75cd5c87a3c6ec5553a4ac47268",
+   "polyvore_d_clean/qwen3_vl_emb_8b": "4a9aba5c446f3799950768d4c61e8d3aec6c2d413fd5b88223b337b2ae4936d7",
+   "iqon3000_clean/siglip2_so400m_384": "e417edccd60dd9df1e492ada3cb4b5498d7b3e52fba6d366581187d4b0bbead0",
+   "iqon3000_clean/marqo_fashionsiglip": "67a95550518ee174b7f3c6a697db2e8f191cd66353cadcc8cdcc0615ecadfb8d"
+  },
+  "polyvore_d_clean_counts": {
+   "train_pairs": 16991,
+   "valid_pairs": 2999,
+   "test_cp": 30284,
+   "test_fitb": 15142
+  },
+  "iqon3000_clean_counts": {
+   "train_pairs": 86800,
+   "valid_pairs": 12400,
+   "test_cp": 49600,
+   "test_fitb": 24800
+  }
+ },
+ "cell_seconds": {
+  "polyvore_d_clean__resnet50__native__logistic.json": 0.0,
+  "polyvore_d_clean__fashionclip2__native__logistic.json": 0.0,
+  "polyvore_d_clean__openclip_b32_laion2b__native__logistic.json": 0.0,
+  "polyvore_d_clean__marqo_fashionclip__native__logistic.json": 0.0,
+  "polyvore_d_clean__marqo_fashionsiglip__native__logistic.json": 0.0,
+  "polyvore_d_clean__siglip_b16_224__native__logistic.json": 0.0,
+  "polyvore_d_clean__siglip2_b16_384__native__logistic.json": 0.0,
+  "polyvore_d_clean__dinov3_vitl16__native__logistic.json": 0.0,
+  "polyvore_d_clean__gr_lite__native__logistic.json": 0.0,
+  "polyvore_d_clean__dinov3_vitl16_336__native__logistic.json": 0.0,
+  "polyvore_d_clean__clip_vitl14_336__native__logistic.json": 0.0,
+  "polyvore_d_clean__pe_core_l14_336__native__logistic.json": 0.0,
+  "polyvore_d_clean__siglip2_so400m_384__native__logistic.json": 0.0,
+  "polyvore_d_clean__qwen3_vl_emb_2b__native__logistic.json": 0.0,
+  "polyvore_d_clean__qwen3_vl_emb_8b__native__logistic.json": 0.0,
+  "iqon3000_clean__siglip2_so400m_384__native__logistic.json": 0.0,
+  "iqon3000_clean__marqo_fashionsiglip__native__logistic.json": 0.0
+ },
+ "runtime_seconds": 3.7969248294830322
+}

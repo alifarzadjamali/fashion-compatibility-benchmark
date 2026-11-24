@@ -1,0 +1,16 @@
+{
+ "iqon3000_v2_clean": {
+  "dataset": "iqon3000_v2_clean",
+  "overall": "qwen3_vl_emb_8b",
+  "generic": "siglip2_so400m_384",
+  "fashion": "marqo_fashionsiglip",
+  "tie_break": "lexicographic model_key after exact validation AUC tie"
+ },
+ "pog_v2_clean": {
+  "dataset": "pog_v2_clean",
+  "overall": "siglip2_so400m_384",
+  "generic": "siglip2_so400m_384",
+  "fashion": "marqo_fashionsiglip",
+  "tie_break": "lexicographic model_key after exact validation AUC tie"
+ }
+}

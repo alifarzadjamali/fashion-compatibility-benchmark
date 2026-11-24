@@ -1,7 +1,7 @@
 # RepBench-Fashion v2 — Paper-writing guide
 
 Status: **COMPLETE** (2026-11-23, after the full Phase 2 run on DGX booking job 37; updated
-2026-11-24 after the post-run sweep: rows D4–D11, new evidence in §1, numbers re-checked). Every
+2026-11-24 after the post-run sweep: rows D4–D13 and O1, new evidence in §1, numbers re-checked). Every
 number, table and figure comes from a generated file listed here; every provenance claim points
 to a hash in a committed file.
 
@@ -25,14 +25,17 @@ repository and, where a reviewer needs it, in the supplementary protocol record 
    follows fit on TRAIN, select on VALID, and touches TEST once. Splits are separated by item and
    by exact/near-duplicate image (pHash ≤ 2 with pixel confirmation; merged groups never cross
    splits), and they are published with hashes. Every reported number is machine-generated:
-   1,170 probe metrics plus 117 headline macros, checked by `check_paper_numbers.py`.
+   1,170 probe metrics plus 108 headline macros, checked by `check_paper_numbers.py`.
+   On the older, leakier v1-Clean splits every one of 15 encoders posts a higher Polyvore
+   CP-AUC (mean +0.0023; IQON about +0.0075) with the same ranking, so the v2-Clean numbers are
+   the stricter ones (descriptive comparison: the test sets differ; FITB differences are mixed).
 2. **A broad, modern encoder roster.** 15 frozen encoders spanning supervised CNNs,
    self-supervised models, generic VLMs, fashion VLMs, fashion retrieval and MLLM embeddings, all
    on 3 datasets (Polyvore, IQON3000 and POG, the last new to this line of work). Matched
    parent/child pairs isolate the effect of fashion fine-tuning.
 3. **A clear answer to "does fashion-specific pretraining help?"** Large general-purpose
    encoders lead on every dataset: generic VLMs SigLIP2-So400m and PE-Core, plus the Qwen3-VL
-   MLLM embedding, which tops IQON. SigLIP2-So400m is the validation-selected generic encoder on
+   MLLM embedding, which tops IQON CP-AUC. SigLIP2-So400m is the validation-selected generic encoder on
    all three datasets. Fashion VLMs do not beat them, and pure-vision models trail. Holm-corrected
    paired cluster-bootstrap tests back this up: 230 of 315 primary CP-AUC comparisons and 172 of
    315 primary FITB comparisons are significant (4,929 of 8,190 across all settings).
@@ -44,11 +47,11 @@ repository and, where a reviewer needs it, in the supplementary protocol record 
    with the generic encoder > fashion encoder > ResNet-50 ordering on all three. The ranking is
    stable across probe settings, label fractions, construction seeds and provenance groups, and
    stays highly concordant when every test outfit touched by a looser near-duplicate audit is
-   removed (Kendall τ 0.83–0.98; SigLIP2-So400m leads all three datasets after exclusion).
+   removed (Kendall τ 0.83–0.98; SigLIP2-So400m leads CP-AUC on all three datasets after exclusion).
 6. **Reproducibility as a first-class result.** Laptop (x86) and DGX (ARM) runs agree to a
-   median |ΔAUC| of 1.5e-8 (primary probes ≤ 3.9e-8 with identical selections; largest gap
+   median |ΔAUC| of 1.5e-8 on Polyvore (196 probe runs; primary probes ≤ 3.9e-8 with identical selections; largest gap
    0.0034, on an MLP sensitivity probe). bf16 inference matches fp32 (mean embedding cosine
-   ≥ 0.999 on all checked encoders). The v1 results are reproduced within 0.001 AUC. Code, splits, hashes
+   ≥ 0.998 on all checked encoders and datasets). The v1 results are reproduced within 0.001 AUC. Code, splits, hashes
    and all small result files are released.
 
 **Wording rules:**
@@ -65,7 +68,8 @@ repository and, where a reviewer needs it, in the supplementary protocol record 
   estimates and model selection and is released alongside." Use this sentence as written.
   Add the Holm family in one clause: "Holm is applied to the 105 model pairs within each dataset,
   metric and probe configuration; pooling all configurations per dataset and metric with DeLong
-  and exact McNemar p-values leaves 489 of 630 primary comparisons significant." These are the
+  and exact McNemar p-values (which ignore clustering) leaves 489 of 630 primary comparisons
+  significant." These are the
   only protocol notes the body needs.
 
 ## 0. Ground rules for writing
@@ -75,7 +79,7 @@ repository and, where a reviewer needs it, in the supplementary protocol record 
    hand-typed values. Headline values outside the probe tables (OutfitTransformer, Holm counts,
    LookBench, cross-machine, MLLM, A100) are in `numbers_extra.tex` from
    `scripts/v2/make_assets_v2.py`; run the checker with `--extra numbers_extra.json`
-   (24 Nov: 1,287 generated numbers, 0 violations). The current `paper_elsevier_ivc/` sources
+   (24 Nov: 1,278 generated numbers, 0 violations). The current `paper_elsevier_ivc/` sources
    are still the v1 text; the checker flags their v1 numbers until the v2 rewrite replaces them.
 2. **Figures and tables are generated** (`make_figures_v2.py`, `make_tables_v2.py`). If a
    figure needs a change, change the script and regenerate (§7).
@@ -95,7 +99,7 @@ repository and, where a reviewer needs it, in the supplementary protocol record 
 
 Laptop root: `~/repbench-results/` (index: `~/repbench-results/README.md`).
 **Canonical run outputs:** `~/repbench-results/dgx37/final/v2/full/` (written `$FF` below),
-verified by `~/repbench-results/dgx37/final/SHA256SUMS_final.txt` (2,232 files).
+verified by `~/repbench-results/dgx37/final/SHA256SUMS_final.txt` (2,654 files after the 24 Nov sweep).
 Compact copies of every small result file are committed under `research/v2/results/`.
 
 | What | Laptop path | Repo path (GitHub `v2-readiness`) |
@@ -106,7 +110,7 @@ Compact copies of every small result file are committed under `research/v2/resul
 | Run log / recovery | — | `docs/RESUME_V2.md` |
 | Gate evidence G1–G7 | — | `research/v2/readiness/<date>-<attempt>/`; the Phase 2 run is bound to G2 **a09** (`research/v2/readiness/2026-11-21-a09/g2/gate.json`) |
 | Split build / equivalence reports, MLLM ids, A100 manifest | — | `research/v2/freeze/` |
-| Embeddings (15 encoders × 3 datasets + A100) | `~/repbench-results/emb/` (`~/repbench-results/SHA256SUMS_emb.txt`; DGX copy re-verified identical 297/297) | not in repo (size) |
+| Embeddings (15 encoders × 3 datasets + A100) | `~/repbench-results/emb/` (`cd ~/repbench-results/emb && sha256sum -c ../SHA256SUMS_emb.txt`; DGX copy re-verified identical 297/297) | not in repo (size) |
 | Probe predictions (630 files) | `$FF/results/predictions/` | not in repo (size) |
 | Main stats, 2,000 replicates (pre-registered) | `$FF/results/*.csv`, `friedman.json` | `research/v2/results/results/` |
 | Main stats, 20,000 replicates (D3) | `$FF/results_r20k/` | `research/v2/results/results_r20k/` |
@@ -186,9 +190,9 @@ Key results already visible (for orientation; cite the macros, not these):
   evidence that retrieval benchmarks predict compatibility.
 - Near-duplicate exclusion (every test outfit flagged by the looser pHash ≤ 4 / cosine audit
   removed) keeps rankings highly concordant (Kendall τ 0.83–0.98); SigLIP2-So400m becomes the
-  leader on IQON and POG as well.
+  CP-AUC leader on IQON and POG as well (PE-Core still leads POG FITB).
 - Zero-shot Qwen3-VL-8B vs probes on the same 2,000 FITB questions: on Polyvore 11 of 15 probes
-  are Holm-significantly better; on IQON 4; on POG none differ (`mllm_paired/`).
+  are Holm-significantly better and 1 is worse; on IQON 4; on POG none differ (`mllm_paired/`).
 
 ## 4. Frozen-protocol summary (for the Methods section)
 
@@ -257,16 +261,16 @@ effect on any number and stay in the repo; D4–D13 are post-run sweep items (24
 | D2b | IQON preparation catalog rebuilt with the README scripts | infrastructure | counts match original audits 21/21 |
 | D2c | LookBench CLI parse bug; same library function called directly | code bug | none (identical to `all` path) |
 | D2d | OutfitTransformer run as 9 parallel streams (identical arguments; OMP threads 2) | scheduling | none |
-| D3 | Main pairwise bootstrap at 20,000 replicates (protocol: 2,000), owner-approved after the freeze because the 2,000-replicate Holm floor (≈0.0525) exceeded α | statistics, post-freeze | p-value resolution only; estimates and selection identical; CIs essentially unchanged (max \|Δ\| 0.0027); 2,000-replicate results kept and reported |
+| D3 | Main pairwise bootstrap at 20,000 replicates (protocol: 2,000), owner-approved after the freeze because the 2,000-replicate Holm floor (≈0.0525) exceeded α | statistics, post-freeze | p-value resolution only; estimates and selection identical; CIs essentially unchanged (max \|Δ\| 0.0027 for metric CIs, 0.0031 for pairwise CIs); 2,000-replicate results kept and reported |
 | D4 | Construction-seed protocols did not carry the near-duplicate groups, so that sensitivity's bootstrap ignored the merge; fixed in `sensitivities.py`, rerun with byte-identical questions and reused predictions | code bug, post-run sweep | point estimates and seed SDs unchanged; bootstrap variance ratio new/old median 1.01 (0.77–1.45) |
-| D5 | bf16 vs fp32 spot check (HANDOFF §5; GR-Lite SDPA substitution), 3 encoders × 3 datasets, 512 seeded TRAIN/VALID items | promised check, run post-run | mean cosine ≥ 0.999; re-embedding reproduces stored vectors (cosine 1.0000) |
-| D6 | Qwen 384×384 cap vs provider default (decision F), 2 Qwen encoders × 3 datasets, 256 items | promised check, run post-run | Polyvore/IQON images are below the cap (no change); POG 99% of images capped, embedding cosine 0.94 — reported as a disclosed design choice |
+| D5 | bf16 vs fp32 spot check (HANDOFF §5; GR-Lite SDPA substitution), 3 encoders × 3 datasets, 512 seeded TRAIN/VALID items | promised check, run post-run | mean cosine ≥ 0.998 (0.999 for all but GR-Lite on IQON); re-embedding reproduces stored vectors (cosine 1.0000) |
+| D6 | Qwen 384×384 cap vs provider default (decision F), 2 Qwen encoders × 3 datasets, 256 items | promised check, run post-run | Polyvore/IQON images are below the cap (identical tokens; cosine 1.0 / ≥0.999); POG 99% of images capped, embedding cosine 0.94 — reported as a disclosed design choice |
 | D7 | Qwen GFLOPs: FlopCounterMode SDPA rule rejects GQA shapes; counted with the equivalent eager attention | measurement fix | 2B 516.1, 8B 1,743.7 GFLOPs/image |
-| D8 | User-only grouping sensitivity for IQON/POG (protocol `sensitivity: user_only`) was not run in Phase 2; run post-run at 20,000 replicates | promised analysis | see `results_useronly_r20k/` |
+| D8 | User-only grouping sensitivity for IQON/POG (protocol `sensitivity: user_only`) was not run in Phase 2; run post-run at 20,000 replicates | promised analysis | estimates and selection identical; user-only CIs ≈0.44× as wide (median, metric CIs; 0.48× pairwise), so the two-way primary analysis is the conservative one |
 | D9 | A100 summary had the same 2,000-replicate Holm floor as D3; recomputed at 20,000 | statistics | 195 of 3,150 A100 comparisons Holm-significant (0 at 2,000) |
 | D10 | MLLM vs probe figure compared different question sets; paired comparison on the frozen 2,000 ids added | analysis fix | figure kept as descriptive; claims use `mllm_paired/` |
-| D11 | v1-Clean leakage-inflation analysis (protocol) run post-run: v1-Clean splits rebuilt (counts match G3), IQON items missing from v2 stores embedded on the GPU before the booking ended (3 encoders); the rebuild called the library functions directly because the G2 gate refuses after the D4 code change; lee-research Polyvore-D cross-check: see row | promised analysis | see `leakage_inflation/` |
-| D12 | Holm family: protocol says "within dataset × metric"; run applied it per dataset × metric × probe configuration (105 pairs). Pooling all configurations: bootstrap p-values cannot reach α (floor 5e-5 × 1,365), DeLong/exact-McNemar Holm keeps 489/630 primary comparisons significant | interpretation, disclosed | conclusions unchanged |
+| D11 | v1-Clean leakage-inflation analysis (protocol) run post-run: v1-Clean splits rebuilt (counts match G3), IQON items missing from v2 stores embedded on the GPU before the booking ended (3 encoders); the rebuild called the library functions directly because the G2 gate refuses after the D4 code change; lee-research Polyvore-D cross-check: see row | promised analysis | Polyvore CP-AUC inflation +0.0023 (15/15 encoders up), IQON ≈ +0.0075 (2 encoders; ResNet-50 out of memory on the laptop); rankings agree (Spearman 0.97); lee-research data unavailable, count-level overlap matches (3,781/84/34) |
+| D12 | Holm family: protocol says "within dataset × metric"; run applied it per dataset × metric × probe configuration (105 pairs). Pooling all configurations: bootstrap p-values cannot reach α (floor 5e-5 × 1,365), DeLong/exact-McNemar Holm (unclustered) keeps 489/630 primary comparisons significant | interpretation, disclosed | reported counts stay the clustered as-run ones |
 | D13 | Record items: G2 a08 (job 34) evidence not retained (a09 input hashes = v2-freeze + make_figures_v2.py, verified); `make_figures_v2.py` added after the freeze (reporting only); ECE CIs use user clusters for IQON/POG (protocol `:375`); A100 manifest label said "carve-out selection" (Phase 2 used VALID; label fixed) | record | none |
 | O1 | Owner directive 23 Nov: the deviation table lives in the supplement / repository, the paper body carries the statistics sentence (amends HANDOFF hard line 4) | owner | — |
 | P3 | LookBench v3 scores transcribed from arXiv:2601.14706 Table 3 (6 exact matches) | planned Phase 3 input (not in protocol hash) | LookBench sensitivity now populated |
@@ -276,7 +280,7 @@ effect on any number and stay in the repo; D4–D13 are post-run sweep items (24
 ```bash
 FF=~/repbench-results/dgx37/final/v2/full
 .venv/bin/python scripts/v2/make_tables_v2.py --results $FF/results_final --out $FF/generated_final
-.venv/bin/python scripts/v2/make_tables_v2.py --results $FF/results --out $FF/generated_r2000_prereg
+.venv/bin/python scripts/v2/make_tables_v2.py --results $FF/results_r2000_view --out $FF/generated_r2000_prereg
 .venv/bin/python scripts/v2/make_figures_v2.py --results $FF/results_final --out $FF/figures_final \
   --mllm $FF/mllm/*/
 .venv/bin/python scripts/v2/make_assets_v2.py --ff $FF --out $FF/generated_assets
@@ -292,4 +296,6 @@ Probes/statistics can be re-run on the laptop from `~/repbench-results/emb` and
 All analyses, tables, figures and macros are generated. Remaining work is writing only, by the
 owner: the v2 manuscript text in `paper_elsevier_ivc/` (currently v1 text), citations
 (HANDOFF §10, incl. LookBench arXiv:2601.14706), highlights, graphical abstract, cover letter.
-`v2-readiness` is merged into `main` (v1 preserved at tag `v1-final`).
+`v2-readiness` is merged into `main` at the end of the sweep (v1 preserved at tag `v1-final`).
+Macro note: `resHolmSigPrimary` / `resHolmComparisonsPrimary` are the CP-AUC primary block (230/315);
+the FITB block has its own `...Fitb...` macros.

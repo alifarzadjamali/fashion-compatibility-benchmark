@@ -34,7 +34,7 @@ case $step in
     [ -d $O/construction_seeds/predictions ] || cp -a $F/results/sensitivities/construction_seeds/predictions $O/construction_seeds/
     $PY scripts/v2/run_sensitivities.py construction-seeds --out $O --results $F/results --eval-split test \
       --frozen-protocol-hash $freeze --dataset-config configs/v2_sensitivity_datasets.json \
-      --embeddings $F/emb --selection-split valid $EQ
+      --embeddings $F/emb --selection-split valid $EQ || exit $?
     # the regenerated questions must be byte-identical to the Phase 2 ones (predictions reused)
     for d in $O/construction_seeds/protocols/*/seed_*; do
       rel=${d#$O/construction_seeds/}

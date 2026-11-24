@@ -1,6 +1,7 @@
 {
   "analysis": "paired MLLM zero-shot vs primary probe FITB on the frozen MLLM question subset",
   "holm_family": "per dataset, the 15 MLLM-vs-probe comparisons",
+  "mcnemar_cluster_note": "cluster sign-flip McNemar uses the first grouping dimension only (Polyvore item component; IQON/POG user); the bootstrap CI and p use the full two-way grouping",
   "margins_tost": [
     0.005,
     0.01,

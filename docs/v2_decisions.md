@@ -504,11 +504,12 @@ exactly from raw outputs. Items found and handled (all outputs in new directorie
   (0.77–1.45). Tables/figures use `sens_eqfix/`.
 - **D5 (promised check).** bf16 vs fp32 spot check (HANDOFF §5; GR-Lite SDPA substitution), new
   `scripts/v2/spot_checks_v2.py`: GR-Lite, SigLIP2-So400m, Marqo-FashionSigLIP × 3 datasets, 512
-  seeded TRAIN/VALID items each. Mean cosine ≥ 0.999 everywhere (GR-Lite minimum 0.957 on single
-  items); bf16 re-embedding reproduces the stored Phase 2 vectors (cosine 1.0000).
+  seeded TRAIN/VALID items each. Mean cosine ≥ 0.998 everywhere, ≥ 0.999 except GR-Lite on IQON 0.9989
+  (GR-Lite minimum 0.957 on single items); bf16 re-embedding reproduces the stored Phase 2 vectors (cosine 1.0000).
 - **D6 (promised check, decision F).** Qwen3-VL-Embedding 2B/8B at the 384×384 cap vs the
   provider default (1,800 visual tokens), 256 items per dataset. Polyvore and IQON images are
-  already below the cap (identical token counts, no change). POG images are larger: 99% are
+  already below the cap (identical token counts; cosine 1.0 on Polyvore, ≥ 0.999 on IQON from
+  batch-padding numerics). POG images are larger: 99% are
   capped (mean 133 vs 444 visual tokens), embedding cosine 0.94, pairwise-similarity Spearman
   0.96. Reported in the supplement as the uniform-budget design choice.
 - **D7 (measurement).** Qwen GFLOPs were null (FlopCounterMode's SDPA rule rejects grouped-query
@@ -516,7 +517,12 @@ exactly from raw outputs. Items found and handled (all outputs in new directorie
   (`scripts/v2/qwen_flops_eager.py`): 2B 516.1, 8B 1,743.7 GFLOPs/image.
 - **D8 (promised analysis).** Protocol `protocols.{iqon3000,pog}_v2_clean.sensitivity: user_only`
   was not run in Phase 2. Run post-run on the laptop from the frozen predictions, 20,000
-  replicates (`results_useronly_r20k/`). Result: RESULT_D8.
+  replicates (`results_useronly_r20k/`). Result: point estimates and selection identical; user-only CIs are
+  narrower (median width 0.44× the two-way metric CIs, 0.48× pairwise; IQON 2,385 and POG 14,670
+  user clusters), so more
+  comparisons are significant (IQON+POG primary block: CP 180 vs 142, FITB 157 vs 85 of 210;
+  all settings 4,290 vs 2,641 of 5,460). The pre-registered two-way grouping is the conservative
+  primary analysis.
 - **D9 (statistics).** A100 pairwise summary used 2,000 replicates (same Holm floor as D3: 0 of
   3,150 significant). Recomputed at 20,000 (`a100_summary_r20k/`): 195 of 3,150.
 - **D10 (analysis).** `fig_mllm_vs_probes` compares MLLM accuracy on the frozen 2,000-question
@@ -530,14 +536,25 @@ exactly from raw outputs. Items found and handled (all outputs in new directorie
   the D4 code change (same functions, same seed). Polyvore v1-Clean items are all in the v2
   stores (15 encoders); 74,366 IQON v1-Clean items were missing, so their images were extracted
   (checksum-verified) and embedded with the as-run code for ResNet-50, SigLIP2-So400m and
-  Marqo-FashionSigLIP before the booking ended (`scripts/v2/run_v1clean_iqon_gpu.sh`). Result:
-  RESULT_D11. lee-research Polyvore-D overlap cross-check: RESULT_LEE.
+  Marqo-FashionSigLIP before the booking ended (`scripts/v2/run_v1clean_iqon_gpu.sh`). Result (`leakage_inflation/`, inflation = v1-Clean minus v2-Clean test value,
+  descriptive since the test sets differ; the probe reproduces the recorded v2-Clean ResNet-50
+  cell): Polyvore, 15 encoders: CP-AUC +0.0023 mean (+0.0001 to +0.0044; all 15 higher on
+  v1-Clean), FITB +0.0008 mean (−0.0039 to +0.0114); rankings agree (CP Spearman 0.97, Kendall
+  0.90; FITB 0.996/0.98). IQON: SigLIP2-So400m +0.0073 CP / +0.0068 FITB, Marqo-FashionSigLIP
+  +0.0077 / +0.0077; IQON ResNet-50 could not be fitted on the 30 GB laptop (float64 features of
+  ~174k train outfits; out of memory three times) and is excluded. No rank statistics for IQON
+  (n = 2). lee-research Polyvore-D overlap cross-check: the lee-research data is not available locally,
+  so the check is count-level: the original Polyvore-D split files give train∩valid 3,781,
+  train∩test 84, valid∩test 34 shared items, identical to the lee-research figures quoted in
+  HANDOFF (`leakage_inflation/lee_overlap_crosscheck.json`, `scripts/v2/polyvore_d_overlap_check.py`).
 - **D12 (interpretation).** Protocol: "Holm within dataset × metric". The pipeline applies Holm to
   the 105 model pairs of each dataset × metric × probe configuration (78 families). Pooling all
   configurations per dataset × metric (1,365 pairs) makes bootstrap significance unattainable even
   at 20,000 replicates (floor 5e-5 × 1,365 > 0.05); with DeLong (CP) / exact McNemar (FITB)
   p-values the pooled Holm keeps 6,228 of 8,190 and 489 of 630 primary comparisons significant
-  (`scripts/v2/holm_family_variant.py` → `holm_family_variant/`). Conclusions unchanged.
+  (`scripts/v2/holm_family_variant.py` → `holm_family_variant/`). Those two tests ignore
+  clustering, so the pooled counts are optimistic; the as-run clustered counts (230/315 CP,
+  172/315 FITB) remain the reported figures.
 - **D13 (record).** (a) G2 attempt a08 (job 34, certified the embeddings, MLLM results and 31/45
   probe units) left no committed evidence; a09's input hashes equal v2-freeze plus
   `make_figures_v2.py`, verified. (b) `scripts/v2/make_figures_v2.py` was added after the freeze
@@ -549,8 +566,8 @@ exactly from raw outputs. Items found and handled (all outputs in new directorie
   config. Suite: 124 passed, 11 skipped.
 - **Paper assets.** `scripts/v2/make_assets_v2.py` → `generated_assets/`: efficiency table
   (kgCO2e = kWh × 0.207, UK Government GHG conversion factors 2024), feature-width table,
-  `numbers_extra.tex` (117 headline macros), qualitative FITB figure. `check_paper_numbers.py`
-  gained an optional `--extra` (1,287 numbers, 0 violations).
+  `numbers_extra.tex` (108 headline macros), qualitative FITB figure. `check_paper_numbers.py`
+  gained an optional `--extra` (1,278 numbers, 0 violations).
 - **O1 (owner amendment, CMD 2026-11-23 20:11).** The paper is written achievements-first;
   caveats only in Limitations; the protocol record/deviation table goes in the supplement and
   repository, the body carries the statistics sentence (PAPER_GUIDE ★). Amends HANDOFF hard line 4
