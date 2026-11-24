@@ -99,7 +99,7 @@ repository and, where a reviewer needs it, in the supplementary protocol record 
 
 Laptop root: `~/repbench-results/` (index: `~/repbench-results/README.md`).
 **Canonical run outputs:** `~/repbench-results/dgx37/final/v2/full/` (written `$FF` below),
-verified by `~/repbench-results/dgx37/final/SHA256SUMS_final.txt` (2,654 files after the 24 Nov sweep).
+verified by `~/repbench-results/dgx37/final/SHA256SUMS_final.txt` (2,653 files after the 24 Nov sweep).
 Compact copies of every small result file are committed under `research/v2/results/`.
 
 | What | Laptop path | Repo path (GitHub `v2-readiness`) |

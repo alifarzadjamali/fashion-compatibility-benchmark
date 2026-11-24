@@ -109,7 +109,7 @@ def main():
         print(name, json.dumps(summary[name]), flush=True)
     import csv
     with open(args.out / "paired_mllm_vs_probes.csv", "w", newline="") as fh:
-        writer = csv.DictWriter(fh, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     (args.out / "summary.json").write_text(json.dumps({
