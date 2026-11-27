@@ -1,0 +1,24 @@
+\showAudits
+
+\paragraph{From a product identifier to a split unit}
+We group byte-identical files, decoded-pixel matches and confirmed perceptual matches before assigning outfits to partitions. Listings joined by a chain of matches stay together, even when the endpoints were never compared directly. Table~\ref{tab:Audits} counts original positive outfits; each supplies one negative outfit and one completion question.
+
+Our 64-bit DCT hash admits candidates within two bits. Confirmation requires foreground chromatic distance $\Delta_{ab}\leq2$ and a 95th-percentile local $\Delta E\leq15$. On IQON, 139,636 of 712,107 items form 60,261 non-singleton groups. Two independent builds produced identical split hashes for each corpus.
+
+\paragraph{Polyvore-D}
+The historical Polyvore-D item intersections contain 3,781 identifiers for train/validation, 84 for train/test and 34 for validation/test. These counts agree with the independent audit at \url{https://github.com/lee-research/outfit-completion-retrieval}.
+
+We pool the positives from the disjoint release, identify an outfit by its unordered tuple of item identifiers, and keep a single copy when the tuple recurs. Outfits that share an item or a confirmed image identity are connected. We allocate whole components to the partitions, using deterministic ordering and the historical partition sizes as targets. This preserves complete examples while preventing a frequently used accessory from being assigned to training through one outfit and to test through another. The result retains a familiar benchmark population with a new, auditable rule for access to its images. We generate negatives and choices after the allocation so that a training distractor cannot import an item from the test partition.
+
+\paragraph{IQON3000}
+Heavy item reuse produces a component too large for whole-component allocation. An outfit is retained if all its item and image identities can enter the same partition. Longer outfits and those with widely reused items have more opportunities for conflict. Users can recur across partitions; we account for them in resampling and omit user identity from the model inputs.
+
+\paragraph{POG}
+POG metadata cover 1,013,136 outfits using 583,464 items in 75 categories. A random URL check succeeded for 996 of 1,000 items. We targeted 124,000 outfits and verified 183,806 of their 184,339 images. The final partitions retained 76,309 outfits (62\% of the target). Losses included outfits with conflicting item identities during packing and outfits in categories with too few distinct distractors. The sampled catalog contained 74 raw categories before split-specific filtering for at least ten distinct images per category. After the support filter, the retained POG training, validation and test partitions span 67, 64 and 65 categories, respectively.
+
+POG provides catalog categories and image URLs. We select the acquisition target before evaluating any test predictions, record which catalog images are available, and keep complete outfits whose items resolve. Repeated item identifiers, unavailable images, missing category or URL information, and duplicate item tuples are handled before split assignment. We then traverse the target in a seeded order. A compatible assignment inherits the partition already owning an item's group. New assignments target deficits in the desired partition proportions. A conflict discards the outfit and preserves the existing identity assignments.
+
+Supplementary Section~6 describes the category-support filter and the inspection of the largest POG image group.
+
+\paragraph{External questions}
+A100 supplies its own outfit contexts, candidate lists and answers. We retain their grouping by question when scoring and resampling. The majority-label LAT score counts choices matching the most popular answer. The archive provides a second label, and the vote distribution permits a graded measure, mLAT. If two candidate garments both attract votes, choosing the runner-up receives credit equal to its vote share under mLAT. The binary majority score assigns credit only to the majority answer. The AAT task records the expert answer and the aesthetic facet associated with the question. This makes it possible to distinguish transfer to a recorded human preference from recovery of the item originally included by a source curator.

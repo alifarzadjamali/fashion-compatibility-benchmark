@@ -1,0 +1,5 @@
+Split construction keeps repeated products and near-identical images together.
+Across 39 corpus and probe settings, encoder ranks agree closely (W = 0.84).
+Marqo-FashionSigLIP beats its parent in 74 of 78 comparisons.
+Source AUC tracks expert A100 choices more closely than crowd-majority choices.
+GR-Lite leads retrieval and ranks last among vision transformers by observed CP-AUC.

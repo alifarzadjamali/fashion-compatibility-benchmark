@@ -88,6 +88,9 @@ def env(tmp_path_factory):
             "spec": S.DatasetSpec(DATASET, protocol, "two_way")}
 
 
+@pytest.mark.skipif(
+    sys.platform == "win32", reason="Linux-only: Windows file locking prevents overwriting an open .npy file"
+)
 def test_store_merge_and_conflicts(tmp_path):
     ids = ["a", "b", "c"]
     values = np.arange(9, dtype=np.float32).reshape(3, 3)

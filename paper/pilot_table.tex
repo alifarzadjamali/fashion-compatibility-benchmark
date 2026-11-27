@@ -1,0 +1,10 @@
+\begin{table}[htbp]\centering\small
+\caption{Rebuilt pilot partition minus v2 partition under the same native probe procedure. Columns give the number of evaluated encoders, the number with a positive difference, and the distribution of differences across encoders. The test examples differ between partitions. FITB has four options (25\% chance).}\label{tab:Partitions}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrrrrrr@{}}\toprule
+Corpus & Metric & Models & Positive & Mean & Minimum & Maximum\\\midrule
+IQON & CP-AUC & 2 & 2 & 0.0075 & 0.0073 & 0.0077\\
+IQON & FITB (pp) & 2 & 2 & 0.73 & 0.68 & 0.77\\
+Polyvore & CP-AUC & 15 & 15 & 0.0023 & 0.0001 & 0.0044\\
+Polyvore & FITB (pp) & 15 & 7 & 0.08 & -0.39 & 1.14\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}

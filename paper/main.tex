@@ -1,0 +1,187 @@
+\documentclass[preprint,12pt]{elsarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,graphicx,booktabs,adjustbox,placeins}
+\newcommand{\paperfigure}[3]{\begin{figure}[tbp]\centering
+\includegraphics[width=\linewidth,height=.76\textheight,keepaspectratio]{#1}
+\caption{#2}\label{#3}\end{figure}}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdfauthor={Ali Jamali, Ali Alameer, Manzar Malik, Maryam Vadikheil, Taha Mansouri},pdftitle={RepBench-Fashion: Evaluating Frozen Visual Representations for Outfit Compatibility}}
+\emergencystretch=2em
+\journal{Image and Vision Computing}
+\input{numbers}
+\input{numbers_extra}
+\input{evidence_views}
+\ifdefined\pdfgentounicode\input{glyphtounicode}
+\pdfgentounicode=1\fi
+\begin{document}
+\begin{frontmatter}
+\title{RepBench-Fashion: Evaluating Frozen Visual Representations for Outfit Compatibility}
+\author[salford]{Ali Jamali\corref{corresponding}}
+\ead{a.jamali2@salford.ac.uk}
+\author[salford]{Ali Alameer}
+\author[salford]{Manzar Malik}
+\author[salford]{Maryam Vadikheil}
+\author[salford]{Taha Mansouri}
+\cortext[corresponding]{Corresponding author}
+\affiliation[salford]{organization={School of Science, Engineering and Environment, University of Salford},
+            addressline={The Crescent}, city={Salford}, postcode={M5 4WT},
+            country={United Kingdom}}
+
+\begin{abstract}
+Fashion image encoders are often chosen by retrieval rank, yet recognizing a garment and choosing what to wear with it require different judgments. We compare 15 frozen image encoders on Polyvore, IQON3000 and POG. We fixed and hashed the protocol (git tag \texttt{v2-freeze}, 19 November 2026) before evaluating the v2 test sets. Split construction keeps repeated items and near-identical photographs together. On IQON, 19.6\% of items belong to such image groups. A common pairwise classifier scores complete outfits for compatibility prediction (CP) and ranks missing-item candidates for fill-in-the-blank (FITB) questions. Across three corpora and 13 readouts, rankings by area under the ROC curve for CP largely agree (Kendall's $W=0.84$). PE-Core and SigLIP2-So400m have the best mean ranks (1.28 and 2.31), and ResNet-50 has the worst mean rank (14.95). Among fashion adaptations, Marqo-FashionSigLIP improves on its parent in 74 of 78 comparisons. FashionCLIP~2 loses ground on Polyvore, while the ordering of GR-Lite and its parent changes after projection. Training an OutfitTransformer adds up to 0.13 AUC and preserves the ordering of its three inputs. Across encoders, source AUC tracks accuracy on A100 expert questions more closely ($\rho=0.76$--$0.86$) than agreement with the crowd majority ($0.29$--$0.53$). Without source training, Qwen3-VL-8B answers 74\% of expert questions and recovers 70\% of majority choices. GR-Lite leads the shared retrieval panel but has the lowest native compatibility AUC point estimate among the vision transformers on all three corpora. These results support validating encoders on the outfit decision they will serve.
+\end{abstract}
+\begin{keyword}
+Outfit compatibility \sep visual representation learning \sep fashion retrieval \sep leakage control \sep benchmark evaluation
+\end{keyword}
+
+\end{frontmatter}
+\input{intro}
+\input{research_design}
+
+\section{Benchmark and method}
+\label{sec:method}
+
+\subsection{What constitutes a correct prediction?}
+In compatibility prediction (CP), the model scores a complete outfit. A positive example
+is an outfit recorded in the source collection. To construct its negative counterpart,
+we replace each item with another item from the same category and split. The two outfits
+therefore have the same length and category composition. We report the area under the
+receiver operating characteristic curve (AUC), which measures how often the model ranks
+an observed outfit above a generated one, with half credit for a tie.
+
+For fill-in-the-blank (FITB) completion, we remove an item and ask the model to recover it from candidates in the same category. The other items stay in place. A model scores each completed outfit and chooses the candidate with the
+highest score. We report the fraction of questions for which it recovers the original
+item, resolving exact ties by candidate order. A model can distinguish a wholly
+reconstructed outfit from an observed one yet miss a substitution when all the other
+items stay fixed. We evaluate both tasks on each corpus.
+
+\subsection{Corpora and split construction}
+Polyvore Outfits supplies curated sets of garments and accessories, IQON3000 supplies
+user-created outfits, and the Alibaba POG collection supplies outfits assembled from a
+commercial catalog \cite{vasileva2018typeaware,song2019gpbpr,chen2019pog}. We build
+separate training, validation and test partitions within each corpus. Different catalog listings can carry the same photograph under different item identifiers. We group exact image matches and use perceptual hashes to
+find near-duplicate candidates. We confirm candidate matches at the pixel level and keep each resulting group in a single partition.
+
+On Polyvore we keep connected outfits together when they share an item or image
+identity. On IQON and POG we pack outfits into partitions subject to the same identity
+constraint and drop outfits whose items already belong to conflicting partitions.
+We construct questions after assignment, drawing replacements from the appropriate
+partition. On POG we use the catalog category identifier and retain categories with
+sufficient distinct images to draw distractors. The build audits check for identities
+shared across partitions, repeated negatives, and generated negatives or distractor
+completions that coincide with a recorded positive. The released build reports record
+the retained sample and the hashes of the question files.
+
+A100 provides an external test with human and expert judgments \cite{zou2022a100}.
+Each source-trained probe scores the outfit obtained by adding each offered candidate
+to the supplied context. We evaluate the Liberalism Aesthetic Test against the majority
+choice and repeat the scoring with the archive answer key. For the Academicism
+Aesthetic Test we retain the released questions and facet labels. All fitting,
+calibration and selection take place on the source corpus.
+
+\input{partition_design}
+\subsection{Frozen representations and matched checkpoints}
+\input{roster}
+Table~\ref{tab:roster} identifies all 15 checkpoints. The roster spans an ImageNet-supervised convolutional network \cite{he2016resnet}, self-supervised vision
+transformers \cite{simeoni2025dinov3}, general-purpose and fashion-specific vision--language models, a fashion
+retrieval encoder, and multimodal language models trained to produce embeddings.
+We pin the checkpoint for each encoder, composite transparent pixels onto white and
+extract image features in bfloat16. Fixed-resolution encoders use their checkpoint
+processors. For Qwen's variable-resolution inputs we impose the same upper pixel
+budget used across the roster. The generic roster includes both SigLIP2 and Perception Encoder \cite{tschannen2025siglip2,bolya2025pe}. DINOv3 appears at two input resolutions. Both configurations share weights. The larger input matches the resolution used by GR-Lite. We cache one vector per item and keep the encoder
+weights fixed during all probe fits.
+
+We distinguish the effect of choosing a released fashion model from the effect of
+adapting a particular backbone. For the latter comparison we pair FashionCLIP~2
+with its OpenCLIP ViT-B/32 LAION parent \cite{cherti,laion}, Marqo-FashionSigLIP with SigLIP-B/16 \cite{marqocard,marqoclip},
+and GR-Lite with DINOv3 at the input resolution used by GR-Lite \cite{gao2026lookbench,grlitecard}. Each pair receives
+the same outfits and probe procedure. For the practical choice between families,
+we select the generic and fashion encoders separately on each corpus by validation
+CP-AUC with the native-feature probe.
+
+\subsection{From item vectors to an outfit score}
+We standardize each feature coordinate using training items and normalize the
+resulting item vector to unit Euclidean norm. Let $z_i$ denote this vector for
+item $i$, and let $P(O)$ contain the unordered pairs of distinct items in outfit
+$O$. After removing repeated item identifiers, we compute
+\begin{equation}
+ x(O)=\frac{1}{|P(O)|}\sum_{\{i,j\}\in P(O)}
+ \begin{bmatrix} |z_i-z_j| \\ z_i\odot z_j \end{bmatrix}.
+\end{equation}
+The absolute difference measures separation along each coordinate, and the
+elementwise product preserves whether the coordinates have the same sign.
+Averaging gives every pair equal weight within its outfit and makes the score
+invariant to item order. We standardize the outfit vectors on the training
+examples and fit logistic regression to the CP labels. The same fitted classifier
+scores every candidate completion in FITB.
+
+The primary probe retains the encoder's native feature width. We choose the inverse
+regularization strength on validation data, extending the search if the selected
+value falls at a grid boundary. To examine how much the ordering depends on the
+readout, we repeat the comparison with train-fitted randomized principal components
+at several widths \cite{halko2011}, with a pair operator that also retains the coordinatewise sum,
+and with boosted trees and multilayer perceptrons. Separate analyses vary the
+fraction of labeled training data and regenerate the questions at fixed item
+partitions. The latter changes which alternatives a model must distinguish while
+preserving the underlying collection of outfits.
+
+\input{score_design}
+\subsection{Contextual learning, zero-shot choice and retrieval}
+To test whether encoder choice still matters when the scoring function learns
+interactions among all items, we train an image-only OutfitTransformer
+\cite{sarkar2023outfittransformer} on the frozen features of ResNet-50 and of the
+validation-selected generic and fashion encoders. We select the learning rate on
+validation data, apply early stopping and average test performance over training
+seeds. Comparing the transformer and the pairwise probe on the same item features
+separates the choice of outfit model from the choice of image encoder.
+
+The transformer projects each item into a shared hidden space, prepends a learned outfit token and masks padded entries. A binary head trained with focal loss \cite{focal} reads the final state of the outfit token. There is no positional embedding that would allow the classifier to distinguish outfits by the order in which the catalog lists their items.
+
+We tried learning rates of $10^{-4}$ and $3\times10^{-4}$ with a 100-epoch limit and patience of ten epochs. All 45 final fits stopped early. Across five seeds per input and corpus, validation selected epochs 7--27. We choose the learning rate with the highest mean best-validation AUC over training seeds, breaking a tie toward the smaller rate. For each seed we evaluate the state selected on validation data, keeping the checkpoint, training questions and feature source fixed within the run.
+
+For zero-shot choice, Qwen3-VL-8B-Instruct \cite{qwenvl} receives the context and candidate
+images. Each zero-shot image receives at most 144 visual tokens. Inference took 0.18--0.79 seconds per question and peaked at 17.9 GB of allocator memory. We permute candidate positions deterministically for each question and
+select the option letter with the highest next-token log probability. The question
+identifiers were fixed before test evaluation. Direct comparisons with the probes
+use the same FITB questions on each corpus. We also evaluate all released A100
+questions. To compare compatibility with product retrieval, we restrict the
+LookBench comparison to matching checkpoints and compute Spearman's correlation
+between the two rankings \cite{gao2026lookbench}.
+
+\subsection{Statistical analysis}
+We froze the protocol before evaluating new settings on the test partitions.
+Comparisons pair predictions on the same examples. On Polyvore the bootstrap
+resamples item-connected components, preserving dependence among outfits that
+share items. On IQON and POG we cluster along both user and item-component
+dimensions \cite{cameron2011multiway} and repeat the analysis with user clustering alone. On IQON the user is the outfit creator. For POG we assign an outfit to its lexicographically smallest
+recorded clicking user and give each outfit without a click its own user group.
+The largest item component covers 54.2\% of IQON test outfits and 56.3\% of POG test outfits. For SigLIP2-So400m on IQON, omitting that component lowers AUC from 0.784 to 0.768. Counting it twice while keeping other weights fixed raises AUC to 0.789. On POG the corresponding values are 0.759, 0.743 and 0.764 (observed, omitted and doubled). This uneven response helps explain the longer lower tails of the crossed-bootstrap percentile intervals. We compare encoders within each draw so both see the same component weights. On A100 the resampling unit is the question.
+
+Holm-adjusted p-values use \resHolmReplicates{} paired cluster-bootstrap replicates for p-value resolution.
+The archived 2,000-replicate analysis gives identical estimates and model selection and is released alongside.
+Holm is applied to the \resHolmComparisonsPrimaryPolyvoreVTwoCleanCpAuc{} model pairs within each dataset, metric and probe configuration; pooling all configurations per dataset and metric with DeLong and exact McNemar p-values (which ignore clustering) leaves 489 of 630 primary comparisons significant.
+
+With 20,000 draws the minimum bootstrap probability is $1/20{,}001$. For 105 pairs the smallest Holm-adjusted value is $105/20{,}001=0.00525$ to three significant figures.
+
+The paired DeLong and McNemar tests use the correlation between predictions on the same observations \cite{delong1988,mcnemar1947}. The bootstrap additionally keeps observations from the same cluster together. We use Holm's step-down correction for multiplicity \cite{holm1979}.
+We report paired differences with confidence intervals and use pre-specified
+equivalence margins to assess whether an effect is small enough for practical
+purposes under two one-sided tests \cite{schuirmann1987}. Bootstrap rank intervals describe uncertainty in the position of each
+encoder. We also compare rankings across corpus and probe configurations using Friedman ranks, Nemenyi comparisons and Kendall's concordance \cite{demsar2006statistical,kendall}. These summaries are descriptive because the same items and labels recur across configurations. Changing the projection or learner gives another measurement on those same questions. For probabilities, we assess the Brier score, log loss and binned
+calibration error before and after fitting temperature or Platt scaling on
+validation examples \cite{platt,ece}. We decompose the Brier score into reliability, resolution and uncertainty using 15 equal-width bins, retaining the within-bin residual \cite{murphy}.
+
+\subsection{Computational cost}
+For 100,000 items, storing 1,152 bfloat16 coordinates per item takes 230.4 MB. At 256 coordinates it takes 51.2 MB, excluding metadata. We profile the encoders on the same NVIDIA GB10 device. CUDA events time the
+image tower after warm-up with preprocessed tensors resident on the GPU.
+Single-image latency measures the cost of an individual request, while batched
+throughput measures catalog extraction speed. We report median timings, measure CPU preprocessing separately and record peak
+memory allocated by the framework. Parameter counts, floating-point operations
+and energy per image complement the timing measurements. According to the facility's job-accounting record, the complete v2 study used 42.2 GPU-hours on one NVIDIA GB10 device, end to end.
+
+\input{results}
+\input{discussion}
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+\end{document}

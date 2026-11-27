@@ -1,0 +1,12 @@
+\paragraph{What the completion score compares}
+For the linear probe, we can identify exactly which terms determine a choice among completions. Write $q(i,j)$ for the concatenated pair feature, and absorb the training-outfit scaler into a weight vector $w$ and intercept $b$. For a fixed context $C$ and eligible candidate $a$, the logit is
+\begin{equation}
+ L(C,a)=b+\frac{1}{|P(C\cup\{a\})|}
+ \left(\sum_{\{i,j\}\in P(C)}w^\top q(i,j)
+      +\sum_{i\in C}w^\top q(i,a)\right).
+\end{equation}
+Every candidate has the same context and every completion in a question has the same size. The first sum, the denominator and the intercept are shared. The ordering of $a$ and another candidate $a'$ therefore depends only on
+\begin{equation}
+ \sum_{i\in C} w^\top\{q(i,a)-q(i,a')\}.
+\end{equation}
+Context-only evidence cancels in the linear score. A candidate can therefore change the decision only through its pairs with the retained items. A nonlinear head or a contextual scorer can model interactions outside this sum. Supplementary Section~7 details the projection and pair-operator alternatives, including the XGBoost readout \cite{xgboost}.

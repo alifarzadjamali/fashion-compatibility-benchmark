@@ -1,0 +1,21 @@
+\subsection{Polyvore: gains in whole-outfit discrimination and completion}
+\showPolyvore
+On Polyvore, CLIP-L reaches 0.907 CP-AUC and 66.7\% FITB accuracy. Both DINOv3 resolutions score lower on both tasks, and both exceed ResNet-50 (0.744 AUC, 44.8\% FITB). All four candidates for a blank share its category (Table~\ref{tab:Polyvore}).
+
+SigLIP2-So400m and PE-Core are close on both tasks: 0.933 and 0.931 AUC, and 72.3\% and 72.1\% FITB accuracy. Qwen-Embedding-8B narrowly exceeds SigLIP2-B on AUC (0.921 versus 0.919), but recovers fewer held-out items (68.2\% versus 69.4\%).
+
+Polyvore validation selects Marqo-FashionCLIP. On test its AUC is 0.917, just below Marqo-FashionSigLIP at 0.918. We retain the validation choice for the transformer and A100 comparisons.
+
+\subsection{IQON: a multimodal embedding leads whole-outfit prediction}
+\showIQON
+On IQON, Qwen-Embedding-8B has the highest observed AUC (0.788), while SigLIP2-So400m recovers the most completions (49.6\%). Both Qwen embeddings exceed the two Marqo checkpoints on AUC (Table~\ref{tab:IQON}). Each Qwen embedding supplies one vector per item to the shared classifier.
+
+IQON has 22,831 test outfits, of which 54.2\% lie in a single item component. For Qwen-Embedding-8B the crossed-bootstrap interval extends 0.030 below the observed AUC and 0.013 above it. Resampling users alone gives narrower intervals on the same predictions.
+
+\subsection{POG: compatibility in a commercial catalog}
+\showPOG
+PE-Core leads on both POG tasks (0.763 AUC and 46.2\% FITB), followed by SigLIP2-So400m (0.759 and 45.2\%). The paired intervals include zero for both differences. ResNet-50 has the lowest scores (0.597 and 31.4\%) on this previously unevaluated corpus (Table~\ref{tab:POG}).
+
+Increasing the Qwen embedding model from 2B to 8B parameters raises POG AUC from 0.744 to 0.756. Completion accuracy changes little (42.8\% to 42.6\%). Both trail SigLIP2-B at 43.5\% on choices within the catalog category of the missing item.
+
+\paperfigure{fig_rank_intervals}{Positions of the native probes under cluster resampling. Adjacent positions at the top of a panel can overlap even when the leading encoders are separated from the supervised CNN. Lower numerical rank is better.}{fig:mainrank}

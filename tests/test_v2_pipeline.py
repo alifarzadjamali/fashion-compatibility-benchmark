@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -61,6 +62,9 @@ def build(tmp: Path):
     return protocol
 
 
+@pytest.mark.skipif(
+    sys.platform == "win32", reason="Linux-only: requires the fork multiprocessing context"
+)
 def test_pipeline_end_to_end(tmp_path):
     protocol = build(tmp_path)
     results = tmp_path / "results"

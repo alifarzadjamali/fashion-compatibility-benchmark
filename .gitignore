@@ -82,10 +82,18 @@ Thumbs.db
 RepBench_Fashion_Codex_Handoff_v1.md
 
 # Local drafts and workspace settings
-/paper/
 /.vscode/
 /.local/
 
 # Local Claude Code permissions (never commit)
 .claude/settings.local.json
 .claude/scheduled_tasks.lock
+
+# Manuscript build and upload files
+build/
+**/build/
+TinyTeX*/
+*.zip
+cover_letter*
+highlights.docx
+Figure_*.pdf

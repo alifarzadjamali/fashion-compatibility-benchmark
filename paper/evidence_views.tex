@@ -1,0 +1,231 @@
+% Source: results_r20k/metrics.csv
+\newcommand{\showPolyvore}{\begin{table}[htbp]\centering\small
+\caption{Polyvore test results with the native logistic probe. Brackets give marginal 95\% cluster-bootstrap confidence intervals. Four-option FITB has a 25\% chance level. Rows follow test CP-AUC for inspection.}\label{tab:Polyvore}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrr@{}}\toprule
+Encoder & CP-AUC & FITB (\%)\\\midrule
+SigLIP2-So400m & 0.933 [0.930, 0.936] & 72.3 [71.6, 73.0]\\
+PE-Core & 0.931 [0.928, 0.934] & 72.1 [71.4, 72.8]\\
+Qwen-Embedding-8B & 0.921 [0.918, 0.924] & 68.2 [67.5, 69.0]\\
+SigLIP2-B & 0.919 [0.916, 0.922] & 69.4 [68.6, 70.1]\\
+Marqo-FashionSigLIP & 0.918 [0.915, 0.921] & 69.4 [68.7, 70.1]\\
+Marqo-FashionCLIP & 0.917 [0.913, 0.920] & 67.6 [66.9, 68.3]\\
+SigLIP-B & 0.916 [0.913, 0.919] & 68.9 [68.2, 69.6]\\
+Qwen-Embedding-2B & 0.916 [0.913, 0.919] & 67.2 [66.5, 68.0]\\
+OpenCLIP-B/32 & 0.911 [0.908, 0.914] & 66.7 [65.9, 67.4]\\
+FashionCLIP 2 & 0.908 [0.904, 0.911] & 66.0 [65.3, 66.8]\\
+CLIP-L & 0.907 [0.904, 0.911] & 66.7 [65.9, 67.4]\\
+DINOv3 (224) & 0.852 [0.848, 0.856] & 57.0 [56.3, 57.8]\\
+DINOv3 (336) & 0.849 [0.845, 0.854] & 56.6 [55.8, 57.4]\\
+GR-Lite & 0.847 [0.842, 0.851] & 58.1 [57.3, 58.9]\\
+ResNet-50 & 0.744 [0.738, 0.749] & 44.8 [44.1, 45.6]\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}
+
+% Source: results_r20k/metrics.csv
+\newcommand{\showIQON}{\begin{table}[htbp]\centering\small
+\caption{IQON test results with the native logistic probe. Brackets give marginal 95\% cluster-bootstrap confidence intervals. Four-option FITB has a 25\% chance level. Rows follow test CP-AUC for inspection.}\label{tab:IQON}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrr@{}}\toprule
+Encoder & CP-AUC & FITB (\%)\\\midrule
+Qwen-Embedding-8B & 0.788 [0.758, 0.801] & 49.3 [48.1, 51.1]\\
+SigLIP2-So400m & 0.784 [0.759, 0.794] & 49.6 [48.4, 51.5]\\
+Qwen-Embedding-2B & 0.778 [0.751, 0.789] & 48.2 [46.9, 49.7]\\
+PE-Core & 0.776 [0.747, 0.788] & 48.6 [47.4, 50.6]\\
+Marqo-FashionCLIP & 0.753 [0.727, 0.765] & 45.9 [44.8, 48.1]\\
+Marqo-FashionSigLIP & 0.753 [0.728, 0.764] & 46.7 [45.5, 48.5]\\
+SigLIP2-B & 0.753 [0.727, 0.764] & 46.4 [45.2, 48.4]\\
+CLIP-L & 0.748 [0.726, 0.758] & 45.4 [44.3, 47.2]\\
+FashionCLIP 2 & 0.744 [0.717, 0.756] & 45.5 [44.3, 47.5]\\
+SigLIP-B & 0.744 [0.719, 0.755] & 46.1 [44.9, 48.6]\\
+OpenCLIP-B/32 & 0.744 [0.719, 0.755] & 45.8 [44.7, 48.0]\\
+DINOv3 (224) & 0.717 [0.683, 0.731] & 42.3 [40.8, 43.5]\\
+DINOv3 (336) & 0.715 [0.681, 0.729] & 42.1 [40.5, 43.3]\\
+GR-Lite & 0.673 [0.647, 0.684] & 39.5 [38.5, 41.7]\\
+ResNet-50 & 0.654 [0.617, 0.669] & 36.1 [34.1, 37.0]\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}
+
+% Source: results_r20k/metrics.csv
+\newcommand{\showPOG}{\begin{table}[htbp]\centering\small
+\caption{POG test results with the native logistic probe. Brackets give marginal 95\% cluster-bootstrap confidence intervals. Four-option FITB has a 25\% chance level. Rows follow test CP-AUC for inspection.}\label{tab:POG}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrr@{}}\toprule
+Encoder & CP-AUC & FITB (\%)\\\midrule
+PE-Core & 0.763 [0.737, 0.772] & 46.2 [43.9, 47.4]\\
+SigLIP2-So400m & 0.759 [0.732, 0.770] & 45.2 [42.5, 46.4]\\
+Qwen-Embedding-8B & 0.756 [0.728, 0.766] & 42.6 [39.9, 43.8]\\
+Qwen-Embedding-2B & 0.744 [0.721, 0.753] & 42.8 [40.0, 44.0]\\
+SigLIP2-B & 0.736 [0.711, 0.745] & 43.5 [41.7, 45.0]\\
+Marqo-FashionSigLIP & 0.726 [0.704, 0.735] & 42.2 [39.7, 43.4]\\
+SigLIP-B & 0.725 [0.703, 0.733] & 42.1 [40.4, 43.6]\\
+Marqo-FashionCLIP & 0.722 [0.701, 0.731] & 41.9 [39.6, 43.1]\\
+CLIP-L & 0.721 [0.696, 0.730] & 40.8 [39.0, 42.2]\\
+OpenCLIP-B/32 & 0.716 [0.693, 0.726] & 41.8 [39.2, 43.0]\\
+FashionCLIP 2 & 0.713 [0.693, 0.721] & 40.8 [38.5, 42.0]\\
+DINOv3 (224) & 0.692 [0.676, 0.701] & 38.8 [36.2, 39.9]\\
+DINOv3 (336) & 0.690 [0.673, 0.699] & 38.3 [35.6, 39.5]\\
+GR-Lite & 0.648 [0.612, 0.662] & 36.7 [33.5, 38.0]\\
+ResNet-50 & 0.597 [0.555, 0.613] & 31.4 [28.4, 32.6]\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}
+
+% Source: freeze/*_build_report.json
+\newcommand{\showAudits}{\begin{table}[htbp]\centering\small
+\caption{Retained positive outfits by partition and image-equivalence audit. The final columns count confirmed near-duplicate groups in the scanned collection and groups shared across retained partitions.}\label{tab:Audits}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Corpus & Training & Validation & Test & Groups & Crossing\\\midrule
+Polyvore & 16,991 & 2,999 & 15,142 & 1,150 & 0\\
+IQON & 86,800 & 11,416 & 22,831 & 60,261 & 0\\
+POG & 54,574 & 7,043 & 14,692 & 2,812 & 0\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}
+
+% Source: results_r20k/pairwise.csv
+\newcommand{\showContrasts}{\begin{table}[htbp]\centering\small
+\caption{Fashion checkpoint minus its matched parent. The 95\% intervals are paired and pointwise. Four-option FITB chance is 25\%. Each adjusted probability refers to the complete native-probe family within its corpus and metric. FITB differences use percentage points.}\label{tab:Contrasts}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Corpus & Child & CP-AUC difference & $p_{\rm Holm}$ & FITB difference & $p_{\rm Holm}$\\\midrule
+Polyvore & FashionCLIP 2 & -0.0033 [-0.0047, -0.0018] & 0.00525 & -0.66 [-1.19, -0.13] & 0.217\\
+Polyvore & Marqo-FashionSigLIP & 0.0020 [0.0006, 0.0034] & 0.113 & 0.48 [-0.05, 1.01] & 0.892\\
+Polyvore & GR-Lite & -0.0025 [-0.0073, 0.0024] & 1.000 & 1.51 [0.56, 2.45] & 0.032\\
+IQON & FashionCLIP 2 & 0.0004 [-0.0054, 0.0033] & 1.000 & -0.38 [-1.42, 0.44] & 1.000\\
+IQON & Marqo-FashionSigLIP & 0.0089 [0.0043, 0.0125] & 0.013 & 0.64 [-1.14, 1.41] & 1.000\\
+IQON & GR-Lite & -0.0422 [-0.0513, -0.0219] & 0.00525 & -2.55 [-3.76, -0.01] & 0.800\\
+POG & FashionCLIP 2 & -0.0034 [-0.0071, 0.0052] & 1.000 & -1.01 [-2.01, 0.48] & 1.000\\
+POG & Marqo-FashionSigLIP & 0.0017 [-0.0037, 0.0064] & 1.000 & 0.07 [-1.88, 0.95] & 1.000\\
+POG & GR-Lite & -0.0419 [-0.0746, -0.0299] & 0.084 & -1.55 [-3.99, 0.05] & 1.000\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}
+
+% Source: results_r20k/{metrics.csv,selection.json}; generated_assets/numbers_extra.tex
+\newcommand{\showContext}{\begin{table}[htbp]\centering\small
+\caption{Task-trained outfit scorer and native logistic probe on identical frozen image features. Transformer columns give means and sample standard deviations across five seeds. Four-option FITB has a 25\% chance level. FITB columns give percentages.}\label{tab:Context}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrrrrrrr@{}}\toprule
+Corpus & Encoder & Probe AUC & OT AUC & AUC SD & Probe FITB & OT FITB & FITB SD\\\midrule
+Polyvore & ResNet-50 & 0.744 & \resOtPolyvoreVTwoCleanResnetTestCpAucMean & 0.0023 & 44.8 & \resOtPolyvoreVTwoCleanResnetTestFitbAccMean & 0.61\\
+Polyvore & Marqo-FashionCLIP & 0.917 & \resOtPolyvoreVTwoCleanFashionTestCpAucMean & 0.0023 & 67.6 & \resOtPolyvoreVTwoCleanFashionTestFitbAccMean & 0.40\\
+Polyvore & SigLIP2-So400m & 0.933 & \resOtPolyvoreVTwoCleanGenericTestCpAucMean & 0.0019 & 72.3 & \resOtPolyvoreVTwoCleanGenericTestFitbAccMean & 0.60\\
+IQON & ResNet-50 & 0.654 & \resOtIqonThreeZeroZeroZeroVTwoCleanResnetTestCpAucMean & 0.0021 & 36.1 & \resOtIqonThreeZeroZeroZeroVTwoCleanResnetTestFitbAccMean & 0.31\\
+IQON & Marqo-FashionSigLIP & 0.753 & \resOtIqonThreeZeroZeroZeroVTwoCleanFashionTestCpAucMean & 0.0010 & 46.7 & \resOtIqonThreeZeroZeroZeroVTwoCleanFashionTestFitbAccMean & 1.45\\
+IQON & SigLIP2-So400m & 0.784 & \resOtIqonThreeZeroZeroZeroVTwoCleanGenericTestCpAucMean & 0.0009 & 49.6 & \resOtIqonThreeZeroZeroZeroVTwoCleanGenericTestFitbAccMean & 0.44\\
+POG & ResNet-50 & 0.597 & \resOtPogVTwoCleanResnetTestCpAucMean & 0.0020 & 31.4 & \resOtPogVTwoCleanResnetTestFitbAccMean & 0.44\\
+POG & Marqo-FashionSigLIP & 0.726 & \resOtPogVTwoCleanFashionTestCpAucMean & 0.0020 & 42.2 & \resOtPogVTwoCleanFashionTestFitbAccMean & 0.49\\
+POG & SigLIP2-So400m & 0.759 & \resOtPogVTwoCleanGenericTestCpAucMean & 0.0009 & 45.2 & \resOtPogVTwoCleanGenericTestFitbAccMean & 0.37\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}
+
+% Source: a100_summary_r20k/metrics_all.csv
+\newcommand{\showExternal}{\begin{table}[htbp]\centering\small
+\caption{A100 scores in percent with 95\% question-bootstrap intervals. Each test has 100 five-option questions (chance 20\%). Archive and majority are alternative LAT keys. mLAT is the vote share for the chosen answer.}\label{tab:External}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{llllll}\toprule
+Source & Input & Majority & Archive & mLAT & Expert\\\midrule
+Polyvore & ResNet-50 & 40.0 [31.0, 50.0] & 41.0 [32.0, 51.0] & 34.8 [28.2, 41.7] & 34.0 [25.0, 43.0]\\
+Polyvore & Marqo-FashionCLIP & 70.0 [61.0, 79.0] & 71.0 [62.0, 80.0] & 55.9 [49.4, 62.1] & 72.0 [63.0, 81.0]\\
+Polyvore & SigLIP2-So400m & 50.0 [40.0, 60.0] & 56.0 [46.0, 66.0] & 41.6 [34.6, 48.6] & 73.0 [64.0, 81.0]\\
+Polyvore & Qwen-Embedding-8B & 73.0 [64.0, 81.0] & 78.0 [70.0, 86.0] & 58.7 [52.5, 64.6] & 75.0 [66.0, 83.0]\\
+IQON & ResNet-50 & 33.0 [24.0, 42.0] & 33.0 [24.0, 42.0] & 30.6 [24.0, 37.3] & 32.0 [23.0, 41.0]\\
+IQON & Marqo-FashionSigLIP & 58.0 [48.0, 67.0] & 63.0 [53.0, 72.0] & 46.4 [39.6, 53.0] & 64.0 [54.0, 73.0]\\
+IQON & SigLIP2-So400m & 43.0 [33.0, 53.0] & 47.0 [37.0, 57.0] & 37.4 [30.4, 44.3] & 64.0 [55.0, 73.0]\\
+IQON & Qwen-Embedding-8B & 58.0 [48.0, 68.0] & 63.0 [54.0, 72.0] & 48.7 [41.9, 55.5] & 73.0 [64.0, 81.0]\\
+POG & ResNet-50 & 45.0 [35.0, 55.0] & 46.0 [36.0, 56.0] & 38.7 [31.7, 45.7] & 37.0 [28.0, 46.0]\\
+POG & Marqo-FashionSigLIP & 61.0 [51.0, 70.0] & 65.0 [56.0, 74.0] & 49.4 [42.5, 56.0] & 72.0 [63.0, 81.0]\\
+POG & SigLIP2-So400m & 51.0 [41.0, 61.0] & 54.0 [44.0, 64.0] & 42.7 [35.6, 49.8] & 64.0 [55.0, 73.0]\\
+POG & Qwen-Embedding-8B & 63.0 [54.0, 72.0] & 68.0 [59.0, 77.0] & 52.5 [45.9, 58.9] & 65.0 [55.0, 74.0]\\
+External & Qwen-Instruct & 70.0 [61.0, 79.0] & 75.0 [66.0, 83.0] & 56.4 [50.0, 62.5] & 74.0 [65.0, 82.0]\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}
+}
+
+% Source: mllm_paired/paired_mllm_vs_probes.csv
+\newcommand{\showPaired}{\begin{table}[htbp]\centering\small
+\caption{Matched-question FITB comparisons with Qwen-Instruct. Four-option FITB has a 25\% chance level. Accuracy is a percentage and differences are probe minus zero-shot accuracy in percentage points. Brackets give paired cluster intervals.}\label{tab:Paired}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Corpus & Input & Probe & Zero-shot & Difference & $p_{\rm Holm}$\\\midrule
+Polyvore & CNN & 44.4 & 57.0 & -12.6 [-15.5, -9.9] & 0.00075\\
+Polyvore & Fashion & 65.4 & 57.0 & 8.4 [6.0, 10.9] & 0.00075\\
+Polyvore & Generic & 71.5 & 57.0 & 14.6 [12.1, 17.1] & 0.00075\\
+IQON & CNN & 37.1 & 37.9 & -0.8 [-7.8, 3.8] & 0.762\\
+IQON & Fashion & 46.1 & 37.9 & 8.2 [3.2, 13.5] & 0.059\\
+IQON & Generic & 48.0 & 37.9 & 10.1 [5.4, 16.0] & 0.018\\
+POG & CNN & 30.6 & 37.9 & -7.3 [-12.3, -1.4] & 0.255\\
+POG & Fashion & 42.3 & 37.9 & 4.4 [-1.5, 9.4] & 0.644\\
+POG & Generic & 45.1 & 37.9 & 7.3 [3.1, 15.0] & 0.424\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}
+
+% Source: sens_eqfix/construction_seeds/summary.csv; near_duplicates sensitivity metrics.csv
+\newcommand{\showRobust}{\begin{table}[htbp]\centering\small
+\caption{Question regeneration and image-exclusion analyses for the validation-selected generic encoder. Both metrics are on the unit scale. The filtered columns retain only 45\%, 24\% and 28\% of Polyvore, IQON and POG test outfits. Four-option FITB chance is 0.25. Min. and max. range over question seeds. Total SD includes sampling variation. The last columns compare the primary test set with the outfit-level exclusion set.}\label{tab:Robust}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrrrrrrr@{}}\toprule
+Corpus & Task & Min. & Max. & Seed SD & Total SD & Full & Filtered\\\midrule
+Polyvore & CP-AUC & 0.9322 & 0.9335 & 0.0005 & 0.0016 & 0.933 & 0.926\\
+Polyvore & FITB & 0.7205 & 0.7327 & 0.0050 & 0.0062 & 0.723 & 0.744\\
+IQON & CP-AUC & 0.7823 & 0.7856 & 0.0013 & 0.0104 & 0.784 & 0.760\\
+IQON & FITB & 0.4989 & 0.5051 & 0.0024 & 0.0078 & 0.496 & 0.511\\
+POG & CP-AUC & 0.7545 & 0.7606 & 0.0023 & 0.0096 & 0.759 & 0.759\\
+POG & FITB & 0.4479 & 0.4600 & 0.0052 & 0.0095 & 0.452 & 0.467\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}
+
+% Source: results_r20k/calibration.csv
+\newcommand{\showCalibrated}{\begin{table}[htbp]\centering\small
+\caption{SigLIP2-So400m probability scores and 15-bin Murphy decomposition. The residual accounts for variation within bins. ECE intervals resample users on IQON and POG and item components on Polyvore (2,000 draws, 95\%).}\label{tab:Calibrated}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{lllllllll}\toprule
+Corpus & Map & Brier & Log loss & ECE [CI] & Reliability & Resolution & Uncertainty & Residual\\\midrule
+Polyvore & Raw & 0.1036 & 0.3501 & 0.0560 [0.0530, 0.0599] & 0.0050 & 0.1511 & 0.2500 & -0.0003\\
+Polyvore & Temperature & 0.0992 & 0.3520 & 0.0210 [0.0189, 0.0249] & 0.0005 & 0.1510 & 0.2500 & -0.0003\\
+Polyvore & Platt & 0.0991 & 0.3516 & 0.0196 [0.0182, 0.0241] & 0.0005 & 0.1510 & 0.2500 & -0.0004\\
+IQON & Raw & 0.1934 & 0.6085 & 0.0516 [0.0487, 0.0569] & 0.0049 & 0.0613 & 0.2500 & -0.0002\\
+IQON & Temperature & 0.1927 & 0.5752 & 0.0562 [0.0520, 0.0611] & 0.0042 & 0.0611 & 0.2500 & -0.0004\\
+IQON & Platt & 0.1923 & 0.5743 & 0.0544 [0.0500, 0.0592] & 0.0037 & 0.0610 & 0.2500 & -0.0004\\
+POG & Raw & 0.1996 & 0.5836 & 0.0139 [0.0130, 0.0190] & 0.0003 & 0.0506 & 0.2500 & -0.0001\\
+POG & Temperature & 0.1996 & 0.5836 & 0.0140 [0.0130, 0.0190] & 0.0003 & 0.0506 & 0.2500 & -0.0001\\
+POG & Platt & 0.1994 & 0.5831 & 0.0069 [0.0066, 0.0143] & 0.0001 & 0.0504 & 0.2500 & -0.0003\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}
+}
+
+% Source: results/sensitivities/lookbench/overlap.csv
+\newcommand{\showRetrieval}{\begin{table}[htbp]\centering\small
+\caption{Exact checkpoint overlap with LookBench v3. Rows follow its overall fine-grained retrieval score. The final columns give native-probe compatibility AUC on each clean test partition.}\label{tab:Retrieval}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Checkpoint & Retrieval & Polyvore & IQON & POG\\\midrule
+GR-Lite & 65.71 & 0.847 & 0.673 & 0.648\\
+Marqo-FashionCLIP & 63.24 & 0.917 & 0.753 & 0.722\\
+Marqo-FashionSigLIP & 62.77 & 0.918 & 0.753 & 0.726\\
+SigLIP2-B & 59.44 & 0.919 & 0.753 & 0.736\\
+DINOv3 (224) & 43.97 & 0.852 & 0.717 & 0.692\\
+CLIP-L & 39.79 & 0.907 & 0.748 & 0.721\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}
+
+% Source: generated_assets/efficiency.csv
+\newcommand{\showCost}{\begin{table}[htbp]\centering\small
+\caption{Image extraction on GB10. Time is single-image GPU latency. Throughput, allocator peak and gross energy describe batched inference. CPU preprocessing is measured separately.}\label{tab:Cost}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Encoder & Time (ms) & Images/s & Peak (GB) & Wh/1k\\\midrule
+ResNet-50 & 2.37 & 1007 & 0.43 & 0.011\\
+DINOv3 (224) & 12.18 & 245 & 0.95 & 0.068\\
+DINOv3 (336) & 12.14 & 111 & 1.33 & 0.160\\
+CLIP-L & 11.44 & 101 & 2.15 & 0.176\\
+OpenCLIP-B/32 & 4.14 & 4493 & 0.42 & 0.004\\
+PE-Core & 11.57 & 85 & 2.25 & 0.210\\
+SigLIP2-B & 6.20 & 308 & 1.54 & 0.060\\
+SigLIP2-So400m & 13.73 & 74 & 3.37 & 0.260\\
+SigLIP-B & 4.73 & 923 & 0.71 & 0.019\\
+FashionCLIP 2 & 5.78 & 3362 & 0.44 & 0.004\\
+Marqo-FashionCLIP & 4.16 & 1101 & 0.59 & 0.015\\
+Marqo-FashionSigLIP & 4.73 & 930 & 0.71 & 0.019\\
+GR-Lite & 10.54 & 160 & 1.33 & 0.122\\
+Qwen-Embedding-2B & 42.15 & 52 & 5.24 & 0.262\\
+Qwen-Embedding-8B & 114.36 & 23 & 17.47 & 0.709\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}
+
+% Source: leakage_inflation/summary.json
+\newcommand{\showPartitions}{\begin{table}[htbp]\centering\small
+\caption{Rebuilt pilot partition minus v2 partition under the same native probe procedure. Columns give the number of evaluated encoders, the number with a positive difference, and the distribution of differences across encoders. The test examples differ between partitions.}\label{tab:Partitions}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{}lrrrrrr@{}}\toprule
+Corpus & Metric & Models & Positive & Mean & Minimum & Maximum\\\midrule
+IQON & CP-AUC & 2 & 2 & 0.0075 & 0.0073 & 0.0077\\
+IQON & FITB (pp) & 2 & 2 & 0.73 & 0.68 & 0.77\\
+Polyvore & CP-AUC & 15 & 15 & 0.0023 & 0.0001 & 0.0044\\
+Polyvore & FITB (pp) & 15 & 7 & 0.08 & -0.39 & 1.14\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}}

@@ -1,0 +1,22 @@
+\begin{table}[!h]\centering\small
+\caption{Image-encoder efficiency on NVIDIA GB10 (bf16). OpenCLIP-B/32 and Marqo-FashionCLIP use approximate analytical counts including attention.}\label{tab:v2-efficiency}
+\begin{tabular}{lrrrrrrrrr}\toprule
+model & Image-tower params (M) & GFLOPs/img & Lat.\ b1 (ms) & Lat.\ b64 (ms/img) & Thr.\ (img/s) & Peak (GB) & CPU prep (ms/img) & Energy (Wh/1k) & CO$_2$e ($10^{-6}$\,kg/1k) \\\midrule
+ResNet-50 & 23.5 & 8.2 & 2.37 & 0.99 & 1007 & 0.43 & 1.97 & 0.011 & 2.20 \\
+DINOv3 (224) & 303.1 & 125.7 & 12.18 & 4.09 & 245 & 0.95 & 0.90 & 0.068 & 14.06 \\
+DINOv3 (336) & 303.1 & 289.6 & 12.14 & 9.00 & 111 & 1.33 & 0.54 & 0.160 & 33.03 \\
+CLIP-L & 304.3 & 381.9 & 11.44 & 9.94 & 101 & 2.15 & 1.71 & 0.176 & 36.36 \\
+OpenCLIP-B/32 & 87.8 & 8.8 & 4.14 & 0.22 & 4493 & 0.42 & 1.73 & 0.004 & 0.84 \\
+PE-Core & 317.2 & 384.4 & 11.57 & 11.80 & 85 & 2.25 & 1.19 & 0.210 & 43.41 \\
+SigLIP2-B & 93.2 & 112.1 & 6.20 & 3.24 & 308 & 1.54 & 1.87 & 0.060 & 12.47 \\
+SigLIP2-So400m & 428.3 & 518.9 & 13.73 & 13.59 & 74 & 3.37 & 1.87 & 0.260 & 53.88 \\
+SigLIP-B & 92.9 & 35.4 & 4.73 & 1.08 & 923 & 0.71 & 2.45 & 0.019 & 3.91 \\
+FashionCLIP 2 & 87.8 & 8.8 & 5.78 & 0.30 & 3362 & 0.44 & 1.05 & 0.004 & 0.93 \\
+Marqo-FashionCLIP & 86.2 & 35.0 & 4.16 & 0.91 & 1101 & 0.59 & 1.04 & 0.015 & 3.20 \\
+Marqo-FashionSigLIP & 92.9 & 35.4 & 4.73 & 1.08 & 930 & 0.71 & 1.69 & 0.019 & 3.88 \\
+GR-Lite & 303.1 & 289.6 & 10.54 & 6.23 & 160 & 1.33 & 2.52 & 0.122 & 25.35 \\
+Qwen-Embedding-2B & 407.0$^\ddagger$ & 516.1$^\dagger$ & 42.15 & 19.31 & 52 & 5.24 & 2.71 & 0.262 & 54.32 \\
+Qwen-Embedding-8B & 576.4$^\ddagger$ & 1743.7$^\dagger$ & 114.36 & 44.42 & 23 & 17.47 & 4.85 & 0.709 & 146.81 \\
+\bottomrule\end{tabular}
+\par\smallskip{\footnotesize $^\dagger$ FLOPs counted with eager attention (the SDPA counter does not support this model); timing uses SDPA. $^\ddagger$ Vision-tower parameters only; the embedding is read from the language model, so GFLOPs, latency, memory and energy cover the full model forward. Latency: GPU-only median per image at batch 1 and batch 64; throughput at batch 64; peak = allocator peak at batch 64 ($10^9$ bytes); CPU prep = median per-image preprocessing; energy = GPU/SoC NVML counter (gross) per 1k images. CO$_2$e = energy $\times$ 0.207 kgCO$_2$e/kWh (UK Government GHG Conversion Factors for Company Reporting 2024, electricity generation, ``UK electricity'').}
+\end{table}

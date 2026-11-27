@@ -1,0 +1,39 @@
+\begin{table}[htbp]\centering\small
+\caption{Expert accuracy by A100 facet (\%). Each facet contains 9--32 questions. Results are descriptive. Generic and fashion inputs follow source validation selection.}\label{tab:facets}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{lllllll}\toprule
+Source & Facet & $n$ & Generic & Fashion & Qwen-Emb-8B & Zero-shot\\\midrule
+Polyvore & Color & 20 & 65.0 & 75.0 & 80.0 & 90.0\\
+Polyvore & Style & 32 & 68.8 & 68.8 & 68.8 & 75.0\\
+Polyvore & Occasion & 15 & 93.3 & 86.7 & 93.3 & 66.7\\
+Polyvore & Season & 12 & 66.7 & 66.7 & 75.0 & 75.0\\
+Polyvore & Material & 12 & 100.0 & 83.3 & 83.3 & 83.3\\
+Polyvore & Balance & 9 & 44.4 & 44.4 & 44.4 & 33.3\\
+IQON & Color & 20 & 50.0 & 60.0 & 75.0 & 90.0\\
+IQON & Style & 32 & 68.8 & 65.6 & 71.9 & 75.0\\
+IQON & Occasion & 15 & 73.3 & 80.0 & 86.7 & 66.7\\
+IQON & Season & 12 & 66.7 & 50.0 & 50.0 & 75.0\\
+IQON & Material & 12 & 66.7 & 75.0 & 100.0 & 83.3\\
+IQON & Balance & 9 & 55.6 & 44.4 & 44.4 & 33.3\\
+POG & Color & 20 & 60.0 & 70.0 & 65.0 & 90.0\\
+POG & Style & 32 & 65.6 & 71.9 & 65.6 & 75.0\\
+POG & Occasion & 15 & 66.7 & 80.0 & 66.7 & 66.7\\
+POG & Season & 12 & 50.0 & 66.7 & 50.0 & 75.0\\
+POG & Material & 12 & 83.3 & 83.3 & 75.0 & 83.3\\
+POG & Balance & 9 & 55.6 & 55.6 & 66.7 & 33.3\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}
+\begin{table}[htbp]\centering\small
+\caption{Whole test outfits flagged by the loose similarity audit. An outfit can meet both criteria.}\label{tab:near}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{lllll}\toprule
+Corpus & Test outfits & pHash & Cosine & Either\\\midrule
+Polyvore & 15142 & 2471 & 7605 & 8365\\
+IQON & 22831 & 9400 & 16099 & 17407\\
+POG & 14692 & 3096 & 9981 & 10518\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}
+\begin{table}[htbp]\centering\small
+\caption{Highest native CP-AUC among the ten encoders retained in the provenance analysis.}\label{tab:prov}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{lll}\toprule
+Corpus & First (AUC) & Second (AUC)\\\midrule
+Polyvore & SigLIP2-So400m (0.933) & PE-Core (0.931)\\
+IQON & SigLIP2-So400m (0.784) & PE-Core (0.776)\\
+POG & PE-Core (0.763) & SigLIP2-So400m (0.759)\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}

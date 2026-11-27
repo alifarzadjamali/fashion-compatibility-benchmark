@@ -1,0 +1,90 @@
+\documentclass[preprint,12pt]{elsarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx,booktabs,adjustbox,pdflscape,longtable,array}
+\usepackage[hidelinks]{hyperref}
+\emergencystretch=2em
+\input{numbers}
+\input{numbers_extra}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\newcommand{\suppfig}[3]{\begin{figure}[htbp]\centering\includegraphics[width=\linewidth,height=.70\textheight,keepaspectratio]{#1}\caption{#2}\label{#3}\end{figure}}
+% Keep the generated tabular content byte-identical while fitting wide audit tables.
+\let\originaltabular\tabular
+\let\endoriginaltabular\endtabular
+\newcommand{\fittable}{\renewenvironment{tabular}{\begin{adjustbox}{max width=\linewidth}\originaltabular}{\endoriginaltabular\end{adjustbox}}}
+\ifdefined\pdfgentounicode\input{glyphtounicode}
+\pdfgentounicode=1\fi
+\hypersetup{pdfauthor={Ali Jamali, Ali Alameer, Manzar Malik, Maryam Vadikheil, Taha Mansouri},pdftitle={Supplementary material for RepBench-Fashion}}
+\begin{document}
+\begin{frontmatter}
+\title{Supplementary material for RepBench-Fashion}
+\author[salford]{Ali Jamali\corref{corresponding}}
+\ead{a.jamali2@salford.ac.uk}
+\author[salford]{Ali Alameer}
+\author[salford]{Manzar Malik}
+\author[salford]{Maryam Vadikheil}
+\author[salford]{Taha Mansouri}
+\cortext[corresponding]{Corresponding author}
+\affiliation[salford]{organization={School of Science, Engineering and Environment, University of Salford},
+            addressline={The Crescent}, city={Salford}, postcode={M5 4WT},
+            country={United Kingdom}}
+\end{frontmatter}
+\section{Reading the benchmark}
+Table~\ref{tab:v2-main} reports each native probe on identical test outfits within a corpus. AUC is on the unit scale and completion accuracy is a percentage. Brackets enclose cluster-bootstrap confidence intervals for each metric. To compare two encoders, use the interval for their paired difference on the same test cases.
+
+\input{table_main}
+
+\begin{landscape}
+\section{Sensitivity to readout and test composition}
+\suppfig{fig_settings}{CP-AUC differences from each encoder's native logistic probe.}{fig:settings}
+\end{landscape}
+\input{supplement_tables}
+\subsection{Comparison with the pilot partitions}\label{sec:pilot-partitions}
+The pilot Polyvore partition gave a mean CP-AUC 0.002 higher than v2. The encoder ranks remained similar (Spearman $\rho=0.97$). On IQON only two encoders completed this comparison (Table~\ref{tab:Partitions}).
+\input{pilot_table}
+\suppfig{fig_construction_seeds}{Native CP-AUC across alternative question constructions on the frozen partitions.}{fig:seeds}
+
+\begin{landscape}
+\section{Compute}
+Table~\ref{tab:v2-efficiency} reports the image-tower size and extraction cost for each encoder on the same GB10 device.
+\begingroup\fittable\input{table_efficiency}\endgroup
+\end{landscape}
+\section{Protocol record}
+The protocol tag identifies the planned analysis. The table records decisions before the freeze and subsequent changes to inference and verification. The repository decision log documents infrastructure recovery.
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\begin{longtable}{@{}L{.19\linewidth}L{.21\linewidth}L{.25\linewidth}L{.24\linewidth}@{}}\caption{Protocol decisions and reporting deviations.}\\\toprule Planned & What ran & Reason & Consequence\\\midrule\endhead
+Holm by corpus and metric & Separate 105-pair families for each setting & Pooling 1,365 pairs makes the minimum adjusted bootstrap probability exceed 0.05 & Significance applies within a readout.\\\addlinespace
+2,000 bootstrap draws & 20,000 draws & Finer probability resolution & Archived 2,000-draw estimates and validation selections agree.\\\addlinespace
+95\% image availability & 90\% before freeze & Acquisition criterion revised before test access & 99.71\% retrieved, passing both thresholds.\\\addlinespace
+Official Qwen processing & Cap of 147,456 pixels & Common image budget & Qwen estimates apply to the capped inputs.\\\addlinespace
+Variance across question constructions & Repeated with merged image groups & Align clusters with frozen split identities & Predictions unchanged. Sampling variance updated.\\\addlinespace
+Crossed bootstrap & Also resampled users alone & Check dependence on item reuse & Intervals narrow under user-only clustering.\\\addlinespace
+A100 selection manifest & Corrected selection field & Record validation as the source of selection & No prediction changed.\\\addlinespace
+Pilot partition comparison & Two IQON encoders & ResNet fit exceeded host memory & IQON rank comparison unavailable.\\\addlinespace
+
+Search for upstream image matches & No LAION audit & Pretraining exposure unverified & Possible exposure remains a limitation.\\\addlinespace
+Compare adapted models with parents & Three extractable parent pairs & Marqo-FashionCLIP parent features unavailable & No adaptation contrast for that release.\\\addlinespace
+End-to-end GPU-hours & 42.2 GPU-hours, end to end (facility accounting) & Logs alone did not give complete device accounting & Total from the facility record; per-image costs remain from profiling.\\\addlinespace\bottomrule\end{longtable}
+
+\section{Evidence for replication}
+The repository tag \texttt{v2-freeze} identifies the protocol and split hashes. The files under \path{research/v2/results/} include the validation selections and paired tests (\path{results_r20k/}), corrected construction-seed results (\path{sens_eqfix/}), common-question comparisons (\path{mllm_paired/}) and A100 scores under each answer key (\path{a100_summary_r20k/}).
+\section{POG category support and image inspection}\label{sec:pog-support}
+Within each partition we count distinct image groups in each native catalog category and remove outfits in categories with insufficient support. We repeat the check because removing an outfit can also remove the last supporting image for another category. This supplies within-category distractors without reusing a correct image or drawing from another partition. POG clicks determine resampling groups only. Positive labels come from the recorded outfits.
+
+Four inspected images from the largest POG group (209 identifiers) contained no visible product. Two were transparent and two were solid white. All four render white under the frozen preprocessing. POG has no stated licence. We distribute its identifiers and split files only.
+
+\section{Dimensionality and supervision}\label{sec:probe-details}
+With native features, the number of fitted coefficients varies with the encoder. The projection sensitivity instead fixes the feature width and learns principal components on unique training items before forming pairs. A low-variance item coordinate can still yield an informative pairwise difference or product. Compression can also suppress noisy pair weights when few training examples are available. The pilot used a common projected width as its primary readout.
+
+Adding the sum of the two item vectors to their product and distance gives the classifier access to the outfit's mean item vector: the sum averaged over all pairs is proportional to that mean. XGBoost and the multilayer perceptron change the decision surface applied to these outfit features. All variants use the same frozen encoders.
+
+\section{Feature and fit reproducibility}\label{sec:reproduction}
+In the train/validation spot checks, bfloat16 and full-precision embeddings have mean cosine 0.99955 across nine equal-sized samples (minimum item cosine 0.95659). Repeating extraction under the recorded bfloat16 settings recovers the stored vectors closely. On POG, reducing the visual-token budget of the Qwen models changes the sampled item embeddings appreciably more than on Polyvore or IQON. The POG comparison thus describes Qwen under the benchmark's shared image budget. Increasing that budget would define a different accuracy and cost comparison.
+
+Independent fits on the two machines chose the same native probes on validation. Matching selections also kept the inputs to the transformer and A100 comparisons fixed.
+
+The Polyvore cross-machine check covers \resCrossMachineFiles{} probe runs. The median absolute CP-AUC difference between the x86 and ARM runs is $\resCrossMachineMedianAbsDaucMantissa\times10^{\resCrossMachineMedianAbsDaucExponent}$, with a maximum of \resCrossMachineMaxAbsDaucFixed{} on an MLP sensitivity run.
+Rebuilding the pilot with the same procedure reproduces the pilot metrics within 0.001 AUC (v1's original split files were not retained).
+\end{document}

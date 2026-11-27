@@ -1,0 +1,74 @@
+\section{Results}
+
+\subsection{Which encoders expose compatibility to a linear probe?}
+The leader depends on the corpus (Fig.~\ref{fig:ranking}). SigLIP2-So400m reaches a native-probe CP-AUC of \resPolyvoreVTwoCleanSiglipTwoSoFourZeroZeromThreeEightFourNativeLogisticTestCpAuc{} on Polyvore. Qwen3-VL-Embedding-8B reaches \resIqonThreeZeroZeroZeroVTwoCleanQwenThreeVlEmbEightbNativeLogisticTestCpAuc{} on IQON, while PE-Core reaches \resPogVTwoCleanPeCoreLOneFourThreeThreeSixNativeLogisticTestCpAuc{} on POG. Qwen leads whole-outfit discrimination on IQON, whereas SigLIP2-So400m recovers the missing item more often there. ResNet-50 ranks last on both tasks in every corpus. Supplementary Table~S1 reports the point estimate and cluster interval for each encoder and task.
+\paperfigure{fig_ranking}{Native logistic-probe CP-AUC and FITB accuracy on the clean test partitions. Each panel orders encoders within its own corpus. Intervals reflect the dependence structure of that corpus.}{fig:ranking}
+
+Validation selects SigLIP2-So400m as the generic encoder on all corpora. It selects Marqo-FashionCLIP on Polyvore and Marqo-FashionSigLIP on IQON and POG in the fashion group. On POG the test leader is PE-Core, even though the validation rule selects SigLIP2-So400m. We keep the validation choice for the contextual and external comparisons. Across corpora the primary pairwise tests distinguish \resHolmSigPrimary{} of \resHolmComparisonsPrimary{} CP-AUC contrasts and \resHolmSigPrimaryFitb{} of \resHolmComparisonsPrimaryFitb{} FITB contrasts after adjustment. The rank intervals in Fig.~\ref{fig:mainrank} show which adjacent positions remain plausible under resampling.
+
+\input{corpus_results}
+\subsection{What changes with fashion adaptation?}
+Marqo-FashionSigLIP improves on its SigLIP parent in native CP-AUC on every corpus, with the clearest point-estimate gain on IQON (Fig.~\ref{fig:pairs}). FashionCLIP~2 trails its OpenCLIP parent on Polyvore and POG, and the IQON estimates round to the same value. GR-Lite trails its resolution-matched DINOv3 parent in native CP-AUC on all three corpora. Projection changes the result. GR-Lite wins all nine Polyvore PCA comparisons after Holm adjustment, and all three IQON PCA-logistic contrasts favor GR-Lite (Table~\ref{tab:signs}). Its Polyvore completion accuracy nevertheless exceeds its parent's. A change in representation can therefore help discriminate candidates for a fixed context even when it lowers the score for separating observed and reconstructed outfits.
+Marqo-FashionSigLIP gains in 74 of 78 cells, including ten significant gains in 13 Polyvore CP settings. FashionCLIP~2 consistently loses on Polyvore.
+\input{parent_signs}
+\paperfigure{fig_matched_pairs}{Fashion-adapted checkpoints compared with the corresponding parent. The sign of a within-pair contrast identifies the direction of transfer for that adaptation.}{fig:pairs}
+
+\showContrasts
+In the native setting, FashionCLIP~2 loses 0.0033 AUC on Polyvore and GR-Lite gains 1.51 percentage points on FITB (Table~\ref{tab:Contrasts}). On IQON, Marqo-FashionSigLIP gains 0.0089 AUC and GR-Lite loses 0.0422. On POG the GR-Lite estimate is similar ($-0.0419$), but the adjusted probability is 0.084.
+
+On IQON, Marqo-FashionSigLIP improves on the parent from which it was adapted. Its native AUC of 0.753 still falls below the validation-selected SigLIP2-So400m at 0.784.
+
+\subsection{Which conclusions survive changes in measurement?}
+Across the 39 corpus--readout blocks, compatibility rankings agree closely (Friedman $\chi^2_{14}=458.5$, $p<10^{-88}$, Kendall $W=0.84$). Mean ranks range from PE-Core (1.28), SigLIP2-So400m (2.31) and Marqo-FashionSigLIP (4.28) to ResNet-50 (14.95). The Nemenyi critical difference is 3.43. These statistics describe repeated measurements on shared questions.
+
+\paperfigure{fig_critical_difference}{Mean CP-AUC ranks across 39 blocks. The Nemenyi critical difference is 3.43 rank positions.}{fig:cd}
+
+Mean CP-AUC across encoders increases with outfit length in all three corpora. On IQON it rises from 0.664 for two-item outfits to 0.845 for outfits with at least six items. Reconstructing a longer outfit disrupts more pairs. The length groups also contain different outfits.
+
+After the five uncertain-provenance checkpoints are removed, SigLIP2-So400m leads native CP-AUC on Polyvore (0.933) and IQON (0.784). PE-Core is second on both and first on POG (0.763), followed there by SigLIP2-So400m (0.759). Supplementary Table~S4 gives the restricted rankings.
+
+Supplementary Section~2.1 compares the rebuilt pilot partitions with the frozen splits (Table~S5).
+
+\input{robust_detail}
+\subsection{Do the findings transfer to other outfit decisions?}
+\paragraph{A learned outfit scorer}
+When OutfitTransformer receives the selected generic features, mean test CP-AUC reaches \resOtPolyvoreVTwoCleanGenericTestCpAucMean{} on Polyvore, \resOtIqonThreeZeroZeroZeroVTwoCleanGenericTestCpAucMean{} on IQON and \resOtPogVTwoCleanGenericTestCpAucMean{} on POG across training seeds. With the selected fashion features the corresponding means are \resOtPolyvoreVTwoCleanFashionTestCpAucMean{}, \resOtIqonThreeZeroZeroZeroVTwoCleanFashionTestCpAucMean{} and \resOtPogVTwoCleanFashionTestCpAucMean{}. ResNet-50 has the lowest transformer AUC in each corpus. Contextual learning raises CP-AUC over the corresponding linear probes across all these inputs. On Polyvore, however, the selected generic transformer's mean FITB accuracy of \resOtPolyvoreVTwoCleanGenericTestFitbAccMean{}\% falls below the \resPolyvoreVTwoCleanSiglipTwoSoFourZeroZeromThreeEightFourNativeLogisticTestFitbAcc{}\% of its linear probe. 
+
+After averaging the five seed scores for each outfit, the generic-minus-fashion AUC differences were 0.0088 [0.0071, 0.0105] on Polyvore, 0.0116 [0.0084, 0.0165] on IQON and 0.0191 [0.0141, 0.0325] on POG (2,000 paired cluster draws, percentile 95\% intervals). All three intervals exclude zero.
+\showContext
+
+For completion, the generic transformer improves on its linear probe on IQON (57.3\% versus 49.6\%) and POG (50.1\% versus 45.2\%). Both selected inputs lose completion accuracy on Polyvore. Early stopping used whole-outfit AUC.
+
+\paragraph{External judgments}
+Among 15 encoders, the Spearman correlations between native source CP-AUC and expert accuracy were 0.86 [0.61, 0.92] for Polyvore, 0.86 [0.69, 0.91] for IQON and 0.76 [0.33, 0.83] for POG. For crowd-majority agreement the corresponding correlations were 0.29 [0.03, 0.46], 0.53 [0.16, 0.67] and 0.38 [$-0.01$, 0.61]. The 95\% intervals resample the 100 questions 2,000 times. The two marginal intervals are disjoint for Polyvore and IQON and overlap for POG. SigLIP2-So400m recovers 43--51\% of majority choices across source fits, compared with 58--73\% for Qwen-Embedding-8B. The selected fashion probe exceeds SigLIP2-So400m on each source, but only the Polyvore comparison survives adjustment (70 versus 50 correct, $p_{\rm Holm}=0.00525$). The broader roster gives no basis for attributing this difference to fashion training alone.
+
+\input{external_detail}
+\paragraph{Zero-shot choice}
+On four-option questions the instruction model picked A in 14--17\% of cases, below the 25\% expected under uniform choice. Permuting options across questions distributes the position effect across candidate items. Table~\ref{tab:Paired} compares source-trained probes on the same questions. Table~\ref{tab:External} gives A100 zero-shot performance with question-bootstrap intervals.
+\paperfigure{fig_qualitative_fitb}{Each corpus contributes examples recovered by its validation-selected generic probe and an example missed by the entire probe roster. The marked choices refer to the generic probe. The target is the item present in the recorded outfit.}{fig:cases}
+
+All 15 probes miss the illustrated Polyvore target: the selected wallet and recorded bag both match the warm orange tones of the outfit. In the IQON example the selected earrings repeat the citrus-slice motif of the bag (Fig.~\ref{fig:cases}).
+
+\showPaired
+On common Polyvore FITB questions the instruction model scores 57.0\%, between ResNet-50 (44.4\%) and the selected fashion probe (65.4\%). On IQON the generic probe leads zero-shot choice by 10.1 percentage points ($p_{\rm Holm}=0.018$). The POG difference is 7.3 points ($p_{\rm Holm}=0.424$, Table~\ref{tab:Paired}).
+
+\paragraph{Retrieval ranks}
+Only six checkpoints overlap with LookBench. Their rank correlations range from $-0.14$ to $0.14$, with 95\% intervals extending roughly from $-0.86$ to $0.84$. This panel leaves both the sign and magnitude of the association unresolved.
+
+\showRetrieval
+GR-Lite has the best retrieval score in the shared panel (65.71) and the lowest native CP-AUC point estimate among the vision transformers on all three corpora. On Polyvore, its AUC of 0.847 is close to the 0.849 of resolution-matched DINOv3 ($p_{\rm Holm}=1.0$). CLIP-L, last among the six on retrieval (39.79), exceeds GR-Lite on each compatibility test (Table~\ref{tab:Retrieval}).
+
+\subsection{Calibration and extraction cost}
+
+\showCalibrated
+On Polyvore, Platt scaling reduces the Brier score of SigLIP2-So400m from 0.1036 to 0.0991, while log loss increases from 0.3501 to 0.3516. On IQON both mappings reduce log loss but increase 15-bin ECE. On POG, Platt scaling reduces ECE from 0.0139 to 0.0069 (Table~\ref{tab:Calibrated}). Each test contains equal numbers of observed and generated outfits.
+
+\paperfigure{fig_calibration}{Held-out calibration error before and after fitting a score map on source validation examples. The same trained classifier supplies each set of scores.}{fig:maincal}
+
+\paragraph{An encoder for a growing catalog}
+\showCost
+ResNet-50 has the lowest single-image latency (2.37 ms). With batches of 64, OpenCLIP-B/32 has the highest throughput (4,493 images/s). It also exceeds ResNet-50 on Polyvore FITB, 66.7\% to 44.8\% (Table~\ref{tab:Cost}).
+
+SigLIP-B and Marqo-FashionSigLIP each take 4.73 ms per image at batch size one. The adaptation gains 0.0089 native AUC on IQON at the same measured latency. SigLIP2-So400m reaches 0.784 AUC there and takes 13.73 ms.
+
+Qwen-Embedding-8B peaks at 17.47 GB, compared with 3.37 GB for SigLIP2-So400m. The Qwen parameter count covers the vision tower, while latency, memory and energy include the language stack that produces the final vector. Supplementary Table~S6 adds operation counts, batch-64 latency, CPU preprocessing and CO$_2$e.

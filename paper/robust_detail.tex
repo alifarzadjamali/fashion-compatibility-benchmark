@@ -1,0 +1,14 @@
+\paragraph{Changing the projection and the learner}
+Supplementary Fig.~S1 compares the 12 alternative readouts with the native logistic probe. On IQON, native nonlinear readouts improve CP-AUC for CLIP-L and both DINOv3 resolutions. The gains do not consistently survive PCA.
+
+\paragraph{Labels and alternative question sets}
+With 10\% of Polyvore training outfits, SigLIP2-So400m reaches 0.922 AUC, above the full-data scores of both Marqo encoders. With all training outfits its AUC reaches 0.933. The selected generic encoder improves monotonically with the training fraction on all three corpora (Fig.~\ref{fig:mainlabels}).
+\paperfigure{fig_label_fractions}{CP-AUC as supervision for the probe varies. The x-axis measures the fraction of the source training outfits. Validation and test partitions retain their roles at every fraction.}{fig:mainlabels}
+
+Regenerating the questions gives Polyvore CP-AUC between 0.9322 and 0.9335 for SigLIP2-So400m. Its construction-seed SD is 0.0005, compared with 0.0016 when sampling variation is included (Supplementary Fig.~S2). The seed SD is likewise smaller than total SD on IQON and POG (Table~\ref{tab:Robust}).
+\showRobust
+
+\paragraph{Whole-outfit exclusion}
+The looser audit removes a whole outfit if any item matches a training or validation image by pHash or exceeds 0.95 embedding cosine similarity. It excludes 8,365 of 15,142 Polyvore outfits (55\%), 17,407 of 22,831 IQON outfits (76\%) and 10,518 of 14,692 POG outfits (72\%). The pHash criterion flags 2,471, 9,400 and 3,096 outfits, respectively. On Polyvore the embedding criterion flags 7,605. Supplementary Table~S3 gives counts for each criterion and their union. Similar products photographed against white backgrounds can trigger the audit. Each filtered estimate therefore describes a minority of the original outfits with a different product mix. We use it to assess sensitivity to that change in composition.
+
+On the retained outfits, SigLIP2-So400m leads all three corpora on CP-AUC. Its IQON AUC falls from 0.784 to 0.760, while FITB rises from 49.6\% to 51.1\%. These changes reflect which test outfits remain. The classifiers keep their original fits.

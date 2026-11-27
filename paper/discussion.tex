@@ -1,0 +1,41 @@
+\section{Discussion}
+\subsection{What the benchmark measures}
+Replacing a garment within its category preserves the category pattern of the outfit. To distinguish the replacement, the pairwise probe can weight coordinates on which the items agree as well as those on which they differ. Its fitted weights capture regularities of curated outfits that would disappear if an encoder represented all items from a category by the same vector. The separation among encoders in this experiment concerns the visual information their representations preserve under that constraint.
+
+The clearest benefit of fashion specialization is the IQON gain of Marqo-FashionSigLIP over its SigLIP parent. GR-Lite behaves differently. It was released for retrieval, yet its DINOv3 parent has higher native CP-AUC on all three corpora. PCA reverses that ordering on Polyvore. The relevant unit of comparison is the released checkpoint and its training recipe. Grouping models simply by whether their names contain a fashion label would hide both results.
+
+On IQON the transformer adds 0.11--0.13 AUC, about three times the spread among vision--language probes. With ResNet-50 it reaches 0.787, close to the best linear probe at 0.788. Across all three corpora, transformer mean AUC rises from ResNet to the selected fashion input and again to the selected generic input. The linear probe measures differences between encoders while leaving room for a trained scorer to improve discrimination.
+
+\subsection{Practical implications}
+A catalog with curated outfits can compare candidate encoders on a clean validation set before training a contextual model. The generic SigLIP2 features are a strong starting point for whole-outfit prediction across these sources. For crowd-majority choices, Qwen-Embedding-8B recovered up to 73\% despite losing to SigLIP2-So400m on source validation. For a system that continually ingests new products, the measured throughput and memory requirements can further distinguish candidates whose accuracy intervals overlap.
+
+A plausible distractor also changes the interpretation of a failure. The target in a generated question is the item originally included by the curator. A shopper might accept another option, and the unanimous misses in Fig.~\ref{fig:cases} identify concrete questions for human review. A100 supplies a complementary test because its answer derives from a judgment about the alternatives. Source CP-AUC ranks track expert accuracy ($\rho\geq0.76$) more closely than crowd-majority agreement ($\rho\leq0.53$).
+
+\paragraph{Limitations}
+Estimating the retrieval association requires more shared checkpoints or retrieval measurements for all 15 encoders. A larger visual-token allowance might improve zero-shot accuracy. We did not search encoder pretraining collections such as LAION-2B for benchmark photographs. Prior exposure could benefit web-trained models. The generated tasks use observed co-occurrence and item replacement as proxies for compatibility. The image-only, frozen-feature design isolates visual transfer within the retained item partitions. Personal taste, product descriptions and end-to-end adaptation extend beyond that design. POG click records cover a minority of outfits, which limits user-level interpretation. A larger panel with product-level provenance and multiple human ratings for each plausible completion would allow future work to distinguish recovery of the curator's item from agreement about other acceptable choices.
+
+\section{Conclusion}
+PE-Core and SigLIP2-So400m have the two best average compatibility ranks across 39 readouts and corpora. The advantage of a fashion adaptation depends on its parent and, for GR-Lite, on feature projection. On A100, source AUC tracks expert accuracy more closely than majority choice. GR-Lite leads retrieval among six shared checkpoints and has the lowest native compatibility AUC point estimate among the vision transformers. For outfit applications, validation should include the choices the system will actually make.
+
+\section*{Ethics}
+This study analyzes previously released outfit collections and aesthetic judgments. It involved no new participant recruitment.
+
+\section*{CRediT authorship contribution statement}
+\textbf{Ali Jamali:} Conceptualization, Methodology, Software, Formal analysis, Investigation, Data curation, Validation, Visualization, Writing -- original draft, Writing -- review \& editing.
+\textbf{Ali Alameer:} Supervision, Writing -- review \& editing.
+\textbf{Manzar Malik:} Software, Investigation, Validation, Writing -- review \& editing.
+\textbf{Maryam Vadikheil:} Writing -- original draft (related work), Writing -- review \& editing.
+\textbf{Taha Mansouri:} Project administration, Supervision, Writing -- review \& editing.
+
+\section*{Declaration of competing interest}
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\section*{Data availability}
+Code, the frozen protocol (tag \texttt{v2-freeze}), split identifiers, file hashes and compact results are available at \url{https://github.com/alifarzadjamali/fashion-compatibility-benchmark}. Dataset images are not redistributed because they remain subject to the terms of their original providers (Polyvore Outfits, IQON3000, POG and A100) and can be obtained from those sources.
+Supplementary Section~8 reports the feature precision, cross-machine and pilot reproduction checks.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work the authors used OpenAI Codex to draft and revise manuscript text from the recorded experiment, prepare the LaTeX sources and check numerical references against the generated results, and Anthropic Claude to review a draft of the manuscript and suggest analyses of the existing results. After using these tools, the authors reviewed and edited the content as needed and take full responsibility for the content of the published article.

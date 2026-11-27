@@ -1,0 +1,52 @@
+\begin{table}[htbp]\centering\footnotesize\setlength{\tabcolsep}{2pt}
+\caption{Frozen encoder roster (GR-Lite: \cite{gao2026lookbench,grlitecard}). Parameters count the image tower in millions. Fixed input sizes give the side length in pixels.}\label{tab:roster}
+\renewcommand{\arraystretch}{0.86}
+\begin{adjustbox}{max totalsize={\linewidth}{.86\textheight}}
+\begin{tabular}{@{}lllrrr@{}}\toprule
+Encoder & Family & Loader & Input & $d$ & M\\\midrule
+\textbf{ResNet-50} & Supervised CNN & TorchVision & 224 & 2048 & 23.5\\
+\multicolumn{6}{@{}l}{ResNet50\_Weights.IMAGENET1K\_V2 @ 11ad3fa}\\
+\multicolumn{6}{@{}l}{Training: ImageNet-1K\qquad Provenance: Retained}\\[-1pt]\addlinespace[3pt]
+\textbf{DINOv3 (224)} & Self-supervised vision & Hugging Face & 224 & 1024 & 303.1\\
+\multicolumn{6}{@{}l}{facebook/dinov3-vitl16-pretrain-lvd1689m @ ea8dc28}\\
+\multicolumn{6}{@{}l}{Training: LVD-1689M\qquad Provenance: Retained}\\[-1pt]\addlinespace[3pt]
+\textbf{CLIP-L} & Generic vision--language & Hugging Face & 336 & 768 & 304.3\\
+\multicolumn{6}{@{}l}{openai/clip-vit-large-patch14-336 @ ce19dc9}\\
+\multicolumn{6}{@{}l}{Training: WIT\qquad Provenance: Retained}\\[-1pt]\addlinespace[3pt]
+\textbf{SigLIP2-B} & Generic vision--language & Hugging Face & 384 & 768 & 93.2\\
+\multicolumn{6}{@{}l}{google/siglip2-base-patch16-384 @ f775b65}\\
+\multicolumn{6}{@{}l}{Training: WebLI\qquad Provenance: Retained}\\[-1pt]\addlinespace[3pt]
+\textbf{FashionCLIP 2} & Fashion vision--language & Hugging Face & 224 & 512 & 87.8\\
+\multicolumn{6}{@{}l}{patrickjohncyh/fashion-clip @ 7e3ba62}\\
+\multicolumn{6}{@{}l}{Training: LAION-2B + fashion\qquad Provenance: Retained\qquad Parent: OpenCLIP-B/32}\\[-1pt]\addlinespace[3pt]
+\textbf{Marqo-FashionSigLIP} & Fashion vision--language & OpenCLIP Hub & 224 & 768 & 92.9\\
+\multicolumn{6}{@{}l}{Marqo/marqo-fashionSigLIP @ c56244c}\\
+\multicolumn{6}{@{}l}{Training: Partially disclosed\qquad Provenance: Uncertain\qquad Parent: SigLIP-B}\\[-1pt]\addlinespace[3pt]
+\textbf{GR-Lite} & Fashion retrieval & Hugging Face & 336 & 1024 & 303.1\\
+\multicolumn{6}{@{}l}{srpone/gr-lite @ a8057f8}\\
+\multicolumn{6}{@{}l}{Training: Partially disclosed\qquad Provenance: Uncertain\qquad Parent: DINOv3 (336)}\\[-1pt]\addlinespace[3pt]
+\textbf{DINOv3 (336)} & Self-supervised vision & Hugging Face & 336 & 1024 & 303.1\\
+\multicolumn{6}{@{}l}{facebook/dinov3-vitl16-pretrain-lvd1689m @ ea8dc28}\\
+\multicolumn{6}{@{}l}{Training: LVD-1689M\qquad Provenance: Retained}\\[-1pt]\addlinespace[3pt]
+\textbf{PE-Core} & Generic vision--language & OpenCLIP Hub & 336 & 1024 & 317.2\\
+\multicolumn{6}{@{}l}{timm/PE-Core-L-14-336 @ 8eff41b}\\
+\multicolumn{6}{@{}l}{Training: Image--text pairs and captioned video\qquad Provenance: Retained}\\[-1pt]\addlinespace[3pt]
+\textbf{SigLIP2-So400m} & Generic vision--language & Hugging Face & 384 & 1152 & 428.3\\
+\multicolumn{6}{@{}l}{google/siglip2-so400m-patch16-384 @ dd658fa}\\
+\multicolumn{6}{@{}l}{Training: WebLI\qquad Provenance: Retained}\\[-1pt]\addlinespace[3pt]
+\textbf{SigLIP-B} & Generic vision--language & OpenCLIP Hub & 224 & 768 & 92.9\\
+\multicolumn{6}{@{}l}{timm/ViT-B-16-SigLIP @ 41f5757}\\
+\multicolumn{6}{@{}l}{Training: WebLI\qquad Provenance: Retained}\\[-1pt]\addlinespace[3pt]
+\textbf{OpenCLIP-B/32} & Generic vision--language & OpenCLIP Hub & 224 & 512 & 87.8\\
+\multicolumn{6}{@{}l}{laion/CLIP-ViT-B-32-laion2B-s34B-b79K @ 1a25a44}\\
+\multicolumn{6}{@{}l}{Training: LAION-2B\qquad Provenance: Retained}\\[-1pt]\addlinespace[3pt]
+\textbf{Marqo-FashionCLIP} & Fashion vision--language & OpenCLIP Hub & 224 & 512 & 86.2\\
+\multicolumn{6}{@{}l}{Marqo/marqo-fashionCLIP @ 44f4c65}\\
+\multicolumn{6}{@{}l}{Training: Partially disclosed\qquad Provenance: Uncertain}\\[-1pt]\addlinespace[3pt]
+\textbf{Qwen-Embedding-2B} & Multimodal embedding & Qwen Embedding & $\leq147{,}456$ px & 2048 & 407.0\\
+\multicolumn{6}{@{}l}{Qwen/Qwen3-VL-Embedding-2B @ 9f2f7e7}\\
+\multicolumn{6}{@{}l}{Training: Partially disclosed\qquad Provenance: Uncertain}\\[-1pt]\addlinespace[3pt]
+\textbf{Qwen-Embedding-8B} & Multimodal embedding & Qwen Embedding & $\leq147{,}456$ px & 4096 & 576.4\\
+\multicolumn{6}{@{}l}{Qwen/Qwen3-VL-Embedding-8B @ 2c45655}\\
+\multicolumn{6}{@{}l}{Training: Partially disclosed\qquad Provenance: Uncertain}\\[-1pt]\addlinespace[3pt]
+\bottomrule\end{tabular}\end{adjustbox}\end{table}

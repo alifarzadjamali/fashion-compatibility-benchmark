@@ -186,6 +186,9 @@ def test_signature_cache_roundtrip(library, tmp_path):
     assert IE.equivalence(loaded)["groups"] == IE.equivalence(signatures)["groups"]
 
 
+@pytest.mark.skipif(
+    sys.platform == "win32", reason="Linux-only: requires the fork multiprocessing context"
+)
 def test_cli_outputs_deterministic_and_refuses_overwrite(library, tmp_path):
     common = ["--dataset", "tsv", "--items-tsv", str(library / "items.tsv")]
     IE.main(common + ["--output-dir", str(tmp_path / "a"), "--workers", "2"])
@@ -305,12 +308,18 @@ def _pog_build(inputs, output, **kwargs):
     )
 
 
+@pytest.mark.skipif(
+    sys.platform == "win32", reason="Linux-only: golden SHA-256 digests assume LF line endings"
+)
 def test_polyvore_default_output_unchanged(tmp_path):
     raw = FX.make_polyvore_raw(tmp_path / "raw")
     construct_clean_protocol(raw, tmp_path / "out")
     assert FX.file_digests(tmp_path / "out") == GOLDEN["polyvore"]
 
 
+@pytest.mark.skipif(
+    sys.platform == "win32", reason="Linux-only: golden SHA-256 digests assume LF line endings"
+)
 def test_iqon_default_output_unchanged(tmp_path, monkeypatch):
     monkeypatch.setattr(iqon, "TARGET_COUNTS", FX.IQON_TARGETS)
     inputs = FX.make_iqon_raw(tmp_path / "raw")
@@ -318,6 +327,9 @@ def test_iqon_default_output_unchanged(tmp_path, monkeypatch):
     assert FX.iqon_digest(tmp_path / "out") == GOLDEN["iqon"]
 
 
+@pytest.mark.skipif(
+    sys.platform == "win32", reason="Linux-only: golden SHA-256 digests assume LF line endings"
+)
 def test_pog_default_output_unchanged(tmp_path):
     inputs = FX.make_pog_raw(tmp_path / "raw")
     _pog_build(inputs, tmp_path / "out")

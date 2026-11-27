@@ -1,0 +1,32 @@
+\section{Introduction}
+
+A shopper looking for a particular jacket wants to recognize it even when someone else is wearing it. A shopper choosing trousers to go with that jacket needs a different judgment. The trousers must work with the jacket and the rest of the outfit. We ask how much of the information needed for that judgment a frozen image encoder preserves.
+
+A high score on an outfit benchmark can reflect useful item features, a predictable mix of categories among the alternatives, or photographs that recur across splits under different product identifiers. A change of encoder can also entail a change of resolution, feature width or scoring architecture. RepBench-Fashion fixes the questions and the readout across encoders, groups duplicate product images before splitting, and reserves a separate validation partition for model choice. Each encoder faces both a whole-outfit discrimination task and a completion task in which the alternatives belong to the same category. We freeze the evaluation protocol before examining the new test outcomes and repeat the comparison on an independent commercial outfit collection, POG.
+
+We ask four questions. Which frozen representations expose compatibility to a common probe? How does each fashion-adapted checkpoint compare with its parent? Which findings survive changes in the probe, the questions and the handling of shared items? Do the rankings carry over to contextual learning, human judgments and product retrieval?
+\begin{itemize}
+\item On item- and image-separated splits, general-purpose vision--language and multimodal embeddings lead whole-outfit prediction. The leading checkpoint varies by corpus.
+\item Of three matched adaptations, Marqo-FashionSigLIP improves on its parent in 74 of 78 comparisons. The validation-selected generic encoder exceeds the selected fashion encoder in test CP-AUC on every corpus.
+\item Across all 15 encoders, source compatibility AUC tracks A100 expert accuracy more closely than crowd-majority agreement. The three transformer inputs retain their source ordering.
+\item GR-Lite leads the six shared checkpoints on retrieval and has the lowest native compatibility AUC point estimate among the vision transformers.
+\end{itemize}
+
+\section{Related work}
+\paragraph{Learning compatibility}
+Han et al. learn sequences of compatible items from curated outfits \cite{han2017bilstm}. Type-aware embeddings distinguish relations between categories, allowing a shoe and a dress to occupy compatible positions without treating them as interchangeable \cite{vasileva2018typeaware}. Context-aware graph embeddings and OutfitTransformer condition an item's contribution on the other garments in the set \cite{cucurull2019context,sarkar2023outfittransformer}. Other approaches model substitutes and complements \cite{mcauley2015styles,veit2015style,chen2018dress}, graph interactions \cite{ngnn,hfgn}, conditional retrieval \cite{scenet,csanet} or the items responsible for a mismatch \cite{wang2019mcn,balim2023diagnosing}. SHIFT15M tests set matching under distribution shift \cite{shift15}. IQON3000 and POG also support personalized ranking and generation \cite{song2019gpbpr,chen2019pog}. Our shared probe uses the images alone. User identity enters the uncertainty analysis because outfits from the same user can be dependent.
+
+\paragraph{Choosing a visual representation}
+Transfer studies compare pretrained encoders under a shared downstream learner \cite{kornblith2019transfer,ericsson2021transfer,battle}. Here the observation presented to the learner is a set, while the image encoder processes each item individually. CLIP and SigLIP learn from paired images and text \cite{radford2021clip,zhai2023siglip}. FashionCLIP adapts a contrastive representation to fashion products \cite{chia2022fashionclip,fashioncard}, and LookBench measures fine-grained retrieval among fashion images \cite{gao2026lookbench}. A matched-parent comparison tests whether a particular adaptation changes compatibility. An exact-checkpoint rank comparison tests whether the retrieval benchmark can guide the choice of outfit encoder.
+
+\paragraph{Aesthetic judgments and multimodal models}
+A100 asks respondents or experts to choose among outfit completions \cite{zou2022a100}. TATTOO explicitly builds an aesthetic profile of the context and combines it with a description of the target item to rank alternatives \cite{wu2025tattoo}. Our zero-shot baseline asks an instruction model to choose directly among the images. We also evaluate an embedding model from the Qwen family \cite{li2026qwen}. The instruction model sees the whole question at inference. With the embedding model, a separate supervised head learns to score outfits from fixed item vectors.
+
+\paragraph{Evidence from previous systems}
+Fashion recommendation includes item retrieval, bundle generation, personalized ranking and aesthetic assessment \cite{deldjoo2024review,ding2024fashion}. The sources used in this study have supported several of those tasks. An algorithm that uses a customer's history can learn preferences absent from the images themselves. Likewise, a completion system given text describing the missing garment has information about the answer that a visual context alone does not supply. Direct comparison of their published scores would confound the representation with the information available to the system. We give each encoder the same item photographs and compare its performance under that image-only condition.
+
+\paragraph{Shared protocols for representation transfer}
+Frozen transfer benchmarks compare representations under a shared learner \cite{kornblith2019transfer,ericsson2021transfer,battle,li2022elevater}. Outfit questions also share products and rely on constructed negatives. We fix the questions and group related images before splitting to limit leakage \cite{kaufman2011leakage,kapoor2023leakage}.
+
+\paragraph{Performance beyond ordering}
+Calibration matters when a service applies a threshold to outfit scores \cite{guo2017calibration,vaicenavicius2019calibration}. We measure inference time and energy separately because a catalog can reuse its cached item features \cite{henderson2020reporting,schwartz2020green}.

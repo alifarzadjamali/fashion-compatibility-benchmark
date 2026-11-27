@@ -1,0 +1,23 @@
+\begin{table}[htbp]\centering\small\setlength{\tabcolsep}{2pt}
+\caption{Direction of the fashion checkpoint minus its parent. A star marks Holm-adjusted $p<0.05$. N denotes native features, S adds the coordinate sum, and numbers denote PCA dimensions. L, X and M denote logistic regression, XGBoost and MLP.}\label{tab:signs}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{llllllllllllllll}\toprule
+Checkpoint & Corpus & Task & NL & NM & NX & SL & 128L & 128M & 128X & 256L & 256M & 256X & 512L & 512M & 512X\\\midrule
+FashionCLIP 2 & Polyvore & CP & $-^{*}$ & $-$ & $-^{*}$ & $-^{*}$ & $-^{*}$ & $-^{*}$ & $-$ & $-$ & $-^{*}$ & $-$ & $-$ & $-$ & $-^{*}$\\
+FashionCLIP 2 & Polyvore & FITB & $-$ & $-^{*}$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-^{*}$ & $-$\\
+FashionCLIP 2 & IQON & CP & $+$ & $+$ & $+$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$\\
+FashionCLIP 2 & IQON & FITB & $-$ & $+$ & $-$ & $+$ & $-$ & $-$ & $-$ & $-$ & $+$ & $-$ & $-$ & $-$ & $-$\\
+FashionCLIP 2 & POG & CP & $-$ & $-$ & $+$ & $-$ & $+$ & $-$ & $+$ & $-$ & $+$ & $-$ & $-$ & $-$ & $-$\\
+FashionCLIP 2 & POG & FITB & $-$ & $-$ & $-$ & $-$ & $+$ & $+$ & $-$ & $-$ & $-$ & $+$ & $+$ & $-$ & $-$\\
+Marqo-FashionSigLIP & Polyvore & CP & $+$ & $+^{*}$ & $+$ & $+$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$\\
+Marqo-FashionSigLIP & Polyvore & FITB & $+$ & $-^{*}$ & $+$ & $+$ & $+^{*}$ & $+$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+$ & $+^{*}$ & $+^{*}$\\
+Marqo-FashionSigLIP & IQON & CP & $+^{*}$ & $+$ & $+$ & $+^{*}$ & $+^{*}$ & $+$ & $+^{*}$ & $+$ & $+$ & $+^{*}$ & $+$ & $+$ & $+^{*}$\\
+Marqo-FashionSigLIP & IQON & FITB & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$\\
+Marqo-FashionSigLIP & POG & CP & $+$ & $+$ & $+$ & $+$ & $+$ & $-$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$\\
+Marqo-FashionSigLIP & POG & FITB & $+$ & $+$ & $+$ & $+$ & $+$ & $-$ & $-$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$\\
+GR-Lite & Polyvore & CP & $-$ & $-^{*}$ & $-^{*}$ & $-$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$\\
+GR-Lite & Polyvore & FITB & $+^{*}$ & $+$ & $+$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$ & $+^{*}$\\
+GR-Lite & IQON & CP & $-^{*}$ & $-^{*}$ & $-^{*}$ & $-^{*}$ & $+$ & $-$ & $-$ & $+$ & $-$ & $-$ & $+$ & $-$ & $-$\\
+GR-Lite & IQON & FITB & $-$ & $-^{*}$ & $-$ & $-$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$ & $+$\\
+GR-Lite & POG & CP & $-$ & $-^{*}$ & $-^{*}$ & $-^{*}$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$\\
+GR-Lite & POG & FITB & $-$ & $-$ & $-$ & $-$ & $-$ & $+$ & $-$ & $-$ & $+$ & $-$ & $-$ & $-$ & $-$\\
+\bottomrule\end{tabular}\end{adjustbox}\end{table}
