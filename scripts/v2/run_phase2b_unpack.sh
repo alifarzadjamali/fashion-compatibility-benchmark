@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Phase 2b (deviation D2): unpack the dataset archives uploaded from the owner's mirror,
-# each only after its SHA-256 matches docs/RESUME_V2.md §2. Waits for each archive.
+# each only after its SHA-256 matches the corresponding digest below. Waits for each archive.
 set -uo pipefail
 R=${REPBENCH_DATA_ROOT:-/data/$USER/repbench/data}
 wait_sha() {  # path sha

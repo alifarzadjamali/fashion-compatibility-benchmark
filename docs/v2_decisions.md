@@ -477,7 +477,7 @@ template is kept as `sensitivities/lookbench_empty_config_20261123/`. DGX and la
 ### 2026-11-23 — CORRECTION to the 20,000-replicate entry: this is deviation D3
 
 The entry above said the change is within a pre-registered "2,000+ replicates". That wording is in
-HANDOFF_V2.md, not in the frozen protocol: `configs/v2_protocol.yaml` → `statistics.
+the original research handoff, not in the frozen protocol: `configs/v2_protocol.yaml` → `statistics.
 paired_cluster_bootstrap.replicates: 2000`, with `p_value_reporting: with floor, e.g. < 5e-4 at
 2,000 replicates`. The 20,000-replicate run is therefore **deviation D3** (post-freeze change to a
 statistics setting, owner-approved 2026-11-23). It is a resolution change only: same code, seed,

@@ -1,5 +1,5 @@
-"""Historical Polyvore-D item-overlap counts, compared with the counts HANDOFF_V2.md
-quotes from lee-research/outfit-completion-retrieval (train/valid 3,781; train/test 84;
+"""Historical Polyvore-D item-overlap counts, compared with the counts reported by
+lee-research/outfit-completion-retrieval (train/valid 3,781; train/test 84;
 valid/test 34). Reads the local raw archive only; the lee-research repository itself
 is not available locally and is not downloaded, so this is a count-level check."""
 

@@ -3,7 +3,7 @@
 Phase 1 only. No full experiment command is enabled. The initial booking on
 2026-11-18 had about three hours remaining, not 48 hours. Gates must pass in
 order. A green unit-test suite alone does not certify model, data or scientific
-readiness. Refer to `HANDOFF_V2.md` and `docs/v2_decisions.md`.
+readiness. See the [decision log](v2_decisions.md).
 
 ## Rebuild and start
 
