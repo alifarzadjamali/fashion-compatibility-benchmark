@@ -17,7 +17,9 @@ uv run pytest
 
 ## Reproduce
 
-The [frozen protocol](configs/v2_protocol.yaml) specifies the checkpoints, splits and evaluation settings. The [v2 scripts](scripts/v2/) include the Linux GPU pipeline (`run_full_gpu.sh`) for extraction, training and profiling, and the CPU pipeline (`run_full_cpu.sh`) for probes and statistics. The [decision log](docs/v2_decisions.md) records deviations and follow-up runs.
+Use [configs/v2_protocol.yaml](configs/v2_protocol.yaml) for the current protocol. The `v2_*` companion files and `lookbench_v3_scores.json` also support v2. The earlier benchmark configs are from the v1 pilot.
+
+The [scripts guide](scripts/README.md) identifies the v2 entry points and the retained pilot scripts. On Linux, `run_full_gpu.sh` handles extraction, training and profiling, and `run_full_cpu.sh` runs probes and statistics. The [decision log](docs/v2_decisions.md) records deviations and follow-up runs.
 
 ## Results
 
